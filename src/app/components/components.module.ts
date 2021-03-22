@@ -4,18 +4,21 @@ import { IonicModule } from "@ionic/angular";
 import { MenuResidenteComponent } from './menu-residente/menu-residente.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { MenuEmpleadoComponent } from './menu-empleado/menu-empleado.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
   declarations: [
     MenuResidenteComponent,
     MenuAdminComponent,
-    MenuEmpleadoComponent
+    MenuEmpleadoComponent,
+    HeaderComponent
   ],
   exports: [
     MenuResidenteComponent,
     MenuAdminComponent,
-    MenuEmpleadoComponent
+    MenuEmpleadoComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
