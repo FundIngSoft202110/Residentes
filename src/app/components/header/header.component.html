@@ -19,23 +19,23 @@
 
     <ng-template #adminBlock>
       <ion-buttons slot="start">
-        <ion-menu-button color="residente" menu="menu-admin"></ion-menu-button>
+        <ion-menu-button color="residente-txt" menu="menu-admin"></ion-menu-button>
       </ion-buttons>
     </ng-template>
 
     <ng-template #residenteBlock>
       <ion-buttons slot="start">
-        <ion-menu-button color="residente" menu="menu-residente"></ion-menu-button>
+        <ion-menu-button color="residente-txt" menu="menu-residente"></ion-menu-button>
       </ion-buttons>
     </ng-template>
 
     <ng-template #empleadoBlock>
       <ion-buttons slot="start">
-        <ion-menu-button color="residente" menu="menu-empleado"></ion-menu-button>
+        <ion-menu-button color="residente-txt" menu="menu-empleado"></ion-menu-button>
       </ion-buttons>
     </ng-template>
 
-    <ion-title class="">{{titulo}}</ion-title>
+    <strong><ion-title class="" color="residente-txt">{{titulo}}</ion-title> </strong>
 
   </ion-toolbar>
 </ion-header>

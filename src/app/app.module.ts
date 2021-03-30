@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ComponentsModule } from './components/components.module';
+import { AsambleaResidentePipe } from './pages/residente/asamblea-residente.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AsambleaResidentePipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ComponentsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
