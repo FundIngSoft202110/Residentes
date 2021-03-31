@@ -8,12 +8,15 @@ import { EmpleadosResidentePageRoutingModule } from './empleados-residente-routi
 
 import { EmpleadosResidentePage } from './empleados-residente.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EmpleadosResidentePageRoutingModule
+    EmpleadosResidentePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [EmpleadosResidentePage]
 })

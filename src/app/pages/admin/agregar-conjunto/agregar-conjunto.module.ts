@@ -8,12 +8,15 @@ import { AgregarConjuntoPageRoutingModule } from './agregar-conjunto-routing.mod
 
 import { AgregarConjuntoPage } from './agregar-conjunto.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AgregarConjuntoPageRoutingModule
+    AgregarConjuntoPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AgregarConjuntoPage]
 })

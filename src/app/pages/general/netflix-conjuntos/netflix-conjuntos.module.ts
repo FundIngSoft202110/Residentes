@@ -8,12 +8,15 @@ import { NetflixConjuntosPageRoutingModule } from './netflix-conjuntos-routing.m
 
 import { NetflixConjuntosPage } from './netflix-conjuntos.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NetflixConjuntosPageRoutingModule
+    NetflixConjuntosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [NetflixConjuntosPage]
 })

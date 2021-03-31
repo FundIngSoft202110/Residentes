@@ -8,12 +8,15 @@ import { AsambleaResidentePageRoutingModule } from './asamblea-residente-routing
 
 import { AsambleaResidentePage } from './asamblea-residente.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AsambleaResidentePageRoutingModule
+    AsambleaResidentePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AsambleaResidentePage]
 })

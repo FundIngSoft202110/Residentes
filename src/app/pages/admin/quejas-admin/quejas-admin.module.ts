@@ -8,12 +8,15 @@ import { QuejasAdminPageRoutingModule } from './quejas-admin-routing.module';
 
 import { QuejasAdminPage } from './quejas-admin.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QuejasAdminPageRoutingModule
+    QuejasAdminPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [QuejasAdminPage]
 })

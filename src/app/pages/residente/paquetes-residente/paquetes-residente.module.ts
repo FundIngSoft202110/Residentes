@@ -8,12 +8,15 @@ import { PaquetesResidentePageRoutingModule } from './paquetes-residente-routing
 
 import { PaquetesResidentePage } from './paquetes-residente.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PaquetesResidentePageRoutingModule
+    PaquetesResidentePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [PaquetesResidentePage]
 })

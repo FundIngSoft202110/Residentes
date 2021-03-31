@@ -8,12 +8,15 @@ import { IngresoApartamentoPageRoutingModule } from './ingreso-apartamento-routi
 
 import { IngresoApartamentoPage } from './ingreso-apartamento.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IngresoApartamentoPageRoutingModule
+    IngresoApartamentoPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [IngresoApartamentoPage]
 })

@@ -5,7 +5,7 @@ import { MenuResidenteComponent } from './menu-residente/menu-residente.componen
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { MenuEmpleadoComponent } from './menu-empleado/menu-empleado.component';
 import { HeaderComponent } from './header/header.component';
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    RouterModule
   ]
 })
 export class ComponentsModule { }

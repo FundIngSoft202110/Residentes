@@ -8,12 +8,15 @@ import { AreasComunesResidentePageRoutingModule } from './areas-comunes-resident
 
 import { AreasComunesResidentePage } from './areas-comunes-residente.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AreasComunesResidentePageRoutingModule
+    AreasComunesResidentePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AreasComunesResidentePage]
 })

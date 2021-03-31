@@ -8,12 +8,15 @@ import { PagosPageRoutingModule } from './pagos-routing.module';
 
 import { PagosPage } from './pagos.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PagosPageRoutingModule
+    PagosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [PagosPage]
 })

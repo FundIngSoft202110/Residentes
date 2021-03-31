@@ -8,12 +8,15 @@ import { EmpleadosAdminPageRoutingModule } from './empleados-admin-routing.modul
 
 import { EmpleadosAdminPage } from './empleados-admin.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EmpleadosAdminPageRoutingModule
+    EmpleadosAdminPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [EmpleadosAdminPage]
 })

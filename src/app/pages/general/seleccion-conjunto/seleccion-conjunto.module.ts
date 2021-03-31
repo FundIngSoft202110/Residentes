@@ -8,12 +8,15 @@ import { SeleccionConjuntoPageRoutingModule } from './seleccion-conjunto-routing
 
 import { SeleccionConjuntoPage } from './seleccion-conjunto.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SeleccionConjuntoPageRoutingModule
+    SeleccionConjuntoPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [SeleccionConjuntoPage]
 })

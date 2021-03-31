@@ -8,12 +8,15 @@ import { ClavesPageRoutingModule } from './claves-routing.module';
 
 import { ClavesPage } from './claves.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClavesPageRoutingModule
+    ClavesPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ClavesPage]
 })

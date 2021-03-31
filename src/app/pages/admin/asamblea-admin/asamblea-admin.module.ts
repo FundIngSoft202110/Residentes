@@ -8,12 +8,15 @@ import { AsambleaAdminPageRoutingModule } from './asamblea-admin-routing.module'
 
 import { AsambleaAdminPage } from './asamblea-admin.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AsambleaAdminPageRoutingModule
+    AsambleaAdminPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AsambleaAdminPage]
 })

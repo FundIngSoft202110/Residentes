@@ -8,12 +8,15 @@ import { PaquetesEmpleadoPageRoutingModule } from './paquetes-empleado-routing.m
 
 import { PaquetesEmpleadoPage } from './paquetes-empleado.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PaquetesEmpleadoPageRoutingModule
+    PaquetesEmpleadoPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [PaquetesEmpleadoPage]
 })

@@ -8,12 +8,15 @@ import { ManualConvivenciaPageRoutingModule } from './manual-convivencia-routing
 
 import { ManualConvivenciaPage } from './manual-convivencia.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ManualConvivenciaPageRoutingModule
+    ManualConvivenciaPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ManualConvivenciaPage]
 })

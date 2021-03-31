@@ -8,12 +8,15 @@ import { AcercaNosotrosPageRoutingModule } from './acerca-nosotros-routing.modul
 
 import { AcercaNosotrosPage } from './acerca-nosotros.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AcercaNosotrosPageRoutingModule
+    AcercaNosotrosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AcercaNosotrosPage]
 })

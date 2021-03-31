@@ -108,10 +108,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/general/seleccion-conjunto/seleccion-conjunto.module').then( m => m.SeleccionConjuntoPageModule)
   },
   {
-    path: 'seleccion-conjunto-admin',
-    loadChildren: () => import('./pages/admin/seleccion-conjunto-admin/seleccion-conjunto-admin.module').then( m => m.SeleccionConjuntoAdminPageModule)
-  },
-  {
     path: 'agregar-conjunto',
     loadChildren: () => import('./pages/admin/agregar-conjunto/agregar-conjunto.module').then( m => m.AgregarConjuntoPageModule)
   },

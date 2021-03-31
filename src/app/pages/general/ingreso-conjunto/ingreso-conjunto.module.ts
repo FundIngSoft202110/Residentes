@@ -8,12 +8,15 @@ import { IngresoConjuntoPageRoutingModule } from './ingreso-conjunto-routing.mod
 
 import { IngresoConjuntoPage } from './ingreso-conjunto.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IngresoConjuntoPageRoutingModule
+    IngresoConjuntoPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [IngresoConjuntoPage]
 })

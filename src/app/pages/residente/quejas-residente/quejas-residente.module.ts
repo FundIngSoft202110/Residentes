@@ -8,12 +8,15 @@ import { QuejasResidentePageRoutingModule } from './quejas-residente-routing.mod
 
 import { QuejasResidentePage } from './quejas-residente.page';
 
+import { ComponentsModule } from './../../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QuejasResidentePageRoutingModule
+    QuejasResidentePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [QuejasResidentePage]
 })
