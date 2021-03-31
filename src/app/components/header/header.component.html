@@ -18,8 +18,11 @@
     </ng-template>
 
     <ng-template #adminBlock>
-      <ion-buttons slot="primary">
+      <!-- <ion-buttons slot="primary">
         <ion-menu-button color="residente-txt" menu="menu-admin"></ion-menu-button>
+      </ion-buttons> -->
+      <ion-buttons slot="start" (click)="toggleMenu()">
+        <ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon>
       </ion-buttons>
     </ng-template>
 
