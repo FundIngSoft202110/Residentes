@@ -115,6 +115,10 @@ const routes: Routes = [
     path: 'paquetes-empleado',
     loadChildren: () => import('./pages/empleado/paquetes-empleado/paquetes-empleado.module').then( m => m.PaquetesEmpleadoPageModule)
   },
+  {
+    path: 'header-start',
+    loadChildren: () => import('./components/header-start/header-start.module').then( m => m.HeaderStartPageModule)
+  },
 
 ];
 
