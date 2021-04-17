@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManualConvivenciaPage implements OnInit {
 
+  public user:string = "EMPLEADO";
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getUser(){
+    return this.user;
   }
 
 }

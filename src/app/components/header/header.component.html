@@ -2,36 +2,18 @@
   <ion-toolbar color="residente">
   </ion-toolbar >
   <ion-toolbar color="light"> 
-    <!-- <div *ngIf="menu == 'NO'; then thenBlock else elseBlock"></div>
+    <div *ngIf="menu == 'NO'; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
-       <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
+      <ion-buttons color="residente" slot="start">
+        <ion-back-button> [text]="Atrás" </ion-back-button>
       </ion-buttons>  
-      FALTAAAAA EL BOTON DE REGRESO  
     </ng-template>
     <ng-template #elseBlock>
-      <div *ngIf="menu == 'ADMIN'; then adminBlock"></div>
-      
-      <div *ngIf="menu == 'RESIDENTE'; then residenteBlock"></div>
-      
-      <div *ngIf="menu == 'EMPLEADO'; then empleadoBlock"></div>
+      <ion-buttons slot="start" (click)="toggleMenu()">
+        <ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon>
+      </ion-buttons>
     </ng-template> 
-
-    <ng-template #adminBlock>
-      <ion-buttons slot="start" (click)="toggleMenu()">
-        <ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon>
-      </ion-buttons>
-    </ng-template>
-
-    <ng-template #residenteBlock>
-      <ion-buttons slot="start" (click)="toggleMenu()">
-        <ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon>
-      </ion-buttons>
-    </ng-template> -->
-
-      <ion-buttons slot="start" (click)="toggleMenu()">
-        <ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon>
-      </ion-buttons>
+    
     <strong><ion-title class="" color="residente-txt">{{titulo}}</ion-title> </strong>
 
   </ion-toolbar>

@@ -5,6 +5,7 @@ import { MenuResidenteComponent } from './menu-residente/menu-residente.componen
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { MenuEmpleadoComponent } from './menu-empleado/menu-empleado.component';
 import { HeaderComponent } from './header/header.component';
+import { HeaderStartComponent } from './header-start/header-start.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -12,13 +13,15 @@ import { RouterModule } from '@angular/router';
     MenuResidenteComponent,
     MenuAdminComponent,
     MenuEmpleadoComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderStartComponent
   ],
   exports: [
     MenuResidenteComponent,
     MenuAdminComponent,
     MenuEmpleadoComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderStartComponent
   ],
   imports: [
     CommonModule,
