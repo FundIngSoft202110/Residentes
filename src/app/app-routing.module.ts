@@ -32,6 +32,8 @@ import { NoticiasResidenteComponent } from './components/residente/noticias-resi
 import { PagosComponent } from './components/residente/pagos-component/pagos-component.component';
 import { PaquetesResidenteComponent } from './components/residente/paquetes-residente-component/paquetes-residente-component.component';
 import { QuejasResidenteComponent } from './components/residente/quejas-residente-component/quejas-residente-component.component';
+import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxNumberBoxModule, DxSelectBoxModule } from 'devextreme-angular';
+import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
@@ -50,7 +52,18 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
       CommonModule,
       IonicModule,
-      RouterModule 
+      RouterModule,
+      DxDataGridModule,
+      DxButtonModule,
+      BrowserModule,
+      DxCheckBoxModule,
+      DxSelectBoxModule,
+      DxNumberBoxModule,
+      DxButtonModule,
+      DxAutocompleteModule,
+      DxFormModule
+   
+
   ],
   exports: [RouterModule],
   declarations:[  MenuResidenteComponent,
@@ -82,7 +95,9 @@ const routes: Routes = [
     NoticiasResidenteComponent,
     PagosComponent,
     PaquetesResidenteComponent,
-    QuejasResidenteComponent
+    QuejasResidenteComponent,
+ 
+
     ]
 })
 export class AppRoutingModule { }

@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class PaquetesEmpleadoComponent implements OnInit {
 
   constructor() { }
-
+  
+  
   ngOnInit() {}
 
 }
