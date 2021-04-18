@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acerca-nosotros-component.component.scss'],
 })
 export class AcercaNosotrosComponent implements OnInit {
-
+  public user: string = "EMPLEADO";
   constructor() { }
 
   ngOnInit() {}
 
+  getUser(){
+    return this.user;
+  }
 }

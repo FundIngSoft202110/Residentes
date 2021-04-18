@@ -41,6 +41,102 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'agregar-conjunto',
+    component: AgregarConjuntoComponent
+  },
+  {
+    path: 'areas-admin',
+    component: AreasComunesAdminComponent
+  },
+  {
+    path: 'asamblea-admin',
+    component: AsambleaAdminComponent
+  },
+  {
+    path: 'claves',
+    component: ClavesComponent
+  },
+  {
+    path: 'empleados-admin',
+    component: EmpleadosAdminComponent
+  },
+  {
+    path: 'manual-admin',
+    component: ManualAdminComponent
+  },
+  {
+    path: 'noticias-admin',
+    component: NoticiasAdminComponent
+  },
+  {
+    path: 'quejas-admin',
+    component: QuejasAdminComponent
+  },
+  {
+    path: 'asistencia-empleado',
+    component: AsistenciaEmpleadoComponent
+  },
+  {
+    path: 'paquetes-empleado',
+    component: PaquetesEmpleadoComponent
+  },
+  {
+    path: 'acerca-nosotros',
+    component: AcercaNosotrosComponent
+  },
+  {
+    path: 'ingreso',
+    component: IngresoComponent
+  },
+  {
+    path: 'manual',
+    component: ManualComponent
+  },
+  {
+    path: 'netflix',
+    component: NetflixComponent
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent
+  },
+  {
+    path: 'seleccion-conjunto',
+    component: SeleccionConjuntoComponent
+  },
+  {
+    path: 'areas-residente',
+    component: AreasResidenteComponent
+  },
+  {
+    path: 'asamblea-residente',
+    component: AsambleaResidenteComponent
+  },
+  {
+    path: 'empleados-residente',
+    component: EmpleadosResidenteComponent
+  },
+  {
+    path: 'ingreso-apt',
+    component: IngresoApartamentoComponent
+  },
+  {
+    path: 'noticias-residente',
+    component: NoticiasResidenteComponent
+  },
+  {
+    path: 'pagos',
+    component: PagosComponent
+  },
+  {
+    path: 'paquetes-residente',
+    component: PaquetesResidenteComponent
+  },
+  {
+    path: 'quejas-residente',
+    component: QuejasResidenteComponent
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

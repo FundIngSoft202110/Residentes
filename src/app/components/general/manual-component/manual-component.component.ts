@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manual-component.component.scss'],
 })
 export class ManualComponent implements OnInit {
-
+  public user: string = "EMPLEADO";
   constructor() { }
 
   ngOnInit() {}
+
+  getUser(){
+    return this.user;
+  }
 
 }
