@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './claves-component.component.html',
   styleUrls: ['./claves-component.component.scss'],
 })
-export class ClavesComponentComponent implements OnInit {
+export class ClavesComponent implements OnInit {
 
   constructor() { }
 

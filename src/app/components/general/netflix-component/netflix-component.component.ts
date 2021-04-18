@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './netflix-component.component.html',
   styleUrls: ['./netflix-component.component.scss'],
 })
-export class NetflixComponentComponent implements OnInit {
+export class NetflixComponent implements OnInit {
 
   constructor() { }
 

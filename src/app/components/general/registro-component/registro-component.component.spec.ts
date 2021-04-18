@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { RegistroComponentComponent } from './registro-component.component';
+import { RegistroComponent } from './registro-component.component';
 
 describe('RegistroComponentComponent', () => {
-  let component: RegistroComponentComponent;
-  let fixture: ComponentFixture<RegistroComponentComponent>;
+  let component: RegistroComponent;
+  let fixture: ComponentFixture<RegistroComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegistroComponentComponent ],
+      declarations: [ RegistroComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RegistroComponentComponent);
+    fixture = TestBed.createComponent(RegistroComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

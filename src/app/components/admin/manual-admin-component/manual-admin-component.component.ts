@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './manual-admin-component.component.html',
   styleUrls: ['./manual-admin-component.component.scss'],
 })
-export class ManualAdminComponentComponent implements OnInit {
+export class ManualAdminComponent implements OnInit {
 
   constructor() { }
 

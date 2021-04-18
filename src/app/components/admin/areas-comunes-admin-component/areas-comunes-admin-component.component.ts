@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './areas-comunes-admin-component.component.html',
   styleUrls: ['./areas-comunes-admin-component.component.scss'],
 })
-export class AreasComunesAdminComponentComponent implements OnInit {
+export default class AreasComunesAdminComponent implements OnInit {
 
   constructor() { }
 

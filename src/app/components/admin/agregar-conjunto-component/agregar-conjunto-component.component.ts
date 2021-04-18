@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './agregar-conjunto-component.component.html',
   styleUrls: ['./agregar-conjunto-component.component.scss'],
 })
-export class AgregarConjuntoComponentComponent implements OnInit {
+export class AgregarConjuntoComponent implements OnInit {
 
   constructor() { }
 
