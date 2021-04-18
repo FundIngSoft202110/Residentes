@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./netflix-component.component.scss'],
 })
 export class NetflixComponent implements OnInit {
-
+  public conjunto:string ="Maria"
   constructor() { }
 
   ngOnInit() {}
-
+  getConjunto(){
+    
+  }
 }
