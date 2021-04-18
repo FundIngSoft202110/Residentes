@@ -4,8 +4,8 @@
   <ion-toolbar color="light"> 
     <div *ngIf="menu == 'NO'; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
-      <ion-buttons color="residente" slot="start">
-        <ion-back-button> [text]="Atrás" </ion-back-button>
+      <ion-buttons>
+        <ion-back-button> </ion-back-button>
       </ion-buttons>  
     </ng-template>
     <ng-template #elseBlock>
