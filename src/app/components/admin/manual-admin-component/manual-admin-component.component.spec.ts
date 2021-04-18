@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ManualAdminComponentComponent } from './manual-admin-component.component';
+import { ManualAdminComponent } from './manual-admin-component.component';
 
 describe('ManualAdminComponentComponent', () => {
-  let component: ManualAdminComponentComponent;
-  let fixture: ComponentFixture<ManualAdminComponentComponent>;
+  let component: ManualAdminComponent;
+  let fixture: ComponentFixture<ManualAdminComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManualAdminComponentComponent ],
+      declarations: [ ManualAdminComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ManualAdminComponentComponent);
+    fixture = TestBed.createComponent(ManualAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

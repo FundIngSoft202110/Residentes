@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { IngresoComponentComponent } from './ingreso-component.component';
+import { IngresoComponent } from './ingreso-component.component';
 
 describe('IngresoComponentComponent', () => {
-  let component: IngresoComponentComponent;
-  let fixture: ComponentFixture<IngresoComponentComponent>;
+  let component: IngresoComponent;
+  let fixture: ComponentFixture<IngresoComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ IngresoComponentComponent ],
+      declarations: [ IngresoComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(IngresoComponentComponent);
+    fixture = TestBed.createComponent(IngresoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

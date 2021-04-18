@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PagosComponentComponent } from './pagos-component.component';
+import { PagosComponent } from './pagos-component.component';
 
 describe('PagosComponentComponent', () => {
-  let component: PagosComponentComponent;
-  let fixture: ComponentFixture<PagosComponentComponent>;
+  let component: PagosComponent;
+  let fixture: ComponentFixture<PagosComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PagosComponentComponent ],
+      declarations: [ PagosComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PagosComponentComponent);
+    fixture = TestBed.createComponent(PagosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

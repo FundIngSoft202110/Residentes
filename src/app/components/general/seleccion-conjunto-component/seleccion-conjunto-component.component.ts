@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './seleccion-conjunto-component.component.html',
   styleUrls: ['./seleccion-conjunto-component.component.scss'],
 })
-export class SeleccionConjuntoComponentComponent implements OnInit {
+export class SeleccionConjuntoComponent implements OnInit {
 
   constructor() { }
 

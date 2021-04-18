@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { NoticiasAdminComponentComponent } from './noticias-admin-component.component';
+import { NoticiasAdminComponent } from './noticias-admin-component.component';
 
 describe('NoticiasAdminComponentComponent', () => {
-  let component: NoticiasAdminComponentComponent;
-  let fixture: ComponentFixture<NoticiasAdminComponentComponent>;
+  let component: NoticiasAdminComponent;
+  let fixture: ComponentFixture<NoticiasAdminComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoticiasAdminComponentComponent ],
+      declarations: [ NoticiasAdminComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NoticiasAdminComponentComponent);
+    fixture = TestBed.createComponent(NoticiasAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

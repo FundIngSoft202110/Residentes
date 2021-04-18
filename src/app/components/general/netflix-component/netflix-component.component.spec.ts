@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { NetflixComponentComponent } from './netflix-component.component';
+import { NetflixComponent } from './netflix-component.component';
 
 describe('NetflixComponentComponent', () => {
-  let component: NetflixComponentComponent;
-  let fixture: ComponentFixture<NetflixComponentComponent>;
+  let component: NetflixComponent;
+  let fixture: ComponentFixture<NetflixComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NetflixComponentComponent ],
+      declarations: [ NetflixComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NetflixComponentComponent);
+    fixture = TestBed.createComponent(NetflixComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

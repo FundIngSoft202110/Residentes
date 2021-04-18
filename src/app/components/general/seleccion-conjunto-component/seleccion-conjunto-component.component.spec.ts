@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SeleccionConjuntoComponentComponent } from './seleccion-conjunto-component.component';
+import { SeleccionConjuntoComponent } from './seleccion-conjunto-component.component';
 
 describe('SeleccionConjuntoComponentComponent', () => {
-  let component: SeleccionConjuntoComponentComponent;
-  let fixture: ComponentFixture<SeleccionConjuntoComponentComponent>;
+  let component: SeleccionConjuntoComponent;
+  let fixture: ComponentFixture<SeleccionConjuntoComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SeleccionConjuntoComponentComponent ],
+      declarations: [ SeleccionConjuntoComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SeleccionConjuntoComponentComponent);
+    fixture = TestBed.createComponent(SeleccionConjuntoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
