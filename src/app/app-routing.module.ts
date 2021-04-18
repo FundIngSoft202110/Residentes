@@ -6,9 +6,7 @@ import { AgregarConjuntoComponent } from './components/admin/agregar-conjunto-co
 import AreasComunesAdminComponent from './components/admin/areas-comunes-admin-component/areas-comunes-admin-component.component';
 import { AsambleaAdminComponent } from './components/admin/asamblea-admin-component/asamblea-admin-component.component';
 import { ClavesComponent } from './components/admin/claves-component/claves-component.component';
-import { EmpleadosAdminComponent } from './components/admin/empleados-admin/empleados-admin.component';
 import { ManualAdminComponent } from './components/admin/manual-admin-component/manual-admin-component.component';
-import { NoticiasAdminComponent } from './components/admin/noticias-admin-component/noticias-admin-component.component';
 import { QuejasAdminComponent } from './components/admin/quejas-admin-component/quejas-admin-component.component';
 import { AsistenciaEmpleadoComponent } from './components/empleado/asistencia-empleado-component/asistencia-empleado-component.component';
 import { PaquetesEmpleadoComponent } from './components/empleado/paquetes-empleado-component/paquetes-empleado-component.component';
@@ -26,14 +24,14 @@ import { MenuEmpleadoComponent } from './components/empleado/menu-empleado/menu-
 import { MenuResidenteComponent } from './components/residente/menu-residente/menu-residente.component';
 import { AreasResidenteComponent } from './components/residente/areas-residente-component/areas-residente-component.component';
 import { AsambleaResidenteComponent } from './components/residente/asamblea-residente-component/asamblea-residente-component.component';
-import { EmpleadosResidenteComponent } from './components/residente/empleados-residente-component/empleados-residente-component.component';
 import { IngresoApartamentoComponent } from './components/residente/ingreso-apartamento-component/ingreso-apartamento-component.component';
-import { NoticiasResidenteComponent } from './components/residente/noticias-residente-component/noticias-residente-component.component';
 import { PagosComponent } from './components/residente/pagos-component/pagos-component.component';
 import { PaquetesResidenteComponent } from './components/residente/paquetes-residente-component/paquetes-residente-component.component';
 import { QuejasResidenteComponent } from './components/residente/quejas-residente-component/quejas-residente-component.component';
 import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxNumberBoxModule, DxSelectBoxModule } from 'devextreme-angular';
 import { BrowserModule } from '@angular/platform-browser';
+import { NoticiasComponent } from './components/general/noticias/noticias.component';
+import { EmpleadosComponent } from './components/general/empleados/empleados.component';
 
 const routes: Routes = [
   {
@@ -57,16 +55,8 @@ const routes: Routes = [
     component: ClavesComponent
   },
   {
-    path: 'empleados-admin',
-    component: EmpleadosAdminComponent
-  },
-  {
     path: 'manual-admin',
     component: ManualAdminComponent
-  },
-  {
-    path: 'noticias-admin',
-    component: NoticiasAdminComponent
   },
   {
     path: 'quejas-admin',
@@ -113,16 +103,8 @@ const routes: Routes = [
     component: AsambleaResidenteComponent
   },
   {
-    path: 'empleados-residente',
-    component: EmpleadosResidenteComponent
-  },
-  {
     path: 'ingreso-apt',
     component: IngresoApartamentoComponent
-  },
-  {
-    path: 'noticias-residente',
-    component: NoticiasResidenteComponent
   },
   {
     path: 'pagos',
@@ -135,6 +117,14 @@ const routes: Routes = [
   {
     path: 'quejas-residente',
     component: QuejasResidenteComponent
+  },
+  {
+    path: 'noticias',
+    component: NoticiasComponent
+  },
+  {
+    path: 'empleados',
+    component: EmpleadosComponent
   },
   {
     path: '',
@@ -171,9 +161,7 @@ const routes: Routes = [
     AreasComunesAdminComponent,
     AsambleaAdminComponent,
     ClavesComponent,
-    EmpleadosAdminComponent,
     ManualAdminComponent,
-    NoticiasAdminComponent,
     QuejasAdminComponent,
     AsistenciaEmpleadoComponent,
     PaquetesEmpleadoComponent,
@@ -186,14 +174,12 @@ const routes: Routes = [
     SeleccionConjuntoComponent,
     AreasResidenteComponent,
     AsambleaResidenteComponent,
-    EmpleadosResidenteComponent,
     IngresoApartamentoComponent,
-    NoticiasResidenteComponent,
     PagosComponent,
     PaquetesResidenteComponent,
     QuejasResidenteComponent,
- 
-
+    NoticiasComponent,
+    EmpleadosComponent
     ]
 })
 export class AppRoutingModule { }

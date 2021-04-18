@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ingreso-apartamento-component.component.scss'],
 })
 export class IngresoApartamentoComponent implements OnInit {
-
+  public conjunto:string = "Maria";
   constructor() { }
 
   ngOnInit() {}
 
+  getConjunto(){
+    return this.conjunto;
+  }
 }
