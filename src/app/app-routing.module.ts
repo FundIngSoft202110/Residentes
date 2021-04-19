@@ -39,7 +39,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'agregar-conjunto',
+    path: 'nuevo-conjunto',
     component: AgregarConjuntoComponent
   },
   {
@@ -103,7 +103,7 @@ const routes: Routes = [
     component: AsambleaResidenteComponent
   },
   {
-    path: 'ingreso-apt',
+    path: 'ingreso-apto',
     component: IngresoApartamentoComponent
   },
   {

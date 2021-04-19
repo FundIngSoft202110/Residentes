@@ -5,7 +5,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxCheckBoxModule, DxFormComponent } from 'devextreme-angular';
 import { AppComponent } from 'src/app/app.component';
 import notify from 'devextreme/ui/notify';
-import { Customer, RegistroServicioService } from '../../../Services/registro-servicio.service';
+import { Customer, RegistroServicioService } from '../../../Services/registro-servicio/registro-servicio.service';
 
 
 const sendRequest = function(value) {

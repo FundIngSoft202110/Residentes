@@ -11,4 +11,8 @@ export class AsambleaResidenteComponent implements OnInit {
 
   ngOnInit() {}
 
+  next() {
+    this.slides.slideNext();
+  }
+
 }
