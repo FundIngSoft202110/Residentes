@@ -33,11 +33,11 @@ export class AptosService {
   constructor() { }
 
   getAptos() {
-    return this.aptos
+    return this.aptos;
   } // end getAptos
 
   getApto(aptoId:number) { 
-    return this.aptos.find(apto => {return apto.id == aptoId})
+    return this.aptos.find(apto => {return apto.id == aptoId});
   }// end getApto
 
   addApto(idConjunto:number, torre:number, numero:number, clave:string){ 
