@@ -7,7 +7,7 @@ import { ConjuntosService } from './../../../services/conjuntos/conjuntos.servic
   styleUrls: ['./netflix-component.component.scss'],
 })
 export class NetflixComponent implements OnInit {
-
+  
   conjuntos = []
   
   constructor(private conjuntoService : ConjuntosService) { }
