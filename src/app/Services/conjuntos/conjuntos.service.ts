@@ -36,15 +36,11 @@ export class ConjuntosService {
   constructor() { }
 
   getConjuntos() {
-    return [...this.conjuntos]
+    return this.conjuntos;
   } // end getConjuntos
 
   getConjunto(conjuntoId:number) { 
-    return {
-      ...this.conjuntos.find(conjunto => {
-        return conjunto.id ===conjuntoId
-      })
-    }
+    return this.conjuntos.find(conjunto => { return conjunto.id == conjuntoId });
   }// end getConjunto
 
   addConjunto(nombre:string,linkDePago:string,direccion:string,precioAdmin:number,manual:string){ 
