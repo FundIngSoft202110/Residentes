@@ -4,7 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxCheckBoxModule, DxFormComponent } from 'devextreme-angular';
 import { AppComponent } from 'src/app/app.component';
 import notify from 'devextreme/ui/notify';
-import { Customer, AgregarConjuntoService } from '../../../Services/agregar-conjunto.service';
+import { Customer, AgregarConjuntoService } from '../../../Services/agregar-conjunto/agregar-conjunto.service';
 
 
 const sendRequest = function(value) {
