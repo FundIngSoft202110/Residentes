@@ -1,28 +1,17 @@
 import { Injectable } from '@angular/core';
 
-
-export class Customer {
-  Email: string;
-  Password: string;
-  Name: string;
-  Date: Date;
-  Country: string;
-  City: string;
-  Address: string;
-  Phone: string;
-  Accepted: boolean;
+export class Conjunto {
+  Nombre: string;
+  Direccion: string;
+  PrecioAdmin: string;
+  Link: string;
 }
 
-let customer : Customer = {
-  "Email": "",
-  "Password": "",
-  "Name": "Alejo",
-  "Date": null,
-  "Country": "",
-  "City": "",
-  "Address": "",
-  "Phone": "",
-  "Accepted": false
+let conjunto : Conjunto = {
+  "Nombre": "Manzanares",
+  "Direccion": "Carrera 7 #2",
+  "PrecioAdmin": "500030",
+  "Link": "www.pagosBanco/Manzanares"
 };
 
 @Injectable({
@@ -30,7 +19,7 @@ providedIn: 'root'
 })
 
 export class AgregarConjuntoService {
-  getCustomer() : Customer {
-    return customer;
+  getConjunto() : Conjunto {
+    return conjunto;
   }
 }
