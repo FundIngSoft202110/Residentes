@@ -9,17 +9,21 @@ import { ConjuntosService } from './../../../services/conjuntos/conjuntos.servic
 })
 export class NetflixComponent implements OnInit {
 
-  conjuntos = []
+  perfiles = []
   public usuario : string = "RESIDENTE";
 
-  constructor(private conjuntoService : ConjuntosService) { }
-
-  ngOnInit() {
-    this.conjuntos = this.conjuntoService.getConjuntos()
-  }
+  constructor(private conjuntoService : ConjuntosService, private aptoService: AptoService) { }
 
   getUser(){
     return this.usuario;
+  }
+
+  ngOnInit() {
+    if(this.getUser() == "ADMIN" || this.getUser() == "RESIDENTE"){
+      this.perfiles = this.conjuntoService.getConjuntos();
+    }else if(this.getUser() == "EMPLEADO"){
+      this.perfiles = this.aptoService.getAptos();
+    }
   }
 
   getRouteConjunto(){
