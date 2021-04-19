@@ -1,7 +1,13 @@
 <app-header-start titulo="Tus conjuntos"></app-header-start>
 <ion-content padding class="vertical-center"  *ngFor="let conjunto of conjuntos">
-  <ion-card [routerLink]="['/asistencia-empleado',conjunto.id]" >
+  <ion-card routerLink="{{getRouteConjunto()}}" >
     <img src="./../../../../assets/icon/IconConjuntos/Conjunto1.png" />
   </ion-card>
   <ion-label> {{conjunto.nombre}} </ion-label>
+</ion-content>
+
+<ion-content padding class="vertical-center">
+<ion-card routerLink="/agregar-conjunto" >
+  <img src="./../../../../assets/icon/IconConjuntos/Conjunto1.png" />
+</ion-card>
 </ion-content>

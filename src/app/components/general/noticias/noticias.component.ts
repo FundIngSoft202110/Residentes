@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./noticias.component.scss'],
 })
 export class NoticiasComponent implements OnInit {
-  public user:string="RESDIENTES";
+  public user:string="RESIDENTE";
   constructor() { }
 
   ngOnInit() {}
