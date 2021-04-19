@@ -1,15 +1,43 @@
 <app-header titulo="ASAMBLEA" menu=RESIDENTE></app-header>
 
-<ion-slides>
-    <ion-slide>
+<ion-slides pager="true" #theSlides>
+    <ion-slide >
+        <ion-button fill="clear" slot="start" color="residente" (click)="prev(theSlides)">
+            <ion-icon slot="icon-only" name="chevron-back-outline" color="residente"></ion-icon>
+        </ion-button>
         <h1>Slide 1</h1>
+        <ion-button fill="clear" slot="start" color="residente" (click)="next(theSlides)">
+            <ion-icon slot="icon-only" name="chevron-forward-outline" color="residente"></ion-icon>
+        </ion-button>
     </ion-slide>
     <ion-slide>
+        <ion-button fill="clear" slot="start" color="residente" (click)="prev(theSlides)">
+            <ion-icon slot="icon-only" name="chevron-back-outline" color="residente"></ion-icon>
+        </ion-button>
         <h1>Slide 2</h1>
+        <ion-button fill="clear" slot="start" color="residente" (click)="next(theSlides)">
+            <ion-icon slot="icon-only" name="chevron-forward-outline" color="residente"></ion-icon>
+        </ion-button>
     </ion-slide>
     <ion-slide>
+        <ion-button fill="clear" slot="start" color="residente" (click)="prev(theSlides)">
+            <ion-icon slot="icon-only" name="chevron-back-outline" color="residente"></ion-icon>
+        </ion-button>
         <h1>Slide 3</h1>
+        <ion-button fill="clear" slot="start" color="residente" (click)="next(theSlides)">
+            <ion-icon slot="icon-only" name="chevron-forward-outline" color="residente"></ion-icon>
+        </ion-button>
     </ion-slide>
-    <button type="submit" float-left ion-button  color="primary" class="btnPrev" (click)="prev()">Prev</button>
-    <button type="submit" float-right ion-button color="primary" class="btnNext" (click)="next()">Next</button>
 </ion-slides>
+<!--
+<ion-slides pager="true" #theSlides>
+    <ion-slide>
+        <ion-button (click)="moveToNext(theSlides)">Click to go to next</ion-button> // user click event to go to next
+        slide
+    </ion-slide>
+    <ion-slide>
+        <ion-button (click)="moveToNext(theSlides)">Click to go to next</ion-button> // user click event to go to next
+        slide
+    </ion-slide>
+</ion-slides>
+-->
