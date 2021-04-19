@@ -1,27 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { Service, Employee } from '../../../service.service';
+
+import { Component, NgModule, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { DxCheckBoxModule } from 'devextreme-angular';
+import { AppComponent } from 'src/app/app.component';
+
 
 @Component({
     selector: 'app-registro-component',
-    providers: [Service],
     templateUrl: './registro-component.component.html',
     styleUrls: ['./registro-component.component.scss'],
 })
 
 export class RegistroComponent implements OnInit {
-	employee: Employee;
-	positions: string[];
-	states: string[];
+
+
+	checkBoxValue: boolean;
+    indeterminateValue: boolean;
 
     ngOnInit() {
 
      }
 
-	constructor(service: Service) {
-		this.employee = service.getEmployee();
-		this.positions = service.getPositions();
-		this.states = service.getStates();
+	constructor() {
+		
 	}
 }
+
 
 
