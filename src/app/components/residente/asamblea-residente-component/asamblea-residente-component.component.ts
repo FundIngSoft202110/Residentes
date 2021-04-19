@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-asamblea-residente-component',
@@ -11,8 +12,12 @@ export class AsambleaResidenteComponent implements OnInit {
 
   ngOnInit() {}
 
-  next() {
-    this.slides.slideNext();
+  next(slides: IonSlides) {
+    console.log(slides);
+    slides.slideNext();
   }
-
+  prev(slides: IonSlides) {
+    console.log(slides);
+    slides.slidePrev();
+  }
 }

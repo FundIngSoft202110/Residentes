@@ -136,23 +136,23 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-      CommonModule,
-      IonicModule,
-      RouterModule,
-      DxDataGridModule,
-      DxButtonModule,
-      BrowserModule,
-      DxCheckBoxModule,
-      DxSelectBoxModule,
-      DxNumberBoxModule,
-      DxButtonModule,
-      DxAutocompleteModule,
-      DxFormModule
-   
+    CommonModule,
+    IonicModule,
+    RouterModule,
+    DxDataGridModule,
+    DxButtonModule,
+    BrowserModule,
+    DxCheckBoxModule,
+    DxSelectBoxModule,
+    DxNumberBoxModule,
+    DxButtonModule,
+    DxAutocompleteModule,
+    DxFormModule
+
 
   ],
   exports: [RouterModule],
-  declarations:[  MenuResidenteComponent,
+  declarations: [MenuResidenteComponent,
     MenuAdminComponent,
     MenuEmpleadoComponent,
     HeaderComponent,
@@ -180,6 +180,6 @@ const routes: Routes = [
     QuejasResidenteComponent,
     NoticiasComponent,
     EmpleadosComponent
-    ]
+  ]
 })
 export class AppRoutingModule { }
