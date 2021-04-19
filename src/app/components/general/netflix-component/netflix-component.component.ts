@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConjuntosService } from './../../../services/conjuntos/conjuntos.service'
 
 @Component({
   selector: 'app-netflix-component',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NetflixComponent implements OnInit {
 
-  constructor() { }
+  conjuntos = []
+  
+  constructor(private conjuntoService : ConjuntosService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.conjuntos = this.conjuntoService.getConjuntos()
+  }
 
 }
