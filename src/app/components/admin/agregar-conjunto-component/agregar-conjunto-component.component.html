@@ -1,3 +1,67 @@
-<p>
-  agregar-conjunto-component works!
-</p>
+<app-header-start titulo="Registrate"></app-header-start>
+<form action="your-action" (submit)="onFormSubmit($event)">
+  <dx-form id="form"
+      
+      validationGroup="customerData">
+      <dxi-item itemType="group" caption="">
+          <dxi-item dataField="Nombre">
+              <dxi-validation-rule 
+                  type="required"
+                  message="El nombre es obligatorio">
+              </dxi-validation-rule>
+              <dxi-validation-rule 
+                  type="pattern"
+                  [pattern]="namePattern"
+                  message="Nombre es inválido">
+              </dxi-validation-rule>
+              <dxi-validation-rule 
+                  type="async"
+                  message="Nombre ya esta registrado" 
+                  [validationCallback]="asyncValidation">
+              </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item dataField="Dirección">
+              <dxi-validation-rule 
+                  type="required"
+                  message="La dirección es obligatoria">
+              </dxi-validation-rule>
+              <dxi-validation-rule 
+                  type="async"
+                  message="Dirección ya esta registrado" 
+                  [validationCallback]="asyncValidation">
+              </dxi-validation-rule>
+          </dxi-item>
+          
+     
+          
+          <dxi-item dataField="Precio de administración ($)" helpText="Poner en pesos Colombianos">
+              <dx-number-box
+              format="$ #,##0.##"
+             
+            ></dx-number-box>
+              <dxi-validation-rule 
+                  type="required"
+                  message="El precio es obligatoria">
+              </dxi-validation-rule>
+              
+          </dxi-item>
+          
+          
+         <dxi-item dataField="Link de pago">
+          
+              <dxi-validation-rule 
+                  type="pattern"
+                  [pattern]="lnikPattern"
+                  message="Link invalido">
+              </dxi-validation-rule>
+          </dxi-item>
+          
+      </dxi-item>
+      
+      <dxi-item 
+          itemType="button"
+          horizontalAlignment="right"
+          [buttonOptions]="buttonOptions">
+      </dxi-item>
+  </dx-form>
+</form>
