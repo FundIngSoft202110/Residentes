@@ -10,7 +10,8 @@ export class NetflixComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
+  
   getConjunto(){
-    
+    return this.conjunto;
   }
 }
