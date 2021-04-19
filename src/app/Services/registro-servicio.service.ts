@@ -32,4 +32,7 @@ export class RegistroServicioService {
   getCustomer() : Customer {
     return customer;
 }
+  agregarUsuario(){
+    
+  }
 }
