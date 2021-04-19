@@ -18,9 +18,9 @@ const sendRequest = function(value) {
 
 
 @Component({
-  selector: 'app-agregar-conjunto-component',
-  templateUrl: './agregar-conjunto-component.component.html',
-  styleUrls: ['./agregar-conjunto-component.component.scss'],
+    selector: 'app-agregar-conjunto-component',
+    templateUrl: './agregar-conjunto-component.component.html',
+    styleUrls: ['./agregar-conjunto-component.component.scss'],
 })
 
 export class AgregarConjuntoComponent implements OnInit {

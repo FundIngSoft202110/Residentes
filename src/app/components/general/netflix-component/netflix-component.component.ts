@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuResidenteComponent } from '../../residente/menu-residente/menu-residente.component';
-import { ConjuntosService } from './../../../services/conjuntos/conjuntos.service'
+import { ConjuntosService } from '../../../Services/conjuntos/conjuntos.service'
+import { AptosService } from '../../../Services/aptos/aptos.service'
 
 @Component({
   selector: 'app-netflix-component',
@@ -10,18 +10,18 @@ import { ConjuntosService } from './../../../services/conjuntos/conjuntos.servic
 export class NetflixComponent implements OnInit {
 
   perfiles = []
-  public usuario : string = "RESIDENTE";
+  public usuario : string = "ADMIN";
 
-  constructor(private conjuntoService : ConjuntosService, private aptoService: AptoService) { }
+  constructor(private conjuntoService : ConjuntosService, private aptoService: AptosService) { }
 
   getUser(){
     return this.usuario;
   }
 
   ngOnInit() {
-    if(this.getUser() == "ADMIN" || this.getUser() == "RESIDENTE"){
+    if(this.getUser() == "ADMIN" || this.getUser() == "EMPLEADO"){
       this.perfiles = this.conjuntoService.getConjuntos();
-    }else if(this.getUser() == "EMPLEADO"){
+    }else if(this.getUser() == "RESIDENTE"){
       this.perfiles = this.aptoService.getAptos();
     }
   }

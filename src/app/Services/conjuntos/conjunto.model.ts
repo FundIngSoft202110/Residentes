@@ -1,5 +1,3 @@
-import { NumericValueAccessor } from "@ionic/angular";
-
 export interface Conjunto{
     id: number;
     nombre: string;
