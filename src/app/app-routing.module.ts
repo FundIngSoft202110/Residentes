@@ -28,7 +28,7 @@ import { IngresoApartamentoComponent } from './components/residente/ingreso-apar
 import { PagosComponent } from './components/residente/pagos-component/pagos-component.component';
 import { PaquetesResidenteComponent } from './components/residente/paquetes-residente-component/paquetes-residente-component.component';
 import { QuejasResidenteComponent } from './components/residente/quejas-residente-component/quejas-residente-component.component';
-import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxNumberBoxModule, DxSelectBoxModule } from 'devextreme-angular';
+import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxNumberBoxModule, DxScrollViewComponent, DxScrollViewModule, DxSelectBoxModule, DxTextAreaModule } from 'devextreme-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { NoticiasComponent } from './components/general/noticias/noticias.component';
 import { EmpleadosComponent } from './components/general/empleados/empleados.component';
@@ -147,8 +147,13 @@ const routes: Routes = [
     DxNumberBoxModule,
     DxButtonModule,
     DxAutocompleteModule,
-    DxFormModule
+    DxFormModule,
+    DxTextAreaModule,
+  
+   
 
+    
+    
 
   ],
   exports: [RouterModule],
