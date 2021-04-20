@@ -14,15 +14,17 @@ export class AsambleaSubirVotosComponent implements OnInit {
 	constructor(service: GanadorService) {
 		this.ganador = service.getGanador(1); // toca mandarle el ide de la propuesta para que saque el ganador
 	}
+  buttonOptions: any = {
+    text: "Publicar",
+    type: "success",
+    useSubmitBehavior: true
+}
+  buttonOptions2: any = {
+  text: "Limpiar Votacion",
+  type: "danger",
+  useSubmitBehavior: true
+}
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
-   capitalize = text => text.charAt(0).toUpperCase() + text.slice(1);
-
-    click = e => {
-        const buttonText = e.component.option("text");
-        notify("The " + this.capitalize(buttonText) + " button was clicked");
-    }
-
-
 }
