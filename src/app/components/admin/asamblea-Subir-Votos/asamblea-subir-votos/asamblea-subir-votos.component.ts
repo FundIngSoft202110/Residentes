@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import notify from 'devextreme/ui/notify';
-import { GanadorService, Votos } from '../../../../Services/Ganador/resultados-votaciones.service';
+import { GanadorService, Votos } from '../../../../Services/Ganador/ganador.service';
 
 @Component({
   selector: 'app-asamblea-subir-votos',
