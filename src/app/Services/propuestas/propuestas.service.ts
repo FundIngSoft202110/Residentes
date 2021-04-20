@@ -6,20 +6,27 @@ import { Propuesta } from './propuesta.model';
 })
 export class PropuestasService {
 
-  private propuestas:Propuesta[] = [ 
+  private propuestaActiva: Propuesta
+  private propuestas: Propuesta[] = [
     {
       id: 1,
       idAsamblea: 1,
       idConjunto: 1,
       descripcion: "Aprobar el uso del presupuesto para arreglar los tejados",
-      votosTotales: 3
+      votosTotales: 3,
+      habilitar: true,
+      parar: false,
+      subir: true
     },
     {
       id: 2,
       idAsamblea: 1,
       idConjunto: 1,
       descripcion: "Cambiar la empresa de seguridad",
-      votosTotales: 3
+      votosTotales: 3,
+      habilitar: false,
+      parar: false,
+      subir: true
     }
   ]
 
@@ -29,21 +36,32 @@ export class PropuestasService {
     return this.propuestas;
   } // end getPropuestas
 
-  getPropuesta(propuestaId:number) { 
+  getPropuesta(propuestaId: number) {
     return this.propuestas.find(propuesta => { return propuesta.id == propuestaId });
   }// end getPropuesta
 
-  addPropuesta(idAsamblea:number,idConjunto:number,descripcion:string,votosTotales:number){ 
+  getPropuestaActiva(): Propuesta {
+    return this.propuestaActiva;
+  }
+
+  setPrpuestaActiva(id: number) {
+    this.propuestaActiva = this.propuestas[id];
+  }
+
+  addPropuesta(idAsamblea: number, idConjunto: number, descripcion: string, votosTotales: number, habilitar: boolean, parar: boolean, subir: boolean) {
     this.propuestas.push({
       id: this.propuestas.length + 1,
       idAsamblea,
       idConjunto,
       descripcion,
-      votosTotales
+      votosTotales,
+      habilitar,
+      parar,
+      subir
     });
   } // end addPropuesta
-  
-  deletePropuesta(propuestaId:number) {
-    this.propuestas.splice(propuestaId,1);
+
+  deletePropuesta(propuestaId: number) {
+    this.propuestas.splice(propuestaId, 1);
   } // end deletePropuesta
 }

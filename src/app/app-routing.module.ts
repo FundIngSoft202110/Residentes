@@ -33,6 +33,7 @@ import { NoticiasComponent } from './components/general/noticias/noticias.compon
 import { EmpleadosComponent } from './components/general/empleados/empleados.component';
 import { AsambleaSubirVotosComponent } from './components/admin/asamblea-Subir-Votos/asamblea-subir-votos/asamblea-subir-votos.component';
 import { SeleccionConjuntoComponent } from './components/general/seleccion-conjunto-component/seleccion-conjunto-component.component';
+import { ResultadosResidenteComponent } from './components/residente/resultados-residente/resultados-residente.component';
 
 
 const routes: Routes = [
@@ -133,6 +134,10 @@ const routes: Routes = [
     component: AsambleaSubirVotosComponent
   },
   {
+    path: 'resultados-residente',
+    component: ResultadosResidenteComponent
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -159,11 +164,15 @@ const routes: Routes = [
     BrowserModule,
     DxSelectBoxModule,
     DxListModule,
+<<<<<<< HEAD
     DxTemplateModule ,
    
 
     
    
+=======
+    DxTemplateModule 
+>>>>>>> c1bafbd14f5370756026f83deae1331b0f9d3504
   ],
   exports: [RouterModule],
   declarations: [MenuResidenteComponent,

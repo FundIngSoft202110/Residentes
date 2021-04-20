@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import notify from 'devextreme/ui/notify';
+<<<<<<< HEAD
 import { GanadorService, Votos } from '../../../../Services/Ganador/ganador.service';
+=======
+import { GanadorService, Ganador } from '../../../../Services/Ganador/ganador.service';
+>>>>>>> c1bafbd14f5370756026f83deae1331b0f9d3504
 
 @Component({
   selector: 'app-asamblea-subir-votos',
@@ -9,9 +13,9 @@ import { GanadorService, Votos } from '../../../../Services/Ganador/ganador.serv
   styleUrls: ['./asamblea-subir-votos.component.scss'],
 })
 export class AsambleaSubirVotosComponent implements OnInit {
-	votos: Votos;
+	ganador: Ganador;
 	constructor(service: GanadorService) {
-		this.votos = service.getVotos();
+		this.ganador = service.getGanador(1); // toca mandarle el ide de la propuesta para que saque el ganador
 	}
   ngOnInit(): void {
     throw new Error('Method not implemented.');

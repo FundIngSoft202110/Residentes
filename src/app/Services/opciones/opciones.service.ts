@@ -22,13 +22,13 @@ export class OpcionesService {
     {
       id: 1,
       idPropuesta: 2,
-      nombre: "Yes",
+      nombre: "Sí",
       cantidadVotos: 1
     },
     {
       id: 2,
       idPropuesta: 2,
-      nombre: "Nou",
+      nombre: "No",
       cantidadVotos: 2
     }
   ]

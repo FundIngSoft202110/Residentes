@@ -4,9 +4,9 @@
   <ion-toolbar color="light"> 
     <div *ngIf="menu == 'NO'; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
-      <ion-buttons slot="start"> <!--Falta que sirva botón-->
+      <!--<ion-buttons slot="start"> Falta que sirva botón
         <ion-back-button> </ion-back-button>
-      </ion-buttons>  
+      </ion-buttons>  -->
     </ng-template>
     <ng-template #elseBlock>
       <ion-buttons slot="start" (click)="toggleMenu()">

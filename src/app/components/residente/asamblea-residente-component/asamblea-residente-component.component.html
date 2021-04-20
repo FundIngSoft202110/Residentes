@@ -9,9 +9,15 @@
             <ion-card color="{{getColorCards(propuesta)}}" (click)="votar(opcion,propuesta)">
                 <ion-card-content>
                     {{getNombreOpcion(opcion, propuesta)}}
-                </ion-card-content>    
+                </ion-card-content>
             </ion-card>
         </div>
+        <ion-card color="{{getColorResultados(propuesta)}}" (click)="enviarPropuesta(propuesta)">
+            <ion-card-content>
+                Ver Resultados
+            </ion-card-content>
+        </ion-card>
+        
         <ion-button fill="clear" slot="start" color="residente" (click)="prev(theSlides)">
             <ion-icon slot="icon-only" name="chevron-back-outline" color="residente"></ion-icon>
         </ion-button>

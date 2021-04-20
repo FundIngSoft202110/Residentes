@@ -1,23 +1,21 @@
 <app-header-start titulo="Tus conjuntos"></app-header-start>
 
-<ion-content padding class="vertical-center"  *ngFor="let perfil of perfiles">
-  <ion-card routerLink="{{getRouteConjunto()}}" >
-    <ion-card-header>
+<ion-content padding class="vertical-center" *ngFor="let perfil of perfiles">
+  <ion-card  routerLink="{{getRouteConjunto()}}">
       <div *ngIf="getUser() == 'RESIDENTE'; then thenBlock else elseBlock"></div>
       <ng-template #thenBlock>
-        <ion-card-title>  {{getConjunto(perfil.idConjunto).nombre}} </ion-card-title>
-        <ion-card-subtitle> </ion-card-subtitle>
+        <ion-card-title> {{getConjunto(perfil.idConjunto).nombre}} </ion-card-title>
       </ng-template>
       <ng-template #elseBlock>
-        <ion-card-title>  {{perfil.nombre}} </ion-card-title>
+        <ion-card-title> {{perfil.nombre}} </ion-card-title>
       </ng-template>
-    </ion-card-header>
-    <img src="/../../../../assets/icon/IconConjuntos/Conjunto1.png" alt="Conjunto" />
+    <ion-img src="/../../../../assets/icon/IconConjuntos/Conjunto1.png" alt="Conjunto"></ion-img>
   </ion-card>
 </ion-content>
 
 <ion-content padding class="vertical-center">
-<ion-card routerLink="/nuevo-conjunto" >
-  <img src="./../../../../assets/icon/IconConjuntos/Conjunto1.png" alt="Agregar"/>
-</ion-card>
+  <ion-card routerLink="/seleccion-conjunto">
+    <ion-card-title> Nuevo </ion-card-title>
+    <ion-img src="./../../../../assets/icon/IconConjuntos/add.png" alt="Agregar"></ion-img>
+  </ion-card>
 </ion-content>

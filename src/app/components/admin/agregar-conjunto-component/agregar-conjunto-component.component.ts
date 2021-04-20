@@ -78,7 +78,7 @@ export class AgregarConjuntoComponent implements OnInit {
     }, "success", 3000);
     
     e.preventDefault();
-    this.navCtrl.navigateForward("/netflix");
+    this.router.navigateByUrl("/netflix");
 
   }
 
