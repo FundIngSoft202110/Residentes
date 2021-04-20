@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { AsambleaService } from 'src/app/Services/asambleas/asamblea.service';
 import { GanadorService } from 'src/app/Services/Ganador/ganador.service';
 import { OpcionesService } from 'src/app/Services/opciones/opciones.service';
@@ -15,7 +16,7 @@ export class ResultadosResidenteComponent implements OnInit {
 
   private propuesta: Propuesta;
 
-  constructor(private propuestasService: PropuestasService, private asambleaService: AsambleaService, private ganadorService: GanadorService, private opcionesService: OpcionesService) { }
+  constructor(private navCtrl: NavController,private propuestasService: PropuestasService, private asambleaService: AsambleaService, private ganadorService: GanadorService, private opcionesService: OpcionesService) { }
 
   ngOnInit(){
     this.propuesta = this.propuestasService.getPropuestaActiva();
@@ -34,7 +35,11 @@ export class ResultadosResidenteComponent implements OnInit {
   }
 
   getGanador(){
-    return this.opcionesService.getOpciones(this.propuesta.id)[this.ganadorService.getGanador(this.propuesta.id).idOpcion].nombre;
+    return this.opcionesService.getOpciones(this.propuesta.id)[this.ganadorService.getGanador(this.propuesta.id).idOpcion-1].nombre;
+  }
+
+  backAs(){
+    this.navCtrl.navigateForward("/asamblea-residente");
   }
 
 }

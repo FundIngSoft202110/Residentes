@@ -5,7 +5,10 @@ export class Ganador {
   idOpcion: number;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+
 export class GanadorService {
 
   ganadores: Ganador[] = [

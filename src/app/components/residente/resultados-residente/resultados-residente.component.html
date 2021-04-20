@@ -1,16 +1,19 @@
-<!--<ion-content>
-  <ion-card>
-    <ion-card-title> Asamblea: {{getAsamblea()}} </ion-card-title>
-    <ion-card-subtitle> Propuesta: {{getPropuesta()}} </ion-card-subtitle>
-    <ion-card-header>  Cantidad de Votos: {{getTotalVotaciones()}}</ion-card-header>
-    <ion-card-content>  Ganador: {{getGanador()}} </ion-card-content>
-  </ion-card>
-</ion-content>-->
+<ion-header class="ion-no-border">
+  <ion-toolbar color="residente">
+  </ion-toolbar >
+  <ion-toolbar color="light"> 
+    <ion-button (click)="backAs()" fill="clear" slot="start">
+      <ion-icon slot="icon-only" name="chevron-back-outline" color="residente"></ion-icon>
+    </ion-button>
+    <strong><ion-title class="" color="residente-txt">RESULTADOS ASAMBLEA</ion-title> </strong>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <ion-card>
-    <ion-card-title> Asamblea:  </ion-card-title>
-    <ion-card-subtitle> Propuesta: </ion-card-subtitle>
-    <ion-card-header>  Cantidad de Votos:</ion-card-header>
-    <ion-card-content>  Ganador:  </ion-card-content>
+    <ion-card-title> Asamblea: {{getAsamblea()}} </ion-card-title>
+    <h4> Propuesta: {{getPropuesta()}} </h4>
+    <h5>  Cantidad de Votos: {{getTotalVotaciones()}}</h5>
+    <h5>  Ganador: {{getGanador()}} </h5>
   </ion-card>
 </ion-content>

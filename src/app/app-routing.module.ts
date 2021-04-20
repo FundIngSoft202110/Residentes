@@ -133,7 +133,7 @@ const routes: Routes = [
     component: AsambleaSubirVotosComponent
   },
   {
-    path: 'resutados-residente',
+    path: 'resultados-residente',
     component: ResultadosResidenteComponent
   },
   {

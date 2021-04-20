@@ -94,8 +94,10 @@ export class AsambleaResidenteComponent implements OnInit {
   }
 
   enviarPropuesta(propuesta: Propuesta) {
-    this.propuestasService.setPrpuestaActiva(propuesta.id);
-    //this.navCtrl.navigateForward("/resutados-residente");
+    if(propuesta.habilitar){
+      this.propuestasService.setPrpuestaActiva(propuesta.id-1);
+      this.navCtrl.navigateForward("/resultados-residente");
+    }
   }
 
 }
