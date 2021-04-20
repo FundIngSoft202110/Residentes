@@ -32,6 +32,7 @@ import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModul
 import { BrowserModule } from '@angular/platform-browser';
 import { NoticiasComponent } from './components/general/noticias/noticias.component';
 import { EmpleadosComponent } from './components/general/empleados/empleados.component';
+import { AsambleaSubirVotosComponent } from './components/admin/asamblea-Subir-Votos/asamblea-subir-votos/asamblea-subir-votos.component';
 
 const routes: Routes = [
   {
@@ -127,6 +128,10 @@ const routes: Routes = [
     component: EmpleadosComponent
   },
   {
+    path: 'subir-votos-admin',
+    component: AsambleaSubirVotosComponent
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -149,6 +154,7 @@ const routes: Routes = [
     DxAutocompleteModule,
     DxFormModule,
     DxTextAreaModule,
+   
   
    
 
@@ -184,7 +190,8 @@ const routes: Routes = [
     PaquetesResidenteComponent,
     QuejasResidenteComponent,
     NoticiasComponent,
-    EmpleadosComponent
+    EmpleadosComponent,
+    AsambleaSubirVotosComponent
   ]
 })
 export class AppRoutingModule { }
