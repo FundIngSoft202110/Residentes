@@ -68,23 +68,19 @@
                 <dxi-validation-rule type="pattern" [pattern]="namePattern" message="no use numeros en su rol">
                 </dxi-validation-rule>
             </dxi-item>
-        </dxi-item>
-        <dxi-item itemType="group" caption="Telefono">
-
-
-
             <dxi-item dataField="Phone" helpText="Ingrese su numero de telefono" [editorOptions]="{ 
-                    mask: '+57 (X00) 000-0000',
-                    maskRules: phoneRules,
-                    useMaskedValue: true,
-                    maskInvalidMessage: 'forma de telefono correcta '
-                }">
-                <dxi-validation-rule 
-                    type="pattern"
-                    [pattern]="phonePattern"
-                    message="Forma del telefono no compatible">
-                </dxi-validation-rule>
-            </dxi-item>
+                mask: '+57 (X00) 000-0000',
+                maskRules: phoneRules,
+                useMaskedValue: true,
+                maskInvalidMessage: 'forma de telefono correcta '
+            }">
+            <dxi-validation-rule 
+                type="pattern"
+                [pattern]="phonePattern"
+                message="Forma del telefono no compatible">
+            </dxi-validation-rule>
+        </dxi-item>
+        </dxi-item>
             <dxi-item 
                 itemType="simple"
                 dataField="Accepted"
@@ -101,7 +97,7 @@
                     message="Debe estar de acuerdo con los terminos y condiciones">
                 </dxi-validation-rule>
             </dxi-item>
-        </dxi-item>
+        
        
         <dxi-item 
             itemType="button"
