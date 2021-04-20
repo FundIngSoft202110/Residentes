@@ -1,8 +1,10 @@
-<app-header titulo="ASAMBLEA" menu=ADMIN></app-header>
-<dx-form id="form"
+
+<div class="content-block dx-card responsive-paddings">
+	<app-header titulo="ASAMBLEA" menu=ADMIN></app-header>
+	<dx-form id="form"
 	[formData]="asamblea">
 
-	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
+	<dxi-item *ngIf="step==1" itemType="group" cssClass="first-group" [colCount]="4">
 		
 		<dxi-item itemType="group" [colSpan]="3">
 				<dxi-item dataField="IdAsamblea"></dxi-item>
@@ -12,7 +14,17 @@
 		</dxi-item>
 	</dxi-item>
 
-	<dxi-item itemType="group" cssClass="second-group" [colCount]="2">
+	<dxi-item  itemType="group" cssClass="second-group" [colCount]="2">
+		<dxi-item itemType="group">
+			<dxi-item dataField="IdPropuesta"></dxi-item>
+		</dxi-item>
+		<dxi-item itemType="group">
+			
+			<dxi-item dataField="Nombre"></dxi-item>
+			
+		</dxi-item>
+	</dxi-item>
+	<dxi-item  itemType="group" cssClass="second-group" [colCount]="2">
 		<dxi-item itemType="group">
 			<dxi-item dataField="IdPropuesta"></dxi-item>
 		</dxi-item>
@@ -23,13 +35,47 @@
 		</dxi-item>
 	</dxi-item>
 </dx-form>
-<dx-button 
-            text="cancelar"
+
+    <div  *ngIf="step==1" id="container-button">    
+        <dx-button 
+            
+            text="Cancelar"
             icon="close"
             type="danger"
-  ></dx-button>
-<dx-button 
-            text="Subir Prpuesta"
-            icon="arrowup"
-            type="default"
-  ></dx-button>
+            
+            
+        ></dx-button>
+		<dx-button 
+				
+				text="Guardar"
+				icon="save"
+				type="normal"
+				(onClick)="ChangedOpciones()"
+				
+				
+		></dx-button>
+    </div>
+
+
+
+
+			<div *ngIf="step==2" id="container-button">    
+			
+				<dx-button 
+				
+				text="Cancelar"
+				icon="close"
+				type="normal"
+				
+				
+			    ></dx-button>
+				<dx-button 
+					
+				text="Nueva Propuesta"
+				icon="arrowup"
+				type="normal"
+				
+				
+			></dx-button>
+			</div>
+</div>

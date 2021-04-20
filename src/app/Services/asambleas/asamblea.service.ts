@@ -26,7 +26,7 @@ export class AsambleaService {
 			IdAsamblea: 1,
 			FechaAsamblea: "2021/04/21",
 			Tema: "Junta anual 2021",
-			NumeroPropuestas: 0,
+			NumeroPropuestas: 2,
 		},
 		{
 			IdAsamblea: 2,
