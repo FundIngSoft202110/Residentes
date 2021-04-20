@@ -68,6 +68,7 @@ export class AgregarConjuntoComponent implements OnInit {
   asyncValidationDirec(params) {
       return sendRequestDirect(params.value);
   }
+  
   onFormSubmit = function(e) {
     notify({
         message: "Conjunto agregado",

@@ -12,22 +12,31 @@ import { DxCheckBoxModule,
   DxFormComponent } from 'devextreme-angular';
 import { NavController } from '@ionic/angular';
 
+let admin= 0;
 
 const sendRequest = function(value) {
   const validEmail = "m@hotmail.com";
+  const validEmail2 = "j@gmail.com";
   return new Promise((resolve) => {
       setTimeout(function() {
-          resolve(value === validEmail);
+          resolve(value == validEmail || value == validEmail2);
       }, 1000);
+      if( value ===validEmail2){
+        admin=1;
+      }
   });    
 }
 
 const sendRequestContra = function(value) {
   const validContra = "12345678";
+  const validContra2 = "000111";
   return new Promise((resolve) => {
       setTimeout(function() {
-          resolve(value === validContra);
+          resolve(value == validContra  || value ==validContra2);
       }, 1000);
+      if( value ===validContra2){
+        admin=1;
+      }
   });    
 }
 
@@ -79,7 +88,7 @@ export class IngresoComponent implements OnInit {
     
     onFormSubmit = function(e) {
         notify({
-            message: "Usted ha ingrsado a Residentes",
+            message: "Usted ha ingresado a Residentes",
             position: {
                 my: "center top",
                 at: "center top"
@@ -87,7 +96,12 @@ export class IngresoComponent implements OnInit {
         }, "success", 3000);
         
         e.preventDefault();
-        this.navCtrl.navigateForward("/netflix");
+        if(admin == 1){ 
+            this.navCtrl.navigateForward("/netflix");
+        }else{
+            this.navCtrl.navigateForward("/home");
+        }
+        
     }
 
 
