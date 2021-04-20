@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
 import { Propuesta } from 'src/app/Services/propuestas/propuesta.model';
 import { Opcion } from 'src/app/Services/opciones/opcion.model'
 import { PropuestasService } from 'src/app/Services/propuestas/propuestas.service';
@@ -19,7 +19,7 @@ export class AsambleaResidenteComponent implements OnInit {
   votosUsuario:number[];
   colorCards:string[];
 
-  constructor(private propuestasService: PropuestasService, private opcionesService: OpcionesService, private votosServices: VotosService) { }
+  constructor(private navCtrl: NavController, private propuestasService: PropuestasService, private opcionesService: OpcionesService, private votosServices: VotosService) { }
 
   ngOnInit() {
     this.propuestas = this.propuestasService.getPropuestas();
@@ -95,6 +95,7 @@ export class AsambleaResidenteComponent implements OnInit {
 
   enviarPropuesta(propuesta: Propuesta) {
     this.propuestasService.setPrpuestaActiva(propuesta.id);
+    //this.navCtrl.navigateForward("/resutados-residente");
   }
 
 }

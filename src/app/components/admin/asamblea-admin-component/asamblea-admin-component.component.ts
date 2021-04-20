@@ -19,9 +19,9 @@ export class AsambleaAdminComponent implements OnInit {
 	Nopciones: number[];
 
 	constructor(service: AsambleaService, opcionesServices:OpcionesService, propuestaServices:PropuestasService) {
-		this.asamblea = service.getAsamblea();
+		this.asamblea = service.getAsamblea(1);
     this.propuesta=propuestaServices.getPropuestas();
-	  this.opciones = opcionesServices.getOpciones(1);
+    this.opciones = opcionesServices.getOpciones(1);
 		this.Nopciones = service.getNopciones();
 	}
 

@@ -8,31 +8,40 @@ export class Asamblea {
 	NumeroPropuestas: number;
 }
 
-export class Opciones{
-    IdPropuesta: number;
-    Nombre: string;
+export class Opciones {
+	IdPropuesta: number;
+	Nombre: string;
 }
 
-let asamblea: Asamblea = {
-    "IdAsamblea":1,
-	"FechaAsamblea": "2021/04/21",
-	"Tema": "Junta anual 2021",
-	"NumeroPropuestas":0,
-};
-
-    
-   
-
-let Nopciones: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+let Nopciones: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class AsambleaService {
 
-  getAsamblea() {
-		return asamblea;
+	private asambleas: Asamblea[] = [
+		{
+			IdAsamblea: 1,
+			FechaAsamblea: "2021/04/21",
+			Tema: "Junta anual 2021",
+			NumeroPropuestas: 0,
+		},
+		{
+			IdAsamblea: 2,
+			FechaAsamblea: "2021/06/21",
+			Tema: "Junta extraordinaroa junio 2021",
+			NumeroPropuestas: 0,
+		}
+	]
+
+	getAsambleas(){
+		return this.asambleas;
+	}
+
+	getAsamblea(idAsamblea:number) {
+		return this.asambleas.find(asamblea => {return asamblea.IdAsamblea == idAsamblea});
 	}
 
 
