@@ -26,27 +26,36 @@ export class AsambleaResidenteComponent implements OnInit {
     this.votosUsuario = [];
     this.colorCards = [];
     for(let prop of this.propuestas){
-      prop.votosTotales = 0; // SOLO PRUEBA
-      this.votosUsuario.push(0);
-      this.colorCards.push("residente");
-      this.opcion = this.opcionesService.getOpciones(prop.id);
-      for(let opc of this.opcion)
-        opc.cantidadVotos = 0; // SOLO PRUEBA
-      this.opcionesPropuesta.push([...this.opcion]);
+      if(prop.subir){
+        prop.subir = false;
+        prop.votosTotales = 0; // SOLO PRUEBA
+        this.votosUsuario.push(0);
+        this.colorCards.push("residente");
+        this.opcion = this.opcionesService.getOpciones(prop.id);
+        for(let opc of this.opcion)
+          opc.cantidadVotos = 0; // SOLO PRUEBA
+        this.opcionesPropuesta.push([...this.opcion]);
+      }
     }
   }
 
   votar(opcion: Opcion, propuesta: Propuesta){
     if(!this.votosUsuario[propuesta.id - 1]){
-      this.votosServices.addVoto(opcion.id, propuesta.id);
-      this.propuestas[propuesta.id-1].votosTotales += 1;
-      this.opcionesPropuesta[propuesta.id-1][opcion.id-1].cantidadVotos += 1;
-      this.colorCards[propuesta.id-1] = "red";
-      this.votosUsuario[propuesta.id - 1] = 1;
-      console.log("Voto en ", propuesta.descripcion, " por ", opcion.nombre);
-      console.log("VotosTotales = ", this.propuestas[propuesta.id-1].votosTotales);
-      console.log("CantidadVotos Opcion 1 = ", this.opcionesPropuesta[propuesta.id-1][0].cantidadVotos);
-      console.log("CantidadVotos Opcion 2 = ", this.opcionesPropuesta[propuesta.id-1][1].cantidadVotos);
+      if(!propuesta.parar){
+        this.votosServices.addVoto(opcion.id, propuesta.id);
+        this.propuestas[propuesta.id-1].votosTotales += 1;
+        this.opcionesPropuesta[propuesta.id-1][opcion.id-1].cantidadVotos += 1;
+        this.colorCards[propuesta.id-1] = "red";
+        this.votosUsuario[propuesta.id - 1] = 1;
+        console.log("Voto en ", propuesta.descripcion, " por ", opcion.nombre);
+        console.log("VotosTotales = ", this.propuestas[propuesta.id-1].votosTotales);
+        console.log("CantidadVotos Opcion 1 = ", this.opcionesPropuesta[propuesta.id-1][0].cantidadVotos);
+        console.log("CantidadVotos Opcion 2 = ", this.opcionesPropuesta[propuesta.id-1][1].cantidadVotos);
+      }
+      else{
+        this.colorCards[propuesta.id-1] = "red";
+      }
+      
     }
   } // votar
 
@@ -74,4 +83,18 @@ export class AsambleaResidenteComponent implements OnInit {
     console.log(slides);
     slides.slidePrev();
   }
+
+  getColorResultados(propuesta: Propuesta){
+    if(propuesta.habilitar){
+      return "residente";
+    }
+    else{
+      return "#cdcdcd"
+    }
+  }
+
+  enviarPropuesta(propuesta: Propuesta) {
+    this.propuestasService.setPrpuestaActiva(propuesta.id);
+  }
+
 }
