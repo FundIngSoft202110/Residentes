@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 
 <div class="content-block dx-card responsive-paddings">
     <app-header-start titulo="Registrate"></app-header-start>
@@ -18,12 +17,6 @@
         [showValidationSummary]="true"  
         validationGroup="customerData">
         <dxi-item itemType="group" caption="Cuenta">
-=======
-<form action="your-action" (submit)="onFormSubmit($event)">
-    <dx-form id="form" [formData]="customer" [readOnly]="false" [showColonAfterLabel]="true"
-        [showValidationSummary]="true" validationGroup="customerData">
-        <dxi-item itemType="group" caption="Datos">
->>>>>>> c1bafbd14f5370756026f83deae1331b0f9d3504
             <dxi-item dataField="Correo">
                 <dxi-validation-rule type="required" message="Correo requerido">
                 </dxi-validation-rule>
@@ -39,13 +32,9 @@
             <dxi-item editorType="dxTextBox" [editorOptions]="{ mode: 'password' }">
                 <dxo-label text="Contraseña confirmada">
                 </dxo-label>
-<<<<<<< HEAD
                 <dxi-validation-rule 
                     type="required"
                     message="contraseña requerida">
-=======
-                <dxi-validation-rule type="required" message="confirme su contraseña">
->>>>>>> c1bafbd14f5370756026f83deae1331b0f9d3504
                 </dxi-validation-rule>
                 <dxi-validation-rule type="compare" [comparisonTarget]="passwordComparison"
                     message="contraseña incorrecta">
@@ -63,7 +52,6 @@
                 <dxi-validation-rule type="pattern" [pattern]="namePattern" message="no use numeros en su Apellido">
                 </dxi-validation-rule>
             </dxi-item>
-<<<<<<< HEAD
              <dxi-item dataField="Usuario">
                 <dxi-validation-rule 
                     type="required"
@@ -71,12 +59,6 @@
                 </dxi-validation-rule>
                 <dxi-validation-rule 
                     
-=======
-            <dxi-item dataField="Usuario">
-                <dxi-validation-rule type="required" message="Usuario es requerido">
-                </dxi-validation-rule>
-                <dxi-validation-rule type="async" [validationCallback]="asyncValidation"
->>>>>>> c1bafbd14f5370756026f83deae1331b0f9d3504
                     message="usuario ya registrado">
                 </dxi-validation-rule>
             </dxi-item>
@@ -86,23 +68,17 @@
                 <dxi-validation-rule type="pattern" [pattern]="namePattern" message="no use numeros en su rol">
                 </dxi-validation-rule>
             </dxi-item>
-<<<<<<< HEAD
-            <dxi-item dataField="Phone"
-                [editorOptions]="{ 
-=======
         </dxi-item>
         <dxi-item itemType="group" caption="Telefono">
 
 
 
             <dxi-item dataField="Phone" helpText="Ingrese su numero de telefono" [editorOptions]="{ 
->>>>>>> c1bafbd14f5370756026f83deae1331b0f9d3504
                     mask: '+57 (X00) 000-0000',
                     maskRules: phoneRules,
                     useMaskedValue: true,
                     maskInvalidMessage: 'forma de telefono correcta '
                 }">
-<<<<<<< HEAD
                 <dxi-validation-rule 
                     type="pattern"
                     [pattern]="phonePattern"
@@ -115,19 +91,10 @@
                 editorType="dxCheckBox"
                 [editorOptions]="{ 
                     text: 'Estoy de acuerdo con los terminos y condiciones',
-=======
-                <dxi-validation-rule type="pattern" [pattern]="phonePattern"
-                    message="The phone must have a correct USA phone format">
-                </dxi-validation-rule>
-            </dxi-item>
-            <dxi-item itemType="simple" dataField="Accepted" editorType="dxCheckBox" [editorOptions]="{ 
-                    text: 'I agree to the Terms and Conditions',
->>>>>>> c1bafbd14f5370756026f83deae1331b0f9d3504
                     value: false
                 }">
                 <dxo-label [visible]="false">
                 </dxo-label>
-<<<<<<< HEAD
                 <dxi-validation-rule 
                     type="compare"
                     [comparisonTarget]="checkComparison"
@@ -150,15 +117,3 @@
 
 </div>
 
-=======
-                <dxi-validation-rule type="compare" [comparisonTarget]="checkComparison"
-                    message="You must agree to the Terms and Conditions">
-                </dxi-validation-rule>
-            </dxi-item>
-        </dxi-item>
-
-        <dxi-item itemType="button" horizontalAlignment="left" [buttonOptions]="buttonOptions">
-        </dxi-item>
-    </dx-form>
-</form>
->>>>>>> c1bafbd14f5370756026f83deae1331b0f9d3504
