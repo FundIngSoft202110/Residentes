@@ -164,15 +164,8 @@ const routes: Routes = [
     BrowserModule,
     DxSelectBoxModule,
     DxListModule,
-<<<<<<< HEAD
-    DxTemplateModule ,
-   
+    DxTemplateModule , 
 
-    
-   
-=======
-    DxTemplateModule 
->>>>>>> c1bafbd14f5370756026f83deae1331b0f9d3504
   ],
   exports: [RouterModule],
   declarations: [MenuResidenteComponent,

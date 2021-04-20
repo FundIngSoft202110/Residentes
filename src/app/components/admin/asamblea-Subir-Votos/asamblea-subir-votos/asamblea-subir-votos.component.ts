@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import notify from 'devextreme/ui/notify';
-<<<<<<< HEAD
-import { GanadorService, Votos } from '../../../../Services/Ganador/ganador.service';
-=======
+
 import { GanadorService, Ganador } from '../../../../Services/Ganador/ganador.service';
->>>>>>> c1bafbd14f5370756026f83deae1331b0f9d3504
 
 @Component({
   selector: 'app-asamblea-subir-votos',
