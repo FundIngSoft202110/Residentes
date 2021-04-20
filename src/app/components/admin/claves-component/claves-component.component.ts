@@ -17,14 +17,23 @@ import { Usuario, ClaveContraService, Rol } from '../../../Services/ClavServ/cla
 })
 
 export class ClavesComponent {
-  usuarios: Usuario[];
-  roles: Rol[];
+    
+    usuarios: Usuario[];
+    roles: Rol[];
+    labelLocation: string;
+    readOnly: boolean;
+    showColon: boolean;
+    minColWidth: number;
+    width: any;
 
-  constructor( service: ClaveContraService ) {
-      this.usuarios = service.getUsuarios();
-      this.roles = service.getRoles();
-  }
+    constructor( service: ClaveContraService ) {
+        this.labelLocation = "top";
+        this.readOnly = false;
+        this.showColon = true;
+        this.minColWidth = 300;
+        this.usuarios = service.getUsuarios();
+        this.roles =service.getRoles();
+    }
 }
-
 
 

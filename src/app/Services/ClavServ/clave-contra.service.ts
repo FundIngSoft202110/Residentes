@@ -1,30 +1,26 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-
 
 
 export class Usuario {
-    Nombre: string;
-    Usuario: string;
-    Constrasena: string;
+  Usuario: string;
+  Constrasena: string;
 
 }
 
 let usuarios: Usuario[] = [{
-    Nombre: "Sebastian",
-    Usuario: "sebasPUJ",
-    Constrasena: ""
+  Usuario: "1-601",
+  Constrasena: "gato34"
 }, {
-     Nombre: "María",
-    Usuario: "majo99",
-    Constrasena: ""
+  Usuario: "1-602",
+  Constrasena: "messi10"
 }, {
-     Nombre: "Janet",
-    Usuario: "janetcita",
-    Constrasena: ""
+  Usuario: "1-603",
+  Constrasena: "1234abcd"
+},
+ {
+  Usuario: "1-604",
+  Constrasena: "soloMillos"
 }];
 
 export class Rol {
@@ -40,7 +36,10 @@ let roles: Rol[] = [{
 }];
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+
 export class ClaveContraService {
     getUsuarios() : Usuario[] {
         return usuarios;
