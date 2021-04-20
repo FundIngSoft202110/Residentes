@@ -68,7 +68,6 @@ export class AgregarConjuntoComponent implements OnInit {
   asyncValidationDirec(params) {
       return sendRequestDirect(params.value);
   }
-  
   onFormSubmit = function(e) {
     notify({
         message: "Conjunto agregado",
@@ -79,7 +78,7 @@ export class AgregarConjuntoComponent implements OnInit {
     }, "success", 3000);
     
     e.preventDefault();
-    this.navCtrl.navigateForward("/netflix");
+    this.router.navigateByUrl("/netflix");
 
   }
 

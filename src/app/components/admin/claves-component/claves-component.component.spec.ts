@@ -6,7 +6,7 @@ import { ClavesComponent } from './claves-component.component';
 describe('ClavesComponentComponent', () => {
   let component: ClavesComponent;
   let fixture: ComponentFixture<ClavesComponent>;
-
+ 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ClavesComponent ],
