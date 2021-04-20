@@ -1,1 +1,16 @@
 <app-header-start titulo="Selecciona tu conjunto"></app-header-start>
+<ion-content>
+<div class="list-container">
+    <dx-list 
+        #list
+        [dataSource]="conjuntos"
+        [height]="400"
+        [searchEnabled]="true"
+        searchExpr="Name"
+        searchMode="contains">
+            <div *dxTemplate="let data of 'item'">
+                <div>{{data.Name}}</div>
+            </div>
+    </dx-list>
+</div>
+</ion-content>

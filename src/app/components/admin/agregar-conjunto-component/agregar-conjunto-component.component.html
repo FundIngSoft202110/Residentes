@@ -1,4 +1,4 @@
-<app-header-start titulo="Registra"></app-header-start>
+<app-header-start titulo="Agregar Conjunto"></app-header-start>
 <form action="your-action" (submit)="onFormSubmit($event)">
     <dx-form id="form"
         [showColonAfterLabel]="true"
@@ -28,8 +28,6 @@
                     [validationCallback]="asyncValidationDirec">
                 </dxi-validation-rule>
             </dxi-item>
-            
-       
             
             <dxi-item dataField="Precio de administración ($)" helpText="Poner en pesos Colombianos">
                 <dx-number-box
@@ -62,3 +60,6 @@
         </dxi-item>
     </dx-form>
 </form>
+<ion-content>
+  <ion-icon name="play-circle-outline" color = "residente" (click)="finish()" ></ion-icon>
+</ion-content>
