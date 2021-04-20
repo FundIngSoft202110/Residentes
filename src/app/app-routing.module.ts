@@ -23,7 +23,6 @@ import { MenuEmpleadoComponent } from './components/empleado/menu-empleado/menu-
 import { MenuResidenteComponent } from './components/residente/menu-residente/menu-residente.component';
 import { AreasResidenteComponent } from './components/residente/areas-residente-component/areas-residente-component.component';
 import { AsambleaResidenteComponent } from './components/residente/asamblea-residente-component/asamblea-residente-component.component';
-import { IngresoApartamentoComponent } from './components/residente/ingreso-apartamento-component/ingreso-apartamento-component.component';
 import { PagosComponent } from './components/residente/pagos-component/pagos-component.component';
 import { PaquetesResidenteComponent } from './components/residente/paquetes-residente-component/paquetes-residente-component.component';
 import { QuejasResidenteComponent } from './components/residente/quejas-residente-component/quejas-residente-component.component';
@@ -34,6 +33,7 @@ import { EmpleadosComponent } from './components/general/empleados/empleados.com
 import { AsambleaSubirVotosComponent } from './components/admin/asamblea-Subir-Votos/asamblea-subir-votos/asamblea-subir-votos.component';
 import { SeleccionConjuntoComponent } from './components/general/seleccion-conjunto-component/seleccion-conjunto-component.component';
 import { ResultadosResidenteComponent } from './components/residente/resultados-residente/resultados-residente.component';
+import { IngresoPerfilesComponent } from './components/general/ingreso-perfiles/ingreso-perfiles.component';
 
 
 const routes: Routes = [
@@ -106,8 +106,8 @@ const routes: Routes = [
     component: AsambleaResidenteComponent
   },
   {
-    path: 'ingreso-apto',
-    component: IngresoApartamentoComponent
+    path: 'ingreso-perfiles',
+    component: IngresoPerfilesComponent
   },
   {
     path: 'pagos',
@@ -189,7 +189,6 @@ const routes: Routes = [
     RegistroComponent,
     AreasResidenteComponent,
     AsambleaResidenteComponent,
-    IngresoApartamentoComponent,
     PagosComponent,
     PaquetesResidenteComponent,
     QuejasResidenteComponent,
