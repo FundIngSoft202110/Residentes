@@ -13,7 +13,7 @@ let votos: Votos = {
 };
 
 @Injectable()
-export class ResultadosVotacionesService {
+export class GanadorService {
   getVotos() {
 		return votos;
 	}

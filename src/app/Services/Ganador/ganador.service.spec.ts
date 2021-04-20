@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ResultadosVotacionesService } from './resultados-votaciones.service';
+import { GanadorService } from './resultados-votaciones.service';
 
 describe('ResultadosVotacionesService', () => {
-  let service: ResultadosVotacionesService;
+  let service: GanadorService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ResultadosVotacionesService);
+    service = TestBed.inject(GanadorService);
   });
 
   it('should be created', () => {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 export class Asamblea {
 	IdAsamblea: number;
 	FechaAsamblea: string;
@@ -14,39 +15,27 @@ export class Opciones{
 
 let asamblea: Asamblea = {
     "IdAsamblea":1,
-	"FechaAsamblea": "1964/03/16",
-	"Tema": "Nuevo Presidente",
-	"NumeroPropuestas": 2,
+	"FechaAsamblea": "2021/04/21",
+	"Tema": "Junta anual 2021",
+	"NumeroPropuestas":0,
 };
 
-let opciones: Opciones[] = [{
-    "IdPropuesta": 1,
-    "Nombre": "Andres"
-    
-},{
-    "IdPropuesta": 2,
-    "Nombre": "Alejo"
-    
-    
-}];
     
    
 
-let Nopciones: number[] = [1,2,3,4,5,6,7,8,9,20,11,12,13];
+let Nopciones: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AsambleaSubirPropuestaService {
+export class AsambleaService {
 
   getAsamblea() {
 		return asamblea;
 	}
 
-	getOpciones() {
-		return opciones;
-	}
+
 	getNopciones() {
 		return Nopciones;
 	}

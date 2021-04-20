@@ -16,7 +16,6 @@ import { IngresoComponent } from './components/general/ingreso-component/ingreso
 import { ManualComponent } from './components/general/manual-component/manual-component.component';
 import { NetflixComponent } from './components/general/netflix-component/netflix-component.component';
 import { RegistroComponent } from './components/general/registro-component/registro-component.component';
-import { SeleccionConjuntoComponent } from './components/general/seleccion-conjunto-component/seleccion-conjunto-component.component';
 import { HeaderStartComponent } from './components/general/header-start/header-start.component';
 import { HeaderComponent } from './components/general/header/header.component';
 import { MenuAdminComponent } from './components/admin/menu-admin/menu-admin.component';
@@ -28,11 +27,12 @@ import { IngresoApartamentoComponent } from './components/residente/ingreso-apar
 import { PagosComponent } from './components/residente/pagos-component/pagos-component.component';
 import { PaquetesResidenteComponent } from './components/residente/paquetes-residente-component/paquetes-residente-component.component';
 import { QuejasResidenteComponent } from './components/residente/quejas-residente-component/quejas-residente-component.component';
-import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxNumberBoxModule, DxScrollViewComponent, DxScrollViewModule, DxSelectBoxModule, DxTextAreaModule } from 'devextreme-angular';
+import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxListModule, DxNumberBoxModule, DxScrollViewComponent, DxScrollViewModule, DxSelectBoxModule, DxTemplateModule, DxTextAreaModule } from 'devextreme-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { NoticiasComponent } from './components/general/noticias/noticias.component';
 import { EmpleadosComponent } from './components/general/empleados/empleados.component';
 import { AsambleaSubirVotosComponent } from './components/admin/asamblea-Subir-Votos/asamblea-subir-votos/asamblea-subir-votos.component';
+import { SeleccionConjuntoComponent } from './components/general/seleccion-conjunto-component/seleccion-conjunto-component.component';
 
 const routes: Routes = [
   {
@@ -154,6 +154,10 @@ const routes: Routes = [
     DxAutocompleteModule,
     DxFormModule,
     DxTextAreaModule,
+    BrowserModule,
+    DxSelectBoxModule,
+    DxListModule,
+    DxTemplateModule 
    
   
    
@@ -182,7 +186,6 @@ const routes: Routes = [
     ManualComponent,
     NetflixComponent,
     RegistroComponent,
-    SeleccionConjuntoComponent,
     AreasResidenteComponent,
     AsambleaResidenteComponent,
     IngresoApartamentoComponent,
@@ -191,7 +194,8 @@ const routes: Routes = [
     QuejasResidenteComponent,
     NoticiasComponent,
     EmpleadosComponent,
-    AsambleaSubirVotosComponent
+    AsambleaSubirVotosComponent,
+    SeleccionConjuntoComponent
   ]
 })
 export class AppRoutingModule { }

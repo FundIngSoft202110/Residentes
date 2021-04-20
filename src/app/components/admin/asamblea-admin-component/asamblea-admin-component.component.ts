@@ -1,21 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { OpcionesService } from 'src/app/Services/opciones/opciones.service';
+import { Opcion } from 'src/app/Services/opciones/opcion.model';
 
-import { AsambleaSubirPropuestaService, Asamblea,  Opciones} from '../../../Services/asamblea-subir-propuesta/asamblea-subir-propuesta.service';
+import { AsambleaService, Asamblea} from '../../../Services/asambleas/asamblea-subir-propuesta.service';
+import { Propuesta } from 'src/app/Services/propuestas/propuesta.model';
+import { PropuestasService } from 'src/app/Services/propuestas/propuestas.service';
 @Component({
   selector: 'app-asamblea-admin-component',
-  providers:[AsambleaSubirPropuestaService],
+  providers:[AsambleaService],
   templateUrl: './asamblea-admin-component.component.html',
   styleUrls: ['./asamblea-admin-component.component.scss'],
 })
 export class AsambleaAdminComponent implements OnInit {
 
   asamblea: Asamblea;
-	propuestas: Opciones[];
+  opciones: Opcion[];
+  propuesta: Propuesta[];
 	Nopciones: number[];
 
-	constructor(service: AsambleaSubirPropuestaService) {
+	constructor(service: AsambleaService, opcionesServices:OpcionesService, propuestaServices:PropuestasService) {
 		this.asamblea = service.getAsamblea();
-		this.propuestas = service.getOpciones();
+    this.propuesta=propuestaServices.getPropuestas();
+	  this.opciones = opcionesServices.getOpciones(1);
 		this.Nopciones = service.getNopciones();
 	}
 

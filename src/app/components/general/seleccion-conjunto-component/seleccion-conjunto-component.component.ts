@@ -18,16 +18,7 @@ if(!/localhost/.test(document.location.host)) {
   styleUrls: ['./seleccion-conjunto-component.component.scss'],
 })
 
-@NgModule({
-  imports: [
-      BrowserModule,
-      DxSelectBoxModule,
-      DxListModule,
-      DxTemplateModule 
-  ],
-  declarations: [SeleccionConjuntoComponent],
-  bootstrap: [SeleccionConjuntoComponent]
-})
+
 
 
 export class SeleccionConjuntoComponent {
@@ -37,4 +28,5 @@ export class SeleccionConjuntoComponent {
       this.conjuntos = service.getConjuntos();
   }
 }
+
 

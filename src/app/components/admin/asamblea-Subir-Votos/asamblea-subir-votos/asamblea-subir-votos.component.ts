@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import notify from 'devextreme/ui/notify';
-import { ResultadosVotacionesService, Votos } from '../../../../Services/servicio-votaciones/resultados-votaciones.service';
+import { GanadorService, Votos } from '../../../../Services/Ganador/resultados-votaciones.service';
 
 @Component({
   selector: 'app-asamblea-subir-votos',
-  providers: [ResultadosVotacionesService],
+  providers: [GanadorService],
   templateUrl: './asamblea-subir-votos.component.html',
   styleUrls: ['./asamblea-subir-votos.component.scss'],
 })
 export class AsambleaSubirVotosComponent implements OnInit {
 	votos: Votos;
-	constructor(service: ResultadosVotacionesService) {
+	constructor(service: GanadorService) {
 		this.votos = service.getVotos();
 	}
   ngOnInit(): void {

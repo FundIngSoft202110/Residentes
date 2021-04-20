@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AsambleaSubirPropuestaService } from './asamblea-subir-propuesta.service';
+import { AsambleaService } from './asamblea-subir-propuesta.service';
 
 describe('AsambleaSubirPropuestaService', () => {
-  let service: AsambleaSubirPropuestaService;
+  let service: AsambleaService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AsambleaSubirPropuestaService);
+    service = TestBed.inject(AsambleaService);
   });
 
   it('should be created', () => {

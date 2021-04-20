@@ -7,102 +7,102 @@
         [showColonAfterLabel]="true"
         [showValidationSummary]="true"
         validationGroup="customerData">
-        <dxi-item itemType="group" caption="Credentials">
-            <dxi-item dataField="Email">
+        <dxi-item itemType="group" caption="Datos">
+            <dxi-item dataField="Correo">
                 <dxi-validation-rule 
                     type="required"
-                    message="Email is required">
+                    message="Correo requerido">
                 </dxi-validation-rule>
                 <dxi-validation-rule 
                     type="email"
-                    message="Email is invalid">
+                    message="Correo Invalido">
                 </dxi-validation-rule>
                 <dxi-validation-rule 
                     type="async" 
-                    message="Email is already registered" 
+                    message="Correo ya registrado" 
                     [validationCallback]="asyncValidation">
                 </dxi-validation-rule>
             </dxi-item>
-            <dxi-item dataField="Password"
+            <dxi-item dataField="Contraseña"
                 [editorOptions]="{ mode: 'password' }">
                 <dxi-validation-rule 
                     type="required"
-                    message="Password is required">
+                    message="Contraseña es obligatoria">
                 </dxi-validation-rule>
             </dxi-item>
             <dxi-item 
                 editorType="dxTextBox"
                 [editorOptions]="{ mode: 'password' }">
                 <dxo-label
-                    text="Confirm Password">
+                    text="Contraseña confirmada">
                 </dxo-label>
                 <dxi-validation-rule 
                     type="required"
-                    message="Confirm Password is required">
+                    message="confirme su contraseña">
                 </dxi-validation-rule>
                 <dxi-validation-rule 
                     type="compare" 
                     [comparisonTarget]="passwordComparison"
-                    message="Password and Confirm Password do not match">
+                    message="contraseña incorrecta">
                 </dxi-validation-rule>
             </dxi-item>
         </dxi-item>
-        <dxi-item itemType="group" caption="Personal Data">
-            <dxi-item dataField="Nombre">
+        <dxi-item itemType="group" caption="Datso Personales">
+            <dxi-item dataField="Nombres">
                 <dxi-validation-rule 
                     type="required"
-                    message="Name is required">
+                    message="Nombre es requerido">
                 </dxi-validation-rule>
                 <dxi-validation-rule 
                     type="pattern"
                     [pattern]="namePattern"
-                    message="Do not use digits in the Name">
+                    message=" no use numeros en su nombre">
                 </dxi-validation-rule>
             </dxi-item>
-            <dxi-item dataField="Apellido">
+            <dxi-item dataField="Apellidos">
                 <dxi-validation-rule 
                     type="required"
-                    message="Apellido is required">
+                    message="Apellido es requerido">
                 </dxi-validation-rule>
                 <dxi-validation-rule 
                     type="pattern"
                     [pattern]="namePattern"
-                    message="Do not use digits in the Apellido">
+                    message="no use numeros en su Apellido">
                 </dxi-validation-rule>
             </dxi-item>
              <dxi-item dataField="Usuario">
                 <dxi-validation-rule 
                     type="required"
-                    message="Apellido is required">
+                    message="Usuario es requerido">
                 </dxi-validation-rule>
                 <dxi-validation-rule 
-                    type="pattern"
-                    [pattern]="namePattern"
-                    message="Do not use digits in the Apellido">
+                    type="async"
+                    [validationCallback]="asyncValidation"
+                    message="usuario ya registrado">
                 </dxi-validation-rule>
             </dxi-item>
                 <dxi-item dataField="Rol">
                 <dxi-validation-rule 
                     type="required"
-                    message="Apellido is required">
+                    message="Rol requerido">
                 </dxi-validation-rule>
                 <dxi-validation-rule 
                     type="pattern"
                     [pattern]="namePattern"
-                    message="Do not use digits in the Apellido">
+                    message="no use numeros en su rol">
                 </dxi-validation-rule>
             </dxi-item>
         </dxi-item>
-        <dxi-item itemType="group" caption="Billing address">
+        <dxi-item itemType="group" caption="Telefono">
             
          
           
-            <dxi-item dataField="Phone" helpText="Enter the phone number in USA phone format"
+            <dxi-item dataField="Phone" helpText="Ingrese su numero de telefono"
                 [editorOptions]="{ 
-                    mask: '+1 (X00) 000-0000',
+                    mask: '+57 (X00) 000-0000',
                     maskRules: phoneRules,
                     useMaskedValue: true,
-                    maskInvalidMessage: 'The phone must have a correct USA phone format'
+                    maskInvalidMessage: 'forma de telefono incorrecto '
                 }">
                 <dxi-validation-rule 
                     type="pattern"

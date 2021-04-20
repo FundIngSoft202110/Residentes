@@ -1,6 +1,7 @@
 <app-header titulo="ASAMBLEA" menu=ADMIN></app-header>
 <dx-form id="form"
-	[formData]="employee">
+	[formData]="asamblea">
+
 	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
 		
 		<dxi-item itemType="group" [colSpan]="3">
@@ -10,6 +11,7 @@
 				<dxi-item dataField="NumeroPropuestas" editorType="dxSelectBox" [editorOptions]="{ items: Nopciones }"></dxi-item>
 		</dxi-item>
 	</dxi-item>
+
 	<dxi-item itemType="group" cssClass="second-group" [colCount]="2">
 		<dxi-item itemType="group">
 			<dxi-item dataField="IdPropuesta"></dxi-item>
