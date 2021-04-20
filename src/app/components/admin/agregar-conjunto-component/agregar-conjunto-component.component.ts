@@ -1,4 +1,5 @@
 import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
+import {Router} from '@angular/router';
 
 import notify from 'devextreme/ui/notify';
 import { Conjunto, AgregarConjuntoService } from '../../../Services/agregar-conjunto/agregar-conjunto.service';
@@ -56,7 +57,7 @@ export class AgregarConjuntoComponent implements OnInit {
       return true;
   }
 
-  constructor(service: AgregarConjuntoService) {
+  constructor(private router: Router ,service: AgregarConjuntoService) {
       this.conjunto = service.getConjunto();
   }
 
@@ -77,12 +78,18 @@ export class AgregarConjuntoComponent implements OnInit {
     }, "success", 3000);
     
     e.preventDefault();
+    this.navCtrl.navigateForward("/netflix");
+
   }
 
     ngOnInit() {
 
      }
 
-	
+     finish(){
+      // this.storage.set('isIntroShowed',true );
+   
+       this.router.navigateByUrl("/seleccion-conjunto");
+     }
 }
 
