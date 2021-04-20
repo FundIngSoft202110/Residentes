@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GanadorService } from './resultados-votaciones.service';
+import { GanadorService } from './ganador.service';
 
 describe('ResultadosVotacionesService', () => {
   let service: GanadorService;

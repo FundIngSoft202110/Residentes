@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AsambleaService } from './asamblea-subir-propuesta.service';
+import { AsambleaService } from './asamblea.service';
 
 describe('AsambleaSubirPropuestaService', () => {
   let service: AsambleaService;

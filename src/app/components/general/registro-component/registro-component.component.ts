@@ -6,10 +6,11 @@ import { DxCheckBoxModule, DxFormComponent } from 'devextreme-angular';
 import { AppComponent } from 'src/app/app.component';
 import notify from 'devextreme/ui/notify';
 import { Customer, RegistroServicioService } from '../../../Services/registro-servicio/registro-servicio.service';
-
+import { NavController } from '@ionic/angular';
+import { HostListener } from '@angular/core';
 
 const sendRequest = function(value) {
-    const validEmail = "test@dx-email.com";
+    const validEmail = "m@hotmail.com.com";
     return new Promise((resolve) => {
         setTimeout(function() {
             resolve(value === validEmail);
@@ -36,31 +37,37 @@ export class RegistroComponent implements OnInit {
     maxDate: Date = new Date();
     cityPattern = "^[^0-9]+$";
     namePattern: any = /^[^0-9]+$/;
-    phonePattern: any = /^\+\s*1\s*\(\s*[02-9]\d{2}\)\s*\d{3}\s*-\s*\d{4}$/;
+    phonePattern: any ;
     phoneRules: any = {
         X: /[02-9]/
     }
     buttonOptions: any = {
-        text: "Register",
+        text: "Registrarse",
         type: "success",
         useSubmitBehavior: true
     }
+   
     passwordComparison = () => {
         return this.form.instance.option("formData").Password;
     };
     checkComparison() {
         return true;
     }
-    constructor(service: RegistroServicioService) {
+    constructor(private navCtrl: NavController,service: RegistroServicioService) {
         this.maxDate = new Date(this.maxDate.setFullYear(this.maxDate.getFullYear() - 21));
         this.customer = service.getCustomer();
     }
+  
+
+//   
+  
+
     asyncValidation(params) {
         return sendRequest(params.value);
     }
     onFormSubmit = function(e) {
         notify({
-            message: "You have submitted the form",
+            message: "Se ha registrado con exito",
             position: {
                 my: "center top",
                 at: "center top"
@@ -73,6 +80,9 @@ export class RegistroComponent implements OnInit {
     ngOnInit() {
 
      }
+     goIngreso() {
+        this.navCtrl.navigateForward("/ingreso");
+    }
 
 	
 }

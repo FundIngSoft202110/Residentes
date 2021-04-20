@@ -34,6 +34,7 @@ import { EmpleadosComponent } from './components/general/empleados/empleados.com
 import { AsambleaSubirVotosComponent } from './components/admin/asamblea-Subir-Votos/asamblea-subir-votos/asamblea-subir-votos.component';
 import { SeleccionConjuntoComponent } from './components/general/seleccion-conjunto-component/seleccion-conjunto-component.component';
 
+
 const routes: Routes = [
   {
     path: 'home',
@@ -143,6 +144,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
     CommonModule,
     IonicModule,
+    
     RouterModule,
     DxDataGridModule,
     DxButtonModule,
@@ -157,14 +159,11 @@ const routes: Routes = [
     BrowserModule,
     DxSelectBoxModule,
     DxListModule,
-    DxTemplateModule 
-   
-  
+    DxTemplateModule ,
    
 
     
-    
-
+   
   ],
   exports: [RouterModule],
   declarations: [MenuResidenteComponent,

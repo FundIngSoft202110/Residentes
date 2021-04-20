@@ -1,13 +1,22 @@
-<app-header-start titulo="Registrate"></app-header-start>
 
-<form action="your-action"  (submit)="onFormSubmit($event)">
+
+<div class="content-block dx-card responsive-paddings">
+    <app-header-start titulo="Registrate"></app-header-start>
+<form  action="your-action"  (submit)="onFormSubmit($event)">
+
+    <ion-card  class="subir" routerLink="/ingreso" >
+    <ion-card-header>
+        <ion-card-subtitle> Volver al Ingreso </ion-card-subtitle>
+    </ion-card-header>
+
+</ion-card>
     <dx-form id="form"
         [formData]="customer"
         [readOnly]="false"
         [showColonAfterLabel]="true"
-        [showValidationSummary]="true"
+        [showValidationSummary]="true"  
         validationGroup="customerData">
-        <dxi-item itemType="group" caption="Datos">
+        <dxi-item itemType="group" caption="Cuenta">
             <dxi-item dataField="Correo">
                 <dxi-validation-rule 
                     type="required"
@@ -38,7 +47,7 @@
                 </dxo-label>
                 <dxi-validation-rule 
                     type="required"
-                    message="confirme su contraseña">
+                    message="contraseña requerida">
                 </dxi-validation-rule>
                 <dxi-validation-rule 
                     type="compare" 
@@ -46,8 +55,6 @@
                     message="contraseña incorrecta">
                 </dxi-validation-rule>
             </dxi-item>
-        </dxi-item>
-        <dxi-item itemType="group" caption="Datso Personales">
             <dxi-item dataField="Nombres">
                 <dxi-validation-rule 
                     type="required"
@@ -76,8 +83,7 @@
                     message="Usuario es requerido">
                 </dxi-validation-rule>
                 <dxi-validation-rule 
-                    type="async"
-                    [validationCallback]="asyncValidation"
+                    
                     message="usuario ya registrado">
                 </dxi-validation-rule>
             </dxi-item>
@@ -92,22 +98,17 @@
                     message="no use numeros en su rol">
                 </dxi-validation-rule>
             </dxi-item>
-        </dxi-item>
-        <dxi-item itemType="group" caption="Telefono">
-            
-         
-          
-            <dxi-item dataField="Phone" helpText="Ingrese su numero de telefono"
+            <dxi-item dataField="Phone"
                 [editorOptions]="{ 
                     mask: '+57 (X00) 000-0000',
                     maskRules: phoneRules,
                     useMaskedValue: true,
-                    maskInvalidMessage: 'forma de telefono incorrecto '
+                    maskInvalidMessage: 'forma de telefono correcta '
                 }">
                 <dxi-validation-rule 
                     type="pattern"
                     [pattern]="phonePattern"
-                    message="The phone must have a correct USA phone format">
+                    message="Forma del telefono no compatible">
                 </dxi-validation-rule>
             </dxi-item>
             <dxi-item 
@@ -115,7 +116,7 @@
                 dataField="Accepted"
                 editorType="dxCheckBox"
                 [editorOptions]="{ 
-                    text: 'I agree to the Terms and Conditions',
+                    text: 'Estoy de acuerdo con los terminos y condiciones',
                     value: false
                 }">
                 <dxo-label
@@ -124,15 +125,22 @@
                 <dxi-validation-rule 
                     type="compare"
                     [comparisonTarget]="checkComparison"
-                    message="You must agree to the Terms and Conditions">
+                    message="Debe estar de acuerdo con los terminos y condiciones">
                 </dxi-validation-rule>
             </dxi-item>
         </dxi-item>
-
+       
         <dxi-item 
             itemType="button"
             horizontalAlignment="left"
             [buttonOptions]="buttonOptions">
-        </dxi-item>
+        </dxi-item> 
+        
+        
     </dx-form>
+
 </form>
+
+
+</div>
+
