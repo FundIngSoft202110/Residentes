@@ -1,1 +1,21 @@
 <app-header titulo="CLAVES" menu=ADMIN></app-header>
+<div class="form-demo">
+    <div class="widget-container">
+        <div>Rol:</div>
+        <dx-select-box #rol
+            displayExpr="Nombre"
+            [(dataSource)]="roles"
+            ></dx-select-box>
+    </div>
+    <div class="widget-container">
+        <div>Lista:</div>
+        <dx-select-box #usuario
+            displayExpr="Nombre"
+            [(dataSource)]="usuarios"
+           ></dx-select-box>
+         <dx-form  id="form"
+            [(formData)]="usuario.value"
+            [readOnly]="readOnly"
+            ></dx-form>
+    </div>
+</div>
