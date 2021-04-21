@@ -98,10 +98,10 @@ export class IngresoComponent implements OnInit {
         }, "success", 3000);
 
         e.preventDefault();
-        if (admin == 1) {
-            this.navCtrl.navigateForward("/home");
-        } else {
+        if (admin == 0) {
             this.navCtrl.navigateForward("/netflix");
+        } else {
+            this.navCtrl.navigateForward("/home");
         }
     }
 
