@@ -1,31 +1,21 @@
-/* Without setting height the slides will take up the height of the slide's content */
-.inset-modal{
-    position: relative;
-    margin: auto;
-}
-
 ion-slides {
     --bullet-background: #c9e265;
     --bullet-background-active: #c9e265;
     height: 100%;
     width: 100%;
-    ion-card{
-        left: 25%;
-        height: 10%;
-        width: 40%;
-        margin-top: 20%;
-    }
-    ion-slide {
-        display: block;
-    }
-    ion-button{
-        margin-top: 50rem;
-    }
+}
+
+ion-card{
+    left: 10%;
+    width: 70%;
+}
+ion-slide {
+    display: block;
+}
+
+ion-textarea{
+    left: 20%;
+    width: 60%;
 }
 
 
-/*ion-card{
-    left: 30%;
-    width: 30%;
-    height: 60%;
-}*/

@@ -2,27 +2,28 @@
 
 <ion-slides pager="true" #theSlides>
     <ion-slide *ngFor="let propuesta of propuestas">
-        <div>
-            <h3> {{getPropNombre(propuesta)}}</h3>
-        </div>
-        <div *ngFor="let opcion of getOpcSlideInfo(propuesta)">
-            <ion-card color="{{getColorCards(propuesta)}}" (click)="votar(opcion,propuesta)">
+        <ion-content padding class="vertical-center">
+            
+            <ion-textarea> <br> <i>{{getPropNombre(propuesta)}}</i> </ion-textarea>
+            
+            <div *ngFor="let opcion of getOpcSlideInfo(propuesta)">
+                <ion-card color="{{getColorCards(propuesta)}}" (click)="votar(opcion,propuesta)">
+                    <ion-card-content>
+                        {{getNombreOpcion(opcion, propuesta)}}
+                    </ion-card-content>
+                </ion-card>
+            </div>
+            <ion-card color="{{getColorResultados(propuesta)}}" (click)="enviarPropuesta(propuesta)">
                 <ion-card-content>
-                    {{getNombreOpcion(opcion, propuesta)}}
+                    Voto en blanco
                 </ion-card-content>
             </ion-card>
-        </div>
-        <ion-card color="{{getColorResultados(propuesta)}}" (click)="enviarPropuesta(propuesta)">
-            <ion-card-content>
-                Ver Resultados
-            </ion-card-content>
-        </ion-card>
-        
-        <ion-button fill="clear" slot="start" color="residente" (click)="prev(theSlides)">
-            <ion-icon slot="icon-only" name="chevron-back-outline" color="residente"></ion-icon>
-        </ion-button>
-        <ion-button fill="clear" slot="start" color="residente" (click)="next(theSlides)">
-            <ion-icon slot="icon-only" name="chevron-forward-outline" color="residente"></ion-icon>
-        </ion-button>
+            <ion-card color="{{getColorResultados(propuesta)}}" (click)="enviarPropuesta(propuesta)">
+                <ion-card-content>
+                    Ver Resultados
+                </ion-card-content>
+            </ion-card>
+            <br> <br>
+        </ion-content>
     </ion-slide>
 </ion-slides>
