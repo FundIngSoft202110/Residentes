@@ -26,7 +26,7 @@ import { AsambleaResidenteComponent } from './components/residente/asamblea-resi
 import { PagosComponent } from './components/residente/pagos-component/pagos-component.component';
 import { PaquetesResidenteComponent } from './components/residente/paquetes-residente-component/paquetes-residente-component.component';
 import { QuejasResidenteComponent } from './components/residente/quejas-residente-component/quejas-residente-component.component';
-import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxListModule, DxNumberBoxModule, DxScrollViewComponent, DxScrollViewModule, DxSelectBoxModule, DxTemplateModule, DxTextAreaModule } from 'devextreme-angular';
+import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFileUploaderModule, DxFormModule, DxListModule, DxNumberBoxModule, DxScrollViewComponent, DxScrollViewModule, DxSelectBoxModule, DxTemplateModule, DxTextAreaModule, DxTextBoxModule } from 'devextreme-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { NoticiasComponent } from './components/general/noticias/noticias.component';
 import { EmpleadosComponent } from './components/general/empleados/empleados.component';
@@ -34,6 +34,7 @@ import { AsambleaSubirVotosComponent } from './components/admin/asamblea-Subir-V
 import { SeleccionConjuntoComponent } from './components/general/seleccion-conjunto-component/seleccion-conjunto-component.component';
 import { ResultadosResidenteComponent } from './components/residente/resultados-residente/resultados-residente.component';
 import { IngresoPerfilesComponent } from './components/general/ingreso-perfiles/ingreso-perfiles.component';
+import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -149,7 +150,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
     CommonModule,
     IonicModule,
-    
     RouterModule,
     DxDataGridModule,
     DxButtonModule,
@@ -164,11 +164,16 @@ const routes: Routes = [
     BrowserModule,
     DxSelectBoxModule,
     DxListModule,
-    DxTemplateModule , 
-
+    DxTemplateModule ,
+    DxFileUploaderModule,
+    DxTextBoxModule,
+    FormsModule,
+    
+  
   ],
   exports: [RouterModule],
-  declarations: [MenuResidenteComponent,
+  declarations: [
+    MenuResidenteComponent,
     MenuAdminComponent,
     MenuEmpleadoComponent,
     HeaderComponent,

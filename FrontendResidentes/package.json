@@ -23,6 +23,7 @@
     "@ionic/angular": "^5.5.2",
     "devextreme": "20.2.6",
     "devextreme-angular": "20.2.6",
+    "ng2-pdf-viewer": "^6.4.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
