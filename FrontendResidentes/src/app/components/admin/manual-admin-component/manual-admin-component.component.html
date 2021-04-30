@@ -1,1 +1,24 @@
 <app-header titulo="MANUAL CONVIVENCIA" menu=ADMIN></app-header>
+<form id="form" #form method="post" action="" enctype="multipart/form-data">
+    <h3>Seleccione el archivo para el manual</h3>
+    <div id="fileuploader-container">
+        <dx-file-uploader
+            selectButtonText="Seleccionar"
+            labelText=""
+            accept=".pdf"
+            uploadMode="useForm">
+        </dx-file-uploader>
+    </div>
+    <dx-button
+        id="button"
+        text="Actualizar Manual"
+        type="success"
+        (onClick)="updateClick()">
+    </dx-button>
+    <dx-button
+    id="button"
+    text="Subir Manual"
+    type="success"
+    (onClick)="updateClick()">
+</dx-button>
+</form>
