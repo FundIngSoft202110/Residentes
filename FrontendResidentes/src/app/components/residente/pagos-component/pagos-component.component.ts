@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-pagos-component',
@@ -7,8 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private conjuntosService: ConjuntosService, private inAppBrowser: InAppBrowser) { }
 
   ngOnInit() {}
+
+  getUrl(){
+    return this.conjuntosService.getConjunto(this.getConjuto()).linkDePago;
+  }
+
+  openUrl(){
+    this.inAppBrowser.create(this.getUrl(),'_self');
+  }
+
+  getConjuto(){
+    return 1;
+  }
+
+  getPrecio(){
+    return this.conjuntosService.getConjunto(this.getConjuto()).precioAdmin;
+  }
 
 }
