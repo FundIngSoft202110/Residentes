@@ -1,21 +1,11 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="residente">
   </ion-toolbar >
-  <ion-toolbar color="light"> 
-    <div *ngIf="menu == 'NO'; then thenBlock else elseBlock"></div>
-    <ng-template #thenBlock>
-      <!--<ion-buttons slot="start"> Falta que sirva botón
-        <ion-back-button> </ion-back-button>
-      </ion-buttons>  -->
-    </ng-template>
-    <ng-template #elseBlock>
+  <ion-toolbar color="light">
       <ion-buttons slot="start" (click)="toggleMenu()">
         <ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon>
       </ion-buttons>
-    </ng-template> 
-    
-    <strong><ion-title class="" color="residente-txt">{{titulo}}</ion-title> </strong>
-
+      <ion-title slot="start" color="residente-txt">{{titulo}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
