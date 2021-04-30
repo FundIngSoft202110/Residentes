@@ -16,10 +16,10 @@ import java.util.logging.Logger;
 
 
 public class ConexionBD {
-    
+                               
     public static final String sURL = "jdbc:mysql://localhost:3306/residentes?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true&useSSL=false"; 
-    public static final String  usuario= "alejo23";
-    public static final String password ="Ma123456789";
+    public static final String  usuario= "sebas";
+    public static final String password ="SEB@Sruso0824";
     public static final String driver= "com.mysql.jdbc.Driver";
     
     
