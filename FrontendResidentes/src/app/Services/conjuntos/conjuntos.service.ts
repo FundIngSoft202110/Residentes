@@ -10,7 +10,7 @@ export class ConjuntosService {
     {
       id: 1,
       nombre: 'Mari1',
-      linkDePago: 'www.mipago.com/Maria',
+      linkDePago: 'https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=446&searchedCategoryId=&searchedAgreementName=CON%20UNIDAD%20RESID%20%20EL%20QUIRINAL',
       direccion: 'Carrera 68 # 26 - 48',
       precioAdmin: 545000,
       manual: 'ManualMaria.pdf'
@@ -18,7 +18,7 @@ export class ConjuntosService {
     {
       id: 2,
       nombre: 'Mari2',
-      linkDePago: 'www.mipago.com/Maria',
+      linkDePago: 'https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=446&searchedCategoryId=&searchedAgreementName=CON%20UNIDAD%20RESID%20%20EL%20QUIRINAL',
       direccion: 'Carrera 68 # 26 - 48',
       precioAdmin: 545000,
       manual: 'ManualMaria.pdf'
@@ -26,7 +26,7 @@ export class ConjuntosService {
     {
       id: 3,
       nombre: 'Mari3',
-      linkDePago: 'www.mipago.com/Maria',
+      linkDePago: 'https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=446&searchedCategoryId=&searchedAgreementName=CON%20UNIDAD%20RESID%20%20EL%20QUIRINAL',
       direccion: 'Carrera 68 # 26 - 48',
       precioAdmin: 545000,
       manual: 'ManualMaria.pdf'
