@@ -24,6 +24,7 @@
     "devextreme": "20.2.6",
     "devextreme-angular": "20.2.6",
     "ng2-pdf-viewer": "^6.4.1",
+    "ngx-extended-pdf-viewer": "^9.0.0-alpha.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

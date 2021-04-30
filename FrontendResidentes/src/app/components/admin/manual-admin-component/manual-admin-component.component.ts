@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import notify from 'devextreme/ui/notify';
+import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 
 @Component({
   selector: 'app-manual-admin-component',
@@ -15,7 +16,9 @@ export class ManualAdminComponent implements OnInit {
       notify('El manual a sido actualizado');
       
   }
-  constructor() { }
+  constructor() { 
+    pdfDefaultOptions.assetsFolder = 'bleeding-edge';
+  }
 
   ngOnInit() {}
 

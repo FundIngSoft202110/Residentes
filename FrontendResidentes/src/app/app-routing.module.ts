@@ -35,7 +35,8 @@ import { SeleccionConjuntoComponent } from './components/general/seleccion-conju
 import { ResultadosResidenteComponent } from './components/residente/resultados-residente/resultados-residente.component';
 import { IngresoPerfilesComponent } from './components/general/ingreso-perfiles/ingreso-perfiles.component';
 import { FormsModule } from '@angular/forms';
-
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+//ngx-extended-pdf-viwer
 
 const routes: Routes = [
   {
@@ -168,6 +169,8 @@ const routes: Routes = [
     DxFileUploaderModule,
     DxTextBoxModule,
     FormsModule,
+    NgxExtendedPdfViewerModule
+    
     
   
   ],
