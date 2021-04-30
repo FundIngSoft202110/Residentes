@@ -33,3 +33,4 @@ npm-debug.log*
 /BackendResidentes/dist/
 /BackendResidentes/src/java/APConexionBD.java
 /BackendResidentes/web/WEB-INF/glassfish-resources.xml
+/BackendResidentes/build/
