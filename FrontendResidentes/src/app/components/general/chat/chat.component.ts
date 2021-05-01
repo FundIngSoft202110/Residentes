@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
-
+import { ChatServicioService } from 'src/app/Services/chatserv/chat-servicio.service';
+import { PersonasService } from 'src/app/Services/personas/personas.service';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -8,28 +9,7 @@ import { IonContent } from '@ionic/angular';
 })
 export class ChatComponent implements OnInit {
 
-  mensajes = [
-    {
-      usuario: 'david',
-      createdAt: 1554090856000,
-      msg: 'Holaa como estas'
-    },
-    {
-      usuario: 'maria',
-      createdAt: 1554090956000,
-      msg: 'buenaaas'
-    },
-    {
-      usuario: 'maria',
-      createdAt: 1554091056000,
-      msg: 'kyc mi pez'
-    },
-    {
-      usuario: 'david',
-      createdAt: 1554091056000,
-      msg: 'no hago mas na'
-    }
-  ];
+  mensajes = [];
   usuActual = 'david';
 
   newMsg: string = '';
@@ -37,9 +17,14 @@ export class ChatComponent implements OnInit {
 
   @ViewChild(IonContent) content: IonContent
 
-  constructor() { }
+  constructor(private chatServ:ChatServicioService, private personasService:PersonasService ) {
+      
+   }
 
-  ngOnInit(){}
+  ngOnInit(){
+
+    this.mensajes = this.chatServ.getMsjs(); 
+  }
 
   enviarMensaje() {
     this.mensajes.push({
@@ -53,7 +38,7 @@ export class ChatComponent implements OnInit {
     });
   }
 
-  getUser() {
-    return this.user;
+  getUser(){
+    return this.personasService.getPersonaActiva().rolConjunto;
   }
 }
