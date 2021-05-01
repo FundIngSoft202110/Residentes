@@ -2,13 +2,13 @@
 
 <ion-content padding class="vertical-center">
   <section class="ion-text-center">
-    <h5> <i>Selecciona un conjunto, para ingresar</i> <br> <br> </h5>
+    <ion-label color="medium"> <i>Selecciona un {{perfil}}</i> <br> <br> </ion-label>
   </section>
 
   <ion-card class="ion-text-center" routerLink="{{getRouteConjunto()}}" *ngFor="let perfil of perfiles">
     <div *ngIf="getUser() == 'RESIDENTE'; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
-      <ion-card-title> {{getConjunto(perfil.idConjunto).nombre}} </ion-card-title>
+      <ion-card-title> {{getConjunto(perfil).nombre}}: {{perfil.torre}}-{{perfil.numero}} </ion-card-title>
     </ng-template>
     <ng-template #elseBlock>
       <ion-card-title> {{perfil.nombre}} </ion-card-title>

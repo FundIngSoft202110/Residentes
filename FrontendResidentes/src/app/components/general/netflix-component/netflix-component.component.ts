@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ConjuntosService } from '../../../Services/conjuntos/conjuntos.service'
 import { AptosService } from '../../../Services/aptos/aptos.service'
+import { PersonasService } from 'src/app/Services/personas/personas.service';
+import { Apto } from 'src/app/Services/aptos/apto.model';
 
 @Component({
   selector: 'app-netflix-component',
@@ -10,26 +12,34 @@ import { AptosService } from '../../../Services/aptos/aptos.service'
 export class NetflixComponent implements OnInit {
 
   perfiles = []
-  public usuario : string = "ADMIN";
+  public perfil: string;
+  public usuario: string;
 
-  constructor(private conjuntoService : ConjuntosService, private aptoService: AptosService) { }
+  constructor(private personasService:PersonasService, private conjuntoService : ConjuntosService, private aptoService: AptosService) { }
 
   getUser(){
-    return this.usuario;
+    return this.personasService.getPersonaActiva().rolConjunto;
   }
 
   ngOnInit() {
-    if(this.getUser() == "ADMIN" || this.getUser() == "EMPLEADO"){
+    this.usuario = this.getUser();
+    if(this.usuario == "ADMIN" || this.usuario == "EMPLEADO"){
       this.perfiles = this.conjuntoService.getConjuntos();
-    }else if(this.getUser() == "RESIDENTE"){
+      this.perfil = "conjunto";
+    }else if(this.usuario == "RESIDENTE"){
       this.perfiles = this.aptoService.getAptos();
+      this.perfil = "apartamento";
     }
   }
 
+  getConjunto(apto:Apto){
+    return this.conjuntoService.getConjunto(apto.idConjunto);
+  }
+
   getRouteConjunto(){
-    if(this.getUser() == "ADMIN" || this.getUser() == "RESIDENTE"){
+    if(this.usuario == "ADMIN" || this.usuario == "RESIDENTE"){
       return "/noticias";
-    }else if(this.getUser() == "EMPLEADO"){
+    }else if(this.usuario == "EMPLEADO"){
       return "/asistencia-empleado";
     }
   }

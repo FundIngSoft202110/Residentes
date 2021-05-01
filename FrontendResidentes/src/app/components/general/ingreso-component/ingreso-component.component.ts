@@ -13,6 +13,7 @@ import {
     DxFormComponent
 } from 'devextreme-angular';
 import { NavController } from '@ionic/angular';
+import { PersonasService } from 'src/app/Services/personas/personas.service';
 
 let admin = 0;
 
@@ -74,7 +75,7 @@ export class IngresoComponent implements OnInit {
         return true;
     }
 
-    constructor(private navCtrl: NavController, private router: Router, service: IngresoService) {
+    constructor(private personasService:PersonasService, private navCtrl: NavController, private router: Router, service: IngresoService) {
         this.usuario = service.getUsuario();
     }
 
@@ -98,16 +99,12 @@ export class IngresoComponent implements OnInit {
         }, "success", 3000);
 
         e.preventDefault();
+
         if (admin == 0) {
-            this.navCtrl.navigateForward("/netflix");
+            this.personasService.setPersonaActiva(2);
         } else {
-            this.navCtrl.navigateForward("/home");
+            this.personasService.setPersonaActiva(1);
         }
-    }
-
-
-    finish() {
-
         this.navCtrl.navigateForward("/netflix");
     }
 

@@ -46,7 +46,21 @@ export class PersonasService {
     }
   ]
 
-  constructor() { }
+  private personaActiva:number;
+
+  constructor() {}
+
+  ngInit(){
+  }
+
+  setPersonaActiva(idPersona:number){
+    window.localStorage['personaActiva'] = idPersona.toString();
+  }// setPersonaActiva
+
+  getPersonaActiva(){
+    this.personaActiva = Number(window.localStorage['personaActiva'] || -1);
+    return this.getPersona(this.personaActiva);
+  }
 
   getPersonas() {
     return this.personas;

@@ -9,6 +9,8 @@ export class MenuResidenteComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit(){
+    
+  }
 
 }
