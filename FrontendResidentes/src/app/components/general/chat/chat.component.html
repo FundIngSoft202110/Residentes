@@ -1,0 +1,44 @@
+<app-header titulo="MARIA" menu="{{getUser()}}"></app-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row *ngFor= "let mensaje of mensajes">
+            <ion-col size="9" *ngIf="usuActual !== mensaje.usuario" class= "mensaje otro-mensaje">
+                <b>{{mensaje.usuario}}</b>
+                <br>
+                <span>
+                    {{mensaje.msg}}
+                </span>
+                <div class="time" text-right><br>
+                    {{mensaje.createdAt | date:'short'}}
+                </div>
+            </ion-col>
+
+            <ion-col offset="3" size="9"  *ngIf="usuActual === mensaje.usuario" class= "mensaje mi-mensaje">
+                <b>{{mensaje.usuario}}</b>
+                <br>
+                <span>
+                    {{mensaje.msg}}
+                </span>
+                <div class="time" text-right><br>
+                    {{mensaje.createdAt | date:'short'}}
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<ion-footer>
+    <ion-toolbar light="light">
+        <ion-row align-items-center no-padding>
+            <ion-col size="10"> 
+                <ion-input  [(ngModel)]="newMsg" class="mensaje-entrada"></ion-input>
+            </ion-col>
+            <ion-col size="2"> 
+                <ion-card  class="msg-btn" 
+                (click)="enviarMensaje()">
+                <ion-icon  name="caret-up-circle-outline" style="zoom:2.0;"></ion-icon>
+                </ion-card> 
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>
