@@ -59,8 +59,11 @@ export class PersonasService {
 
   getPersonaActiva(){
     this.personaActiva = Number(window.localStorage['personaActiva'] || -1);
-    return this.getPersona(this.personaActiva);
-  }
+    if(this.personaActiva == -1)
+      return null;
+    else
+      return this.getPersona(this.personaActiva);
+  }// getPersonaActiva
 
   getPersonas() {
     return this.personas;

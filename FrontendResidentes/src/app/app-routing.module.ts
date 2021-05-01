@@ -36,6 +36,7 @@ import { ResultadosResidenteComponent } from './components/residente/resultados-
 import { IngresoPerfilesComponent } from './components/general/ingreso-perfiles/ingreso-perfiles.component';
 import { FormsModule } from '@angular/forms';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { ListaAsambleasResidentesComponent } from './components/residente/lista-asambleas-residentes/lista-asambleas-residentes.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -102,6 +103,10 @@ const routes: Routes = [
   {
     path: 'areas-residente',
     component: AreasResidenteComponent
+  },
+  {
+    path: 'lista-asambleas-residentes',
+    component: ListaAsambleasResidentesComponent
   },
   {
     path: 'asamblea-residente',
@@ -203,7 +208,8 @@ const routes: Routes = [
     NoticiasComponent,
     EmpleadosComponent,
     AsambleaSubirVotosComponent,
-    SeleccionConjuntoComponent
+    SeleccionConjuntoComponent,
+    ListaAsambleasResidentesComponent
   ]
 })
 export class AppRoutingModule { }

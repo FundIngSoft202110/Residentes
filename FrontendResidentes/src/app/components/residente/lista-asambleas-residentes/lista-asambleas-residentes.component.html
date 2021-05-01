@@ -1,0 +1,11 @@
+<app-header titulo="ASAMBLEA" menu=RESIDENTE></app-header>
+
+<ion-content padding class="vertical-center">
+  <ion-card class="ion-text-left" routerLink="/asamblea-residente" *ngFor="let asamblea of asambleas">
+    <ion-card-header>
+      <ion-card-subtitle> {{asamblea.FechaAsamblea}} </ion-card-subtitle>
+      <ion-card-title> {{asamblea.Tema}} </ion-card-title>
+    </ion-card-header>
+      <ion-card-content> {{asamblea.Activo}} </ion-card-content>
+  </ion-card>
+</ion-content>
