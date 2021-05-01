@@ -17,12 +17,8 @@ export class NetflixComponent implements OnInit {
 
   constructor(private personasService:PersonasService, private conjuntoService : ConjuntosService, private aptoService: AptosService) { }
 
-  getUser(){
-    return this.personasService.getPersonaActiva().rolConjunto;
-  }
-
   ngOnInit() {
-    this.usuario = this.getUser();
+    this.usuario = this.personasService.getUserActivo();
     if(this.usuario == "ADMIN" || this.usuario == "EMPLEADO"){
       this.perfiles = this.conjuntoService.getConjuntos();
       this.perfil = "conjunto";

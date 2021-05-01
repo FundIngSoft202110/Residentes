@@ -65,6 +65,10 @@ export class PersonasService {
       return this.getPersona(this.personaActiva);
   }// getPersonaActiva
 
+  getUserActivo(){
+    return this.getPersonaActiva().rolConjunto;
+  }
+
   getPersonas() {
     return this.personas;
   } // end getPersonas
