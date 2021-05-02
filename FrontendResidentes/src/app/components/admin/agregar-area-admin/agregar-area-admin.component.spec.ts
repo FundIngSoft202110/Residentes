@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AreasComunesAdminComponentComponent } from './areas-comunes-admin-component.component';
+import { AgregarAreaAdminComponent } from './agregar-area-admin.component';
 
-describe('AreasComunesAdminComponentComponent', () => {
-  let component: AreasComunesAdminComponentComponent;
-  let fixture: ComponentFixture<AreasComunesAdminComponentComponent>;
+describe('AgregarAreaAdminComponent', () => {
+  let component: AgregarAreaAdminComponent;
+  let fixture: ComponentFixture<AgregarAreaAdminComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AreasComunesAdminComponentComponent ],
+      declarations: [ AgregarAreaAdminComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AreasComunesAdminComponentComponent);
+    fixture = TestBed.createComponent(AgregarAreaAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

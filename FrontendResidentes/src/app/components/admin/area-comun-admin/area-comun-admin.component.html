@@ -1,0 +1,32 @@
+<app-header titulo="AREAS COMUNES" menu=ADMIN></app-header>
+<div class="content-block dx-card responsive-paddings">
+<form>
+  <dx-form id="form1"
+      [formData]="customer"
+      [readOnly]="false"
+      [showColonAfterLabel]="true"
+      [showValidationSummary]="true"
+      validationGroup="customerData">
+          <dxi-item dataField="Tipo"
+              editorType="dxSelectBox"
+              [editorOptions]="{ dataSource: countries }">
+              <dxi-validation-rule 
+                  type="required"
+                  message="El tipo de área es requeirda">
+              </dxi-validation-rule>
+          </dxi-item>
+      <dxi-item dataField="Lista áreas comúnes"
+              editorType="dxSelectBox"
+              [editorOptions]="{ dataSource: countries }">
+              <dxi-validation-rule 
+                  type="required"
+                  message="Debe seleccionar un nombre">
+              </dxi-validation-rule>
+          </dxi-item>
+  </dx-form>
+  <div>
+       <dx-switch [value]="true"></dx-switch>
+  </div>
+ 
+</form>
+</div>

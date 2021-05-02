@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { AgregarConjuntoComponent } from './components/admin/agregar-conjunto-component/agregar-conjunto-component.component';
-import AreasComunesAdminComponent from './components/admin/areas-comunes-admin-component/areas-comunes-admin-component.component';
 import { AsambleaAdminComponent } from './components/admin/asamblea-admin-component/asamblea-admin-component.component';
 import { ClavesComponent } from './components/admin/claves-component/claves-component.component';
 import { ManualAdminComponent } from './components/admin/manual-admin-component/manual-admin-component.component';
@@ -38,6 +37,9 @@ import { FormsModule } from '@angular/forms';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { ListaAsambleasResidentesComponent } from './components/residente/lista-asambleas-residentes/lista-asambleas-residentes.component';
 import { ChatComponent } from './components/general/chat/chat.component';
+import { ReservarAreaComponent } from './components/residente/reservar-area/reservar-area.component';
+import { AreaComunAdminComponent } from './components/admin/area-comun-admin/area-comun-admin.component';
+import { AgregarAreaAdminComponent } from './components/admin/agregar-area-admin/agregar-area-admin.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -48,10 +50,6 @@ const routes: Routes = [
   {
     path: 'nuevo-conjunto',
     component: AgregarConjuntoComponent
-  },
-  {
-    path: 'areas-admin',
-    component: AreasComunesAdminComponent
   },
   {
     path: 'asamblea-admin',
@@ -150,10 +148,22 @@ const routes: Routes = [
     component: ResultadosResidenteComponent
   },
   {
+    path: 'reservar-area',
+    component: ReservarAreaComponent
+  },
+  {
+    path: 'area-comun-admin',
+    component: AreaComunAdminComponent
+  },
+  {
+    path: 'agregar-area',
+    component: AgregarAreaAdminComponent
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({
@@ -181,9 +191,6 @@ const routes: Routes = [
     FormsModule,
     NgxExtendedPdfViewerModule,
     DxRadioGroupModule
-    
-    
-  
   ],
   exports: [RouterModule],
   declarations: [
@@ -193,7 +200,6 @@ const routes: Routes = [
     HeaderComponent,
     HeaderStartComponent,
     AgregarConjuntoComponent,
-    AreasComunesAdminComponent,
     AsambleaAdminComponent,
     ClavesComponent,
     ManualAdminComponent,
@@ -216,7 +222,10 @@ const routes: Routes = [
     AsambleaSubirVotosComponent,
     SeleccionConjuntoComponent,
     ListaAsambleasResidentesComponent,
-    ChatComponent
+    ChatComponent,
+    ReservarAreaComponent,
+    AreaComunAdminComponent,
+    AgregarAreaAdminComponent,
   ]
 })
 export class AppRoutingModule { }
