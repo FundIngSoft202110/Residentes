@@ -37,6 +37,7 @@ import { IngresoPerfilesComponent } from './components/general/ingreso-perfiles/
 import { FormsModule } from '@angular/forms';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { ListaAsambleasResidentesComponent } from './components/residente/lista-asambleas-residentes/lista-asambleas-residentes.component';
+import { ChatComponent } from './components/general/chat/chat.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -71,6 +72,10 @@ const routes: Routes = [
   {
     path: 'asistencia-empleado',
     component: AsistenciaEmpleadoComponent
+  },
+  {
+    path: 'chat',
+    component: ChatComponent
   },
   {
     path: 'paquetes-empleado',
@@ -210,7 +215,8 @@ const routes: Routes = [
     EmpleadosComponent,
     AsambleaSubirVotosComponent,
     SeleccionConjuntoComponent,
-    ListaAsambleasResidentesComponent
+    ListaAsambleasResidentesComponent,
+    ChatComponent
   ]
 })
 export class AppRoutingModule { }
