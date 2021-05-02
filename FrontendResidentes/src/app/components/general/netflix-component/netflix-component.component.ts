@@ -37,10 +37,10 @@ export class NetflixComponent implements OnInit {
   }// getConjunto
 
   getRouteConjunto(){
-    if(this.usuario == "ADMIN" || this.usuario == "RESIDENTE"){
+    if(this.usuario == "ADMIN" ){
       return "/noticias";
-    }else if(this.usuario == "EMPLEADO"){
-      return "/asistencia-empleado";
+    }else if(this.usuario == "EMPLEADO" ||this.usuario == "RESIDENTE" ){
+      return "/ingreso-perfiles";
     }// end if
   }// end getRouteConjunto
 }

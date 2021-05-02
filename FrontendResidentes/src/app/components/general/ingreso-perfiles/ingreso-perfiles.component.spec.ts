@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
+import { CommonModule } from "@angular/common";
 import { IngresoPerfilesComponent } from './ingreso-perfiles.component';
 
 describe('IngresoPerfilesComponent', () => {
@@ -10,7 +10,7 @@ describe('IngresoPerfilesComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ IngresoPerfilesComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(),CommonModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(IngresoPerfilesComponent);
