@@ -21,11 +21,17 @@ export class PaquetesResidenteComponent implements OnInit {
   }
 
   listOpen(paquete:Paquete){
+    console.log("Paquete = ", paquete.id, " CHange = ", this.paqueteView[paquete.id - 1]);
     if(this.paqueteView[paquete.id - 1] == 'mostrar'){
       this.paqueteView[paquete.id - 1]='oculto';
     }else{
       this.paqueteView[paquete.id - 1]='mostrar';
     }
+    console.log("Paquete = ", paquete.id, "  Post CHange = ", this.paqueteView[paquete.id - 1]);
+  }
+
+  getPaqueteView(paquete:Paquete){
+    return this.paqueteView[paquete.id-1];
   }
 
 }
