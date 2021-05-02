@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
 
   @Input() menu : string;
 
+  @Input() routeBack: string;
+
   constructor( private menuCtrl: MenuController) { 
   }
 

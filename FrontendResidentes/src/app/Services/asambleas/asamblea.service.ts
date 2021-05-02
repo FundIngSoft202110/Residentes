@@ -26,17 +26,24 @@ export class AsambleaService {
 	private asambleas: Asamblea[] = [
 		{
 			IdAsamblea: 1,
-			FechaAsamblea: "2021/04/21",
+			FechaAsamblea: "2021/05/01",
 			Tema: "Junta anual",
-			NumeroPropuestas: 2,
+			NumeroPropuestas: 0,
 			Activo: "Activa"
+		},
+		{
+			IdAsamblea: 2,
+			FechaAsamblea: "2021/02/21",
+			Tema: "Junta extraordinaria",
+			NumeroPropuestas: 0,
+			Activo: "Finalizada"
 		},
 		{
 			IdAsamblea: 2,
 			FechaAsamblea: "2021/06/21",
 			Tema: "Junta extraordinaria",
 			NumeroPropuestas: 0,
-			Activo: "Finalizada"
+			Activo: "Programada"
 		}
 	]
 

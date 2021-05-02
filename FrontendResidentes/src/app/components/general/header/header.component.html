@@ -2,10 +2,18 @@
   <ion-toolbar color="residente">
   </ion-toolbar >
   <ion-toolbar color="light">
+    <div *ngIf="menu == 'NO'; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <ion-buttons slot="start" routerLink="{{routeBack}}" routerDirection="forward">
+        <ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon>
+      </ion-buttons>
+    </ng-template>
+    <ng-template #elseBlock>
       <ion-buttons slot="start" (click)="toggleMenu()">
         <ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon>
       </ion-buttons>
-      <ion-title slot="start" color="residente-txt">{{titulo}}</ion-title>
+    </ng-template>
+    <ion-title slot="start" color="residente-txt">{{titulo}}</ion-title>
   </ion-toolbar>
 </ion-header>
 

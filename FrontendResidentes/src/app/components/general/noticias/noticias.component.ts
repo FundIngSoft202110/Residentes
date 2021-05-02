@@ -11,7 +11,7 @@ export class NoticiasComponent implements OnInit {
 
   ngOnInit() {}
 
-  etUser(){
+  getUser(){
     return this.personasService.getUserActivo();
   }
 }
