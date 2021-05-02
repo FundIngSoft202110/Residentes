@@ -1,4 +1,4 @@
-<app-header titulo="MARIA" menu="{{getUser()}}"></app-header>
+<app-header titulo="EMPLEADOS" menu="NO" routeBack="/empleados"></app-header>
 
 <ion-content>
     <ion-grid>
@@ -37,7 +37,7 @@
             <ion-col size="2"> 
                 <ion-card  class="msg-btn" 
                 (click)="enviarMensaje()" [disabled]="newMsg === ''">
-                <ion-icon  name="caret-up-circle-outline" style="zoom:2.0;"></ion-icon>
+                <ion-icon  name="send-outline" style="zoom:2.0;"></ion-icon>
                 </ion-card> 
             </ion-col>
         </ion-row>
