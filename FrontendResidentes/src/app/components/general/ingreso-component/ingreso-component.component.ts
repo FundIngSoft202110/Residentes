@@ -102,7 +102,7 @@ export class IngresoComponent implements OnInit {
 
         if (admin == 0) {
             this.personasService.setPersonaActiva(2);
-        } else {
+        } else {4
             this.personasService.setPersonaActiva(1);
         }
         this.navCtrl.navigateForward("/netflix");

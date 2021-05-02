@@ -26,7 +26,7 @@ import { AsambleaResidenteComponent } from './components/residente/asamblea-resi
 import { PagosComponent } from './components/residente/pagos-component/pagos-component.component';
 import { PaquetesResidenteComponent } from './components/residente/paquetes-residente-component/paquetes-residente-component.component';
 import { QuejasResidenteComponent } from './components/residente/quejas-residente-component/quejas-residente-component.component';
-import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFileUploaderModule, DxFormModule, DxListModule, DxNumberBoxModule, DxScrollViewComponent, DxScrollViewModule, DxSelectBoxModule, DxTemplateModule, DxTextAreaModule, DxTextBoxModule } from 'devextreme-angular';
+import { DxAutocompleteModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFileUploaderModule, DxFormModule, DxListModule, DxNumberBoxModule, DxRadioGroupModule, DxScrollViewComponent, DxScrollViewModule, DxSelectBoxModule, DxTemplateModule, DxTextAreaModule, DxTextBoxModule } from 'devextreme-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { NoticiasComponent } from './components/general/noticias/noticias.component';
 import { EmpleadosComponent } from './components/general/empleados/empleados.component';
@@ -179,7 +179,8 @@ const routes: Routes = [
     DxFileUploaderModule,
     DxTextBoxModule,
     FormsModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
+    DxRadioGroupModule
     
     
   
