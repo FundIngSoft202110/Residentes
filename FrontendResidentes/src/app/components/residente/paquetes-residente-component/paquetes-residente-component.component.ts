@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Paquete } from 'src/app/Services/paquetes/paquete.model';
+import { PaquetesService } from 'src/app/Services/paquetes/paquetes.service';
 
 @Component({
   selector: 'app-paquetes-residente-component',
@@ -7,8 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaquetesResidenteComponent implements OnInit {
 
-  constructor() { }
+  paquetes : Paquete[] = [];
+  public paqueteView : string[] = []; 
 
-  ngOnInit() {}
+  constructor(private paquetesService : PaquetesService) { }
+
+  ngOnInit() {
+    this.paquetes = this.paquetesService.getPaquetes();
+    for(let paquete of this.paquetes)
+      this.paqueteView.push('oculto');
+  }
+
+  listOpen(paquete:Paquete){
+    if(this.paqueteView[paquete.id - 1] == 'mostrar'){
+      this.paqueteView[paquete.id - 1]='oculto';
+    }else{
+      this.paqueteView[paquete.id - 1]='mostrar';
+    }
+  }
 
 }

@@ -1,1 +1,27 @@
 <app-header titulo="PAQUETES" menu=RESIDENTE></app-header>
+
+<ion-content>
+    <div *ngFor="let paquete of paquetes"> 
+        <ion-item>
+            <ion-label> Paquete {{paquete.id}} </ion-label>
+            <ion-button slot="end"(click)="listOpen(paquete)"> 
+                <ion-icon slot="icon-only" color="residente" name="add-circle-outline"></ion-icon>
+            </ion-button>
+        </ion-item>
+        <ion-list *ngIf="paqueteView=='mostrar'" >
+            <ion-items>
+                <ion-label> Tamaño: {{paquete.tamano}}</ion-label>
+            </ion-items>
+            <ion-items>
+                <ion-label> Fecha: {{paquete.fecha}}</ion-label>
+            </ion-items>
+            <ion-items>
+                <ion-label> Hora: {{paquete.hora}}</ion-label>
+            </ion-items>
+            <ion-items>
+                <ion-label> Remitente: {{paquete.remitente}}</ion-label>
+            </ion-items>
+        </ion-list>
+    </div>
+
+</ion-content>
