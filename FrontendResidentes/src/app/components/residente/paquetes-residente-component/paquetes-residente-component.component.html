@@ -1,6 +1,7 @@
 <app-header titulo="PAQUETES" menu=RESIDENTE></app-header>
 
 <ion-content>
+    <ion-card>
     <div *ngFor="let paquete of paquetes"> 
         <ion-item>
             <ion-label><strong> Paquete {{paquete.id}} </strong></ion-label>
@@ -23,4 +24,5 @@
                 </ion-item>
             </ion-list>
     </div>
+</ion-card>
 </ion-content>
