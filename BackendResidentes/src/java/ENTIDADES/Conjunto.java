@@ -68,7 +68,7 @@ public class Conjunto implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "PrecioAdmin")
-    private BigInteger precioAdmin;
+    private BigDecimal precioAdmin;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
@@ -99,7 +99,7 @@ public class Conjunto implements Serializable {
         this.idConjunto = idConjunto;
     }
 
-    public Conjunto(BigDecimal idConjunto, String nombre, String linkDePago, String direccion, BigInteger precioAdmin, String manual) {
+    public Conjunto(BigDecimal idConjunto, String nombre, String linkDePago, String direccion,BigDecimal precioAdmin, String manual) {
         this.idConjunto = idConjunto;
         this.nombre = nombre;
         this.linkDePago = linkDePago;
@@ -140,11 +140,11 @@ public class Conjunto implements Serializable {
         this.direccion = direccion;
     }
 
-    public BigInteger getPrecioAdmin() {
+    public BigDecimal getPrecioAdmin() {
         return precioAdmin;
     }
 
-    public void setPrecioAdmin(BigInteger precioAdmin) {
+    public void setPrecioAdmin(BigDecimal precioAdmin) {
         this.precioAdmin = precioAdmin;
     }
 

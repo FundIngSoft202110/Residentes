@@ -6,6 +6,7 @@
 package ENTIDADES;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -22,33 +23,33 @@ public class AreacomunPK implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "IdArea")
-    private BigInteger idArea;
+    private BigDecimal idArea;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ConjuntoIdConjunto")
-    private BigInteger conjuntoIdConjunto;
+    private BigDecimal conjuntoIdConjunto;
 
     public AreacomunPK() {
     }
 
-    public AreacomunPK(BigInteger idArea, BigInteger conjuntoIdConjunto) {
+    public AreacomunPK(BigDecimal idArea, BigDecimal conjuntoIdConjunto) {
         this.idArea = idArea;
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
-    public BigInteger getIdArea() {
+    public BigDecimal getIdArea() {
         return idArea;
     }
 
-    public void setIdArea(BigInteger idArea) {
+    public void setIdArea(BigDecimal idArea) {
         this.idArea = idArea;
     }
 
-    public BigInteger getConjuntoIdConjunto() {
+    public BigDecimal getConjuntoIdConjunto() {
         return conjuntoIdConjunto;
     }
 
-    public void setConjuntoIdConjunto(BigInteger conjuntoIdConjunto) {
+    public void setConjuntoIdConjunto(BigDecimal conjuntoIdConjunto) {
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 

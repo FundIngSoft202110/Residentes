@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/juansebastianbarretojimenez/Escritorio/Ingesoft/Proyecto/Residentes/BackendResidentes/web/WEB-INF/glassfish-resources.xml</file>
-            <file>file:/home/juansebastianbarretojimenez/Escritorio/Ingesoft/Proyecto/Residentes/BackendResidentes/src/java/CONTROLADORES/controladorPersona.java</file>
-            <file>file:/home/juansebastianbarretojimenez/Escritorio/Ingesoft/Proyecto/Residentes/BackendResidentes/src/java/CONTROLADORES/contraladorDiasDispo.java</file>
-            <file>file:/home/juansebastianbarretojimenez/Escritorio/Ingesoft/Proyecto/Residentes/BackendResidentes/src/java/API/Aplicacion.java</file>
-            <file>file:/home/juansebastianbarretojimenez/Escritorio/Ingesoft/Proyecto/Residentes/BackendResidentes/src/java/API/ConexionBD.java</file>
+            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/CONTROLADORES/controladorAreaComun.java</file>
+            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/ENTIDADES/AreacomunPK.java</file>
+            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/ENTIDADES/Persona.java</file>
+            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/CONTROLADORES/controladorPersona.java</file>
         </group>
     </open-files>
 </project-private>
