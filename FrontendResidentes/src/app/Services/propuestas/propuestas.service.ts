@@ -6,7 +6,7 @@ import { Propuesta } from './propuesta.model';
 })
 export class PropuestasService {
 
-  private propuestaActiva: Propuesta
+  private propuestasAsam: Propuesta[];
   private propuestas: Propuesta[] = [
     {
       id: 1,
@@ -15,7 +15,7 @@ export class PropuestasService {
       descripcion: "Aprobar el uso del presupuesto para arreglar los tejados",
       votosTotales: 3,
       habilitar: true,
-      parar: false,
+      parar: true,
       subir: true
     },
     {
@@ -23,6 +23,26 @@ export class PropuestasService {
       idAsamblea: 1,
       idConjunto: 1,
       descripcion: "Cambiar la empresa de seguridad",
+      votosTotales: 3,
+      habilitar: true,
+      parar: true,
+      subir: true
+    },
+    {
+      id: 3,
+      idAsamblea: 2,
+      idConjunto: 1,
+      descripcion: "Aprobar el uso del presupuesto para pintar las paredes",
+      votosTotales: 3,
+      habilitar: true,
+      parar: false,
+      subir: true
+    },
+    {
+      id: 4,
+      idAsamblea: 2,
+      idConjunto: 1,
+      descripcion: "Eliga la empresa de seguridad",
       votosTotales: 3,
       habilitar: false,
       parar: false,
@@ -32,36 +52,29 @@ export class PropuestasService {
 
   constructor() { }
 
-  getPropuestas() {
-    return this.propuestas;
+  private propuestaAbierta: number;
+
+	setPropuestaAbierta(IdPropuesta: number) {
+		window.localStorage['propuestaAbierta'] = IdPropuesta.toString();
+	}// setPropuestaAbierta
+
+	getPropuestaAbierta(){
+		this.propuestaAbierta = Number(window.localStorage['propuestaAbierta'] || -1);
+		if(this.propuestaAbierta == -1)
+			return null;
+		else
+			return this.getPropuesta(this.propuestaAbierta);
+	}// getPropuestaAbierta
+
+  getPropuestas(idAsamblea:number) {
+    this.propuestasAsam = [];
+    for(let prop of this.propuestas)
+      if(prop.idAsamblea == idAsamblea)
+        this.propuestasAsam.push(prop);
+    return this.propuestasAsam;
   } // end getPropuestas
 
   getPropuesta(propuestaId: number) {
     return this.propuestas.find(propuesta => { return propuesta.id == propuestaId });
   }// end getPropuesta
-
-  getPropuestaActiva(): Propuesta {
-    return this.propuestaActiva;
-  }
-
-  setPrpuestaActiva(id: number) {
-    this.propuestaActiva = this.propuestas[id];
-  }
-
-  addPropuesta(idAsamblea: number, idConjunto: number, descripcion: string, votosTotales: number, habilitar: boolean, parar: boolean, subir: boolean) {
-    this.propuestas.push({
-      id: this.propuestas.length + 1,
-      idAsamblea,
-      idConjunto,
-      descripcion,
-      votosTotales,
-      habilitar,
-      parar,
-      subir
-    });
-  } // end addPropuesta
-
-  deletePropuesta(propuestaId: number) {
-    this.propuestas.splice(propuestaId, 1);
-  } // end deletePropuesta
 }

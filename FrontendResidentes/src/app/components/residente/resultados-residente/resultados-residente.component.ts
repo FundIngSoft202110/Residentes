@@ -19,7 +19,7 @@ export class ResultadosResidenteComponent implements OnInit {
   constructor(private navCtrl: NavController,private propuestasService: PropuestasService, private asambleaService: AsambleaService, private ganadorService: GanadorService, private opcionesService: OpcionesService) { }
 
   ngOnInit(){
-    this.propuesta = this.propuestasService.getPropuestaActiva();
+    this.propuesta = this.propuestasService.getPropuestaAbierta();
   }
 
   getAsamblea(){

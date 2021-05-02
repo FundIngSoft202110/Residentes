@@ -39,7 +39,7 @@ export class AsambleaService {
 			Activo: "Finalizada"
 		},
 		{
-			IdAsamblea: 2,
+			IdAsamblea: 3,
 			FechaAsamblea: "2021/06/21",
 			Tema: "Junta extraordinaria",
 			NumeroPropuestas: 0,
@@ -52,6 +52,10 @@ export class AsambleaService {
 	setAsambleaAbierta(idAsamblea: number) {
 		window.localStorage['asambleaAbierta'] = idAsamblea.toString();
 	}// setAsambleaAbierta
+
+	clearAsambleaAbierta(){
+		window.localStorage.clear();
+	}
 
 	getAsambleaAbierta(){
 		this.asambleaAbierta = Number(window.localStorage['asambleaAbierta'] || -1);

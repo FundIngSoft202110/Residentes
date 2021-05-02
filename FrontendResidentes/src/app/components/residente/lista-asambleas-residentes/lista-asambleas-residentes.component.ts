@@ -18,12 +18,11 @@ export class ListaAsambleasResidentesComponent implements OnInit {
   }// end 
 
   goRoute(asamblea:Asamblea){
-    if(asamblea.Activo != 'Programada')
+    if(asamblea.Activo != 'Programada'){
+      this.asambleaService.setAsambleaAbierta(asamblea.IdAsamblea);
+      console.log("Asamblea = ", asamblea.IdAsamblea, " Estado = ", asamblea.Activo);
       this.navCtrl.navigateForward("/asamblea-residente");
+    }
   }
-
-  saveAsamblea(asamblea:Asamblea){
-    this.asambleaService.setAsambleaAbierta(asamblea.IdAsamblea);
-  }// end saveAsamblea
 
 }

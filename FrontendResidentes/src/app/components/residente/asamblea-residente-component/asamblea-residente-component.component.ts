@@ -5,6 +5,7 @@ import { Opcion } from 'src/app/Services/opciones/opcion.model'
 import { PropuestasService } from 'src/app/Services/propuestas/propuestas.service';
 import { OpcionesService } from 'src/app/Services/opciones/opciones.service';
 import { VotosService } from 'src/app/Services/votos/votos.service';
+import { Asamblea, AsambleaService } from 'src/app/Services/asambleas/asamblea.service';
 
 @Component({
   selector: 'app-asamblea-residente-component',
@@ -18,26 +19,31 @@ export class AsambleaResidenteComponent implements OnInit {
   opcionesPropuesta: Opcion[][] = [];
   votosUsuario:number[];
   colorCards:string[];
+  asamblea:Asamblea;
 
-  constructor(private navCtrl: NavController, private propuestasService: PropuestasService, private opcionesService: OpcionesService, private votosServices: VotosService) { }
+  constructor(private navCtrl: NavController, private propuestasService: PropuestasService, private opcionesService: OpcionesService, private votosServices: VotosService, private asambleaService: AsambleaService) { }
 
   ngOnInit() {
-    this.propuestas = this.propuestasService.getPropuestas();
+    this.asamblea = this.asambleaService.getAsambleaAbierta();
+    this.propuestas = this.propuestasService.getPropuestas(this.asamblea.IdAsamblea);
     this.votosUsuario = [];
     this.colorCards = [];
+    this.opcionesPropuesta = [];
     for(let prop of this.propuestas){
       if(prop.subir){
-        prop.subir = false;
         prop.votosTotales = 0; // SOLO PRUEBA
         this.votosUsuario.push(0);
         this.colorCards.push("residente");
-        this.opcion = this.opcionesService.getOpciones(prop.id);
-        for(let opc of this.opcion)
-          opc.cantidadVotos = 0; // SOLO PRUEBA
-        this.opcionesPropuesta.push([...this.opcion]);
-      }
-    }
-  }
+        console.log("if activa == ", this.asamblea.Activo, " asaam = ", this.asamblea.IdAsamblea);
+        if(this.asamblea.Activo == 'Activa'){
+          this.opcion = this.opcionesService.getOpciones(prop.id);
+          for(let opc of this.opcion)
+            opc.cantidadVotos = 0; // SOLO PRUEBA
+          this.opcionesPropuesta.push([...this.opcion]);
+        }// end if
+      }// end if
+    }// end for
+  }// end ngOnInit
 
   votar(opcion: Opcion, propuesta: Propuesta){
     if(!this.votosUsuario[propuesta.id - 1]){
@@ -91,13 +97,13 @@ export class AsambleaResidenteComponent implements OnInit {
     else{
       return "#cdcdcd"
     }
-  }
+  }// end getColorResultados
 
   enviarPropuesta(propuesta: Propuesta) {
     if(propuesta.habilitar){
-      this.propuestasService.setPrpuestaActiva(propuesta.id-1);
+      this.propuestasService.setPropuestaAbierta(propuesta.id);
       this.navCtrl.navigateForward("/resultados-residente");
-    }
-  }
+    }// end if
+  }// end enviarPropuesta
 
 }

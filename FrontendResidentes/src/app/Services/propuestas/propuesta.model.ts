@@ -4,7 +4,7 @@ export interface Propuesta{
     idConjunto: number;
     descripcion: string;
     votosTotales: number;
-    habilitar: boolean;
-    parar: boolean;
-    subir: boolean;
+    habilitar: boolean; // Habilitar los resultados
+    parar: boolean; // Para las votacones 
+    subir: boolean; // Subir las propuestas
 }
