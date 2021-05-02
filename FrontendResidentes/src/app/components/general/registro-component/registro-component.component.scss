@@ -1,14 +1,21 @@
 ::ng-deep form {
     margin: 30px;
-    margin-bottom: 450px;
+    margin-bottom: 100px;
    
 }
 
-.subir {
-    height: 50px;
-    width: 200px;
-    margin-left: 50pxs;
-    
+.lado {
+   
+    margin-left: 80px;
+    border-radius: 20px;
+    background-color: #c9e265;
+}
+.ladoVolver{
+    margin-left: 45px;
+    border-radius: 40px;
+    background-color: #c9e265;
+    color: white;
+  
 }
 
 ::ng-deep border {
@@ -18,7 +25,9 @@
 .content-block {
     
     margin-right: 20px;
-    
     overflow: scroll;
     width: 100%;
+}
+.toolbar-content {
+    background-color: #c9e265;
 }

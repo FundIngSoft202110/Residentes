@@ -9,14 +9,14 @@ import { RegistroServicioService } from '../../../Services/registro-servicio/reg
 import { NavController } from '@ionic/angular';
 import { HostListener } from '@angular/core';
 
-const sendRequest = function(value) {
-    const validEmail = "m@hotmail.com.com";
-    return new Promise((resolve) => {
-        setTimeout(function() {
-            resolve(value === validEmail);
-        }, 1000);
-    });    
-}
+// const sendRequest = function (value) {
+//     const validEmail = "m@hotmail.com";
+//     return new Promise((resolve) => {
+//         setTimeout(function () {
+//             resolve(value === validEmail);
+//         }, 1000);
+//     });
+// }
 
 @Component({
     selector: 'app-registro-component',
@@ -25,56 +25,65 @@ const sendRequest = function(value) {
 })
 
 export class RegistroComponent implements OnInit {
-
-    usuario : any = [];
-	@ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
+    labelL ="top";
+    usuario: any = [];
+    @ViewChild(DxFormComponent, { static: false }) form: DxFormComponent
     password = "";
     passwordOptions: any = {
         mode: "password",
         value: this.password
     };
-    
+
     maxDate: Date = new Date();
-    cityPattern = "^[^0-9]+$";
     namePattern: any = /^[^0-9]+$/;
-    phonePattern: any ;
+    
+    
+    phonePattern: any;
     phoneRules: any = {
-        X: /[02-9]/
+        X: /[1-9]/
     }
-    buttonOptions: any = {
-        text: "Registrarse",
-        type: "success",
-        useSubmitBehavior: true,
-        onclick: this.getUsarios()
-    }
-    constructor(private navCtrl: NavController,private RegistroServicioService: RegistroServicioService) {
+   
+
+    
+    roles : string[];
+    link ="/ingreso";
+    linkGuardado ="/netflix";
+    constructor(private navCtrl: NavController, private RegistroServicioService: RegistroServicioService) {
         this.maxDate = new Date(this.maxDate.setFullYear(this.maxDate.getFullYear() - 21));
-        
+        this.roles=[
+            "Residente",
+            "Empleado",
+            "Administrador"
+        ]
+
     }
 
     ngOnInit() {
-              
+
     }
 
     public getUsarios() {
-      this.RegistroServicioService.getUsario("http://10.211.55.4:8080/BackendResidentes/consultas/personas/rol/residente")
-      .subscribe(respuesta =>{
-        this.usuario=respuesta;
-      })
+        
+        // this.RegistroServicioService.getUsario("http://10.211.55.4:8080/BackendResidentes/consultas/personas/rol/residente")
+        //     .subscribe(respuesta => {
+        //         this.usuario = respuesta;
+        // })
     }
 
     passwordComparison = () => {
-        return this.form.instance.option("formData").Password;
+       
+        return this.form.instance.option("formData").Contraseña;
     };
 
     checkComparison() {
         return true;
     }
 
-    asyncValidation(params) {
-        return sendRequest(params.value);
-    }
-    onFormSubmit = function(e) {
+    // asyncValidation(params) {
+    //     return sendRequest(params.value);
+    // }
+
+    onFormSubmit = function (e) {
         notify({
             message: "Se ha registrado con exito",
             position: {
@@ -82,15 +91,16 @@ export class RegistroComponent implements OnInit {
                 at: "center top"
             }
         }, "success", 3000);
-        
+
         e.preventDefault();
+        // aca se debe enviar todo al back
     }
 
-     goIngreso() {
+    goIngreso() {
         this.navCtrl.navigateForward("/ingreso");
     }
 
-	
+
 }
 
 
