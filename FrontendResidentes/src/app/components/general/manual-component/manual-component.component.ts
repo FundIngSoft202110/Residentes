@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonasService } from 'src/app/Services/personas/personas.service';
 
 @Component({
   selector: 'app-manual-component',
@@ -6,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manual-component.component.scss'],
 })
 export class ManualComponent implements OnInit {
-  public user: string = "EMPLEADO";
-  constructor() { }
+
+  constructor(private personasService:PersonasService) { }
 
   ngOnInit() {}
 
   getUser(){
-    return this.user;
+    return this.personasService.getUserActivo();
   }
 
 }

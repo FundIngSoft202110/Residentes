@@ -1,1 +1,26 @@
 <app-header titulo="ÁREAS COMUNES" menu=RESIDENTE></app-header>
+<div id="form-demo">
+    <div class="widget-container">
+        <div>Tipo:</div>
+        <dx-select-box #company
+            displayExpr="Name"
+            [(dataSource)]="companies"
+        ></dx-select-box>
+     </div>
+    <div class="widget-container">
+        <div>Lista de áreas comunes:</div>
+        <dx-select-box #company
+            displayExpr="Name"
+            [(dataSource)]="companies"
+        ></dx-select-box>
+     </div>  
+</div>
+<div id="calendar-demo">
+    <div class="widget-container">
+        <dx-calendar #calendar
+            id="calendar-container" 
+            [(value)]="currentValue"
+            minZoomLevel="month">
+        </dx-calendar>
+     </div>   
+</div>

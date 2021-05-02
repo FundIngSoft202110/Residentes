@@ -25,18 +25,22 @@ export class NetflixComponent implements OnInit {
     }else if(this.usuario == "RESIDENTE"){
       this.perfiles = this.aptoService.getAptos();
       this.perfil = "apartamento";
-    }
-  }
+    }// end if
+  }// end ngOnInit
+
+  getUser(){
+    return this.usuario;
+  }// end getUser
 
   getConjunto(apto:Apto){
     return this.conjuntoService.getConjunto(apto.idConjunto);
-  }
+  }// getConjunto
 
   getRouteConjunto(){
     if(this.usuario == "ADMIN" || this.usuario == "RESIDENTE"){
       return "/noticias";
     }else if(this.usuario == "EMPLEADO"){
       return "/asistencia-empleado";
-    }
-  }
+    }// end if
+  }// end getRouteConjunto
 }

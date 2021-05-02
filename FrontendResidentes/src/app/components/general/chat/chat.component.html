@@ -3,25 +3,26 @@
 <ion-content>
     <ion-grid>
         <ion-row *ngFor= "let mensaje of mensajes">
-            <ion-col size="9" *ngIf="usuActual !== mensaje.usuario" class= "mensaje otro-mensaje">
-                <b>{{mensaje.usuario}}</b>
+            
+            <ion-col size="9" *ngIf="usuActual !== mensaje.Remitente" class= "mensaje otro-mensaje">
+                <b>{{mensaje.Remitente}}</b>
                 <br>
                 <span>
-                    {{mensaje.msg}}
+                    {{mensaje.Contenido}}
                 </span>
                 <div class="time" text-right><br>
-                    {{mensaje.createdAt | date:'short'}}
+                    {{mensaje.Fecha_Hora | date:'short'}}
                 </div>
             </ion-col>
 
-            <ion-col offset="3" size="9"  *ngIf="usuActual === mensaje.usuario" class= "mensaje mi-mensaje">
-                <b>{{mensaje.usuario}}</b>
+            <ion-col offset="3" size="9"  *ngIf="usuActual === mensaje.Remitente" class= "mensaje mi-mensaje">
+                <b>{{mensaje.Remitente}}</b>
                 <br>
                 <span>
-                    {{mensaje.msg}}
+                    {{mensaje.Contenido}}
                 </span>
                 <div class="time" text-right><br>
-                    {{mensaje.createdAt | date:'short'}}
+                    {{mensaje.Fecha_Hora | date:'short'}}
                 </div>
             </ion-col>
         </ion-row>
@@ -31,11 +32,11 @@
     <ion-toolbar light="light">
         <ion-row align-items-center no-padding>
             <ion-col size="10"> 
-                <ion-input  [(ngModel)]="newMsg" class="mensaje-entrada"></ion-input>
+                <textarea autosize maxRows="2" maxlength = "240" [(ngModel)]="newMsg" class="mensaje-entrada"></textarea>
             </ion-col>
             <ion-col size="2"> 
                 <ion-card  class="msg-btn" 
-                (click)="enviarMensaje()">
+                (click)="enviarMensaje()" [disabled]="newMsg === ''">
                 <ion-icon  name="caret-up-circle-outline" style="zoom:2.0;"></ion-icon>
                 </ion-card> 
             </ion-col>

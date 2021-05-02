@@ -10,8 +10,8 @@ import { PersonasService } from 'src/app/Services/personas/personas.service';
 export class ChatComponent implements OnInit {
 
   mensajes = [];
-  usuActual = 'david';
-
+  usuActual = '';
+  usuDesti= '';
   newMsg: string = '';
   public user: string = "RESIDENTE";
 
@@ -22,16 +22,16 @@ export class ChatComponent implements OnInit {
    }
 
   ngOnInit(){
-
+    this.usuDesti= 'María';
+    this.usuActual = 'David';
     this.mensajes = this.chatServ.getMsjs(); 
+   
   }
 
   enviarMensaje() {
-    this.mensajes.push({
-      usuario: 'david',
-      createdAt: new Date().getTime(),
-      msg: this.newMsg
-    });
+ 
+    this.chatServ.addChats(this.usuActual,this.usuActual, this.newMsg, new Date().getTime());
+    this.mensajes = this.chatServ.getMsjs(); 
     this.newMsg = '';
     setTimeout(() => {
       this.content.scrollToBottom(200);
@@ -39,6 +39,8 @@ export class ChatComponent implements OnInit {
   }
 
   getUser(){
-    return this.personasService.getPersonaActiva().rolConjunto;
+      return this.user;
+    
+    //return this.personasService.getPersonaActiva().rolConjunto;
   }
 }

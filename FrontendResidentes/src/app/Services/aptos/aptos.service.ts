@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { PersonasService } from '../personas/personas.service';
 import { Apto } from './apto.model';
 
 @Injectable({
@@ -30,9 +31,10 @@ export class AptosService {
     }
   ]
 
-  constructor() { }
+  constructor(private personasService:PersonasService) { }
 
   getAptos() {
+    /// pide a la base los apartamentos que son de esa persona this.personasService.getUserActivo();
     return this.aptos;
   } // end getAptos
 

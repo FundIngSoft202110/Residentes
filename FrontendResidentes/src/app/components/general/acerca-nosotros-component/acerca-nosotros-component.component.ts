@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonasService } from 'src/app/Services/personas/personas.service';
 
 @Component({
   selector: 'app-acerca-nosotros-component',
@@ -6,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acerca-nosotros-component.component.scss'],
 })
 export class AcercaNosotrosComponent implements OnInit {
-  public user: string = "ADMIN";
-  constructor() { }
+
+  constructor(private personasService:PersonasService) { }
 
   ngOnInit() {}
 
   getUser(){
-    return this.user;
+    return this.personasService.getUserActivo();
   }
 }

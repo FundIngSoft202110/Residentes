@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { PersonasService } from '../personas/personas.service';
 import { Conjunto } from './conjunto.model';
 
 @Injectable({
@@ -33,9 +34,10 @@ export class ConjuntosService {
     }
   ]
 
-  constructor() { }
+  constructor(private personasService:PersonasService) { }
 
   getConjuntos() {
+    /// pide a la base los conjutnos que son de esa persona this.personasService.getUserActivo();
     return this.conjuntos;
   } // end getConjuntos
 
@@ -43,18 +45,4 @@ export class ConjuntosService {
     return this.conjuntos.find(conjunto => { return conjunto.id == conjuntoId });
   }// end getConjunto
 
-  addConjunto(nombre:string,linkDePago:string,direccion:string,precioAdmin:number,manual:string){ 
-    this.conjuntos.push({
-      id: this.conjuntos.length + 1,
-      nombre,
-      linkDePago,
-      direccion,
-      precioAdmin,
-      manual
-    });
-  } // end addConjunto
-  
-  deleteConjunto(conjuntoId:number) {
-    this.conjuntos.splice(conjuntoId,1);
-  } // end deleteConjunto
 }

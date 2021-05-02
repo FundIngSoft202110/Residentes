@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
@@ -12,13 +12,19 @@ export class HeaderComponent implements OnInit {
 
   @Input() menu : string;
 
-  constructor( private menuCtrl: MenuController) { 
+  @Input() routeBack: string;
+
+  constructor( private menuCtrl: MenuController, private navCtrl: NavController) { 
   }
 
   ngOnInit() {}
 
   toggleMenu(){
     this.menuCtrl.toggle();
+  }
+
+  goBack(){
+    this.navCtrl.navigateBack(this.routeBack);
   }
 
 }

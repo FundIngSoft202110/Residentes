@@ -1,0 +1,14 @@
+::ng-deep .widget-container {
+    margin-right: 300px;
+    margin-left: 300px;
+    margin-top: 25px;
+}
+::ng-deep.option {
+    margin-right: 375px;
+    margin-left: 375px;
+    max-width: 150px;
+    min-width: 120px;
+}
+::ng-deep #calendar-container {
+    margin: auto;
+}

@@ -28,13 +28,13 @@ export class ChatServicioService {
       Remitente: 'David',
       Destinatario: 'María',
       Contenido: 'Bien gracias, un fa, me puedes llamar cuando inicie la novela?',
-      Fecha_Hora: 1554091056000
+      Fecha_Hora: 1554091156000
     },
     {
       Remitente: 'María',
       Destinatario: 'David',
       Contenido: 'R',
-      Fecha_Hora: 1554091056000
+      Fecha_Hora: 1554091256000
     }
   ];
   constructor() { }

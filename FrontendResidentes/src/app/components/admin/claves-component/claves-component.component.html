@@ -2,32 +2,18 @@
 <ion-content>
     <div class="form-demo">
         <div class="widget-container">
-            <div class= "rol" >Rol:</div>
-            <dx-select-box class="rolo" #rol
-                displayExpr="Nombre"
-                [(dataSource)]="roles"
-                ></dx-select-box>
-            <div class = "nombre">Nombre:</div>
-            <dx-select-box class="nombree" #usuario
-                displayExpr="Usuario"
-                [(dataSource)]="usuarios"
-                   ></dx-select-box>
-            <dx-form  class="form"
-                [(formData)]="usuario.value"
-                     [readOnly]="readOnly"
-                [showColonAfterLabel]="showColon"
-                [labelLocation]="labelLocation"
-                [minColWidth]="minColWidth"
-                [width]="width"
-                   
-                ></dx-form>
+            <div class="rol">Rol:</div>
+            <dx-select-box class="rolo" #rol displayExpr="Nombre" [(dataSource)]="roles"></dx-select-box>
+            <div class="nombre">Nombre:</div>
+            <dx-select-box class="nombree" #usuario displayExpr="Usuario" [(dataSource)]="usuarios"></dx-select-box>
+            <dx-form class="form" [(formData)]="usuario.value" [readOnly]="readOnly" [showColonAfterLabel]="showColon"
+                [labelLocation]="labelLocation" [minColWidth]="minColWidth" [width]="width"></dx-form>
         </div>
-        
     </div>
 
-    <ion-card  color= "residente">
+    <ion-card color="residente">
         <ion-card-header>
-            <ion-card-subtitle> Cambiar contraseña</ion-card-subtitle>   
+            <ion-card-subtitle> Cambiar contraseña</ion-card-subtitle>
         </ion-card-header>
-      </ion-card>
-    </ion-content>
+    </ion-card>
+</ion-content>

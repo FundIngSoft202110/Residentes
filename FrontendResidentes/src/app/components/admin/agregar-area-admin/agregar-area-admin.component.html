@@ -1,0 +1,59 @@
+<app-header titulo="AGREGAR AREA COMUN" menu=ADMIN></app-header>
+<form action="your-action" (submit)="onFormSubmit($event)">
+  <dx-form id="form"
+      [formData]="customer"
+      [readOnly]="false"
+      [showColonAfterLabel]="true"
+      [showValidationSummary]="true"
+      validationGroup="customerData"> 
+          <dxi-item dataField="Nombre del área">
+              <dxi-validation-rule 
+                  type="required"
+                  message="Nombre es requerido">
+              </dxi-validation-rule>
+          </dxi-item>
+           <dxi-item dataField="Tipo área"
+              editorType="dxSelectBox"
+              [editorOptions]="{ dataSource: countries }">
+              <dxi-validation-rule 
+                  type="required"
+                  message="El tipo de área es requerido">
+              </dxi-validation-rule>
+          </dxi-item>
+            <dxi-item dataField="Capacidad" >
+             <dxi-validation-rule 
+                  type="range"
+                  [max]="199"
+                  [min]="1"
+                  message="La capacidad debe ser entre 1 y 199" >
+              </dxi-validation-rule>
+          </dxi-item>
+           <dxi-item dataField="Descripción">
+              <dxi-validation-rule 
+                  type="required"
+                  message="La descripción del área es requerida">
+              </dxi-validation-rule>
+          </dxi-item>
+            <dxi-item dataField="Hora apertura"
+              editorType="dxSelectBox"
+              [editorOptions]="{ dataSource: countries }">
+              <dxi-validation-rule 
+                  type="required"
+                  message="La hora de apertura es requerida">
+              </dxi-validation-rule>
+          </dxi-item>
+            <dxi-item dataField="Hora cierre"
+              editorType="dxSelectBox"
+              [editorOptions]="{ dataSource: countries }">
+              <dxi-validation-rule 
+                  type="required"
+                  message="La hora de cierre es requerida">
+              </dxi-validation-rule>
+          </dxi-item>        
+      <dxi-item 
+          itemType="button"
+          horizontalAlignment="left"
+          [buttonOptions]="buttonOptions">
+      </dxi-item>
+  </dx-form>
+</form>
