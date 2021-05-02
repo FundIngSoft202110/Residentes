@@ -26,17 +26,24 @@ export class AsambleaService {
 	private asambleas: Asamblea[] = [
 		{
 			IdAsamblea: 1,
-			FechaAsamblea: "2021/04/21",
+			FechaAsamblea: "2021/05/01",
 			Tema: "Junta anual",
-			NumeroPropuestas: 2,
+			NumeroPropuestas: 0,
 			Activo: "Activa"
 		},
 		{
 			IdAsamblea: 2,
-			FechaAsamblea: "2021/06/21",
+			FechaAsamblea: "2021/02/21",
 			Tema: "Junta extraordinaria",
 			NumeroPropuestas: 0,
 			Activo: "Finalizada"
+		},
+		{
+			IdAsamblea: 3,
+			FechaAsamblea: "2021/06/21",
+			Tema: "Junta extraordinaria",
+			NumeroPropuestas: 0,
+			Activo: "Programada"
 		}
 	]
 
@@ -45,6 +52,10 @@ export class AsambleaService {
 	setAsambleaAbierta(idAsamblea: number) {
 		window.localStorage['asambleaAbierta'] = idAsamblea.toString();
 	}// setAsambleaAbierta
+
+	clearAsambleaAbierta(){
+		window.localStorage.clear();
+	}
 
 	getAsambleaAbierta(){
 		this.asambleaAbierta = Number(window.localStorage['asambleaAbierta'] || -1);

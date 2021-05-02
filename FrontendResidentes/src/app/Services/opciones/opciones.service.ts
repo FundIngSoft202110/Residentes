@@ -30,6 +30,36 @@ export class OpcionesService {
       idPropuesta: 2,
       nombre: "No",
       cantidadVotos: 2
+    },
+    {
+      id: 1,
+      idPropuesta: 3,
+      nombre: "Sí",
+      cantidadVotos: 0
+    },
+    {
+      id: 2,
+      idPropuesta: 3,
+      nombre: "No",
+      cantidadVotos: 0
+    },
+    {
+      id: 1,
+      idPropuesta: 4,
+      nombre: "Santanfe",
+      cantidadVotos: 0
+    },
+    {
+      id: 2,
+      idPropuesta: 4,
+      nombre: "Superior",
+      cantidadVotos: 0
+    },
+    {
+      id: 3,
+      idPropuesta: 4,
+      nombre: "Asypro",
+      cantidadVotos: 0
     }
   ]
 
