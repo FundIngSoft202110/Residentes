@@ -4,7 +4,7 @@
   <ion-toolbar color="light">
     <div *ngIf="menu == 'NO'; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
-      <ion-buttons slot="start" routerLink="{{routeBack}}" routerDirection="forward">
+      <ion-buttons slot="start" (click)="goBack()">
         <ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon>
       </ion-buttons>
     </ng-template>
