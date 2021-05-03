@@ -2,23 +2,14 @@
     <app-header-start titulo="Registrate"></app-header-start>
     <div class="content-block dx-card responsive-paddings">
     <form action="your-action" (submit)="onFormSubmit($event)">
-  <!--
-        <ion-card class="subir" routerLink="/ingreso">
-            <ion-card-header>
-                <ion-card-subtitle> Volver al Ingreso </ion-card-subtitle>
-        </ion-card-header>
-
-        </ion-card>
-    --><dx-radio-group
-     [items] = "roles"
-     [value]= "roles[0]"
-     layout ="horizontal"
-     type="required">
-        
-       </dx-radio-group>
+ 
         <dx-form id="form" [formData]="usuario" [showColonAfterLabel]="false"
             [showValidationSummary]="false" validationGroup="customerData" [labelLocation]="labelL">
             <dxi-item itemType="group">
+                <dxi-item dataField="RolConjunto" layout="horizontal" [label]="{text: 'Rol'}" editorType="dxRadioGroup" [editorOptions]="{ items: roles}">
+                    <dxi-validation-rule type="required" message="Rol es requerido">    
+                    </dxi-validation-rule>
+                </dxi-item>
                 <dxi-item dataField="Nombres">
                     <dxi-validation-rule type="required" message="Nombre es requerido">
                     </dxi-validation-rule>
@@ -45,7 +36,7 @@
                      [validationCallback]="asyncValidation">
                     </dxi-validation-rule> -->
                 </dxi-item>
-                <dxi-item dataField="Contraseña" [editorOptions]="{ mode: 'password' }">
+                <dxi-item dataField="Contrasena" [label]="{text: 'Contraseña'}"  [editorOptions]="{ mode: 'password' }">
                     <dxi-validation-rule type="required" message="Contraseña es obligatoria">
                     </dxi-validation-rule>
                 </dxi-item>
@@ -58,8 +49,8 @@
                         message="contraseña incorrecta">
                     </dxi-validation-rule>
                 </dxi-item>
-                <dxi-item dataField="Telefono" [editorOptions]="{ 
-                mask: '+57 (300) 000-0000',
+                <dxi-item dataField="NumCelular" [label]="{text: 'Telefono'}" [editorOptions]="{ 
+                mask: '(300)0000000',
                 maskRules: phoneRules,
                 useMaskedValue: true,
                 maskInvalidMessage: 'Telefono no valido'}">
@@ -69,23 +60,7 @@
                         message="Forma del telefono no compatible">
                     </dxi-validation-rule>
                 </dxi-item>
-            </dxi-item>
-            <dxi-item itemType="simple" dataField="Accepted" editorType="dxCheckBox" [editorOptions]="{ 
-                    text: 'Estoy de acuerdo con los terminos y condiciones',
-                    value: false
-                }">
-                <dxo-label [visible]="false">
-                </dxo-label>
-                <dxi-validation-rule type="compare" [comparisonTarget]="checkComparison"
-                    message="Debe estar de acuerdo con los terminos y condiciones">
-                </dxi-validation-rule>
-            </dxi-item>
-
-            
-
-
-           
-
+           </dxi-item>
         </dx-form>
 
     </form>
@@ -107,7 +82,6 @@
      text="Guardar"
      icon="save"
      [routerLink]="linkGuardado"
-    
      [width]="120"
      (onClick)="onFormSubmit($event)"
      >    

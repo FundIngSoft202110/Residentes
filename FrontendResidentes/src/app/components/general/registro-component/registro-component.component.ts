@@ -5,18 +5,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxCheckBoxModule, DxFormComponent } from 'devextreme-angular';
 import { AppComponent } from 'src/app/app.component';
 import notify from 'devextreme/ui/notify';
-import { RegistroServicioService } from '../../../Services/registro-servicio/registro-servicio.service';
+import { Usuario,RegistroServicioService } from '../../../Services/registro-servicio/registro-servicio.service';
 import { NavController } from '@ionic/angular';
 import { HostListener } from '@angular/core';
 
-// const sendRequest = function (value) {
-//     const validEmail = "m@hotmail.com";
-//     return new Promise((resolve) => {
-//         setTimeout(function () {
-//             resolve(value === validEmail);
-//         }, 1000);
-//     });
-// }
+
 
 @Component({
     selector: 'app-registro-component',
@@ -26,7 +19,9 @@ import { HostListener } from '@angular/core';
 
 export class RegistroComponent implements OnInit {
     labelL ="top";
-    usuario: any = [];
+    respuestapost:any;
+    usuariosbase:any;
+    usuario: Usuario = new Usuario();
     @ViewChild(DxFormComponent, { static: false }) form: DxFormComponent
     password = "";
     passwordOptions: any = {
@@ -47,7 +42,7 @@ export class RegistroComponent implements OnInit {
     
     roles : string[];
     link ="/ingreso";
-    linkGuardado ="/netflix";
+    linkGuardado ="/noticias";
     constructor(private navCtrl: NavController, private RegistroServicioService: RegistroServicioService) {
         this.maxDate = new Date(this.maxDate.setFullYear(this.maxDate.getFullYear() - 21));
         this.roles=[
@@ -55,24 +50,36 @@ export class RegistroComponent implements OnInit {
             "Empleado",
             "Administrador"
         ]
+        console.log(this.usuariosbase);
 
     }
 
     ngOnInit() {
-
+       this.getUsarios();
     }
 
     public getUsarios() {
         
-        // this.RegistroServicioService.getUsario("http://10.211.55.4:8080/BackendResidentes/consultas/personas/rol/residente")
-        //     .subscribe(respuesta => {
-        //         this.usuario = respuesta;
-        // })
+        this.RegistroServicioService.getUsario("http://192.168.76.71:8080/BackendResidentes/consultas/personas/usuario/$:{usario.us}")
+            .subscribe(respuesta => {
+                this.usuariosbase=respuesta;
+                
+        })
+    }
+
+    public postNuevo() {
+        
+        this.RegistroServicioService.postUsuarioNuevo("http://192.168.76.71:8080/BackendResidentes/consultas/NuevoUsuario",this.usuario)
+            .subscribe(respuesta => {
+                console.log(respuesta);
+                this.respuestapost=respuesta;
+                 
+        })
     }
 
     passwordComparison = () => {
        
-        return this.form.instance.option("formData").Contraseña;
+        return this.form.instance.option("formData").Contrasena;
     };
 
     checkComparison() {
@@ -84,6 +91,9 @@ export class RegistroComponent implements OnInit {
     // }
 
     onFormSubmit = function (e) {
+        console.log("aca esta",this.usuario);
+        this.postNuevo();
+        console.log("respuesta post",this.respuestapost);
         notify({
             message: "Se ha registrado con exito",
             position: {
@@ -93,13 +103,16 @@ export class RegistroComponent implements OnInit {
         }, "success", 3000);
 
         e.preventDefault();
-        // aca se debe enviar todo al back
+        
+        
+        
+       
     }
 
     goIngreso() {
         this.navCtrl.navigateForward("/ingreso");
     }
-
+  
 
 }
 
