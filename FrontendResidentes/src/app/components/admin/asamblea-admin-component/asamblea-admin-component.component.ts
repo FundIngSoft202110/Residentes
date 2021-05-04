@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { OpcionesService } from 'src/app/Services/opciones/opciones.service';
 import { Opcion } from 'src/app/Services/opciones/opcion.model';
-
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AsambleaService, Asamblea} from '../../../Services/asambleas/asamblea.service';
 import { Propuesta } from 'src/app/Services/propuestas/propuesta.model';
 import { PropuestasService } from 'src/app/Services/propuestas/propuestas.service';
@@ -21,6 +21,8 @@ export class AsambleaAdminComponent implements OnInit {
 	Nopciones: number[];
   step = 1;
   backButtonOptions: any;
+  companies: Asamblea[];
+  itemCount: number;
 
   ngOnInit() {}
 
@@ -29,6 +31,8 @@ export class AsambleaAdminComponent implements OnInit {
     this.propuesta=propuestaServices.getPropuestas(1);
     this.opciones = opcionesServices.getOpciones(1);
 		this.Nopciones = service.getNopciones();
+    this.companies = service.getAsambleas();
+        this.itemCount = this.companies.length;
     
 	}
 
