@@ -6,7 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -39,7 +38,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Mensaje.findByFechaHora", query = "SELECT m FROM Mensaje m WHERE m.fechaHora = :fechaHora"),
     @NamedQuery(name = "Mensaje.findByRolEmpleado", query = "SELECT m FROM Mensaje m WHERE m.rolEmpleado = :rolEmpleado"),
     @NamedQuery(name = "Mensaje.findByRolApto", query = "SELECT m FROM Mensaje m WHERE m.rolApto = :rolApto"),
-    @NamedQuery(name = "Mensaje.findByRolAdmin", query = "SELECT m FROM Mensaje m WHERE m.rolAdmin = :rolAdmin")})
+    @NamedQuery(name = "Mensaje.findByRolAdmin", query = "SELECT m FROM Mensaje m WHERE m.rolAdmin = :rolAdmin"),
+    @NamedQuery(name = "Mensaje.findByVisto", query = "SELECT m FROM Mensaje m WHERE m.visto = :visto")})
 public class Mensaje implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -64,6 +64,11 @@ public class Mensaje implements Serializable {
     @Size(max = 10)
     @Column(name = "RolAdmin")
     private String rolAdmin;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 2)
+    @Column(name = "Visto")
+    private String visto;
     @JoinColumns({
         @JoinColumn(name = "ApartamentoIdApartamento", referencedColumnName = "IdApartamento"),
         @JoinColumn(name = "ApartamentoConjuntoIdConjunto", referencedColumnName = "ConjuntoIdConjunto")})
@@ -86,13 +91,14 @@ public class Mensaje implements Serializable {
         this.mensajePK = mensajePK;
     }
 
-    public Mensaje(MensajePK mensajePK, String contenido, Date fechaHora) {
+    public Mensaje(MensajePK mensajePK, String contenido, Date fechaHora, String visto) {
         this.mensajePK = mensajePK;
         this.contenido = contenido;
         this.fechaHora = fechaHora;
+        this.visto = visto;
     }
 
-    public Mensaje(BigInteger idMensaje, BigInteger conjuntoIdConjunto) {
+    public Mensaje(int idMensaje, int conjuntoIdConjunto) {
         this.mensajePK = new MensajePK(idMensaje, conjuntoIdConjunto);
     }
 
@@ -142,6 +148,14 @@ public class Mensaje implements Serializable {
 
     public void setRolAdmin(String rolAdmin) {
         this.rolAdmin = rolAdmin;
+    }
+
+    public String getVisto() {
+        return visto;
+    }
+
+    public void setVisto(String visto) {
+        this.visto = visto;
     }
 
     public Apartamento getApartamento() {

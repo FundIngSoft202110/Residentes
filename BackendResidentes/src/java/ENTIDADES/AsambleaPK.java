@@ -6,7 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -20,43 +19,42 @@ import javax.validation.constraints.NotNull;
 public class AsambleaPK implements Serializable {
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdAsamblea")
-    private BigInteger idAsamblea;
+    private int idAsamblea;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ConjuntoIdConjunto")
-    private BigInteger conjuntoIdConjunto;
+    private int conjuntoIdConjunto;
 
     public AsambleaPK() {
     }
 
-    public AsambleaPK(BigInteger idAsamblea, BigInteger conjuntoIdConjunto) {
+    public AsambleaPK(int idAsamblea, int conjuntoIdConjunto) {
         this.idAsamblea = idAsamblea;
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
-    public BigInteger getIdAsamblea() {
+    public int getIdAsamblea() {
         return idAsamblea;
     }
 
-    public void setIdAsamblea(BigInteger idAsamblea) {
+    public void setIdAsamblea(int idAsamblea) {
         this.idAsamblea = idAsamblea;
     }
 
-    public BigInteger getConjuntoIdConjunto() {
+    public int getConjuntoIdConjunto() {
         return conjuntoIdConjunto;
     }
 
-    public void setConjuntoIdConjunto(BigInteger conjuntoIdConjunto) {
+    public void setConjuntoIdConjunto(int conjuntoIdConjunto) {
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idAsamblea != null ? idAsamblea.hashCode() : 0);
-        hash += (conjuntoIdConjunto != null ? conjuntoIdConjunto.hashCode() : 0);
+        hash += (int) idAsamblea;
+        hash += (int) conjuntoIdConjunto;
         return hash;
     }
 
@@ -67,10 +65,10 @@ public class AsambleaPK implements Serializable {
             return false;
         }
         AsambleaPK other = (AsambleaPK) object;
-        if ((this.idAsamblea == null && other.idAsamblea != null) || (this.idAsamblea != null && !this.idAsamblea.equals(other.idAsamblea))) {
+        if (this.idAsamblea != other.idAsamblea) {
             return false;
         }
-        if ((this.conjuntoIdConjunto == null && other.conjuntoIdConjunto != null) || (this.conjuntoIdConjunto != null && !this.conjuntoIdConjunto.equals(other.conjuntoIdConjunto))) {
+        if (this.conjuntoIdConjunto != other.conjuntoIdConjunto) {
             return false;
         }
         return true;

@@ -6,7 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -20,71 +19,84 @@ import javax.validation.constraints.NotNull;
 public class ReservaPK implements Serializable {
 
     @Basic(optional = false)
+    @Column(name = "IdReserva")
+    private int idReserva;
+    @Basic(optional = false)
     @NotNull
     @Column(name = "AreaComunIdArea")
-    private BigInteger areaComunIdArea;
+    private int areaComunIdArea;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ApartamentoIdApartamento")
-    private BigInteger apartamentoIdApartamento;
+    private int apartamentoIdApartamento;
     @Basic(optional = false)
     @NotNull
     @Column(name = "AreaComunConjuntoIdConjunto")
-    private BigInteger areaComunConjuntoIdConjunto;
+    private int areaComunConjuntoIdConjunto;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ApartamentoConjuntoIdConjunto")
-    private BigInteger apartamentoConjuntoIdConjunto;
+    private int apartamentoConjuntoIdConjunto;
 
     public ReservaPK() {
     }
 
-    public ReservaPK(BigInteger areaComunIdArea, BigInteger apartamentoIdApartamento, BigInteger areaComunConjuntoIdConjunto, BigInteger apartamentoConjuntoIdConjunto) {
+    public ReservaPK(int idReserva, int areaComunIdArea, int apartamentoIdApartamento, int areaComunConjuntoIdConjunto, int apartamentoConjuntoIdConjunto) {
+        this.idReserva = idReserva;
         this.areaComunIdArea = areaComunIdArea;
         this.apartamentoIdApartamento = apartamentoIdApartamento;
         this.areaComunConjuntoIdConjunto = areaComunConjuntoIdConjunto;
         this.apartamentoConjuntoIdConjunto = apartamentoConjuntoIdConjunto;
     }
 
-    public BigInteger getAreaComunIdArea() {
+    public int getIdReserva() {
+        return idReserva;
+    }
+
+    public void setIdReserva(int idReserva) {
+        this.idReserva = idReserva;
+    }
+
+    public int getAreaComunIdArea() {
         return areaComunIdArea;
     }
 
-    public void setAreaComunIdArea(BigInteger areaComunIdArea) {
+    public void setAreaComunIdArea(int areaComunIdArea) {
         this.areaComunIdArea = areaComunIdArea;
     }
 
-    public BigInteger getApartamentoIdApartamento() {
+    public int getApartamentoIdApartamento() {
         return apartamentoIdApartamento;
     }
 
-    public void setApartamentoIdApartamento(BigInteger apartamentoIdApartamento) {
+    public void setApartamentoIdApartamento(int apartamentoIdApartamento) {
         this.apartamentoIdApartamento = apartamentoIdApartamento;
     }
 
-    public BigInteger getAreaComunConjuntoIdConjunto() {
+    public int getAreaComunConjuntoIdConjunto() {
         return areaComunConjuntoIdConjunto;
     }
 
-    public void setAreaComunConjuntoIdConjunto(BigInteger areaComunConjuntoIdConjunto) {
+    public void setAreaComunConjuntoIdConjunto(int areaComunConjuntoIdConjunto) {
         this.areaComunConjuntoIdConjunto = areaComunConjuntoIdConjunto;
     }
 
-    public BigInteger getApartamentoConjuntoIdConjunto() {
+    public int getApartamentoConjuntoIdConjunto() {
         return apartamentoConjuntoIdConjunto;
     }
 
-    public void setApartamentoConjuntoIdConjunto(BigInteger apartamentoConjuntoIdConjunto) {
+    public void setApartamentoConjuntoIdConjunto(int apartamentoConjuntoIdConjunto) {
         this.apartamentoConjuntoIdConjunto = apartamentoConjuntoIdConjunto;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (areaComunIdArea != null ? areaComunIdArea.hashCode() : 0);
-        hash += (apartamentoIdApartamento != null ? apartamentoIdApartamento.hashCode() : 0);
-        hash += (areaComunConjuntoIdConjunto != null ? areaComunConjuntoIdConjunto.hashCode() : 0);
-        hash += (apartamentoConjuntoIdConjunto != null ? apartamentoConjuntoIdConjunto.hashCode() : 0);
+        hash += (int) idReserva;
+        hash += (int) areaComunIdArea;
+        hash += (int) apartamentoIdApartamento;
+        hash += (int) areaComunConjuntoIdConjunto;
+        hash += (int) apartamentoConjuntoIdConjunto;
         return hash;
     }
 
@@ -95,16 +107,19 @@ public class ReservaPK implements Serializable {
             return false;
         }
         ReservaPK other = (ReservaPK) object;
-        if ((this.areaComunIdArea == null && other.areaComunIdArea != null) || (this.areaComunIdArea != null && !this.areaComunIdArea.equals(other.areaComunIdArea))) {
+        if (this.idReserva != other.idReserva) {
             return false;
         }
-        if ((this.apartamentoIdApartamento == null && other.apartamentoIdApartamento != null) || (this.apartamentoIdApartamento != null && !this.apartamentoIdApartamento.equals(other.apartamentoIdApartamento))) {
+        if (this.areaComunIdArea != other.areaComunIdArea) {
             return false;
         }
-        if ((this.areaComunConjuntoIdConjunto == null && other.areaComunConjuntoIdConjunto != null) || (this.areaComunConjuntoIdConjunto != null && !this.areaComunConjuntoIdConjunto.equals(other.areaComunConjuntoIdConjunto))) {
+        if (this.apartamentoIdApartamento != other.apartamentoIdApartamento) {
             return false;
         }
-        if ((this.apartamentoConjuntoIdConjunto == null && other.apartamentoConjuntoIdConjunto != null) || (this.apartamentoConjuntoIdConjunto != null && !this.apartamentoConjuntoIdConjunto.equals(other.apartamentoConjuntoIdConjunto))) {
+        if (this.areaComunConjuntoIdConjunto != other.areaComunConjuntoIdConjunto) {
+            return false;
+        }
+        if (this.apartamentoConjuntoIdConjunto != other.apartamentoConjuntoIdConjunto) {
             return false;
         }
         return true;
@@ -112,7 +127,7 @@ public class ReservaPK implements Serializable {
 
     @Override
     public String toString() {
-        return "ENTIDADES.ReservaPK[ areaComunIdArea=" + areaComunIdArea + ", apartamentoIdApartamento=" + apartamentoIdApartamento + ", areaComunConjuntoIdConjunto=" + areaComunConjuntoIdConjunto + ", apartamentoConjuntoIdConjunto=" + apartamentoConjuntoIdConjunto + " ]";
+        return "ENTIDADES.ReservaPK[ idReserva=" + idReserva + ", areaComunIdArea=" + areaComunIdArea + ", apartamentoIdApartamento=" + apartamentoIdApartamento + ", areaComunConjuntoIdConjunto=" + areaComunConjuntoIdConjunto + ", apartamentoConjuntoIdConjunto=" + apartamentoConjuntoIdConjunto + " ]";
     }
     
 }

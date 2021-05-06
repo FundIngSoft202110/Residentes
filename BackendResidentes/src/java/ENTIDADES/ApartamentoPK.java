@@ -6,7 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -20,43 +19,42 @@ import javax.validation.constraints.NotNull;
 public class ApartamentoPK implements Serializable {
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdApartamento")
-    private BigInteger idApartamento;
+    private int idApartamento;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ConjuntoIdConjunto")
-    private BigInteger conjuntoIdConjunto;
+    private int conjuntoIdConjunto;
 
     public ApartamentoPK() {
     }
 
-    public ApartamentoPK(BigInteger idApartamento, BigInteger conjuntoIdConjunto) {
+    public ApartamentoPK(int idApartamento, int conjuntoIdConjunto) {
         this.idApartamento = idApartamento;
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
-    public BigInteger getIdApartamento() {
+    public int getIdApartamento() {
         return idApartamento;
     }
 
-    public void setIdApartamento(BigInteger idApartamento) {
+    public void setIdApartamento(int idApartamento) {
         this.idApartamento = idApartamento;
     }
 
-    public BigInteger getConjuntoIdConjunto() {
+    public int getConjuntoIdConjunto() {
         return conjuntoIdConjunto;
     }
 
-    public void setConjuntoIdConjunto(BigInteger conjuntoIdConjunto) {
+    public void setConjuntoIdConjunto(int conjuntoIdConjunto) {
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idApartamento != null ? idApartamento.hashCode() : 0);
-        hash += (conjuntoIdConjunto != null ? conjuntoIdConjunto.hashCode() : 0);
+        hash += (int) idApartamento;
+        hash += (int) conjuntoIdConjunto;
         return hash;
     }
 
@@ -67,10 +65,10 @@ public class ApartamentoPK implements Serializable {
             return false;
         }
         ApartamentoPK other = (ApartamentoPK) object;
-        if ((this.idApartamento == null && other.idApartamento != null) || (this.idApartamento != null && !this.idApartamento.equals(other.idApartamento))) {
+        if (this.idApartamento != other.idApartamento) {
             return false;
         }
-        if ((this.conjuntoIdConjunto == null && other.conjuntoIdConjunto != null) || (this.conjuntoIdConjunto != null && !this.conjuntoIdConjunto.equals(other.conjuntoIdConjunto))) {
+        if (this.conjuntoIdConjunto != other.conjuntoIdConjunto) {
             return false;
         }
         return true;

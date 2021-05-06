@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Reserva.findAll", query = "SELECT r FROM Reserva r"),
+    @NamedQuery(name = "Reserva.findByIdReserva", query = "SELECT r FROM Reserva r WHERE r.reservaPK.idReserva = :idReserva"),
     @NamedQuery(name = "Reserva.findByAreaComunIdArea", query = "SELECT r FROM Reserva r WHERE r.reservaPK.areaComunIdArea = :areaComunIdArea"),
     @NamedQuery(name = "Reserva.findByApartamentoIdApartamento", query = "SELECT r FROM Reserva r WHERE r.reservaPK.apartamentoIdApartamento = :apartamentoIdApartamento"),
     @NamedQuery(name = "Reserva.findByAreaComunConjuntoIdConjunto", query = "SELECT r FROM Reserva r WHERE r.reservaPK.areaComunConjuntoIdConjunto = :areaComunConjuntoIdConjunto"),
@@ -72,8 +73,8 @@ public class Reserva implements Serializable {
         this.horaInicio = horaInicio;
     }
 
-    public Reserva(BigInteger areaComunIdArea, BigInteger apartamentoIdApartamento, BigInteger areaComunConjuntoIdConjunto, BigInteger apartamentoConjuntoIdConjunto) {
-        this.reservaPK = new ReservaPK(areaComunIdArea, apartamentoIdApartamento, areaComunConjuntoIdConjunto, apartamentoConjuntoIdConjunto);
+    public Reserva(int idReserva, int areaComunIdArea, int apartamentoIdApartamento, int areaComunConjuntoIdConjunto, int apartamentoConjuntoIdConjunto) {
+        this.reservaPK = new ReservaPK(idReserva, areaComunIdArea, apartamentoIdApartamento, areaComunConjuntoIdConjunto, apartamentoConjuntoIdConjunto);
     }
 
     public ReservaPK getReservaPK() {

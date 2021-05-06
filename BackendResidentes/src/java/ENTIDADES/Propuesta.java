@@ -6,13 +6,14 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
@@ -37,16 +38,16 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Propuesta.findAll", query = "SELECT p FROM Propuesta p"),
     @NamedQuery(name = "Propuesta.findByIdPropuesta", query = "SELECT p FROM Propuesta p WHERE p.idPropuesta = :idPropuesta"),
     @NamedQuery(name = "Propuesta.findByDescripcion", query = "SELECT p FROM Propuesta p WHERE p.descripcion = :descripcion"),
-    @NamedQuery(name = "Propuesta.findByVotosTotales", query = "SELECT p FROM Propuesta p WHERE p.votosTotales = :votosTotales")})
+    @NamedQuery(name = "Propuesta.findByVotosTotales", query = "SELECT p FROM Propuesta p WHERE p.votosTotales = :votosTotales"),
+    @NamedQuery(name = "Propuesta.findByEstado", query = "SELECT p FROM Propuesta p WHERE p.estado = :estado")})
 public class Propuesta implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdPropuesta")
-    private BigDecimal idPropuesta;
+    private Integer idPropuesta;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
@@ -56,6 +57,11 @@ public class Propuesta implements Serializable {
     @NotNull
     @Column(name = "VotosTotales")
     private BigInteger votosTotales;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "Estado")
+    private String estado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "propuesta")
     private List<Opcion> opcionList;
     @JoinColumns({
@@ -67,21 +73,22 @@ public class Propuesta implements Serializable {
     public Propuesta() {
     }
 
-    public Propuesta(BigDecimal idPropuesta) {
+    public Propuesta(Integer idPropuesta) {
         this.idPropuesta = idPropuesta;
     }
 
-    public Propuesta(BigDecimal idPropuesta, String descripcion, BigInteger votosTotales) {
+    public Propuesta(Integer idPropuesta, String descripcion, BigInteger votosTotales, String estado) {
         this.idPropuesta = idPropuesta;
         this.descripcion = descripcion;
         this.votosTotales = votosTotales;
+        this.estado = estado;
     }
 
-    public BigDecimal getIdPropuesta() {
+    public Integer getIdPropuesta() {
         return idPropuesta;
     }
 
-    public void setIdPropuesta(BigDecimal idPropuesta) {
+    public void setIdPropuesta(Integer idPropuesta) {
         this.idPropuesta = idPropuesta;
     }
 
@@ -99,6 +106,14 @@ public class Propuesta implements Serializable {
 
     public void setVotosTotales(BigInteger votosTotales) {
         this.votosTotales = votosTotales;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @XmlTransient
