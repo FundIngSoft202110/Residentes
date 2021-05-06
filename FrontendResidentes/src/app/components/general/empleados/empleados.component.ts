@@ -17,6 +17,7 @@ export class EmpleadosComponent implements OnInit {
 
   ngOnInit() {
     this.chats = this.serChats.getlstMsjs();
+    this.chatBuscado = this.chats;
   }
 
   getUser(){
@@ -24,14 +25,14 @@ export class EmpleadosComponent implements OnInit {
     //return this.personasService.getUserActivo();
   }
 
-  /*
+  
   buscarChat(event){
     const text = event.target.value ;
     this.chatBuscado = this.chats;
     if(text && text.trim() != ''){
-      this.chatBuscado = this.buscarChat.filter((chat: any)=>{
-        return (chat.name.toLowerCase().indexOf(text.toLowerCase()) >-1);
+      this.chatBuscado = this.chatBuscado.filter((chat: any)=>{
+        return ( (chat.Nombre.toLowerCase().indexOf(text.toLowerCase() ) >-1) || (chat.Rol.toLowerCase().indexOf(text.toLowerCase() ) >-1) );
       })
     }
-  }*/
+  }
 }
