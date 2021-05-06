@@ -1,16 +1,5 @@
 import { Injectable } from '@angular/core';
 
-export class Votos {
-  Asamblea: string;
-  totalVotaciones: number;
-  Ganador: string;
-}
-
-let votos: Votos = {
-  "Asamblea": "Nombre Asamblea",
-  "totalVotaciones": 10,
-  "Ganador": "Nombre Ganador"
-};
 export class Ganador {
   idPropuesta: number;
   idOpcion: number;
