@@ -3,10 +3,11 @@
 
 <ion-content>
     <ion-toolbar>
-        <ion-searchbar placeholder="Buscar" ></ion-searchbar>
+        <ion-searchbar placeholder="Buscar" animated (ionChange)= "buscarChat($event)"></ion-searchbar>
     </ion-toolbar>
     <ion-list>
-        <ion-item *ngFor= "let chat of chats" [routerLink]="['/chat']">
+        
+        <ion-item *ngFor= "let chat of chatBuscado" [routerLink]="['/chat']">
             <ion-avatar slot="start">
                 <ion-img [src]="chat.Foto">
                 </ion-img>
