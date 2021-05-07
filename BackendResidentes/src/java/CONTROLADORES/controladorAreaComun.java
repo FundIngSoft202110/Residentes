@@ -46,8 +46,8 @@ public class controladorAreaComun {
             while (rs.next()) {
                 Areacomun areaC = new Areacomun();
                 AreacomunPK areaPK = new AreacomunPK();
-                areaPK.setConjuntoIdConjunto(rs.getBigDecimal("ConjuntoIdConjunto"));
-                areaPK.setIdArea(rs.getBigDecimal("IdArea"));
+                areaPK.setConjuntoIdConjunto(rs.getInt("ConjuntoIdConjunto"));
+                areaPK.setIdArea(rs.getInt("IdArea"));
                 areaC.setAreacomunPK(areaPK);
                 areaC.setNombre(rs.getString("Nombre"));
                 areaC.setTipo(rs.getNString("Tipo"));
@@ -67,7 +67,7 @@ public class controladorAreaComun {
     @GET
     @Path("/areasConjunto/{Idconjunto}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Areacomun> getTiposAreasComunesConjunto(@PathParam("Idconjunto") BigDecimal Idconjunto) {
+    public List<Areacomun> getTiposAreasComunesConjunto(@PathParam("Idconjunto") int Idconjunto) {
 
         List<Areacomun> areas = new ArrayList<>();
 
@@ -76,7 +76,7 @@ public class controladorAreaComun {
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
-            statement.setBigDecimal(1, Idconjunto);
+            statement.setInt(1, Idconjunto);
 
             try (ResultSet rs = statement.executeQuery();) {
 
@@ -114,7 +114,7 @@ public class controladorAreaComun {
     @GET
     @Path("areasComunesTipo/conjunto/{Idconjunto}/nomTipoArea/{Nomtipo}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Areacomun> getAreasTipoConjunto(@PathParam("Idconjunto") BigDecimal Idconjunto, @PathParam("Nomtipo") String Nomtipo) {
+    public List<Areacomun> getAreasTipoConjunto(@PathParam("Idconjunto") int Idconjunto, @PathParam("Nomtipo") String Nomtipo) {
 
         List<Areacomun> areas = new ArrayList<>();
         String consulta = "SELECT * FROM areacomun ac WHERE ac.ConjuntoIdConjunto=? and ac.Tipo=?";
@@ -122,7 +122,7 @@ public class controladorAreaComun {
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
-            statement.setBigDecimal(1, Idconjunto);
+            statement.setInt(1, Idconjunto);
             statement.setString(2, Nomtipo);
 
             try (ResultSet rs = statement.executeQuery();) {
@@ -145,7 +145,7 @@ public class controladorAreaComun {
     @GET
     @Path("areaEspecifica/conjunto/{Idconjunto}/nomArea/{NomArea}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Areacomun getNombreAreaConjunto(@PathParam("Idconjunto") BigDecimal Idconjunto, @PathParam("NomArea") String NomArea) {
+    public Areacomun getNombreAreaConjunto(@PathParam("Idconjunto") int Idconjunto, @PathParam("NomArea") String NomArea) {
     
         Areacomun areaC = new Areacomun();
         String consulta = "SELECT * FROM areacomun ac WHERE ac.ConjuntoIdConjunto=? and ac.Nombre=?";
@@ -153,15 +153,15 @@ public class controladorAreaComun {
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
-            statement.setBigDecimal(1, Idconjunto);
+            statement.setInt(1, Idconjunto);
             statement.setString(2, NomArea);
 
             try (ResultSet rs = statement.executeQuery();) {
 
                 while (rs.next()) {
                 AreacomunPK areaPK = new AreacomunPK();
-                areaPK.setConjuntoIdConjunto(rs.getBigDecimal("ConjuntoIdConjunto"));
-                areaPK.setIdArea(rs.getBigDecimal("IdArea"));
+                areaPK.setConjuntoIdConjunto(rs.getInt("ConjuntoIdConjunto"));
+                areaPK.setIdArea(rs.getInt("IdArea"));
                 areaC.setAreacomunPK(areaPK);
                 areaC.setNombre(rs.getString("Nombre"));
                 areaC.setTipo(rs.getNString("Tipo"));
@@ -193,8 +193,8 @@ public class controladorAreaComun {
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
-            statement.setBigDecimal(1, area.getAreacomunPK().getConjuntoIdConjunto());
-            statement.setBigDecimal(2, area.getAreacomunPK().getIdArea());
+            statement.setInt(1, area.getAreacomunPK().getConjuntoIdConjunto());
+            statement.setInt(2, area.getAreacomunPK().getIdArea());
 
             try (ResultSet rs = statement.executeQuery();) {
 

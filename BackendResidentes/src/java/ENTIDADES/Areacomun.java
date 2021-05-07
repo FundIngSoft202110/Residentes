@@ -6,7 +6,7 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -58,7 +58,7 @@ public class Areacomun implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Capacidad")
-    private BigInteger capacidad;
+    private BigDecimal capacidad;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
@@ -84,7 +84,7 @@ public class Areacomun implements Serializable {
         this.areacomunPK = areacomunPK;
     }
 
-    public Areacomun(AreacomunPK areacomunPK, String nombre, String tipo, BigInteger capacidad, String descripcion, String estado) {
+    public Areacomun(AreacomunPK areacomunPK, String nombre, String tipo, BigDecimal capacidad, String descripcion, String estado) {
         this.areacomunPK = areacomunPK;
         this.nombre = nombre;
         this.tipo = tipo;
@@ -121,11 +121,11 @@ public class Areacomun implements Serializable {
         this.tipo = tipo;
     }
 
-    public BigInteger getCapacidad() {
+    public BigDecimal getCapacidad() {
         return capacidad;
     }
 
-    public void setCapacidad(BigInteger capacidad) {
+    public void setCapacidad(BigDecimal capacidad) {
         this.capacidad = capacidad;
     }
 
