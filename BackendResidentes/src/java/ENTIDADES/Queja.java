@@ -6,10 +6,11 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
@@ -35,12 +36,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Queja implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdQueja")
-    private BigDecimal idQueja;
+    private Integer idQueja;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
@@ -58,20 +58,20 @@ public class Queja implements Serializable {
     public Queja() {
     }
 
-    public Queja(BigDecimal idQueja) {
+    public Queja(Integer idQueja) {
         this.idQueja = idQueja;
     }
 
-    public Queja(BigDecimal idQueja, String asunto) {
+    public Queja(Integer idQueja, String asunto) {
         this.idQueja = idQueja;
         this.asunto = asunto;
     }
 
-    public BigDecimal getIdQueja() {
+    public Integer getIdQueja() {
         return idQueja;
     }
 
-    public void setIdQueja(BigDecimal idQueja) {
+    public void setIdQueja(Integer idQueja) {
         this.idQueja = idQueja;
     }
 

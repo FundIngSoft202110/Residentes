@@ -7,10 +7,13 @@ package ENTIDADES;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
@@ -44,12 +47,11 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdPersona")
-    private BigDecimal idPersona;
+    private Integer idPersona;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -58,8 +60,8 @@ public class Persona implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "Apelllido")
-    private String apelllido;
+    @Column(name = "Apellido")
+    private String apellido;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -78,7 +80,7 @@ public class Persona implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "NumCelular")
-    private long numCelular;
+    private BigDecimal numCelular;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 15)
@@ -100,14 +102,14 @@ public class Persona implements Serializable {
     public Persona() {
     }
 
-    public Persona(BigDecimal idPersona) {
+    public Persona(Integer idPersona) {
         this.idPersona = idPersona;
     }
 
-    public Persona(BigDecimal idPersona, String nombre, String apelllido, String usuario, String correo, String contrasena, long numCelular, String rolConjunto) {
+    public Persona(Integer idPersona, String nombre, String apellido, String usuario, String correo, String contrasena, BigDecimal numCelular, String rolConjunto) {
         this.idPersona = idPersona;
         this.nombre = nombre;
-        this.apelllido = apelllido;
+        this.apellido = apellido;
         this.usuario = usuario;
         this.correo = correo;
         this.contrasena = contrasena;
@@ -115,11 +117,11 @@ public class Persona implements Serializable {
         this.rolConjunto = rolConjunto;
     }
 
-    public BigDecimal getIdPersona() {
+    public Integer getIdPersona() {
         return idPersona;
     }
 
-    public void setIdPersona(BigDecimal idPersona) {
+    public void setIdPersona(Integer idPersona) {
         this.idPersona = idPersona;
     }
 
@@ -131,12 +133,12 @@ public class Persona implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getApelllido() {
-        return apelllido;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApelllido(String apelllido) {
-        this.apelllido = apelllido;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getUsuario() {
@@ -163,11 +165,11 @@ public class Persona implements Serializable {
         this.contrasena = contrasena;
     }
 
-    public long getNumCelular() {
+    public BigDecimal getNumCelular() {
         return numCelular;
     }
 
-    public void setNumCelular(long numCelular) {
+    public void setNumCelular(BigDecimal numCelular) {
         this.numCelular = numCelular;
     }
 

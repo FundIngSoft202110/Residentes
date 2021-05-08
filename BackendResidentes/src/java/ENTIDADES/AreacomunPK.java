@@ -6,8 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -21,43 +19,42 @@ import javax.validation.constraints.NotNull;
 public class AreacomunPK implements Serializable {
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdArea")
-    private BigDecimal idArea;
+    private int idArea;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ConjuntoIdConjunto")
-    private BigDecimal conjuntoIdConjunto;
+    private int conjuntoIdConjunto;
 
     public AreacomunPK() {
     }
 
-    public AreacomunPK(BigDecimal idArea, BigDecimal conjuntoIdConjunto) {
+    public AreacomunPK(int idArea, int conjuntoIdConjunto) {
         this.idArea = idArea;
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
-    public BigDecimal getIdArea() {
+    public int getIdArea() {
         return idArea;
     }
 
-    public void setIdArea(BigDecimal idArea) {
+    public void setIdArea(int idArea) {
         this.idArea = idArea;
     }
 
-    public BigDecimal getConjuntoIdConjunto() {
+    public int getConjuntoIdConjunto() {
         return conjuntoIdConjunto;
     }
 
-    public void setConjuntoIdConjunto(BigDecimal conjuntoIdConjunto) {
+    public void setConjuntoIdConjunto(int conjuntoIdConjunto) {
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idArea != null ? idArea.hashCode() : 0);
-        hash += (conjuntoIdConjunto != null ? conjuntoIdConjunto.hashCode() : 0);
+        hash += (int) idArea;
+        hash += (int) conjuntoIdConjunto;
         return hash;
     }
 
@@ -68,10 +65,10 @@ public class AreacomunPK implements Serializable {
             return false;
         }
         AreacomunPK other = (AreacomunPK) object;
-        if ((this.idArea == null && other.idArea != null) || (this.idArea != null && !this.idArea.equals(other.idArea))) {
+        if (this.idArea != other.idArea) {
             return false;
         }
-        if ((this.conjuntoIdConjunto == null && other.conjuntoIdConjunto != null) || (this.conjuntoIdConjunto != null && !this.conjuntoIdConjunto.equals(other.conjuntoIdConjunto))) {
+        if (this.conjuntoIdConjunto != other.conjuntoIdConjunto) {
             return false;
         }
         return true;

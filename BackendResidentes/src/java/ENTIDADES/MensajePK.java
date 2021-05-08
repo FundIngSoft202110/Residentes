@@ -6,7 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -20,43 +19,42 @@ import javax.validation.constraints.NotNull;
 public class MensajePK implements Serializable {
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdMensaje")
-    private BigInteger idMensaje;
+    private int idMensaje;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ConjuntoIdConjunto")
-    private BigInteger conjuntoIdConjunto;
+    private int conjuntoIdConjunto;
 
     public MensajePK() {
     }
 
-    public MensajePK(BigInteger idMensaje, BigInteger conjuntoIdConjunto) {
+    public MensajePK(int idMensaje, int conjuntoIdConjunto) {
         this.idMensaje = idMensaje;
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
-    public BigInteger getIdMensaje() {
+    public int getIdMensaje() {
         return idMensaje;
     }
 
-    public void setIdMensaje(BigInteger idMensaje) {
+    public void setIdMensaje(int idMensaje) {
         this.idMensaje = idMensaje;
     }
 
-    public BigInteger getConjuntoIdConjunto() {
+    public int getConjuntoIdConjunto() {
         return conjuntoIdConjunto;
     }
 
-    public void setConjuntoIdConjunto(BigInteger conjuntoIdConjunto) {
+    public void setConjuntoIdConjunto(int conjuntoIdConjunto) {
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idMensaje != null ? idMensaje.hashCode() : 0);
-        hash += (conjuntoIdConjunto != null ? conjuntoIdConjunto.hashCode() : 0);
+        hash += (int) idMensaje;
+        hash += (int) conjuntoIdConjunto;
         return hash;
     }
 
@@ -67,10 +65,10 @@ public class MensajePK implements Serializable {
             return false;
         }
         MensajePK other = (MensajePK) object;
-        if ((this.idMensaje == null && other.idMensaje != null) || (this.idMensaje != null && !this.idMensaje.equals(other.idMensaje))) {
+        if (this.idMensaje != other.idMensaje) {
             return false;
         }
-        if ((this.conjuntoIdConjunto == null && other.conjuntoIdConjunto != null) || (this.conjuntoIdConjunto != null && !this.conjuntoIdConjunto.equals(other.conjuntoIdConjunto))) {
+        if (this.conjuntoIdConjunto != other.conjuntoIdConjunto) {
             return false;
         }
         return true;

@@ -6,7 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -73,7 +72,7 @@ public class Asamblea implements Serializable {
         this.tema = tema;
     }
 
-    public Asamblea(BigInteger idAsamblea, BigInteger conjuntoIdConjunto) {
+    public Asamblea(int idAsamblea, int conjuntoIdConjunto) {
         this.asambleaPK = new AsambleaPK(idAsamblea, conjuntoIdConjunto);
     }
 

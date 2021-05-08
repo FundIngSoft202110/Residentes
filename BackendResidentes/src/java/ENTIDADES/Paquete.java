@@ -85,7 +85,7 @@ public class Paquete implements Serializable {
         this.remitente = remitente;
     }
 
-    public Paquete(BigInteger idPaqueete, BigInteger apartamentoConjuntoIdConjunto, BigInteger apartamentoIdApartamento) {
+    public Paquete(int idPaqueete, int apartamentoConjuntoIdConjunto, int apartamentoIdApartamento) {
         this.paquetePK = new PaquetePK(idPaqueete, apartamentoConjuntoIdConjunto, apartamentoIdApartamento);
     }
 

@@ -6,7 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -20,57 +19,56 @@ import javax.validation.constraints.NotNull;
 public class PaquetePK implements Serializable {
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdPaqueete")
-    private BigInteger idPaqueete;
+    private int idPaqueete;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ApartamentoConjuntoIdConjunto")
-    private BigInteger apartamentoConjuntoIdConjunto;
+    private int apartamentoConjuntoIdConjunto;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ApartamentoIdApartamento")
-    private BigInteger apartamentoIdApartamento;
+    private int apartamentoIdApartamento;
 
     public PaquetePK() {
     }
 
-    public PaquetePK(BigInteger idPaqueete, BigInteger apartamentoConjuntoIdConjunto, BigInteger apartamentoIdApartamento) {
+    public PaquetePK(int idPaqueete, int apartamentoConjuntoIdConjunto, int apartamentoIdApartamento) {
         this.idPaqueete = idPaqueete;
         this.apartamentoConjuntoIdConjunto = apartamentoConjuntoIdConjunto;
         this.apartamentoIdApartamento = apartamentoIdApartamento;
     }
 
-    public BigInteger getIdPaqueete() {
+    public int getIdPaqueete() {
         return idPaqueete;
     }
 
-    public void setIdPaqueete(BigInteger idPaqueete) {
+    public void setIdPaqueete(int idPaqueete) {
         this.idPaqueete = idPaqueete;
     }
 
-    public BigInteger getApartamentoConjuntoIdConjunto() {
+    public int getApartamentoConjuntoIdConjunto() {
         return apartamentoConjuntoIdConjunto;
     }
 
-    public void setApartamentoConjuntoIdConjunto(BigInteger apartamentoConjuntoIdConjunto) {
+    public void setApartamentoConjuntoIdConjunto(int apartamentoConjuntoIdConjunto) {
         this.apartamentoConjuntoIdConjunto = apartamentoConjuntoIdConjunto;
     }
 
-    public BigInteger getApartamentoIdApartamento() {
+    public int getApartamentoIdApartamento() {
         return apartamentoIdApartamento;
     }
 
-    public void setApartamentoIdApartamento(BigInteger apartamentoIdApartamento) {
+    public void setApartamentoIdApartamento(int apartamentoIdApartamento) {
         this.apartamentoIdApartamento = apartamentoIdApartamento;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idPaqueete != null ? idPaqueete.hashCode() : 0);
-        hash += (apartamentoConjuntoIdConjunto != null ? apartamentoConjuntoIdConjunto.hashCode() : 0);
-        hash += (apartamentoIdApartamento != null ? apartamentoIdApartamento.hashCode() : 0);
+        hash += (int) idPaqueete;
+        hash += (int) apartamentoConjuntoIdConjunto;
+        hash += (int) apartamentoIdApartamento;
         return hash;
     }
 
@@ -81,13 +79,13 @@ public class PaquetePK implements Serializable {
             return false;
         }
         PaquetePK other = (PaquetePK) object;
-        if ((this.idPaqueete == null && other.idPaqueete != null) || (this.idPaqueete != null && !this.idPaqueete.equals(other.idPaqueete))) {
+        if (this.idPaqueete != other.idPaqueete) {
             return false;
         }
-        if ((this.apartamentoConjuntoIdConjunto == null && other.apartamentoConjuntoIdConjunto != null) || (this.apartamentoConjuntoIdConjunto != null && !this.apartamentoConjuntoIdConjunto.equals(other.apartamentoConjuntoIdConjunto))) {
+        if (this.apartamentoConjuntoIdConjunto != other.apartamentoConjuntoIdConjunto) {
             return false;
         }
-        if ((this.apartamentoIdApartamento == null && other.apartamentoIdApartamento != null) || (this.apartamentoIdApartamento != null && !this.apartamentoIdApartamento.equals(other.apartamentoIdApartamento))) {
+        if (this.apartamentoIdApartamento != other.apartamentoIdApartamento) {
             return false;
         }
         return true;

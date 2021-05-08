@@ -6,7 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -79,7 +78,7 @@ public class Noticia implements Serializable {
         this.fecha = fecha;
     }
 
-    public Noticia(BigInteger idNoticia, BigInteger conjuntoIdConjunto) {
+    public Noticia(int idNoticia, int conjuntoIdConjunto) {
         this.noticiaPK = new NoticiaPK(idNoticia, conjuntoIdConjunto);
     }
 

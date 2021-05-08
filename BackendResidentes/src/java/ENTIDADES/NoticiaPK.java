@@ -6,7 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -20,43 +19,42 @@ import javax.validation.constraints.NotNull;
 public class NoticiaPK implements Serializable {
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdNoticia")
-    private BigInteger idNoticia;
+    private int idNoticia;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ConjuntoIdConjunto")
-    private BigInteger conjuntoIdConjunto;
+    private int conjuntoIdConjunto;
 
     public NoticiaPK() {
     }
 
-    public NoticiaPK(BigInteger idNoticia, BigInteger conjuntoIdConjunto) {
+    public NoticiaPK(int idNoticia, int conjuntoIdConjunto) {
         this.idNoticia = idNoticia;
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
-    public BigInteger getIdNoticia() {
+    public int getIdNoticia() {
         return idNoticia;
     }
 
-    public void setIdNoticia(BigInteger idNoticia) {
+    public void setIdNoticia(int idNoticia) {
         this.idNoticia = idNoticia;
     }
 
-    public BigInteger getConjuntoIdConjunto() {
+    public int getConjuntoIdConjunto() {
         return conjuntoIdConjunto;
     }
 
-    public void setConjuntoIdConjunto(BigInteger conjuntoIdConjunto) {
+    public void setConjuntoIdConjunto(int conjuntoIdConjunto) {
         this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idNoticia != null ? idNoticia.hashCode() : 0);
-        hash += (conjuntoIdConjunto != null ? conjuntoIdConjunto.hashCode() : 0);
+        hash += (int) idNoticia;
+        hash += (int) conjuntoIdConjunto;
         return hash;
     }
 
@@ -67,10 +65,10 @@ public class NoticiaPK implements Serializable {
             return false;
         }
         NoticiaPK other = (NoticiaPK) object;
-        if ((this.idNoticia == null && other.idNoticia != null) || (this.idNoticia != null && !this.idNoticia.equals(other.idNoticia))) {
+        if (this.idNoticia != other.idNoticia) {
             return false;
         }
-        if ((this.conjuntoIdConjunto == null && other.conjuntoIdConjunto != null) || (this.conjuntoIdConjunto != null && !this.conjuntoIdConjunto.equals(other.conjuntoIdConjunto))) {
+        if (this.conjuntoIdConjunto != other.conjuntoIdConjunto) {
             return false;
         }
         return true;
