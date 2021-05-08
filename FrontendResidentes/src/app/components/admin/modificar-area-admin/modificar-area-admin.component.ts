@@ -57,5 +57,4 @@ export class ModificarAreaAdminComponent implements OnInit {
         e.preventDefault();
     }
   ngOnInit() {}
-
 }
