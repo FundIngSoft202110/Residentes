@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import notify from 'devextreme/ui/notify';
-import {AgregarAreaAdminServiceService, NuevaArea} from '../../../Services/AgregarAreaAdmin/agregar-area-admin-service.service';
+import {ModificarAreaAdminService, NuevaArea } from '../../../Services/modificarAreaAdmin/modificar-area-admin.service';
 import { NgModule, ViewChild, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -12,26 +12,16 @@ import { DxCheckBoxModule,
          DxAutocompleteModule,
          DxFormComponent
        } from 'devextreme-angular';
-
-const sendRequest = function(value) {
-    const validEmail = "test@dx-email.com";
-    return new Promise((resolve) => {
-        setTimeout(function() {
-            resolve(value === validEmail);
-        }, 1000);
-    });    
-}
-
 @Component({
-  selector: 'app-agregar-area-admin',
-  providers: [AgregarAreaAdminServiceService],
-  templateUrl: './agregar-area-admin.component.html',
-  styleUrls: ['./agregar-area-admin.component.scss'],
+  selector: 'app-modificar-area-admin',
+  providers: [ModificarAreaAdminService],
+  templateUrl: './modificar-area-admin.component.html',
+  styleUrls: ['./modificar-area-admin.component.scss'],
 })
-
-export class AgregarAreaAdminComponent implements OnInit{
+export class ModificarAreaAdminComponent implements OnInit {
     @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
   
+    estado: any;
     nuevaArea: NuevaArea;
 	tipo: string[];
 	horaDeApertura: string[];
@@ -39,14 +29,14 @@ export class AgregarAreaAdminComponent implements OnInit{
 	diasDisponibles: string[];
    
     buttonOptions1: any = {
-        text: "Agregar",
+        text: "Guardar/Modificar",
         type: "success",
         useSubmitBehavior: true
     }
     
     
    
-    constructor(service: AgregarAreaAdminServiceService) {
+    constructor(service: ModificarAreaAdminService) {
         this.nuevaArea = service.getNuevaArea();
 		this.tipo = service.getTipo();
 		this.horaDeApertura = service.getHoraDeApertura();
@@ -66,5 +56,6 @@ export class AgregarAreaAdminComponent implements OnInit{
         
         e.preventDefault();
     }
-    ngOnInit() {}
+  ngOnInit() {}
+
 }

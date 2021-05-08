@@ -1,5 +1,4 @@
-::ng-deep form {
-    margin-right: 300px;
-    margin-left: 300px;
-    margin-top: 25px;
- }
+::ng-deep .first-group,
+::ng-deep .second-group {
+    padding: 20px;
+}
