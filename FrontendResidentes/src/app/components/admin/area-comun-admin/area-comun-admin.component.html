@@ -1,32 +1,40 @@
 <app-header titulo="AREAS COMUNES" menu=ADMIN></app-header>
-<div class="content-block dx-card responsive-paddings">
-<form>
-  <dx-form id="form1"
-      [formData]="customer"
-      [readOnly]="false"
-      [showColonAfterLabel]="true"
-      [showValidationSummary]="true"
-      validationGroup="customerData">
-          <dxi-item dataField="Tipo"
-              editorType="dxSelectBox"
-              [editorOptions]="{ dataSource: countries }">
-              <dxi-validation-rule 
-                  type="required"
-                  message="El tipo de área es requeirda">
-              </dxi-validation-rule>
-          </dxi-item>
-      <dxi-item dataField="Lista áreas comúnes"
-              editorType="dxSelectBox"
-              [editorOptions]="{ dataSource: countries }">
-              <dxi-validation-rule 
-                  type="required"
-                  message="Debe seleccionar un nombre">
-              </dxi-validation-rule>
-          </dxi-item>
-  </dx-form>
-  <div>
-       <dx-switch [value]="true"></dx-switch>
-  </div>
- 
-</form>
-</div>
+<div class="form">
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <div class="dx-field-label">Tipo: </div>
+            <div class="dx-field-value">
+                <dx-radio-group
+                    [items]="tipo"
+                    [value]="tipo[0]"
+                    layout="horizontal">
+                </dx-radio-group>
+            </div>
+        </div>
+        </div>
+    </div>
+<dx-form id="form"
+	[formData]="area">
+	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
+		<dxi-item itemType="group" [colSpan]="3">
+            	<dxi-item dataField="ListaDeAreasComunes" editorType="dxSelectBox" [editorOptions]="{ items: listaAreas }"></dxi-item>
+		</dxi-item>
+	</dxi-item>
+        <dxi-item 
+            itemType="button"
+            horizontalAlignment="center"
+            [buttonOptions]="buttonOptions1">
+        </dxi-item>
+        <dxi-item 
+            itemType="button"
+            horizontalAlignment="center"
+            [buttonOptions]="buttonOptions2">
+        </dxi-item>
+ <dxi-item itemType="group" caption=" ">
+        <dxi-item 
+            itemType="button"
+            horizontalAlignment="center"
+            [buttonOptions]="buttonOptions3">
+        </dxi-item>
+     </dxi-item>
+</dx-form>
