@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/ENTIDADES/Apartamento.java</file>
             <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/CONTROLADORES/controladorAreaComun.java</file>
+            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/ENTIDADES/Diasdispo.java</file>
             <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/ENTIDADES/AreacomunPK.java</file>
-            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/ENTIDADES/Persona.java</file>
-            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/CONTROLADORES/controladorPersona.java</file>
+            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/CONTROLADORES/contraladorDiasDispo.java</file>
+            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/CONTROLADORES/contraladorReserva.java</file>
+            <file>file:/C:/Users/Mariana/Desktop/ingesoft/Residentes/BackendResidentes/src/java/ENTIDADES/Reserva.java</file>
         </group>
     </open-files>
 </project-private>

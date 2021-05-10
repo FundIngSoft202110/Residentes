@@ -6,6 +6,7 @@
 package ENTIDADES;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.Basic;
@@ -47,11 +48,11 @@ public class Apartamento implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Torre")
-    private BigInteger torre;
+    private BigDecimal torre;
     @Basic(optional = false)
     @NotNull
     @Column(name = "Numero")
-    private BigInteger numero;
+    private BigDecimal numero;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -60,7 +61,7 @@ public class Apartamento implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Piso")
-    private BigInteger piso;
+    private BigDecimal piso;
     @JoinColumn(name = "ConjuntoIdConjunto", referencedColumnName = "IdConjunto", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Conjunto conjunto;
@@ -80,7 +81,7 @@ public class Apartamento implements Serializable {
         this.apartamentoPK = apartamentoPK;
     }
 
-    public Apartamento(ApartamentoPK apartamentoPK, BigInteger torre, BigInteger numero, String contrasena, BigInteger piso) {
+    public Apartamento(ApartamentoPK apartamentoPK, BigDecimal torre, BigDecimal numero, String contrasena, BigDecimal piso) {
         this.apartamentoPK = apartamentoPK;
         this.torre = torre;
         this.numero = numero;
@@ -100,19 +101,19 @@ public class Apartamento implements Serializable {
         this.apartamentoPK = apartamentoPK;
     }
 
-    public BigInteger getTorre() {
+    public BigDecimal getTorre() {
         return torre;
     }
 
-    public void setTorre(BigInteger torre) {
+    public void setTorre(BigDecimal torre) {
         this.torre = torre;
     }
 
-    public BigInteger getNumero() {
+    public BigDecimal getNumero() {
         return numero;
     }
 
-    public void setNumero(BigInteger numero) {
+    public void setNumero(BigDecimal numero) {
         this.numero = numero;
     }
 
@@ -124,11 +125,11 @@ public class Apartamento implements Serializable {
         this.contrasena = contrasena;
     }
 
-    public BigInteger getPiso() {
+    public BigDecimal getPiso() {
         return piso;
     }
 
-    public void setPiso(BigInteger piso) {
+    public void setPiso(BigDecimal piso) {
         this.piso = piso;
     }
 

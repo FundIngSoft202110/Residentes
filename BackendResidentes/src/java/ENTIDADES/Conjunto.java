@@ -6,6 +6,7 @@
 package ENTIDADES;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.Basic;
@@ -71,22 +72,22 @@ public class Conjunto implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "PrecioAdmin")
-    private BigInteger precioAdmin;
+    private BigDecimal precioAdmin;
     @Size(max = 255)
     @Column(name = "Manual")
     private String manual;
     @Basic(optional = false)
     @NotNull
     @Column(name = "NumeroTorres")
-    private BigInteger numeroTorres;
+    private BigDecimal numeroTorres;
     @Basic(optional = false)
     @NotNull
     @Column(name = "NumeroPisos")
-    private BigInteger numeroPisos;
+    private BigDecimal numeroPisos;
     @Basic(optional = false)
     @NotNull
     @Column(name = "NumeroApartamentos")
-    private BigInteger numeroApartamentos;
+    private BigDecimal numeroApartamentos;
     @JoinTable(name = "personaxconjunto", joinColumns = {
         @JoinColumn(name = "ConjuntoIdConjunto", referencedColumnName = "IdConjunto")}, inverseJoinColumns = {
         @JoinColumn(name = "PersonaIdPersona", referencedColumnName = "IdPersona")})
@@ -112,7 +113,7 @@ public class Conjunto implements Serializable {
         this.idConjunto = idConjunto;
     }
 
-    public Conjunto(Integer idConjunto, String nombre, String linkDePago, String direccion, BigInteger precioAdmin, BigInteger numeroTorres, BigInteger numeroPisos, BigInteger numeroApartamentos) {
+    public Conjunto(Integer idConjunto, String nombre, String linkDePago, String direccion, BigDecimal precioAdmin, BigDecimal numeroTorres, BigDecimal numeroPisos, BigDecimal numeroApartamentos) {
         this.idConjunto = idConjunto;
         this.nombre = nombre;
         this.linkDePago = linkDePago;
@@ -155,11 +156,11 @@ public class Conjunto implements Serializable {
         this.direccion = direccion;
     }
 
-    public BigInteger getPrecioAdmin() {
+    public BigDecimal getPrecioAdmin() {
         return precioAdmin;
     }
 
-    public void setPrecioAdmin(BigInteger precioAdmin) {
+    public void setPrecioAdmin(BigDecimal precioAdmin) {
         this.precioAdmin = precioAdmin;
     }
 
@@ -171,27 +172,27 @@ public class Conjunto implements Serializable {
         this.manual = manual;
     }
 
-    public BigInteger getNumeroTorres() {
+    public BigDecimal getNumeroTorres() {
         return numeroTorres;
     }
 
-    public void setNumeroTorres(BigInteger numeroTorres) {
+    public void setNumeroTorres(BigDecimal numeroTorres) {
         this.numeroTorres = numeroTorres;
     }
 
-    public BigInteger getNumeroPisos() {
+    public BigDecimal getNumeroPisos() {
         return numeroPisos;
     }
 
-    public void setNumeroPisos(BigInteger numeroPisos) {
+    public void setNumeroPisos(BigDecimal numeroPisos) {
         this.numeroPisos = numeroPisos;
     }
 
-    public BigInteger getNumeroApartamentos() {
+    public BigDecimal getNumeroApartamentos() {
         return numeroApartamentos;
     }
 
-    public void setNumeroApartamentos(BigInteger numeroApartamentos) {
+    public void setNumeroApartamentos(BigDecimal numeroApartamentos) {
         this.numeroApartamentos = numeroApartamentos;
     }
 

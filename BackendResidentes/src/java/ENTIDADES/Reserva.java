@@ -8,6 +8,7 @@ package ENTIDADES;
 import java.io.Serializable;
 import java.math.BigInteger;
 import javax.persistence.Basic;
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -44,11 +45,11 @@ public class Reserva implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "HoraFinal")
-    private BigInteger horaFinal;
+    private BigDecimal horaFinal;
     @Basic(optional = false)
     @NotNull
     @Column(name = "HoraInicio")
-    private BigInteger horaInicio;
+    private BigDecimal horaInicio;
     @JoinColumns({
         @JoinColumn(name = "ApartamentoIdApartamento", referencedColumnName = "IdApartamento", insertable = false, updatable = false),
         @JoinColumn(name = "ApartamentoConjuntoIdConjunto", referencedColumnName = "ConjuntoIdConjunto", insertable = false, updatable = false)})
@@ -67,7 +68,7 @@ public class Reserva implements Serializable {
         this.reservaPK = reservaPK;
     }
 
-    public Reserva(ReservaPK reservaPK, BigInteger horaFinal, BigInteger horaInicio) {
+    public Reserva(ReservaPK reservaPK, BigDecimal horaFinal, BigDecimal horaInicio) {
         this.reservaPK = reservaPK;
         this.horaFinal = horaFinal;
         this.horaInicio = horaInicio;
@@ -85,19 +86,19 @@ public class Reserva implements Serializable {
         this.reservaPK = reservaPK;
     }
 
-    public BigInteger getHoraFinal() {
+    public BigDecimal getHoraFinal() {
         return horaFinal;
     }
 
-    public void setHoraFinal(BigInteger horaFinal) {
+    public void setHoraFinal(BigDecimal horaFinal) {
         this.horaFinal = horaFinal;
     }
 
-    public BigInteger getHoraInicio() {
+    public BigDecimal getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(BigInteger horaInicio) {
+    public void setHoraInicio(BigDecimal horaInicio) {
         this.horaInicio = horaInicio;
     }
 
