@@ -7,3 +7,5 @@
 ConexionBD.java
 glassfish-resources.xml
 build/
+
+private.properties
