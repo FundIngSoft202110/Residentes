@@ -38,7 +38,7 @@ let diasDisponibles: string[] = ["Lunes-Viernes", "Lunes-Domingo", "Viernes-Domi
 
 
 @Injectable()
-export class AgregarAreaAdminServiceService {
+export class ModificarAreaAdminService {
     getNuevaArea() {
 		return nuevaArea;
 	}

@@ -6,6 +6,7 @@
 package ENTIDADES;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.Basic;
@@ -37,7 +38,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Apartamento.findByConjuntoIdConjunto", query = "SELECT a FROM Apartamento a WHERE a.apartamentoPK.conjuntoIdConjunto = :conjuntoIdConjunto"),
     @NamedQuery(name = "Apartamento.findByTorre", query = "SELECT a FROM Apartamento a WHERE a.torre = :torre"),
     @NamedQuery(name = "Apartamento.findByNumero", query = "SELECT a FROM Apartamento a WHERE a.numero = :numero"),
-    @NamedQuery(name = "Apartamento.findByContrasena", query = "SELECT a FROM Apartamento a WHERE a.contrasena = :contrasena")})
+    @NamedQuery(name = "Apartamento.findByContrasena", query = "SELECT a FROM Apartamento a WHERE a.contrasena = :contrasena"),
+    @NamedQuery(name = "Apartamento.findByPiso", query = "SELECT a FROM Apartamento a WHERE a.piso = :piso")})
 public class Apartamento implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,16 +48,20 @@ public class Apartamento implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Torre")
-    private BigInteger torre;
+    private BigDecimal torre;
     @Basic(optional = false)
     @NotNull
     @Column(name = "Numero")
-    private BigInteger numero;
+    private BigDecimal numero;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "Contrasena")
     private String contrasena;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "Piso")
+    private BigDecimal piso;
     @JoinColumn(name = "ConjuntoIdConjunto", referencedColumnName = "IdConjunto", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Conjunto conjunto;
@@ -75,14 +81,15 @@ public class Apartamento implements Serializable {
         this.apartamentoPK = apartamentoPK;
     }
 
-    public Apartamento(ApartamentoPK apartamentoPK, BigInteger torre, BigInteger numero, String contrasena) {
+    public Apartamento(ApartamentoPK apartamentoPK, BigDecimal torre, BigDecimal numero, String contrasena, BigDecimal piso) {
         this.apartamentoPK = apartamentoPK;
         this.torre = torre;
         this.numero = numero;
         this.contrasena = contrasena;
+        this.piso = piso;
     }
 
-    public Apartamento(BigInteger idApartamento, BigInteger conjuntoIdConjunto) {
+    public Apartamento(int idApartamento, int conjuntoIdConjunto) {
         this.apartamentoPK = new ApartamentoPK(idApartamento, conjuntoIdConjunto);
     }
 
@@ -94,19 +101,19 @@ public class Apartamento implements Serializable {
         this.apartamentoPK = apartamentoPK;
     }
 
-    public BigInteger getTorre() {
+    public BigDecimal getTorre() {
         return torre;
     }
 
-    public void setTorre(BigInteger torre) {
+    public void setTorre(BigDecimal torre) {
         this.torre = torre;
     }
 
-    public BigInteger getNumero() {
+    public BigDecimal getNumero() {
         return numero;
     }
 
-    public void setNumero(BigInteger numero) {
+    public void setNumero(BigDecimal numero) {
         this.numero = numero;
     }
 
@@ -116,6 +123,14 @@ public class Apartamento implements Serializable {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public BigDecimal getPiso() {
+        return piso;
+    }
+
+    public void setPiso(BigDecimal piso) {
+        this.piso = piso;
     }
 
     public Conjunto getConjunto() {

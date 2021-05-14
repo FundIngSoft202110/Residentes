@@ -13,6 +13,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -40,16 +42,18 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Conjunto.findByLinkDePago", query = "SELECT c FROM Conjunto c WHERE c.linkDePago = :linkDePago"),
     @NamedQuery(name = "Conjunto.findByDireccion", query = "SELECT c FROM Conjunto c WHERE c.direccion = :direccion"),
     @NamedQuery(name = "Conjunto.findByPrecioAdmin", query = "SELECT c FROM Conjunto c WHERE c.precioAdmin = :precioAdmin"),
-    @NamedQuery(name = "Conjunto.findByManual", query = "SELECT c FROM Conjunto c WHERE c.manual = :manual")})
+    @NamedQuery(name = "Conjunto.findByManual", query = "SELECT c FROM Conjunto c WHERE c.manual = :manual"),
+    @NamedQuery(name = "Conjunto.findByNumeroTorres", query = "SELECT c FROM Conjunto c WHERE c.numeroTorres = :numeroTorres"),
+    @NamedQuery(name = "Conjunto.findByNumeroPisos", query = "SELECT c FROM Conjunto c WHERE c.numeroPisos = :numeroPisos"),
+    @NamedQuery(name = "Conjunto.findByNumeroApartamentos", query = "SELECT c FROM Conjunto c WHERE c.numeroApartamentos = :numeroApartamentos")})
 public class Conjunto implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdConjunto")
-    private BigDecimal idConjunto;
+    private Integer idConjunto;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -69,11 +73,21 @@ public class Conjunto implements Serializable {
     @NotNull
     @Column(name = "PrecioAdmin")
     private BigDecimal precioAdmin;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
     @Column(name = "Manual")
     private String manual;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "NumeroTorres")
+    private BigDecimal numeroTorres;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "NumeroPisos")
+    private BigDecimal numeroPisos;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "NumeroApartamentos")
+    private BigDecimal numeroApartamentos;
     @JoinTable(name = "personaxconjunto", joinColumns = {
         @JoinColumn(name = "ConjuntoIdConjunto", referencedColumnName = "IdConjunto")}, inverseJoinColumns = {
         @JoinColumn(name = "PersonaIdPersona", referencedColumnName = "IdPersona")})
@@ -95,24 +109,26 @@ public class Conjunto implements Serializable {
     public Conjunto() {
     }
 
-    public Conjunto(BigDecimal idConjunto) {
+    public Conjunto(Integer idConjunto) {
         this.idConjunto = idConjunto;
     }
 
-    public Conjunto(BigDecimal idConjunto, String nombre, String linkDePago, String direccion,BigDecimal precioAdmin, String manual) {
+    public Conjunto(Integer idConjunto, String nombre, String linkDePago, String direccion, BigDecimal precioAdmin, BigDecimal numeroTorres, BigDecimal numeroPisos, BigDecimal numeroApartamentos) {
         this.idConjunto = idConjunto;
         this.nombre = nombre;
         this.linkDePago = linkDePago;
         this.direccion = direccion;
         this.precioAdmin = precioAdmin;
-        this.manual = manual;
+        this.numeroTorres = numeroTorres;
+        this.numeroPisos = numeroPisos;
+        this.numeroApartamentos = numeroApartamentos;
     }
 
-    public BigDecimal getIdConjunto() {
+    public Integer getIdConjunto() {
         return idConjunto;
     }
 
-    public void setIdConjunto(BigDecimal idConjunto) {
+    public void setIdConjunto(Integer idConjunto) {
         this.idConjunto = idConjunto;
     }
 
@@ -154,6 +170,30 @@ public class Conjunto implements Serializable {
 
     public void setManual(String manual) {
         this.manual = manual;
+    }
+
+    public BigDecimal getNumeroTorres() {
+        return numeroTorres;
+    }
+
+    public void setNumeroTorres(BigDecimal numeroTorres) {
+        this.numeroTorres = numeroTorres;
+    }
+
+    public BigDecimal getNumeroPisos() {
+        return numeroPisos;
+    }
+
+    public void setNumeroPisos(BigDecimal numeroPisos) {
+        this.numeroPisos = numeroPisos;
+    }
+
+    public BigDecimal getNumeroApartamentos() {
+        return numeroApartamentos;
+    }
+
+    public void setNumeroApartamentos(BigDecimal numeroApartamentos) {
+        this.numeroApartamentos = numeroApartamentos;
     }
 
     @XmlTransient

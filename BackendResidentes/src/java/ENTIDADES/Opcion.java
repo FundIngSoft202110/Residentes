@@ -72,7 +72,7 @@ public class Opcion implements Serializable {
         this.cantidadVotos = cantidadVotos;
     }
 
-    public Opcion(BigInteger idOpcion, BigInteger propuestaIdPropuesta) {
+    public Opcion(int idOpcion, int propuestaIdPropuesta) {
         this.opcionPK = new OpcionPK(idOpcion, propuestaIdPropuesta);
     }
 

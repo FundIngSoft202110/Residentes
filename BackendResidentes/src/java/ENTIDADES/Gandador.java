@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
@@ -16,8 +18,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -29,16 +29,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Gandador.findAll", query = "SELECT g FROM Gandador g"),
-    @NamedQuery(name = "Gandador.findById", query = "SELECT g FROM Gandador g WHERE g.id = :id")})
+    @NamedQuery(name = "Gandador.findByIdGanador", query = "SELECT g FROM Gandador g WHERE g.idGanador = :idGanador")})
 public class Gandador implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "ID")
-    private String id;
+    @Column(name = "IdGanador")
+    private Integer idGanador;
     @JoinColumns({
         @JoinColumn(name = "OpcionIdOpcion", referencedColumnName = "IdOpcion"),
         @JoinColumn(name = "OpcionPropuestaIdPropuesta", referencedColumnName = "PropuestaIdPropuesta")})
@@ -48,16 +47,16 @@ public class Gandador implements Serializable {
     public Gandador() {
     }
 
-    public Gandador(String id) {
-        this.id = id;
+    public Gandador(Integer idGanador) {
+        this.idGanador = idGanador;
     }
 
-    public String getId() {
-        return id;
+    public Integer getIdGanador() {
+        return idGanador;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdGanador(Integer idGanador) {
+        this.idGanador = idGanador;
     }
 
     public Opcion getOpcion() {
@@ -71,7 +70,7 @@ public class Gandador implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (idGanador != null ? idGanador.hashCode() : 0);
         return hash;
     }
 
@@ -82,7 +81,7 @@ public class Gandador implements Serializable {
             return false;
         }
         Gandador other = (Gandador) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.idGanador == null && other.idGanador != null) || (this.idGanador != null && !this.idGanador.equals(other.idGanador))) {
             return false;
         }
         return true;
@@ -90,7 +89,7 @@ public class Gandador implements Serializable {
 
     @Override
     public String toString() {
-        return "ENTIDADES.Gandador[ id=" + id + " ]";
+        return "ENTIDADES.Gandador[ idGanador=" + idGanador + " ]";
     }
     
 }

@@ -40,6 +40,7 @@ import { ChatComponent } from './components/general/chat/chat.component';
 import { ReservarAreaComponent } from './components/residente/reservar-area/reservar-area.component';
 import { AreaComunAdminComponent } from './components/admin/area-comun-admin/area-comun-admin.component';
 import { AgregarAreaAdminComponent } from './components/admin/agregar-area-admin/agregar-area-admin.component';
+import { ModificarAreaAdminComponent } from './components/admin/modificar-area-admin/modificar-area-admin.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -164,6 +165,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'modificar-area',
+    component: ModificarAreaAdminComponent
+  },
 ];
 
 @NgModule({
@@ -227,6 +232,7 @@ const routes: Routes = [
     ReservarAreaComponent,
     AreaComunAdminComponent,
     AgregarAreaAdminComponent,
+    ModificarAreaAdminComponent
   ]
 })
 export class AppRoutingModule { }

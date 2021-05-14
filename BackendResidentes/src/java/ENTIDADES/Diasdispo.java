@@ -7,10 +7,11 @@ package ENTIDADES;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
@@ -31,27 +32,26 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Diasdispo.findAll", query = "SELECT d FROM Diasdispo d"),
-    @NamedQuery(name = "Diasdispo.findById", query = "SELECT d FROM Diasdispo d WHERE d.id = :id"),
+    @NamedQuery(name = "Diasdispo.findByIdDiasDispo", query = "SELECT d FROM Diasdispo d WHERE d.idDiasDispo = :idDiasDispo"),
     @NamedQuery(name = "Diasdispo.findByHoraApertura", query = "SELECT d FROM Diasdispo d WHERE d.horaApertura = :horaApertura"),
     @NamedQuery(name = "Diasdispo.findByHoraCierre", query = "SELECT d FROM Diasdispo d WHERE d.horaCierre = :horaCierre"),
     @NamedQuery(name = "Diasdispo.findByNombreDia", query = "SELECT d FROM Diasdispo d WHERE d.nombreDia = :nombreDia")})
 public class Diasdispo implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "ID")
-    private BigDecimal id;
+    @Column(name = "IdDiasDispo")
+    private Integer idDiasDispo;
     @Basic(optional = false)
     @NotNull
     @Column(name = "HoraApertura")
-    private BigInteger horaApertura;
+    private BigDecimal horaApertura;
     @Basic(optional = false)
     @NotNull
     @Column(name = "horaCierre")
-    private BigInteger horaCierre;
+    private BigDecimal horaCierre;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
@@ -60,44 +60,44 @@ public class Diasdispo implements Serializable {
     @JoinColumns({
         @JoinColumn(name = "AreaComunIdArea", referencedColumnName = "IdArea"),
         @JoinColumn(name = "AreaComunConjuntoIdConjunto", referencedColumnName = "ConjuntoIdConjunto")})
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Areacomun areacomun;
 
     public Diasdispo() {
     }
 
-    public Diasdispo(BigDecimal id) {
-        this.id = id;
+    public Diasdispo(Integer idDiasDispo) {
+        this.idDiasDispo = idDiasDispo;
     }
 
-    public Diasdispo(BigDecimal id, BigInteger horaApertura, BigInteger horaCierre, String nombreDia) {
-        this.id = id;
+    public Diasdispo(Integer idDiasDispo, BigDecimal horaApertura,BigDecimal horaCierre, String nombreDia) {
+        this.idDiasDispo = idDiasDispo;
         this.horaApertura = horaApertura;
         this.horaCierre = horaCierre;
         this.nombreDia = nombreDia;
     }
 
-    public BigDecimal getId() {
-        return id;
+    public Integer getIdDiasDispo() {
+        return idDiasDispo;
     }
 
-    public void setId(BigDecimal id) {
-        this.id = id;
+    public void setIdDiasDispo(Integer idDiasDispo) {
+        this.idDiasDispo = idDiasDispo;
     }
 
-    public BigInteger getHoraApertura() {
+    public BigDecimal getHoraApertura() {
         return horaApertura;
     }
 
-    public void setHoraApertura(BigInteger horaApertura) {
+    public void setHoraApertura(BigDecimal horaApertura) {
         this.horaApertura = horaApertura;
     }
 
-    public BigInteger getHoraCierre() {
+    public BigDecimal getHoraCierre() {
         return horaCierre;
     }
 
-    public void setHoraCierre(BigInteger horaCierre) {
+    public void setHoraCierre(BigDecimal horaCierre) {
         this.horaCierre = horaCierre;
     }
 
@@ -120,7 +120,7 @@ public class Diasdispo implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (idDiasDispo != null ? idDiasDispo.hashCode() : 0);
         return hash;
     }
 
@@ -131,7 +131,7 @@ public class Diasdispo implements Serializable {
             return false;
         }
         Diasdispo other = (Diasdispo) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.idDiasDispo == null && other.idDiasDispo != null) || (this.idDiasDispo != null && !this.idDiasDispo.equals(other.idDiasDispo))) {
             return false;
         }
         return true;
@@ -139,7 +139,7 @@ public class Diasdispo implements Serializable {
 
     @Override
     public String toString() {
-        return "ENTIDADES.Diasdispo[ id=" + id + " ]";
+        return "ENTIDADES.Diasdispo[ idDiasDispo=" + idDiasDispo + " ]";
     }
     
 }

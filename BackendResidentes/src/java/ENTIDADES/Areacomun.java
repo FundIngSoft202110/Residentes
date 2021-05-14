@@ -7,7 +7,6 @@ package ENTIDADES;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -39,7 +38,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Areacomun.findByNombre", query = "SELECT a FROM Areacomun a WHERE a.nombre = :nombre"),
     @NamedQuery(name = "Areacomun.findByTipo", query = "SELECT a FROM Areacomun a WHERE a.tipo = :tipo"),
     @NamedQuery(name = "Areacomun.findByCapacidad", query = "SELECT a FROM Areacomun a WHERE a.capacidad = :capacidad"),
-    @NamedQuery(name = "Areacomun.findByDescripcion", query = "SELECT a FROM Areacomun a WHERE a.descripcion = :descripcion")})
+    @NamedQuery(name = "Areacomun.findByDescripcion", query = "SELECT a FROM Areacomun a WHERE a.descripcion = :descripcion"),
+    @NamedQuery(name = "Areacomun.findByEstado", query = "SELECT a FROM Areacomun a WHERE a.estado = :estado")})
 public class Areacomun implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -64,7 +64,12 @@ public class Areacomun implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "Descripcion")
     private String descripcion;
-    @OneToMany(mappedBy = "areacomun")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 2)
+    @Column(name = "Estado")
+    private String estado;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "areacomun")
     private List<Diasdispo> diasdispoList;
     @JoinColumn(name = "ConjuntoIdConjunto", referencedColumnName = "IdConjunto", insertable = false, updatable = false)
     @ManyToOne(optional = false)
@@ -79,15 +84,16 @@ public class Areacomun implements Serializable {
         this.areacomunPK = areacomunPK;
     }
 
-    public Areacomun(AreacomunPK areacomunPK, String nombre, String tipo, BigDecimal capacidad, String descripcion) {
+    public Areacomun(AreacomunPK areacomunPK, String nombre, String tipo, BigDecimal capacidad, String descripcion, String estado) {
         this.areacomunPK = areacomunPK;
         this.nombre = nombre;
         this.tipo = tipo;
         this.capacidad = capacidad;
         this.descripcion = descripcion;
+        this.estado = estado;
     }
 
-    public Areacomun(BigDecimal idArea, BigDecimal conjuntoIdConjunto) {
+    public Areacomun(int idArea, int conjuntoIdConjunto) {
         this.areacomunPK = new AreacomunPK(idArea, conjuntoIdConjunto);
     }
 
@@ -129,6 +135,14 @@ public class Areacomun implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @XmlTransient

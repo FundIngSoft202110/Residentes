@@ -6,7 +6,6 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -20,43 +19,42 @@ import javax.validation.constraints.NotNull;
 public class OpcionPK implements Serializable {
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IdOpcion")
-    private BigInteger idOpcion;
+    private int idOpcion;
     @Basic(optional = false)
     @NotNull
     @Column(name = "PropuestaIdPropuesta")
-    private BigInteger propuestaIdPropuesta;
+    private int propuestaIdPropuesta;
 
     public OpcionPK() {
     }
 
-    public OpcionPK(BigInteger idOpcion, BigInteger propuestaIdPropuesta) {
+    public OpcionPK(int idOpcion, int propuestaIdPropuesta) {
         this.idOpcion = idOpcion;
         this.propuestaIdPropuesta = propuestaIdPropuesta;
     }
 
-    public BigInteger getIdOpcion() {
+    public int getIdOpcion() {
         return idOpcion;
     }
 
-    public void setIdOpcion(BigInteger idOpcion) {
+    public void setIdOpcion(int idOpcion) {
         this.idOpcion = idOpcion;
     }
 
-    public BigInteger getPropuestaIdPropuesta() {
+    public int getPropuestaIdPropuesta() {
         return propuestaIdPropuesta;
     }
 
-    public void setPropuestaIdPropuesta(BigInteger propuestaIdPropuesta) {
+    public void setPropuestaIdPropuesta(int propuestaIdPropuesta) {
         this.propuestaIdPropuesta = propuestaIdPropuesta;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idOpcion != null ? idOpcion.hashCode() : 0);
-        hash += (propuestaIdPropuesta != null ? propuestaIdPropuesta.hashCode() : 0);
+        hash += (int) idOpcion;
+        hash += (int) propuestaIdPropuesta;
         return hash;
     }
 
@@ -67,10 +65,10 @@ public class OpcionPK implements Serializable {
             return false;
         }
         OpcionPK other = (OpcionPK) object;
-        if ((this.idOpcion == null && other.idOpcion != null) || (this.idOpcion != null && !this.idOpcion.equals(other.idOpcion))) {
+        if (this.idOpcion != other.idOpcion) {
             return false;
         }
-        if ((this.propuestaIdPropuesta == null && other.propuestaIdPropuesta != null) || (this.propuestaIdPropuesta != null && !this.propuestaIdPropuesta.equals(other.propuestaIdPropuesta))) {
+        if (this.propuestaIdPropuesta != other.propuestaIdPropuesta) {
             return false;
         }
         return true;

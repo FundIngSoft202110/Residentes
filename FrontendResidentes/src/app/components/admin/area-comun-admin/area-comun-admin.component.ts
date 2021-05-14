@@ -1,15 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import{AreaComunAdminService, Customer} from '../../../Services/AreaComunAdmin/area-comun-admin.service';
+import{Area, AreaComunAdminService, } from '../../../Services/AreaComunAdmin/area-comun-admin.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { DxCheckBoxModule,
-         DxSelectBoxModule,
-         DxNumberBoxModule,
-         DxButtonModule,
-         DxFormModule,
-         DxSwitchModule ,
-         DxAutocompleteModule,
-         DxFormComponent } from 'devextreme-angular';
+import { DxSelectBoxModule,
+	DxTextAreaModule,
+    DxButtonModule,
+	DxDateBoxModule,
+	DxFormModule,
+    DxRadioGroupModule, 
+    DxRadioGroupComponent, 
+    DxTemplateModule,
+    DxSwitchModule,
+    DxActionSheetModule,
+    DxFormComponent } from 'devextreme-angular';
 import notify from 'devextreme/ui/notify';
 
 const sendRequest = function(value) {
@@ -30,13 +33,35 @@ const sendRequest = function(value) {
 
 export class AreaComunAdminComponent {
     @ViewChild(DxFormComponent, { static: false }) form1:DxFormComponent
-    customer: Customer;
-    countries: string[];
- 
-    constructor(service: AreaComunAdminService) {
-        
-        this.countries = service.getCountries();
-        
+    area: Area;
+	tipo: string[];
+	listaDeAreasComunes: string[];
+
+	constructor(service: AreaComunAdminService) {
+		this.area = service.getArea();
+		this.tipo = service.getTipo();
+        this.tipo=[
+    		"Deportivo",
+    		"Relajante",
+    		"Social"
+        ]
+		this.listaDeAreasComunes = service.getListaDeAreasComunes();
+	}
+
+    buttonOptions1: any = {
+        text: "Eliminar",
+        type: "danger",
+        useSubmitBehavior: true
+    }
+    buttonOptions2: any = {
+        text: "Modificar",
+        type: "success",
+        useSubmitBehavior: true
+    }
+    buttonOptions3: any = {
+        text: "Nueva Area",
+        type: "success",
+        useSubmitBehavior: true
     }
     
 }

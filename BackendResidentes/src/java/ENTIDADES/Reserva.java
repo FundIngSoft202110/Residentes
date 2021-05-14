@@ -8,6 +8,7 @@ package ENTIDADES;
 import java.io.Serializable;
 import java.math.BigInteger;
 import javax.persistence.Basic;
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -29,6 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Reserva.findAll", query = "SELECT r FROM Reserva r"),
+    @NamedQuery(name = "Reserva.findByIdReserva", query = "SELECT r FROM Reserva r WHERE r.reservaPK.idReserva = :idReserva"),
     @NamedQuery(name = "Reserva.findByAreaComunIdArea", query = "SELECT r FROM Reserva r WHERE r.reservaPK.areaComunIdArea = :areaComunIdArea"),
     @NamedQuery(name = "Reserva.findByApartamentoIdApartamento", query = "SELECT r FROM Reserva r WHERE r.reservaPK.apartamentoIdApartamento = :apartamentoIdApartamento"),
     @NamedQuery(name = "Reserva.findByAreaComunConjuntoIdConjunto", query = "SELECT r FROM Reserva r WHERE r.reservaPK.areaComunConjuntoIdConjunto = :areaComunConjuntoIdConjunto"),
@@ -43,11 +45,11 @@ public class Reserva implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "HoraFinal")
-    private BigInteger horaFinal;
+    private BigDecimal horaFinal;
     @Basic(optional = false)
     @NotNull
     @Column(name = "HoraInicio")
-    private BigInteger horaInicio;
+    private BigDecimal horaInicio;
     @JoinColumns({
         @JoinColumn(name = "ApartamentoIdApartamento", referencedColumnName = "IdApartamento", insertable = false, updatable = false),
         @JoinColumn(name = "ApartamentoConjuntoIdConjunto", referencedColumnName = "ConjuntoIdConjunto", insertable = false, updatable = false)})
@@ -66,14 +68,14 @@ public class Reserva implements Serializable {
         this.reservaPK = reservaPK;
     }
 
-    public Reserva(ReservaPK reservaPK, BigInteger horaFinal, BigInteger horaInicio) {
+    public Reserva(ReservaPK reservaPK, BigDecimal horaFinal, BigDecimal horaInicio) {
         this.reservaPK = reservaPK;
         this.horaFinal = horaFinal;
         this.horaInicio = horaInicio;
     }
 
-    public Reserva(BigInteger areaComunIdArea, BigInteger apartamentoIdApartamento, BigInteger areaComunConjuntoIdConjunto, BigInteger apartamentoConjuntoIdConjunto) {
-        this.reservaPK = new ReservaPK(areaComunIdArea, apartamentoIdApartamento, areaComunConjuntoIdConjunto, apartamentoConjuntoIdConjunto);
+    public Reserva(int idReserva, int areaComunIdArea, int apartamentoIdApartamento, int areaComunConjuntoIdConjunto, int apartamentoConjuntoIdConjunto) {
+        this.reservaPK = new ReservaPK(idReserva, areaComunIdArea, apartamentoIdApartamento, areaComunConjuntoIdConjunto, apartamentoConjuntoIdConjunto);
     }
 
     public ReservaPK getReservaPK() {
@@ -84,19 +86,19 @@ public class Reserva implements Serializable {
         this.reservaPK = reservaPK;
     }
 
-    public BigInteger getHoraFinal() {
+    public BigDecimal getHoraFinal() {
         return horaFinal;
     }
 
-    public void setHoraFinal(BigInteger horaFinal) {
+    public void setHoraFinal(BigDecimal horaFinal) {
         this.horaFinal = horaFinal;
     }
 
-    public BigInteger getHoraInicio() {
+    public BigDecimal getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(BigInteger horaInicio) {
+    public void setHoraInicio(BigDecimal horaInicio) {
         this.horaInicio = horaInicio;
     }
 
