@@ -34,7 +34,9 @@ export class ConjuntosService {
     }
   ]
 
-  constructor(private personasService:PersonasService) { }
+  constructor(private personasService:PersonasService) { 
+    this.setConjuntoActivo(1);
+  }
 
   getConjuntos() {
     /// pide a la base los conjutnos que son de esa persona this.personasService.getUserActivo();
@@ -44,5 +46,23 @@ export class ConjuntosService {
   getConjunto(conjuntoId:number) { 
     return this.conjuntos.find(conjunto => { return conjunto.id == conjuntoId });
   }// end getConjunto
+
+  private conjuntoActivo: number;
+
+	setConjuntoActivo(id: number) {
+		window.localStorage['conjuntoActivo'] = id.toString();
+	}// setConjuntoActivo
+
+	clearConjuntoActivo(){
+		window.localStorage.clear();
+	}
+
+	getConjuntoActivo(){
+		this.conjuntoActivo = Number(window.localStorage['conjuntoActivo'] || -1);
+		if(this.conjuntoActivo == -1)
+			return null;
+		else
+			return this.getConjunto(this.conjuntoActivo);
+	}// getConjuntoActivo
 
 }
