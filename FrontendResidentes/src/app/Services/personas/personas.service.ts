@@ -43,6 +43,30 @@ export class PersonasService {
       rolConjunto: "RESIDENTE",
       oficio: null,
       foto: null
+    },
+    {
+      id: 4,
+      nombre: "Zlatan",
+      apellido: "Muñoz",
+      usuario: "zlatan.m",
+      correo: "m@hotmail.com",
+      clave: "12345678",
+      numCelular: 3143231643,
+      rolConjunto: "ADMIN",
+      oficio: null,
+      foto: null
+    },
+    {
+      id: 5,
+      nombre: "Jesus",
+      apellido: "Palacios",
+      usuario: "j.palacios",
+      correo: "j@gmail.com",
+      clave: "000111",
+      numCelular: 3143231876,
+      rolConjunto: "EMPLEADO",
+      oficio: null,
+      foto: null
     }
   ]
 
@@ -56,6 +80,16 @@ export class PersonasService {
   setPersonaActiva(idPersona:number){
     window.localStorage['personaActiva'] = idPersona.toString();
   }// setPersonaActiva
+
+  getIdPersona(corr : String){
+    let cont =0;
+    for(let p of this.personas){
+      if( this.personas[cont].correo == corr){
+        return this.personas[cont].id;
+      }
+      cont++;
+    }
+  }
 
   getPersonaActiva(){
     this.personaActiva = Number(window.localStorage['personaActiva'] || -1);
