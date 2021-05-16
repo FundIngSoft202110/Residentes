@@ -68,7 +68,7 @@ export class IngreAptoPage implements OnInit {
   ngOnInit() {}
 
   loginUser(credentials) {
-      this.authService.loginUser(credentials).then(res => {
+      this.authService.loginUser(credentials, 1).then(res => {
       this.errorMessage = "";
       this.navCtrl.navigateForward("/home");
     }).catch(err=>{
