@@ -41,6 +41,8 @@ import { ReservarAreaComponent } from './components/residente/reservar-area/rese
 import { AreaComunAdminComponent } from './components/admin/area-comun-admin/area-comun-admin.component';
 import { AgregarAreaAdminComponent } from './components/admin/agregar-area-admin/agregar-area-admin.component';
 import { ModificarAreaAdminComponent } from './components/admin/modificar-area-admin/modificar-area-admin.component';
+import { AgregarFechaAreaComponent } from './components/admin/agregar-fecha-area/agregar-fecha-area.component';
+import { ModificarFechaAreaComponent } from './components/admin/modificar-fecha-area/modificar-fecha-area.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -169,6 +171,14 @@ const routes: Routes = [
     path: 'modificar-area',
     component: ModificarAreaAdminComponent
   },
+  {
+    path: 'agregar-fecha',
+    component: AgregarFechaAreaComponent
+  },
+  {
+    path: 'modificar-fecha',
+    component: ModificarFechaAreaComponent
+  },
 ];
 
 @NgModule({
@@ -232,7 +242,9 @@ const routes: Routes = [
     ReservarAreaComponent,
     AreaComunAdminComponent,
     AgregarAreaAdminComponent,
-    ModificarAreaAdminComponent
+    ModificarAreaAdminComponent,
+    AgregarFechaAreaComponent,
+    ModificarFechaAreaComponent,
   ]
 })
 export class AppRoutingModule { }

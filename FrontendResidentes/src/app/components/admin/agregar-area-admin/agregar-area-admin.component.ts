@@ -34,12 +34,14 @@ export class AgregarAreaAdminComponent implements OnInit{
   
     nuevaArea: NuevaArea;
 	tipo: string[];
-	horaDeApertura: string[];
-	horaDeCierre: string[];
-	diasDisponibles: string[];
    
     buttonOptions1: any = {
-        text: "Agregar",
+        text: "Agregar Horario",
+        type: "success",
+        useSubmitBehavior: true
+    }
+    buttonOptions2: any = {
+        text: "Aceptar",
         type: "success",
         useSubmitBehavior: true
     }
@@ -49,9 +51,6 @@ export class AgregarAreaAdminComponent implements OnInit{
     constructor(service: AgregarAreaAdminServiceService) {
         this.nuevaArea = service.getNuevaArea();
 		this.tipo = service.getTipo();
-		this.horaDeApertura = service.getHoraDeApertura();
-        this.horaDeCierre = service.getHoraDeCierre();
-        this.diasDisponibles = service.getDiasDisponibles();
         
     }
    

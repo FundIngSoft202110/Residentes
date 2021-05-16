@@ -24,11 +24,14 @@ export class ModificarAreaAdminComponent implements OnInit {
     estado: any;
     nuevaArea: NuevaArea;
 	tipo: string[];
-	horaDeApertura: string[];
-	horaDeCierre: string[];
-	diasDisponibles: string[];
    
     buttonOptions1: any = {
+        text: "Modificar Horario",
+        type: "success",
+        useSubmitBehavior: true
+    }
+
+    buttonOptions2: any = {
         text: "Guardar/Modificar",
         type: "success",
         useSubmitBehavior: true
@@ -39,9 +42,6 @@ export class ModificarAreaAdminComponent implements OnInit {
     constructor(service: ModificarAreaAdminService) {
         this.nuevaArea = service.getNuevaArea();
 		this.tipo = service.getTipo();
-		this.horaDeApertura = service.getHoraDeApertura();
-        this.horaDeCierre = service.getHoraDeCierre();
-        this.diasDisponibles = service.getDiasDisponibles();
         
     }
    

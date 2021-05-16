@@ -1,0 +1,20 @@
+<dx-form id="form"
+	[formData]="fechaArea">
+	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
+		<dxi-item itemType="group" [colSpan]="3">
+				<dxi-item dataField="HoraDeApertura" editorType="dxSelectBox" [editorOptions]="{ items: horaDeApertura, value: '' }"></dxi-item>
+            	<dxi-item dataField="HoraDeCierre" editorType="dxSelectBox" [editorOptions]="{ items: horaDeCierre, value: '' }"></dxi-item>
+            	<dxi-item dataField="DiasDisponibles" editorType="dxSelectBox" [editorOptions]="{ items: diasDisponibles, value: '' }"></dxi-item>
+		</dxi-item>
+	</dxi-item>
+        <dxi-item 
+            itemType="button"
+            horizontalAlignment="center"
+            [buttonOptions]="buttonOptions1">
+        </dxi-item>
+        <dxi-item 
+            itemType="button"
+            horizontalAlignment="center"
+            [buttonOptions]="buttonOptions2">
+        </dxi-item>
+</dx-form>
