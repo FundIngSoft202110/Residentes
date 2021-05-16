@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { AptosService } from '../aptos/aptos.service';
+import { ConjuntosService } from '../conjuntos/conjuntos.service';
 import { Paquete } from './paquete.model';
 
 @Injectable({
@@ -9,6 +11,8 @@ export class PaquetesService {
   private paquetes : Paquete[] = [
     {
       id: 1,
+      idApto: 1,
+      idConjunto: 1,
       tamano:'mediano',
       fecha:'01/05/2021',
       hora:'14:20',
@@ -16,6 +20,8 @@ export class PaquetesService {
     },
     {
       id: 2,
+      idApto: 1,
+      idConjunto: 1,
       tamano:'pequeño',
       fecha:'20/10/2021',
       hora:'19:40',
@@ -23,6 +29,8 @@ export class PaquetesService {
     },
     {
       id: 3,
+      idApto: 2,
+      idConjunto: 1,
       tamano:'grande',
       fecha:'10/11/2022',
       hora:'17:55',
@@ -30,6 +38,8 @@ export class PaquetesService {
     },
     {
       id: 4,
+      idApto: 2,
+      idConjunto: 1,
       tamano:'mediano',
       fecha:'08/02/2021',
       hora:'21:40',
@@ -37,6 +47,8 @@ export class PaquetesService {
     },
     {
       id: 5,
+      idApto: 1,
+      idConjunto: 1,
       tamano:'pequeño',
       fecha:'14/06/2021',
       hora:'05:35',
@@ -44,7 +56,10 @@ export class PaquetesService {
     }
   ]
   
-  constructor() { }
+  private idApto : Number;
+  private idConjunto : Number;
+  private paquetesAux : Paquete[] = [];
+  constructor(private conjuntosService : ConjuntosService, private aptosService : AptosService) { }
 
 
   getPaquete(id:number){
@@ -53,8 +68,16 @@ export class PaquetesService {
 
   // Toco mandar el conjunto y apartamento en el Back.
   getPaquetes() {
-    return this.paquetes;
+    this.idApto = this.aptosService.getAptoActivo().id;
+    this.idConjunto = this.conjuntosService.getConjuntoActivo().id;
+    for(let paquete of this.paquetes){
+      if(paquete.idConjunto == this.idConjunto && paquete.idApto == this.idApto){
+        this.paquetesAux.push(paquete);
+      }
+    }
+    return this.paquetesAux;
   } 
+
 
 
 }

@@ -55,4 +55,23 @@ export class AptosService {
   deleteApto(aptoId:number) {
     this.aptos.splice(aptoId,1);
   } // end deleteApto
+
+  private aptoActivo: number;
+
+	setAptoActivo(aptoId: number) {
+		window.localStorage['aptoActivo'] = aptoId.toString();
+	}// setAptoActivo
+
+	clearAptoActivo(){
+		window.localStorage.clear();
+	}
+
+	getAptoActivo(){
+		this.aptoActivo = Number(window.localStorage['aptoActivo'] || -1);
+		if(this.aptoActivo == -1)
+			return null;
+		else
+			return this.getApto(this.aptoActivo);
+	}// getAptoActivo
+
 }

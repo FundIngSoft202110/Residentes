@@ -87,7 +87,7 @@ const routes: Routes = [
     component: AcercaNosotrosComponent
   },
   {
-    path: 'ingreso',
+    path: 'ingresob',
     component: IngresoComponent
   },
   {
@@ -179,6 +179,16 @@ const routes: Routes = [
     path: 'modificar-fecha',
     component: ModificarFechaAreaComponent
   },
+  {
+    path: 'ingre-apto',
+    loadChildren: () => import('../app/components/general/ingre-apto/ingre-apto.module').then( m => m.IngreAptoPageModule)
+  },
+  {
+    path: 'ingreso',
+    loadChildren: () => import('./components/general/ingreso-app/ingreso-app.module').then( m => m.IngresoAppPageModule)
+  },
+
+
 ];
 
 @NgModule({

@@ -6,7 +6,7 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,11 +47,11 @@ public class Diasdispo implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "HoraApertura")
-    private BigInteger horaApertura;
+    private BigDecimal horaApertura;
     @Basic(optional = false)
     @NotNull
     @Column(name = "horaCierre")
-    private BigInteger horaCierre;
+    private BigDecimal horaCierre;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
@@ -70,7 +70,7 @@ public class Diasdispo implements Serializable {
         this.idDiasDispo = idDiasDispo;
     }
 
-    public Diasdispo(Integer idDiasDispo, BigInteger horaApertura, BigInteger horaCierre, String nombreDia) {
+    public Diasdispo(Integer idDiasDispo, BigDecimal horaApertura,BigDecimal horaCierre, String nombreDia) {
         this.idDiasDispo = idDiasDispo;
         this.horaApertura = horaApertura;
         this.horaCierre = horaCierre;
@@ -85,19 +85,19 @@ public class Diasdispo implements Serializable {
         this.idDiasDispo = idDiasDispo;
     }
 
-    public BigInteger getHoraApertura() {
+    public BigDecimal getHoraApertura() {
         return horaApertura;
     }
 
-    public void setHoraApertura(BigInteger horaApertura) {
+    public void setHoraApertura(BigDecimal horaApertura) {
         this.horaApertura = horaApertura;
     }
 
-    public BigInteger getHoraCierre() {
+    public BigDecimal getHoraCierre() {
         return horaCierre;
     }
 
-    public void setHoraCierre(BigInteger horaCierre) {
+    public void setHoraCierre(BigDecimal horaCierre) {
         this.horaCierre = horaCierre;
     }
 
