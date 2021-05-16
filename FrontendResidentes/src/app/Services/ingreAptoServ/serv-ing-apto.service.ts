@@ -74,8 +74,9 @@ export class ServIngAptoService {
   }
 
   public getAptos(num:number) {
-    this.getAptosU("localhost:8080/BackendResidentes/consultas/apartamentos/apartamentos/1")
+    this.getAptosU("localhost:8080/BackendResidentes/consultas/apartamentos/")
         .subscribe(respuesta => {
+            console.log("subscirbe " + respuesta);
             this.apartamentos=respuesta;
     })
   }
@@ -87,6 +88,7 @@ export class ServIngAptoService {
   
   loginUser(credential, num:number){
     this.getAptos(num);
+    console.log("other " + this.apartamentos);
     return new Promise((accept, reject) => {
       let van =0;
       let cont=0;
