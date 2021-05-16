@@ -32,7 +32,7 @@ public class controladorApartamento {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Apartamento>getApartamentos(){
         List<Apartamento> apto = new ArrayList<>();
-        String consulta = "SELECT * FROM apartamento ";
+        String consulta = "SELECT * FROM Apartamento ";
         Apartamento a = new Apartamento();
         ApartamentoPK apk = new ApartamentoPK();
          try (
@@ -99,6 +99,40 @@ public class controladorApartamento {
          }
         
        return 0;
+    }
+    
+    
+    @GET
+    @Path("/apartamentos/{IdConjunto}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Apartamento> getAptosConjunto(@PathParam("IdConjunto") int id ){
+        List<Apartamento> apto = new ArrayList<>();
+        String consulta = "SELECT * FROM Apartamento AS a WHERE  a.ConjuntoIdConjunto = ?";
+        Apartamento a = new Apartamento();
+        ApartamentoPK apk = new ApartamentoPK();
+         try (
+           PreparedStatement statement = this.con.prepareStatement(consulta);
+           ResultSet rs = statement.executeQuery();
+                 
+            ){
+          statement.setInt(1, id);
+          
+          while (rs.next()){
+            a = new Apartamento();
+            apk = new ApartamentoPK(rs.getInt("IdApartamento"), rs.getInt("ConjuntoIdConjunto"));
+            a.setApartamentoPK(apk);
+            a.setTorre(rs.getBigDecimal("Torre"));
+            a.setPiso(rs.getBigDecimal("Piso"));
+            a.setNumero(rs.getBigDecimal("Numero"));
+            a.setContrasena(rs.getString("Contrasena"));
+            apto.add(a);
+          }
+           } catch (SQLException sqle) { 
+        
+           }        
+        
+         return apto;
+        
     }
     
 }
