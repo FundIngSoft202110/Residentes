@@ -15,16 +15,16 @@
             <ion-label>
                 {{chat.Nombre}}
                 <ion-label  class="color1">
-                    {{chat.Rol}}
+                    {{chat.Oficio}}
                 </ion-label>
             </ion-label>
-            <ion-icon *ngIf="rol==='A'" class= "basura" name="trash-outline" ></ion-icon>
+            <ion-icon *ngIf="rol==='ADMIN'" class= "basura" name="trash-outline" ></ion-icon>
         </ion-item>
     </ion-list>
 
 </ion-content>
 
-<ion-footer *ngIf="rol==='A'">
+<ion-footer *ngIf="rol==='ADMIN'">
     <ion-card  color= "residente" class="ion-text-center">
         <ion-card-header>
             <ion-card-subtitle>Agregar empleado</ion-card-subtitle>   

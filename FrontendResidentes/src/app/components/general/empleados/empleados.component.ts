@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LstChatServicioService } from 'src/app/Services/lstChatServ/lst-chat-servicio.service';
+import { PersonasService } from 'src/app/Services/personas/personas.service';
 
 @Component({
   selector: 'app-empleados',
@@ -12,10 +13,10 @@ export class EmpleadosComponent implements OnInit {
   rol='A';
   chatBuscado: any;
   chats =[];
-
-  constructor(private serChats: LstChatServicioService) { }
+  constructor(private serChats: LstChatServicioService, private personasService: PersonasService) { }
 
   ngOnInit() {
+    this.rol = this.personasService.getUserActivo();
     this.chats = this.serChats.getlstMsjs();
     this.chatBuscado = this.chats;
   }
@@ -31,7 +32,7 @@ export class EmpleadosComponent implements OnInit {
     this.chatBuscado = this.chats;
     if(text && text.trim() != ''){
       this.chatBuscado = this.chatBuscado.filter((chat: any)=>{
-        return ( (chat.Nombre.toLowerCase().indexOf(text.toLowerCase() ) >-1) || (chat.Rol.toLowerCase().indexOf(text.toLowerCase() ) >-1) );
+        return ( (chat.Nombre.toLowerCase().indexOf(text.toLowerCase() ) >-1) || (chat.Oficio.toLowerCase().indexOf(text.toLowerCase() ) >-1) );
       })
     }
   }

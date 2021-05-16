@@ -19,6 +19,7 @@ export class NetflixComponent implements OnInit {
 
   ngOnInit() {
     this.usuario = this.personasService.getUserActivo();
+    console.log(this.usuario);
     if(this.usuario == "ADMIN" || this.usuario == "EMPLEADO"){
       this.perfiles = this.conjuntoService.getConjuntos();
       this.perfil = "conjunto";
@@ -40,7 +41,7 @@ export class NetflixComponent implements OnInit {
     if(this.usuario == "ADMIN" ){
       return "/noticias";
     }else if(this.usuario == "EMPLEADO" ||this.usuario == "RESIDENTE" ){
-      return "/ingreso-perfiles";
+      return "/ingre-apto";
     }// end if
   }// end getRouteConjunto
 }

@@ -26,7 +26,7 @@ export class PersonasService {
       apellido: "Quintana",
       usuario: "s.qintana",
       correo: "s.qintana@javeriana.edu.co",
-      clave: "Hola1234",
+      clave: "Chao1234",
       numCelular: 3143231923,
       rolConjunto: "RESIDENTE",
       oficio: null,
@@ -71,7 +71,6 @@ export class PersonasService {
   ]
 
   private personaActiva:number;
-
   constructor() {}
 
   ngInit(){
@@ -80,6 +79,10 @@ export class PersonasService {
   setPersonaActiva(idPersona:number){
     window.localStorage['personaActiva'] = idPersona.toString();
   }// setPersonaActiva
+
+  setRolPersonaActiva(rolP:String){
+    window.localStorage['rolPersonaActiva'] = rolP;
+  }
 
   getIdPersona(corr : String){
     let cont =0;
@@ -91,6 +94,7 @@ export class PersonasService {
     }
   }
 
+
   getPersonaActiva(){
     this.personaActiva = Number(window.localStorage['personaActiva'] || -1);
     if(this.personaActiva == -1)
@@ -98,6 +102,7 @@ export class PersonasService {
     else
       return this.getPersona(this.personaActiva);
   }// getPersonaActiva
+
 
   getUserActivo(){
     return this.getPersonaActiva().rolConjunto;
