@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
 import { AuthenticateServiceService } from 'src/app/Services/servIngre/authenticate-service.service';
 
 @Component({
@@ -12,9 +13,17 @@ export class IngreAptoPage implements OnInit {
 
   loginForm: FormGroup;
   validation_messages = {
-    email: [
-      { type: "required", message: " El email es requerido" },
-      { type: "pattern", message: "ojo! este no es un email válido" }
+    torre: [
+      { type: "required", message: " La torre es requerido" },
+      { type: "pattern", message: "Solo numeros son validos" }
+    ],
+    piso: [
+      { type: "required", message: " El piso es requerido" },
+      { type: "pattern", message: "Solo numeros son validos" }
+    ],
+    numero: [
+      { type: "required", message: " El numero es requerido" },
+      { type: "pattern", message: "Solo numeros son validos" }
     ],
     password: [
       { type: "required", message: " El password es requerido" },
@@ -24,20 +33,34 @@ export class IngreAptoPage implements OnInit {
   errorMessage: string = "";
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthenticateServiceService,
+    private authService: ServIngAptoService,
     private navCtrl: NavController
   ) {
     this.loginForm = this.formBuilder.group({
-      email: new FormControl(
+      torre: new FormControl(
         "",
         Validators.compose([
           Validators.required,
-          Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
+          Validators.pattern("^[0-9]*$")
+        ])
+      ),
+      piso: new FormControl(
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("^[0-9]*$")
+        ])
+      ),
+      numero: new FormControl(
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("^[0-9]*$")
         ])
       ),
       password: new FormControl(
         "",
-        Validators.compose([Validators.required, Validators.minLength(5)])
+        Validators.compose([Validators.required, Validators.minLength(4)])
       )
     });
   }
@@ -45,15 +68,12 @@ export class IngreAptoPage implements OnInit {
   ngOnInit() {}
 
   loginUser(credentials) {
-    this.authService.loginUser(credentials).then(res => {
+      this.authService.loginUser(credentials).then(res => {
       this.errorMessage = "";
-      this.navCtrl.navigateForward("/noticias");
+      this.navCtrl.navigateForward("/home");
     }).catch(err=>{
       this.errorMessage = err;
     });
-  }
-  goToRegister() {
-    this.navCtrl.navigateForward("/noticias");
   }
 
 }
