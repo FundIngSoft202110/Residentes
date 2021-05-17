@@ -1,4 +1,13 @@
-<app-header titulo="" menu="NO" routeBack="/empleados"></app-header>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="residente">
+  </ion-toolbar >
+  <ion-toolbar color="light">
+      <ion-buttons slot="start" (click)="goBack()">
+        <ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon>
+      </ion-buttons>
+    <ion-title slot="start" color="residente-txt">EJEMPLO</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
     <ion-grid>

@@ -104,4 +104,22 @@ export class ServIngAptoService {
       }
     });
   }
+
+  loginUserP(credential){
+    return new Promise((accept, reject) => {
+      let van =0;
+      let cont=0;
+      for(let ind of  this.apartamentos1){
+
+        if( ( credential.torre == this.apartamentos1[cont].Torre) && ( credential.piso == this.apartamentos1[cont].Piso) && ( credential.numero == this.apartamentos1[cont].Numero) && ( credential.password == this.apartamentos1[cont].Contrasena) ){
+          accept("Login correcto");
+          van =1;
+        }
+        cont++;
+      }
+      if(van == 0){
+        reject("Login incorrecto");
+      }
+    });
+  }
 }

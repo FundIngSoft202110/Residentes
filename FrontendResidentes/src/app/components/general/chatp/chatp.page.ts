@@ -1,13 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent } from '@ionic/angular';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { IonContent, NavController } from '@ionic/angular';
 import { ChatServicioService } from 'src/app/Services/chatserv/chat-servicio.service';
 import { PersonasService } from 'src/app/Services/personas/personas.service';
+
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss'],
+  selector: 'app-chatp',
+  templateUrl: './chatp.page.html',
+  styleUrls: ['./chatp.page.scss'],
 })
-export class ChatComponent implements OnInit {
+export class ChatpPage implements OnInit {
 
   mensajes = [];
   usuActual = '';
@@ -16,8 +17,8 @@ export class ChatComponent implements OnInit {
   public user: string = "RESIDENTE";
   public usuario: string;
   @ViewChild(IonContent) content: IonContent
-
-  constructor(private chatServ:ChatServicioService, private personasService:PersonasService ) {
+  @Input() routeBack: string;
+  constructor(private chatServ:ChatServicioService, private personasService:PersonasService, private navCtrl: NavController ) {
       
    }
 
@@ -46,5 +47,9 @@ export class ChatComponent implements OnInit {
   getUser(){
       return this.user;
     //return this.personasService.getPersonaActiva().rolConjunto;
+  }
+
+  goBack(){
+    this.navCtrl.navigateForward("/empleados");
   }
 }

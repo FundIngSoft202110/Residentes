@@ -68,8 +68,8 @@ export class IngreAptoPage implements OnInit {
 
   ngOnInit() {
     //this.aptos = this.authService.getAptos(1);
-    this.test();
-    console.log(this.aptos);
+    //this.test();
+    //console.log(this.aptos);
   }
 
   test(){
@@ -77,10 +77,12 @@ export class IngreAptoPage implements OnInit {
   }
 
   loginUser(credentials) {
-      this.authService.loginUser(credentials, 1).then(res => {
+      //this.authService.loginUser(credentials, 1).then(res => {
+      this.authService.loginUserP(credentials).then(res => {
       this.errorMessage = "";
       this.navCtrl.navigateForward("/home");
     }).catch(err=>{
+      console.log("errorr");
       this.errorMessage = err;
     });
   }

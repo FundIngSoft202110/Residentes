@@ -22,8 +22,7 @@ export class EmpleadosComponent implements OnInit {
   }
 
   getUser(){
-    return this.user;
-    //return this.personasService.getUserActivo();
+    return this.personasService.getUserActivo();
   }
 
   
