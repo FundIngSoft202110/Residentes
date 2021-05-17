@@ -35,7 +35,7 @@ export class RegistroServicioService {
      return this.http.get(url);
   }
 
-   public postUsuarioNuevo(url:string,body){
+   public postUsuarioNuevo(url:string,body:any){
       return this.http.post(url,body);
 
    }

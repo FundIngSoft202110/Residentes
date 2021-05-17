@@ -50,7 +50,7 @@ export class RegistroComponent implements OnInit {
             "Empleado",
             "Administrador"
         ]
-        console.log(this.usuariosbase);
+        
 
     }
 

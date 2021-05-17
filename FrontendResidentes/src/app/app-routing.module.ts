@@ -216,7 +216,8 @@ const routes: Routes = [
     FormsModule,
     NgxExtendedPdfViewerModule,
     DxRadioGroupModule,
-    DxTabPanelModule
+    DxTabPanelModule,
+    BrowserModule
   ],
   exports: [RouterModule],
   declarations: [

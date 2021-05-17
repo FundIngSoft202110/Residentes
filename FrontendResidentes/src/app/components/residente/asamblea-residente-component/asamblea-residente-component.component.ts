@@ -34,7 +34,7 @@ export class AsambleaResidenteComponent implements OnInit {
         prop.votosTotales = 0; // SOLO PRUEBA
         this.votosUsuario.push(0);
         this.colorCards.push("residente");
-        console.log("if activa == ", this.asamblea.Activo, " asaam = ", this.asamblea.IdAsamblea);
+        //console.log("if activa == ", this.asamblea.Activo, " asaam = ", this.asamblea.IdAsamblea);
         if(this.asamblea.Activo == 'Activa'){
           this.opcion = this.opcionesService.getOpciones(prop.id);
           for(let opc of this.opcion)
