@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { IonContent, NavController } from '@ionic/angular';
 import { ChatServicioService } from 'src/app/Services/chatserv/chat-servicio.service';
+import { LstChatServicioService } from 'src/app/Services/lstChatServ/lst-chat-servicio.service';
 import { PersonasService } from 'src/app/Services/personas/personas.service';
 
 @Component({
@@ -9,6 +10,9 @@ import { PersonasService } from 'src/app/Services/personas/personas.service';
   styleUrls: ['./chatp.page.scss'],
 })
 export class ChatpPage implements OnInit {
+  chatn: any;
+  chatid: any;
+  chatrol: any;
 
   mensajes = [];
   usuActual = '';
@@ -18,16 +22,21 @@ export class ChatpPage implements OnInit {
   public usuario: string;
   @ViewChild(IonContent) content: IonContent
   @Input() routeBack: string;
-  constructor(private chatServ:ChatServicioService, private personasService:PersonasService, private navCtrl: NavController ) {
+  constructor(private serChats: LstChatServicioService, private chatServ:ChatServicioService, private personasService:PersonasService, private navCtrl: NavController ) {
       
-   }
+  }
 
   ngOnInit(){
+    console.log("foasdjfidsajf");
+    this.chatn= this.serChats.getChatN();
+    this.chatid= this.serChats.getChatId();
+    console.log(this.chatn+"qaui");
+    console.log(this.chatid+"id");
     this.usuario = this.personasService.getUserActivo();
     this.usuDesti= 'María';
     this.usuActual = 'David';
     this.mensajes = this.chatServ.getMsjs(); 
-   
+    
   }
 
   enviarMensaje() {

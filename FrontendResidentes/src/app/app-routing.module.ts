@@ -76,7 +76,7 @@ const routes: Routes = [
     component: AsistenciaEmpleadoComponent
   },
   {
-    path: 'chatp',
+    path: 'chat',
     component: ChatComponent
   },
   {
@@ -193,7 +193,7 @@ const routes: Routes = [
     loadChildren: () => import('./components/general/ingreso-app/ingreso-app.module').then( m => m.IngresoAppPageModule)
   },
   {
-    path: 'chat',
+    path: 'chatB',
     loadChildren: () => import('./components/general/chatp/chatp.module').then( m => m.ChatpPageModule)
   },
 
