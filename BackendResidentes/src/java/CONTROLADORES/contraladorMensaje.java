@@ -8,14 +8,18 @@ package CONTROLADORES;
 import API.ConexionBD;
 import ENTIDADES.Contacto;
 import ENTIDADES.Mensaje;
+import ENTIDADES.MensajeJS;
 import ENTIDADES.Persona;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -299,6 +303,52 @@ public class contraladorMensaje {
 
          }
         return mensajes;
+    }
+    
+    
+    @POST
+    @Path("/NuevoMensaje")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String nuevoMensaje( MensajeJS mensaje){
+       
+         String consulta ="INSERT INTO Mensaje (`ConjuntoIdConjunto`, `PersonaIdEmpleado`, `ApartamentoIdApartamento`, `PersonaIdAdmin`, `Contenido`, `Fecha_Hora`, `RolEmpleado` , `RolAdmin`, `Visto`) VALUES (?, ?, ? ,?, ?, ?, ?, ?, ?)";
+       
+        
+        try (
+           
+           PreparedStatement statement = this.con.prepareStatement(consulta);
+           ){
+   
+      int conjuntoId = mensaje.getIdConjunto(); // :(
+      int idEmple = mensaje.getIdEmpleado();
+      int idApto = mensaje.getIdApto();
+      int idAdmin = mensaje.getIdAdmin();
+      String contenido = mensaje.getContenido();
+      BigDecimal fecha_h = mensaje.getFecha_hora();
+      String rolEmple = mensaje.getRolEmpleado();
+      String rolAdmin = mensaje.getRolAdmin();
+      BigDecimal vist = mensaje.getVisto();
+      
+        
+      statement.setInt(1, conjuntoId);
+      statement.setInt(2, idEmple);
+      statement.setInt(3, idApto);
+      statement.setInt(4, idAdmin);
+      statement.setString(5, contenido);
+      statement.setBigDecimal(6, fecha_h);
+      statement.setString(7, rolEmple);
+      statement.setString(8, rolAdmin);
+      statement.setBigDecimal(9, vist);
+      statement.executeUpdate();
+      
+        return "Agregado exitosamente";
+         
+        }catch(SQLException sqle){
+              System.out.println("Error en la ejecución:"  + sqle.getErrorCode() + " " + sqle.getMessage());  
+         }
+        
+       return"Fallo de creacion";
     }
     
     

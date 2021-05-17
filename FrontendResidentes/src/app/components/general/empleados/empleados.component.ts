@@ -17,18 +17,21 @@ export class EmpleadosComponent implements OnInit {
   constructor(private serChats: LstChatServicioService, private personasService: PersonasService) { }
 
   ngOnInit() {
+    console.log("entreee");
     this.rol = this.personasService.getUserActivo();
     if(this.rol == "EMPLEADO"){
+      console.log("entreee Emp");
       this.chats = this.serChats.getlstMsjAptoAdmin();
       console.log(this.chats);
     }
 
     if(this.rol == "ADMIN"){
+      console.log("entreee admun");
       this.chats = this.serChats.getlstMsjAptoEmp();
     }
 
     if(this.rol == "RESIDENTE"){
-      console.log("entre");
+      console.log("entreee res");
       this.chats = this.serChats.getlstMsjsEmpAdmin();
       console.log(this.chats);
     }
