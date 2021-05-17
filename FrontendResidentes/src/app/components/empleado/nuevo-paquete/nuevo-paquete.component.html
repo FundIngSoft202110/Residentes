@@ -1,0 +1,64 @@
+<app-header titulo="PAQUETES" menu=EMPLEADO></app-header>
+
+<ion-content>
+  <div style="overflow:scroll" class="content-div">
+    <ion-card> <br> <br> <br>
+      <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Tamaño</ion-label>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="&nbsp;&nbsp;Seleccione"
+            id="rounded">
+            <div>
+              <ion-select-option value="Grande">&nbsp;&nbsp;Grande</ion-select-option>
+              <ion-select-option value="Mediano">&nbsp;&nbsp;Mediano</ion-select-option>
+              <ion-select-option value="Pequeño">&nbsp;&nbsp;Pequeño</ion-select-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    <ion-card>
+      <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Fecha</ion-label>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-select [(ngModel)]="place" (ionChange)="optionsFn();" [interfaceOptions]="customPopoverOptions"
+            interface="popover" placeholder="&nbsp;&nbsp;Seleccione" id="rounded">
+            <div *ngFor="let apto of aptos">
+              <ion-select-option value="{{apto.id}}">{{apto.torre}}-{{apto.numero}}
+              </ion-select-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Hora</ion-label>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-select [(ngModel)]="place" (ionChange)="optionsFn();" [interfaceOptions]="customPopoverOptions"
+            interface="popover" placeholder="&nbsp;&nbsp;Seleccione" id="rounded">
+            <div *ngFor="let apto of aptos">
+              <ion-select-option value="{{apto.id}}">{{apto.torre}}-{{apto.numero}}
+              </ion-select-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Remitente</ion-label>
+      <ion-item lines="none">
+        <ion-input id="rounded">&nbsp;&nbsp;</ion-input>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div id="centrado">
+    <br> <br>
+    <ion-button color="residente" routerLink="/paquetes-empleado">
+      <ion-label> Reportar </ion-label>
+    </ion-button>
+  </div>
+</ion-content>

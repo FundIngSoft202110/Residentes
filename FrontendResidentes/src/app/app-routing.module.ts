@@ -43,6 +43,7 @@ import { AgregarAreaAdminComponent } from './components/admin/agregar-area-admin
 import { ModificarAreaAdminComponent } from './components/admin/modificar-area-admin/modificar-area-admin.component';
 import { AgregarFechaAreaComponent } from './components/admin/agregar-fecha-area/agregar-fecha-area.component';
 import { ModificarFechaAreaComponent } from './components/admin/modificar-fecha-area/modificar-fecha-area.component';
+import { NuevoPaqueteComponent } from './components/empleado/nuevo-paquete/nuevo-paquete.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -81,6 +82,10 @@ const routes: Routes = [
   {
     path: 'paquetes-empleado',
     component: PaquetesEmpleadoComponent
+  },
+  {
+    path: 'nuevo-paquete',
+    component: NuevoPaqueteComponent
   },
   {
     path: 'acerca-nosotros',
@@ -237,6 +242,7 @@ const routes: Routes = [
     QuejasAdminComponent,
     AsistenciaEmpleadoComponent,
     PaquetesEmpleadoComponent,
+    NuevoPaqueteComponent,
     AcercaNosotrosComponent,
     HomeComponent,
     IngresoComponent,
