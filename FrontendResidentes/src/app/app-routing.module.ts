@@ -48,6 +48,7 @@ import { NgCalendarModule } from 'ionic2-calendar';
 import { CalendarPaqueteComponent } from './components/empleado/calendar-paquete/calendar-paquete.component';
 import localeDe from '@angular/common/locales/es-CO';
 registerLocaleData(localeDe);
+import { NuevoPaqueteComponent } from './components/empleado/nuevo-paquete/nuevo-paquete.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -87,12 +88,16 @@ const routes: Routes = [
     component: AsistenciaEmpleadoComponent
   },
   {
-    path: 'chatp',
+    path: 'chat',
     component: ChatComponent
   },
   {
     path: 'paquetes-empleado',
     component: PaquetesEmpleadoComponent
+  },
+  {
+    path: 'nuevo-paquete',
+    component: NuevoPaqueteComponent
   },
   {
     path: 'acerca-nosotros',
@@ -200,7 +205,7 @@ const routes: Routes = [
     loadChildren: () => import('./components/general/ingreso-app/ingreso-app.module').then( m => m.IngresoAppPageModule)
   },
   {
-    path: 'chat',
+    path: 'chatB',
     loadChildren: () => import('./components/general/chatp/chatp.module').then( m => m.ChatpPageModule)
   },
 
@@ -250,6 +255,7 @@ const routes: Routes = [
     QuejasAdminComponent,
     AsistenciaEmpleadoComponent,
     PaquetesEmpleadoComponent,
+    NuevoPaqueteComponent,
     AcercaNosotrosComponent,
     HomeComponent,
     IngresoComponent,
