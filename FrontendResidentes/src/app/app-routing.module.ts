@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { AgregarConjuntoComponent } from './components/admin/agregar-conjunto-component/agregar-conjunto-component.component';
@@ -43,9 +43,21 @@ import { AgregarAreaAdminComponent } from './components/admin/agregar-area-admin
 import { ModificarAreaAdminComponent } from './components/admin/modificar-area-admin/modificar-area-admin.component';
 import { AgregarFechaAreaComponent } from './components/admin/agregar-fecha-area/agregar-fecha-area.component';
 import { ModificarFechaAreaComponent } from './components/admin/modificar-fecha-area/modificar-fecha-area.component';
+import { TestComponent } from './components/empleado/test/test.component'; // OJO
+import { NgCalendarModule } from 'ionic2-calendar';
+import { CalendarPaqueteComponent } from './components/empleado/calendar-paquete/calendar-paquete.component';
+import localeDe from '@angular/common/locales/es-CO';
+registerLocaleData(localeDe);
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
+  {
+    path: 'calendar',
+    component: CalendarPaqueteComponent
+  },{
+    path: 'test',
+    component: TestComponent
+  },
   {
     path: 'home',
     component: HomeComponent
@@ -221,7 +233,8 @@ const routes: Routes = [
     FormsModule,
     NgxExtendedPdfViewerModule,
     DxRadioGroupModule,
-    DxTabPanelModule
+    DxTabPanelModule,
+    NgCalendarModule
   ],
   exports: [RouterModule],
   declarations: [
@@ -260,6 +273,11 @@ const routes: Routes = [
     ModificarAreaAdminComponent,
     AgregarFechaAreaComponent,
     ModificarFechaAreaComponent,
+    CalendarPaqueteComponent,
+    TestComponent // ojo
+  ],
+  providers:[
+    {provide: LOCALE_ID, useValue:'es-Co'}
   ]
 })
 export class AppRoutingModule { }
