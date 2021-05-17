@@ -103,6 +103,14 @@ export class PersonasService {
       return this.getPersona(this.personaActiva);
   }// getPersonaActiva
 
+  
+  getPersonaID(){
+    this.personaActiva = Number(window.localStorage['personaActiva'] || -1);
+    if(this.personaActiva == -1)
+      return null;
+    else
+      return this.personaActiva;
+  }
 
   getUserActivo(){
     return this.getPersonaActiva().rolConjunto;
