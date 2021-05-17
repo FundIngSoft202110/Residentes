@@ -364,6 +364,42 @@ export class LstChatServicioService {
     return this.chatsList3;
   }
   
+  setChatActivo(nombre:string ,rol: string,id:number ){
+    window.localStorage['chatnombre'] = nombre;
+    window.localStorage['chatrol'] = rol;
+    window.localStorage['chatid'] = id;
+  }
+  
+
+  nombre: any;
+
+  getChatN(){
+    this.nombre = (window.localStorage['chatnombre'] || (-1).toString);
+    if(this.nombre == '-1')
+      return null;
+    else
+      return (this.nombre);
+  }
+
+  rol: any;
+
+  getRol(){
+    this.rol = (window.localStorage['chatrol'] || (-1).toString);
+    if(this.rol == '-1')
+      return null;
+    else
+      return (this.rol);
+  }
+
+  id: any;
+  getChatId(){
+    this.id = Number(window.localStorage['chatid'] || -1);
+    if(this.id == -1)
+      return null;
+    else
+      return (this.id);
+  }
+  
 }
 
 
