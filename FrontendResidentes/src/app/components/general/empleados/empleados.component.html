@@ -1,4 +1,4 @@
-<app-header *ngIf="rol !=='EMPLEADO'" titulo="EMPLEADOS" menu="{{getUser()}}">
+<app-header *ngIf="rol !=='EMPLEADO'" titulo="CHAT" menu="{{getUser()}}">
 </app-header>
 
 <app-header *ngIf="rol ==='EMPLEADO'" titulo="ASISTENCIA" menu="{{getUser()}}">
@@ -11,14 +11,17 @@
     <ion-list>
         
         <ion-item *ngFor= "let chat of chatBuscado" [routerLink]="['/chat']">
-            <ion-avatar *ngIf="rol !=='EMPLEADO'" slot="start">
-                <ion-img [src]="chat.Foto">
+            <ion-avatar *ngIf="chat.rol === 'empleado'" slot="start">
+                <ion-img [src]="chat.foto">
                 </ion-img>
             </ion-avatar>
+            <ion-avatar *ngIf="chat.rol !== 'empleado'" slot="start">
+               <ion-img src="/../../../../assets/icon/fotoChat.png"></ion-img>
+            </ion-avatar>
             <ion-label>
-                {{chat.Nombre}}
-                <ion-label  *ngIf="rol !=='EMPLEADO'" class="color1">
-                    {{chat.Oficio}}
+                {{chat.nombre}}
+                <ion-label   class="color1">
+                    {{chat.oficio}}
                 </ion-label>
             </ion-label>
             <ion-icon *ngIf="rol==='ADMIN'" class= "basura" name="trash-outline" ></ion-icon>
