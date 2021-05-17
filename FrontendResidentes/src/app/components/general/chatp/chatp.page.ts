@@ -41,9 +41,9 @@ export class ChatpPage implements OnInit {
 
   enviarMensaje() {
     if(this.usuario == "RESIDENTE"){
-      this.chatServ.addChats( this.newMsg, new Date().getTime(), "destinatario");
+      this.chatServ.addChats( this.newMsg, new Date().getTime(), "destinatario", "X");
     }else{
-      this.chatServ.addChats( this.newMsg, new Date().getTime(), "remitente");
+      this.chatServ.addChats( this.newMsg, new Date().getTime(), "remitente", "X");
     }
     
     this.mensajes = this.chatServ.getMsjs(); 

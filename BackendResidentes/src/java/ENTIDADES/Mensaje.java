@@ -6,6 +6,7 @@
 package ENTIDADES;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -54,7 +55,7 @@ public class Mensaje implements Serializable {
     @NotNull
     @Column(name = "Fecha_Hora")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaHora;
+    private BigDecimal fechaHora;
     @Size(max = 10)
     @Column(name = "RolEmpleado")
     private String rolEmpleado;
@@ -91,7 +92,7 @@ public class Mensaje implements Serializable {
         this.mensajePK = mensajePK;
     }
 
-    public Mensaje(MensajePK mensajePK, String contenido, Date fechaHora, String visto) {
+    public Mensaje(MensajePK mensajePK, String contenido, BigDecimal fechaHora, String visto) {
         this.mensajePK = mensajePK;
         this.contenido = contenido;
         this.fechaHora = fechaHora;
@@ -118,11 +119,11 @@ public class Mensaje implements Serializable {
         this.contenido = contenido;
     }
 
-    public Date getFechaHora() {
+    public BigDecimal getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(Date fechaHora) {
+    public void setFechaHora(BigDecimal fechaHora) {
         this.fechaHora = fechaHora;
     }
 

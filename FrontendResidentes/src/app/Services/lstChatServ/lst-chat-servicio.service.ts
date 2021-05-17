@@ -254,7 +254,7 @@ export class LstChatServicioService {
     },
     {
       idc: 18,
-      rol: 'empleado',
+      rol: 'administrador',
       oficio: 'Administrador',
       nombre: 'Jaimito',
       foto: 'https://www.latercera.com/resizer/j7i4nLxOo0qzXj9xiExhE-aVeEo=/900x600/smart/arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/BT5KMODEZ5FAPNDOJPE5UBQQHE.png'

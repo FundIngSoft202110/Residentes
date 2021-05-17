@@ -28,8 +28,10 @@ export class ChatComponent implements OnInit {
     console.log("foasdjfidsajf");
     this.chatn= this.serChats.getChatN();
     this.chatid= this.serChats.getChatId();
+    this.chatrol= this.serChats.getRol();
     console.log(this.chatn+"qaui");
     console.log(this.chatid+"id");
+    console.log(this.chatrol+"id");
     this.usuario = this.personasService.getUserActivo();
     this.usuDesti= 'María';
     this.usuActual = 'David';
@@ -38,12 +40,27 @@ export class ChatComponent implements OnInit {
   }
 
   enviarMensaje() {
-    if(this.usuario == "RESIDENTE"){
-      this.chatServ.addChats( this.newMsg, new Date().getTime(), "destinatario");
-    }else{
-      this.chatServ.addChats( this.newMsg, new Date().getTime(), "remitente");
+    if(this.usuario == "RESIDENTE" && this.chatrol== "empleado"){
+      this.chatServ.addChats( this.newMsg, new Date().getTime(), "destinatario", "X");
+    }
+    if(this.usuario == "RESIDENTE" && this.chatrol== "administrador"){
+      this.chatServ.addChats( this.newMsg, new Date().getTime(), "X", "destinatario");
     }
     
+    if(this.usuario == "ADMIN" && this.chatrol== "empleado"){
+      this.chatServ.addChats( this.newMsg, new Date().getTime(), "destinatario", "X");
+    }
+    if(this.usuario == "ADMIN" && this.chatrol== "apartamento"){
+      this.chatServ.addChats( this.newMsg, new Date().getTime(), "X", "remitente");
+    }
+
+    if(this.usuario == "EMPLEADO" && this.chatrol== "administrador"){
+      this.chatServ.addChats( this.newMsg, new Date().getTime(), "remitente", "X");
+    }
+    if(this.usuario == "EMPLEADO" && this.chatrol== "apartamento"){
+      this.chatServ.addChats( this.newMsg, new Date().getTime(), "remitente", "X");
+    }
+
     this.mensajes = this.chatServ.getMsjs(); 
     this.newMsg = '';
     setTimeout(() => {
