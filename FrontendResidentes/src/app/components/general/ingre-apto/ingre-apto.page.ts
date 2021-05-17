@@ -30,6 +30,7 @@ export class IngreAptoPage implements OnInit {
       { type: "minlength", message: "Minimo 5 letras para el password" }
     ]
   };
+  private aptos:any;
   errorMessage: string = "";
   constructor(
     private formBuilder: FormBuilder,
@@ -65,13 +66,23 @@ export class IngreAptoPage implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    //this.aptos = this.authService.getAptos(1);
+    //this.test();
+    //console.log(this.aptos);
+  }
+
+  test(){
+    this.aptos = this.authService.getAptos(1);
+  }
 
   loginUser(credentials) {
-      this.authService.loginUser(credentials).then(res => {
+      //this.authService.loginUser(credentials, 1).then(res => {
+      this.authService.loginUserP(credentials).then(res => {
       this.errorMessage = "";
       this.navCtrl.navigateForward("/home");
     }).catch(err=>{
+      console.log("errorr");
       this.errorMessage = err;
     });
   }

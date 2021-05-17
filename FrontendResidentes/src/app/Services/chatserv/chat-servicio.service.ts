@@ -7,34 +7,36 @@ import { Chat } from './chat.model';
 export class ChatServicioService {
     private  mensajes:Chat[] = [
       {
-      Remitente: 'David',
-      Destinatario: 'María',
-      Contenido: 'Buenaaaaaas',
-      Fecha_Hora: 1554090856000
+
+      contenido: 'Buenaaaaaas',
+      fecha_hora: 1554090856000,
+      rolempleado: 'destinatario',
+      roladmin: 'X'
     },
     {
-      Remitente: 'María',
-      Destinatario: 'David',
-      Contenido: 'Como se encuentra ud el dia de hoy',
-      Fecha_Hora: 1554090956000
+
+      contenido: 'Como se encuentra ud el dia de hoy',
+      fecha_hora: 1554090956000,
+      rolempleado: 'remitente',
+      roladmin: 'X'
     },
     {
-      Remitente: 'María',
-      Destinatario: 'David',
-      Contenido: 'Sr David',
-      Fecha_Hora: 1554091056000
+      contenido: 'Sr David',
+      fecha_hora: 1554091056000,
+      rolempleado: 'remitente',
+      roladmin: 'X'
     },
     {
-      Remitente: 'David',
-      Destinatario: 'María',
-      Contenido: 'Bien gracias, un fa, me puedes llamar cuando inicie la novela?',
-      Fecha_Hora: 1554091156000
+      contenido: 'Bien gracias, un fa, me puedes llamar cuando inicie la novela?',
+      fecha_hora: 1554091156000,
+      rolempleado: 'destinatario',
+      roladmin: 'X'
     },
     {
-      Remitente: 'María',
-      Destinatario: 'David',
-      Contenido: 'R',
-      Fecha_Hora: 1554091256000
+      contenido: 'R',
+      fecha_hora: 1554091256000,
+      rolempleado: 'remitente',
+      roladmin: 'X'
     }
   ];
   constructor() { }
@@ -43,12 +45,12 @@ export class ChatServicioService {
     return this.mensajes;
   } // end getConjuntos
 
-  addChats(Remitente: string, Destinatario: string, Contenido: string, Fecha_Hora: number){ 
+  addChats( contenido: string, fecha_hora: number, rolempleado: string,roladmin:string){ 
     this.mensajes.push({
-      Remitente,
-      Destinatario,
-      Contenido,
-      Fecha_Hora
+      contenido,
+      fecha_hora,
+      rolempleado,
+      roladmin
     });
   } // end addConjunto
 

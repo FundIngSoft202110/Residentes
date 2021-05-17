@@ -1,28 +1,26 @@
-<app-header titulo="EMPLEADOS" menu="NO" routeBack="/empleados"></app-header>
+<app-header titulo="{{chatn}}" menu="NO" routeBack="/empleados"></app-header>
 
 <ion-content>
     <ion-grid>
         <ion-row *ngFor= "let mensaje of mensajes">
             
-            <ion-col size="9" *ngIf="usuActual !== mensaje.Remitente" class= "mensaje otro-mensaje">
-                <b>{{mensaje.Remitente}}</b>
-                <br>
+            <ion-col size="9" *ngIf=" ((usuario !== 'EMPLEADO') && (mensaje.rolempleado === 'remitente')) || ((usuario === 'EMPLEADO') && (mensaje.rolempleado === 'destinatario')) " class= "mensaje otro-mensaje">
+                
                 <span>
-                    {{mensaje.Contenido}}
+                    {{mensaje.contenido}}
                 </span>
                 <div class="time" text-right><br>
-                    {{mensaje.Fecha_Hora | date:'short'}}
+                    {{mensaje.fecha_hora | date:'short'}}
                 </div>
             </ion-col>
 
-            <ion-col offset="3" size="9"  *ngIf="usuActual === mensaje.Remitente" class= "mensaje mi-mensaje">
-                <b>{{mensaje.Remitente}}</b>
-                <br>
+            <ion-col offset="3" size="9"  *ngIf=" ((usuario !== 'EMPLEADO') && (mensaje.rolempleado === 'destinatario')) || ((usuario === 'EMPLEADO') && (mensaje.rolempleado === 'remitente'))  " class= "mensaje mi-mensaje">
+                
                 <span>
-                    {{mensaje.Contenido}}
+                    {{mensaje.contenido}}
                 </span>
                 <div class="time" text-right><br>
-                    {{mensaje.Fecha_Hora | date:'short'}}
+                    {{mensaje.fecha_hora | date:'short'}}
                 </div>
             </ion-col>
         </ion-row>
