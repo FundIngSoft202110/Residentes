@@ -15,6 +15,7 @@
                 </library>
                 <library dirs="200">
                     <file>${libs.mySql.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.jaxrs-cors-0.0.2.jar}</file>
