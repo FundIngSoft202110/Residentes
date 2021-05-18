@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import javax.persistence.Basic;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -18,6 +19,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -60,7 +63,14 @@ public class Reserva implements Serializable {
         @JoinColumn(name = "AreaComunConjuntoIdConjunto", referencedColumnName = "ConjuntoIdConjunto", insertable = false, updatable = false)})
     @ManyToOne(optional = false)
     private Areacomun areacomun;
-
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "Fecha")
+    private int fecha;
+    @Basic(optional = false)
+    @Column(name = "CantidadPersonas")
+    private int cantidadPersonas;
+    
     public Reserva() {
     }
 
@@ -68,10 +78,12 @@ public class Reserva implements Serializable {
         this.reservaPK = reservaPK;
     }
 
-    public Reserva(ReservaPK reservaPK, BigDecimal horaFinal, BigDecimal horaInicio) {
+    public Reserva(ReservaPK reservaPK, BigDecimal horaFinal, BigDecimal horaInicio, int fecha, int cantidadPersonas) {
         this.reservaPK = reservaPK;
         this.horaFinal = horaFinal;
         this.horaInicio = horaInicio;
+        this.fecha= fecha;
+        this.cantidadPersonas= cantidadPersonas;
     }
 
     public Reserva(int idReserva, int areaComunIdArea, int apartamentoIdApartamento, int areaComunConjuntoIdConjunto, int apartamentoConjuntoIdConjunto) {
@@ -137,6 +149,24 @@ public class Reserva implements Serializable {
         }
         return true;
     }
+    
+    public int getFecha() {
+        return this.fecha;
+    }
+
+    public void setFecha(int fecha) {
+        this.fecha = fecha;
+    }
+
+    public int getCantidadPersonas() {
+        return cantidadPersonas;
+    }
+
+    public void setCantidadPersonas(int cantidadPersonas) {
+        this.cantidadPersonas = cantidadPersonas;
+    }
+    
+    
 
     @Override
     public String toString() {

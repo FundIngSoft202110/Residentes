@@ -58,7 +58,7 @@ public class Areacomun implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Capacidad")
-    private BigDecimal capacidad;
+    private int capacidad;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
@@ -84,7 +84,7 @@ public class Areacomun implements Serializable {
         this.areacomunPK = areacomunPK;
     }
 
-    public Areacomun(AreacomunPK areacomunPK, String nombre, String tipo, BigDecimal capacidad, String descripcion, String estado) {
+    public Areacomun(AreacomunPK areacomunPK, String nombre, String tipo, int capacidad, String descripcion, String estado) {
         this.areacomunPK = areacomunPK;
         this.nombre = nombre;
         this.tipo = tipo;
@@ -121,13 +121,15 @@ public class Areacomun implements Serializable {
         this.tipo = tipo;
     }
 
-    public BigDecimal getCapacidad() {
+    public int getCapacidad() {
         return capacidad;
     }
 
-    public void setCapacidad(BigDecimal capacidad) {
+    public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
+
+   
 
     public String getDescripcion() {
         return descripcion;

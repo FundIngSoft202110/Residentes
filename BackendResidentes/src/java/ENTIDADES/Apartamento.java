@@ -48,11 +48,11 @@ public class Apartamento implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Torre")
-    private BigDecimal torre;
+    private int torre;
     @Basic(optional = false)
     @NotNull
     @Column(name = "Numero")
-    private BigDecimal numero;
+    private int numero;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -61,7 +61,7 @@ public class Apartamento implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Piso")
-    private BigDecimal piso;
+    private int piso;
     @JoinColumn(name = "ConjuntoIdConjunto", referencedColumnName = "IdConjunto", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Conjunto conjunto;
@@ -81,7 +81,7 @@ public class Apartamento implements Serializable {
         this.apartamentoPK = apartamentoPK;
     }
 
-    public Apartamento(ApartamentoPK apartamentoPK, BigDecimal torre, BigDecimal numero, String contrasena, BigDecimal piso) {
+    public Apartamento(ApartamentoPK apartamentoPK, int torre, int numero, String contrasena, int piso) {
         this.apartamentoPK = apartamentoPK;
         this.torre = torre;
         this.numero = numero;
@@ -101,19 +101,19 @@ public class Apartamento implements Serializable {
         this.apartamentoPK = apartamentoPK;
     }
 
-    public BigDecimal getTorre() {
+    public int getTorre() {
         return torre;
     }
 
-    public void setTorre(BigDecimal torre) {
+    public void setTorre(int torre) {
         this.torre = torre;
     }
 
-    public BigDecimal getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(BigDecimal numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
@@ -125,13 +125,15 @@ public class Apartamento implements Serializable {
         this.contrasena = contrasena;
     }
 
-    public BigDecimal getPiso() {
+    public int getPiso() {
         return piso;
     }
 
-    public void setPiso(BigDecimal piso) {
+    public void setPiso(int piso) {
         this.piso = piso;
     }
+
+    
 
     public Conjunto getConjunto() {
         return conjunto;
