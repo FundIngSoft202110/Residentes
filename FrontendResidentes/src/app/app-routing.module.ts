@@ -181,7 +181,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'ingreso',
     pathMatch: 'full'
   },
   {

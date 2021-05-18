@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
 import { ChatServicioService } from 'src/app/Services/chatserv/chat-servicio.service';
 import { mensaje } from 'src/app/Services/chatserv/mensaje';
+import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
 import { LstChatServicioService } from 'src/app/Services/lstChatServ/lst-chat-servicio.service';
 import { PersonasService } from 'src/app/Services/personas/personas.service';
 @Component({
@@ -26,15 +27,14 @@ export class ChatComponent implements OnInit {
   public usuario: string;
   @ViewChild(IonContent) content: IonContent
 
-  constructor(private serChats: LstChatServicioService,private chatServ:ChatServicioService, private personasService:PersonasService ) {
+  constructor(private servApto:ServIngAptoService,private serChats: LstChatServicioService,private chatServ:ChatServicioService, private personasService:PersonasService ) {
       
    }
 
   ngOnInit(){
     this.idPerActiva = this.personasService.getPersonaID();
     this.idConjunto = 1;//SETEAR DE NETFLIX EL CONJUNTO
-    this.idApto = 1; //SETEAR DE APTO INGRESO EL CONJUNTO
-    console.log("foasdjfidsajf");
+    this.idApto = this.servApto.getIdApto(); //SETEAR DE APTO INGRESO EL CONJUNTO
     this.chatn= this.serChats.getChatN();
     this.chatid= this.serChats.getChatId();
     this.chatrol= this.serChats.getRol();

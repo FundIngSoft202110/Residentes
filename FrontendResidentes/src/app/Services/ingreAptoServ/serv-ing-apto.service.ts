@@ -85,15 +85,28 @@ export class ServIngAptoService {
     return this.http.get(url);
  }
 
-  
+ setIdApto(idApto:number){
+    window.localStorage['idApto'] = idApto.toString();
+  }
+  idActualApto : any;
+  getIdApto(){
+    this.idActualApto = Number(window.localStorage['idApto'] || -1);
+    if(this.idActualApto == -1)
+      return null;
+    else
+      return this.idActualApto;
+  }
+
   loginUser(credential, num:number){
     this.getAptos(num);
     console.log("other " + this.apartamentos);
     return new Promise((accept, reject) => {
       let van =0;
       let cont=0;
+      console.log("entre");
       for(let ind of  this.apartamentos){
         if( ( credential.torre == this.apartamentos[cont].torre) && ( credential.piso == this.apartamentos[cont].piso) && ( credential.numero == this.apartamentos[cont].numero) && ( credential.password == this.apartamentos[cont].contrasena) ){
+         
           accept("Login correcto");
           van =1;
         }
@@ -112,6 +125,7 @@ export class ServIngAptoService {
       for(let ind of  this.apartamentos1){
 
         if( ( credential.torre == this.apartamentos1[cont].Torre) && ( credential.piso == this.apartamentos1[cont].Piso) && ( credential.numero == this.apartamentos1[cont].Numero) && ( credential.password == this.apartamentos1[cont].Contrasena) ){
+          this.setIdApto(this.apartamentos1[cont].IdApartamento);
           accept("Login correcto");
           van =1;
         }
