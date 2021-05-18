@@ -52,7 +52,7 @@ public class controladorAreaComun {
                 areaC.setAreacomunPK(areaPK);
                 areaC.setNombre(rs.getString("Nombre"));
                 areaC.setTipo(rs.getNString("Tipo"));
-                areaC.setCapacidad(rs.getBigDecimal("Capacidad"));
+                areaC.setCapacidad(rs.getInt("Capacidad"));
                 areaC.setDescripcion(rs.getNString("Descripcion"));
                 areaC.setEstado(rs.getNString("Estado"));
                 areas.add(areaC);
@@ -159,7 +159,7 @@ public class controladorAreaComun {
 
             statement.setNString(1, area.getNombre());
             statement.setNString(2, area.getTipo());
-            statement.setBigDecimal(3, area.getCapacidad());
+            statement.setInt(3, area.getCapacidad());
             statement.setString(4, area.getDescripcion());
             statement.setInt(5, area.getAreacomunPK().getConjuntoIdConjunto());
             statement.setInt(6, area.getAreacomunPK().getIdArea());
@@ -199,7 +199,7 @@ public class controladorAreaComun {
                     areaC.setAreacomunPK(areaPK);
                     areaC.setNombre(rs.getString("Nombre"));
                     areaC.setTipo(rs.getNString("Tipo"));
-                    areaC.setCapacidad(rs.getBigDecimal("Capacidad"));
+                    areaC.setCapacidad(rs.getInt("Capacidad"));
                     areaC.setDescripcion(rs.getNString("Descripcion"));
                     areaC.setEstado(rs.getNString("Estado"));
 
@@ -230,7 +230,7 @@ public class controladorAreaComun {
             //guardar en variables 
             int idCon = area.getAreacomunPK().getConjuntoIdConjunto();
             String tipo = area.getTipo();
-            BigDecimal capacidad = area.getCapacidad();
+            int capacidad = area.getCapacidad();
             String descrip = area.getDescripcion();
             String nombre = area.getNombre();
             String estado=area.getEstado();
@@ -238,7 +238,7 @@ public class controladorAreaComun {
             statement.setInt(1, idCon);
             statement.setNString(2, nombre);
             statement.setNString(3, tipo);
-            statement.setBigDecimal(4, capacidad);
+            statement.setInt(4, capacidad);
             statement.setNString(5, descrip);
             statement.setNString(6, estado);
 
