@@ -37,32 +37,34 @@ public class controladorPersona {
     public List<Persona> getPersonas() {
 
         List<Persona> pp = new ArrayList<>();
-        String consulta = "SELECT * FROM Persona ";
-        Persona p = new Persona();
-        try (
-                PreparedStatement statement = this.con.prepareStatement(consulta);
-                ResultSet rs = statement.executeQuery();) {
+        String consulta = "SELECT * FROM persona ";
+        
+         try (
+           PreparedStatement statement = this.con.prepareStatement(consulta);
+           ResultSet rs = statement.executeQuery();
+                 
+            ){
 
-            while (rs.next()) {
-                p = new Persona();
-                p.setIdPersona(rs.getInt("IdPersona"));
-                p.setNombre(rs.getString("Nombre"));
-                p.setApellido(rs.getString("Apellido"));
-                p.setUsuario(rs.getString("Usuario"));
-                p.setCorreo(rs.getString("Correo"));
-                p.setContrasena(rs.getString("Contrasena"));
-                p.setNumCelular(rs.getBigDecimal("NumCelular"));
-                p.setRolConjunto(rs.getString("RolConjunto"));
-                p.setOficio(rs.getString("Oficio"));
-                p.setFoto(rs.getString("Foto"));
-                pp.add(p);
-            }
-        } catch (SQLException sqle) {
-
-        }
-
-        return pp;
-
+          while (rs.next()){
+            Persona p = new Persona();   
+            p.setIdPersona(rs.getInt("IdPersona"));
+            p.setNombre(rs.getString("Nombre"));
+            p.setApellido(rs.getString("Apellido"));
+            p.setUsuario(rs.getString("Usuario"));
+            p.setCorreo(rs.getString("Correo"));
+            p.setContrasena(rs.getString("Contrasena"));
+            p.setNumCelular(rs.getBigDecimal("NumCelular"));
+            p.setRolConjunto(rs.getString("RolConjunto"));
+ 
+            pp.add(p);
+          }
+           } catch (SQLException sqle) { 
+        
+          
+}        
+        
+         return pp;
+        
     }
 
     @GET
@@ -89,8 +91,7 @@ public class controladorPersona {
                     p.setContrasena(rs.getString("Contrasena"));
                     p.setNumCelular(rs.getBigDecimal("NumCelular"));
                     p.setRolConjunto(rs.getString("RolConjunto"));
-                    p.setOficio(rs.getString("Oficio"));
-                    p.setFoto(rs.getString("Foto"));
+                 
 
                 }
             }
