@@ -18,4 +18,12 @@ ion-textarea{
     width: 60%;
 }
 
+.content-div{
+    height: 75%;
+}
+
+ion-content {
+    --overflow: hidden;
+}
+
 
