@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 
 export class FechaArea {
 	HoraDeApertura: string;
@@ -21,6 +22,9 @@ let diasDisponibles: string[] = ["Lunes-Viernes", "Lunes-Domingo", "Viernes-Domi
 
 @Injectable()
 export class AgregarFechaAreaService {
+	constructor(private http: HttpClient){
+
+    }
 	getFechaArea() {
 		return fechaArea;
 	}
@@ -35,6 +39,11 @@ export class AgregarFechaAreaService {
     getDiasDisponibles() {
 		return diasDisponibles;
 	}
+
+	getDiasDisponiblesBack(url:string) {
+		return this.http.get(url);
+	}
+	
 
 }
 

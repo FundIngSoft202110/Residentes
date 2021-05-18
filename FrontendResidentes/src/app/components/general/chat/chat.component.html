@@ -4,7 +4,7 @@
     <ion-grid>
         <ion-row *ngFor= "let mensaje of mensajes">
             
-            <ion-col size="9" *ngIf=" ((usuario !== 'EMPLEADO') && (mensaje.rolempleado === 'remitente')) || ((usuario === 'EMPLEADO') && (mensaje.rolempleado === 'destinatario')) " class= "mensaje otro-mensaje">
+            <ion-col size="9" *ngIf=" ((( (usuario !== 'EMPLEADO') && ( (chatrol === 'empleado')   )) && (mensaje.rolempleado === 'remitente')) || ((usuario === 'EMPLEADO') && (mensaje.rolempleado === 'destinatario'))) ||  ( ( (usuario !== 'EMPLEADO') &&  (chatrol !== 'empleado') ) &&  ( (usuario === 'ADMIN' && (mensaje.roladmin === 'destinatario')) || (usuario === 'RESIDENTE' && (mensaje.roladmin === 'remitente')) ) ) " class= "mensaje otro-mensaje">
                 
                 <span>
                     {{mensaje.contenido}}
@@ -14,7 +14,7 @@
                 </div>
             </ion-col>
 
-            <ion-col offset="3" size="9"  *ngIf=" ((usuario !== 'EMPLEADO') && (mensaje.rolempleado === 'destinatario')) || ((usuario === 'EMPLEADO') && (mensaje.rolempleado === 'remitente'))  " class= "mensaje mi-mensaje">
+            <ion-col offset="3" size="9"  *ngIf=" ((( (usuario !== 'EMPLEADO') && ( (chatrol === 'empleado')   )) && (mensaje.rolempleado === 'destinatario')) || ((usuario === 'EMPLEADO') && (mensaje.rolempleado === 'remitente'))) ||  ( ( (usuario !== 'EMPLEADO') &&  (chatrol !== 'empleado') ) &&  ( (usuario === 'ADMIN' && (mensaje.roladmin === 'remitente')) || (usuario === 'RESIDENTE' && (mensaje.roladmin === 'destinatario')) ) ) " class= "mensaje mi-mensaje">
                 
                 <span>
                     {{mensaje.contenido}}

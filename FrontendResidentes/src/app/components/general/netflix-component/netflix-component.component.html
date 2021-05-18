@@ -2,18 +2,12 @@
 
 <ion-content padding class="vertical-center">
   <section class="ion-text-center">
-    <ion-label color="medium"> <i>Selecciona un {{perfil}}</i> <br> <br> </ion-label>
+    <ion-label color="medium"> <i>Selecciona un conjunto</i> <br> <br> </ion-label>
   </section>
 
-  <ion-card class="ion-text-center" routerLink="{{getRouteConjunto()}}" *ngFor="let perfil of perfiles">
-    <div *ngIf="getUser() == 'RESIDENTE'; then thenBlock else elseBlock"></div>
-    <ng-template #thenBlock>
-      <ion-card-title> {{getConjunto(perfil).nombre}}: {{perfil.torre}}-{{perfil.numero}} </ion-card-title>
-    </ng-template>
-    <ng-template #elseBlock>
-      <ion-card-title> {{perfil.nombre}} </ion-card-title>
-    </ng-template>
-    <ion-img src="/../../../../assets/icon/IconConjuntos/Edi.png" alt="Conjunto"></ion-img>
+  <ion-card class="ion-text-center" routerLink="{{getRouteConjunto(conjunto)}}" *ngFor="let conjunto of conjuntos">
+      <ion-card-title> {{conjunto.nombre}} </ion-card-title>
+      <ion-img src="/../../../../assets/icon/IconConjuntos/Edi.png" alt="Conjunto"></ion-img>
     <br>
   </ion-card>
 

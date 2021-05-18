@@ -1,1 +1,38 @@
 <app-header titulo="NOTICIAS" menu="{{getUser()}}"></app-header>
+
+<ion-content>
+    <div>
+        <br>
+        <ion-item lines="none">
+            <ion-textarea placeholder="&nbsp;&nbsp;Comparte con tu comunidad" id="rounded">
+
+            </ion-textarea>
+        </ion-item>
+        <div id="derecha">
+            <ion-button color="residente" routerLink="/nuevo-paquete">
+                <ion-label>Publicar</ion-label>
+            </ion-button>
+            <br> <br>
+        </div>
+    </div>
+    <div style="overflow:scroll" class="content-div">
+        <ion-card id="rounded">
+            <ion-card-content>
+            <ion-card-title><ion-icon name="person-circle-outline" color="residente-txt"></ion-icon>&nbsp;&nbsp;Titulo</ion-card-title>
+            <ion-img src="/../../../../assets/icon/IconConjuntos/Edi.png" alt="Conjunto"></ion-img>
+            <br>
+            <ion-label>Informacion de la publicacion</ion-label>
+        </ion-card-content>
+        </ion-card>
+        <ion-card id="rounded">
+            <ion-card-content>
+            <ion-card-title><ion-icon name="person-circle-outline" color="residente-txt"></ion-icon>&nbsp;&nbsp;Titulo</ion-card-title>
+            <ion-img src="/../../../../assets/icon/IconConjuntos/Edi.png" alt="Conjunto"></ion-img>
+            <br>
+            <ion-label>Informacion de la publicacion</ion-label>
+        </ion-card-content>
+        </ion-card>
+    </div>
+
+
+</ion-content>

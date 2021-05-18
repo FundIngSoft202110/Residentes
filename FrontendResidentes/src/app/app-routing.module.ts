@@ -239,6 +239,7 @@ const routes: Routes = [
     NgxExtendedPdfViewerModule,
     DxRadioGroupModule,
     DxTabPanelModule,
+    BrowserModule,
     NgCalendarModule
   ],
   exports: [RouterModule],

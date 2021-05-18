@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 
 export class NuevaArea {
     NombreDelArea: string;
@@ -27,6 +28,9 @@ let tipo: string[] = [
 
 @Injectable()
 export class ModificarAreaAdminService {
+    constructor(private http: HttpClient){
+
+    }
     getNuevaArea() {
 		return nuevaArea;
 	}
@@ -34,5 +38,12 @@ export class ModificarAreaAdminService {
 	getTipo() {
 		return tipo;
 	}
+   putAreaComun(url:string, body : any){
+       return this.http.put(url,body);
+   }
+   
+   getAreaComun(url:string){
+       return this.http.get(url);
+   }
     
 }

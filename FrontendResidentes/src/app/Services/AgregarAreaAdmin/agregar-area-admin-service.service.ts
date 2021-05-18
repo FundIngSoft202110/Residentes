@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+
+
 
 export class NuevaArea {
     NombreDelArea: string;
 	Tipo: string;
 	CapacidadMaxima: number;
 	Descripcion: string; 
+    Estado: string;
 }
 
-let nuevaArea: NuevaArea = {
 
-    "NombreDelArea": "Piscina",
-    "Tipo":"Deportiva",
-    "CapacidadMaxima": 10,
-    "Descripcion":"Espacio en el cual podra disfritar con su familia",
-};
 
 let tipo: string[] = [
     "Deportiva",
@@ -28,12 +26,23 @@ let tipo: string[] = [
 
 @Injectable()
 export class AgregarAreaAdminServiceService {
-    getNuevaArea() {
-		return nuevaArea;
-	}
+   
 
 	getTipo() {
 		return tipo;
 	}
+    constructor(private http: HttpClient){
+
+    }
+ 
+    public getAreasComunes(url:string){
+     return this.http.get(url);
+
+   }
+
+    public postAreaNueva(url:string,body:any){
+        return this.http.post(url,body);
+  
+     }
     
 }

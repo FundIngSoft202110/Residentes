@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import notify from 'devextreme/ui/notify';
 import {ModificarAreaAdminService, NuevaArea } from '../../../Services/modificarAreaAdmin/modificar-area-admin.service';
 import { NgModule, ViewChild, enableProdMode } from '@angular/core';
+import {ConjuntosService} from '../../../Services/conjuntos/conjuntos.service'
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxCheckBoxModule,
@@ -24,6 +25,9 @@ export class ModificarAreaAdminComponent implements OnInit {
     estado: any;
     nuevaArea: NuevaArea;
 	tipo: string[];
+    respueta: any;
+    disponibles : any;
+    conjuntoA: any;
    
     buttonOptions1: any = {
         text: "Modificar Horario",
@@ -36,12 +40,13 @@ export class ModificarAreaAdminComponent implements OnInit {
         type: "success",
         useSubmitBehavior: true
     }
-    
+   
     
    
-    constructor(service: ModificarAreaAdminService) {
+    constructor(private service: ModificarAreaAdminService, conjunto: ConjuntosService) {
         this.nuevaArea = service.getNuevaArea();
 		this.tipo = service.getTipo();
+        this.conjuntoA= conjunto.getConjuntoActivo().id;
         
     }
    
@@ -57,4 +62,17 @@ export class ModificarAreaAdminComponent implements OnInit {
         e.preventDefault();
     }
   ngOnInit() {}
+// modificar el path para que mande el area comun id
+  public modificarArea(){
+      this.service.putAreaComun("http://192.168.76.71:8080/BackendResidentes/consultas/AreasComunes/modificarAreaEspecifica/conjunto/${this.conjuntoA}/area/${}",this.nuevaArea)
+      .subscribe(respueta=>{this.respueta= respueta });
+  }
+
+  // metodo get de el area comun con la pantalla area comun admin
+  public traerDatos(){
+      this.service.getAreaComun("http://192.168.76.71:8080/BackendResidentes/consultas/AreasComunes/modificarAreaEspecifica/conjunto/${this.conjuntoA}/area/${}") //arreglar el path
+      .subscribe(respuesta=>{
+          this.respueta = respuesta
+      })
+  }
 }
