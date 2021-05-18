@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 
 @Component({
   selector: 'app-menu-empleado',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuEmpleadoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private conjuntoService: ConjuntosService) { }
 
   ngOnInit() {}
+
+  salirConjunto(){
+    this.conjuntoService.clearConjuntoActivo();
+  }
 
 }
