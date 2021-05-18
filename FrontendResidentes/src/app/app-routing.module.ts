@@ -50,6 +50,7 @@ import localeDe from '@angular/common/locales/es-CO';
 registerLocaleData(localeDe);
 import { NuevoPaqueteComponent } from './components/empleado/nuevo-paquete/nuevo-paquete.component';
 import { ReservacionAreaResidenteComponent } from './components/residente/reservacion-area-residente/reservacion-area-residente.component';
+import { DisponibilidadAreaComponent } from './components/residente/disponibilidad-area/disponibilidad-area.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -202,6 +203,10 @@ const routes: Routes = [
     component: ReservacionAreaResidenteComponent
   },
   {
+    path: 'disponibilidad-area',
+    component: DisponibilidadAreaComponent
+  },
+  {
     path: 'ingre-apto',
     loadChildren: () => import('../app/components/general/ingre-apto/ingre-apto.module').then( m => m.IngreAptoPageModule)
   },
@@ -288,6 +293,7 @@ const routes: Routes = [
     ModificarFechaAreaComponent,
     CalendarPaqueteComponent,
     TestComponent,
+    DisponibilidadAreaComponent,
     ReservacionAreaResidenteComponent // ojo
   ],
   providers:[

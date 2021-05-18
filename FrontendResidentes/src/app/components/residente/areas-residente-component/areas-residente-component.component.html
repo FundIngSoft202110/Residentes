@@ -33,21 +33,26 @@
     </div>
 </div>
 
+<ion-button class="boton"
+      (click)="mandarDisponibilidad()"
+      expand="full"
+      shape="round"
+      color="residente"
+      type="submit"
+      >Ver Disponibilidad</ion-button>
+<ion-button class="boton"
+      (click)="mandarMisReservas()"
+      expand="full"
+      shape="round"
+      color="residente"
+      type="submit"
+      >Mis Reservas</ion-button>
+<ion-button class="boton"
+      (click)="mandarNueva()"
+      expand="full"
+      shape="round"
+      color="residente"
+      type="submit"
+      >Nueva Reserva</ion-button>
 
-
-<dx-form id="form" [formData]="area">
-    <dxi-item itemtype="button">
-        <dx-button id="button" text="Ver Disponibilidad" type="success" [width]="180" [useSubmitBehavior]="true">
-        </dx-button>
-    </dxi-item>
-    <dxi-item itemtype="button">
-        <dx-button id="button" text="Mis Reservas" type="success" [width]="120" [useSubmitBehavior]="true">
-        </dx-button>
-    </dxi-item>
-    <dxi-item itemType="group" caption=" ">
-        <dxi-item itemtype="button">
-            <dx-button id="button" text="Reservar" type="success" [width]="120" [useSubmitBehavior]="true">
-            </dx-button>
-        </dxi-item>
-    </dxi-item>
-</dx-form>
+      
