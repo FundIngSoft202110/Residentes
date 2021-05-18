@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lstChat } from './lstChat.module';
 
@@ -6,7 +7,7 @@ import { lstChat } from './lstChat.module';
 })
 
 export class LstChatServicioService {
-
+  chat : any;
   private  chatsList3:lstChat[] = [
     {
       idc: 12,
@@ -352,16 +353,33 @@ export class LstChatServicioService {
     }
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getlstMsjsEmpAdmin() {
-    return this.chatsList;
-  } // end getConjuntos
-  getlstMsjAptoAdmin() {
-    return this.chatsList2;
+
+  public obtener(url: string) {
+    this.getChatss(url)
+      .subscribe(respuesta => {
+        console.log("subscirbe ", respuesta);
+        this.chat = respuesta;
+      })
   }
-  getlstMsjAptoEmp() {
-    return this.chatsList3;
+  
+  
+  getlstMsjsEmpAdmin(id:number) {
+    this.obtener("http://192.168.0.27:8080/BackendResidentes/consultas/mensajes/residente/" + id.toString() );
+    return this.chat;
+  } // end getConjuntos
+  getlstMsjAptoAdmin(id:number) {
+    this.obtener("http://192.168.0.27:8080/BackendResidentes/consultas/mensajes/empleado/" + id.toString() );
+    return this.chat;
+  }
+  getlstMsjAptoEmp(id:number) {
+    this.obtener("http://192.168.0.27:8080/BackendResidentes/consultas/mensajes/admin/" + id.toString() );
+    return this.chat;
+  }
+
+  public getChatss(url: string) {
+    return this.http.get(url);
   }
   
   setChatActivo(nombre:string ,rol: string,id:number ){

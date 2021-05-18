@@ -92,6 +92,7 @@ export class PersonasService {
 
 
   setRolPersonaActiva(rolP: String) {
+    console.log("rolP in Persona: ", rolP);
     if (rolP == "Empleado")
       window.localStorage['rolPersonaActiva'] = "EMPLEADO";
     if (rolP == "Administrador")

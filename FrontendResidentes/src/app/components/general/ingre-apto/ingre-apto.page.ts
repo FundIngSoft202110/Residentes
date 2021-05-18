@@ -75,10 +75,6 @@ export class IngreAptoPage implements OnInit {
     //console.log(this.aptos);
   }
 
-  test(){
-    this.aptos = this.authService.getAptos(1);
-  }
-
   loginUser(credentials) {
       this.authService.loginUser(credentials, this.idAConj).then(res => {
      // this.authService.loginUserP(credentials).then(res => {

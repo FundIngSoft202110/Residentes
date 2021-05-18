@@ -74,10 +74,9 @@ export class ServIngAptoService {
   }
   url: string;
   public getAptos(num: number) {
-    this.url = "http://192.168.0.14:8080/BackendResidentes/consultas/apartamentos/apartamentos/"+num.toString;
+    this.url = "http://192.168.0.27:8080/BackendResidentes/consultas/apartamentos/apartamentos/"+num.toString();
     this.getAptosU(this.url)
       .subscribe(respuesta => {
-        console.log("subscirbe " + respuesta);
         this.apartamentos = respuesta;
       })
   }
@@ -98,16 +97,15 @@ export class ServIngAptoService {
       return this.idActualApto;
   }
 
-  loginUser(credential, num: number) {
+  async loginUser(credential, num: number) {
     this.getAptos(num);
-    console.log("other " + this.apartamentos);
+    await new Promise(resolve => setTimeout(resolve, 250));
     return new Promise((accept, reject) => {
       let van = 0;
       let cont = 0;
-      console.log("entre");
       for (let ind of this.apartamentos) {
         if ((credential.torre == this.apartamentos[cont].torre) && (credential.piso == this.apartamentos[cont].piso) && (credential.numero == this.apartamentos[cont].numero) && (credential.password == this.apartamentos[cont].contrasena)) {
-          this.setIdApto(this.apartamentos[cont].idApartamento);
+          this.setIdApto(this.apartamentos[cont].apartamentoPK.idApartamento);
           accept("Login correcto");
           van = 1;
         }
@@ -118,6 +116,7 @@ export class ServIngAptoService {
       }
     });
   }
+
 
   loginUserP(credential) {
     return new Promise((accept, reject) => {
