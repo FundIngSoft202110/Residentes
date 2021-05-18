@@ -49,6 +49,7 @@ import { CalendarPaqueteComponent } from './components/empleado/calendar-paquete
 import localeDe from '@angular/common/locales/es-CO';
 registerLocaleData(localeDe);
 import { NuevoPaqueteComponent } from './components/empleado/nuevo-paquete/nuevo-paquete.component';
+import { ReservacionAreaResidenteComponent } from './components/residente/reservacion-area-residente/reservacion-area-residente.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -197,6 +198,10 @@ const routes: Routes = [
     component: ModificarFechaAreaComponent
   },
   {
+    path: 'mis-reservas',
+    component: ReservacionAreaResidenteComponent
+  },
+  {
     path: 'ingre-apto',
     loadChildren: () => import('../app/components/general/ingre-apto/ingre-apto.module').then( m => m.IngreAptoPageModule)
   },
@@ -282,7 +287,8 @@ const routes: Routes = [
     AgregarFechaAreaComponent,
     ModificarFechaAreaComponent,
     CalendarPaqueteComponent,
-    TestComponent // ojo
+    TestComponent,
+    ReservacionAreaResidenteComponent // ojo
   ],
   providers:[
     {provide: LOCALE_ID, useValue:'es-Co'}
