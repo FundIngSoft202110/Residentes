@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
 import { AuthenticateServiceService } from 'src/app/Services/servIngre/authenticate-service.service';
 
@@ -10,7 +11,7 @@ import { AuthenticateServiceService } from 'src/app/Services/servIngre/authentic
   styleUrls: ['./ingre-apto.page.scss'],
 })
 export class IngreAptoPage implements OnInit {
-
+  idAConj: any;
   loginForm: FormGroup;
   validation_messages = {
     torre: [
@@ -33,6 +34,7 @@ export class IngreAptoPage implements OnInit {
   private aptos:any;
   errorMessage: string = "";
   constructor(
+    private  conjServ: ConjuntosService,
     private formBuilder: FormBuilder,
     private authService: ServIngAptoService,
     private navCtrl: NavController
@@ -67,6 +69,7 @@ export class IngreAptoPage implements OnInit {
   }
 
   ngOnInit() {
+    this.idAConj = this.conjServ.getConjuntoActivo(); 
     //this.aptos = this.authService.getAptos(1);
     //this.test();
     //console.log(this.aptos);
@@ -77,8 +80,8 @@ export class IngreAptoPage implements OnInit {
   }
 
   loginUser(credentials) {
-      //this.authService.loginUser(credentials, 1).then(res => {
-      this.authService.loginUserP(credentials).then(res => {
+      this.authService.loginUser(credentials, this.idAConj).then(res => {
+     // this.authService.loginUserP(credentials).then(res => {
       this.errorMessage = "";
       this.navCtrl.navigateForward("/noticias");
     }).catch(err=>{
