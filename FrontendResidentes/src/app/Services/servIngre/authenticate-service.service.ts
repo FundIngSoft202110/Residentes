@@ -15,6 +15,7 @@ export class AuthenticateServiceService {
     //return fetch("IRL_DEL_SUPERSERVIDOR")
 
     return new Promise((accept, reject) => {
+       accept("Login correcto");
       let van =0;
       let cont=0;
       for(let ind of  this.personas){

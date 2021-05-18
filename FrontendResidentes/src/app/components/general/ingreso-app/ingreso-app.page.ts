@@ -16,7 +16,7 @@ export class IngresoAppPage implements OnInit {
   validation_messages = {
     email: [
       { type: "required", message: " El email es requerido" },
-      { type: "pattern", message: "ojo! este no es un email válido" }
+      { type: "pattern", message: "Correo no válido" }
     ],
     password: [
       { type: "required", message: " El password es requerido" },

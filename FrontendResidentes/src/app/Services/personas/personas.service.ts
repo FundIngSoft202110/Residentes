@@ -16,7 +16,7 @@ export class PersonasService {
       correo: "ma.nino@javeriana.edu.co",
       clave: "Hola1234",
       numCelular: 3108291923,
-      rolConjunto: "ADMIN",
+      rolConjunto: "Administrador",
       oficio: null,
       foto: null
     },
@@ -26,9 +26,9 @@ export class PersonasService {
       apellido: "Quintana",
       usuario: "s.qintana",
       correo: "s.qintana@javeriana.edu.co",
-      clave: "Hola1234",
+      clave: "Chao1234",
       numCelular: 3143231923,
-      rolConjunto: "RESIDENTE",
+      rolConjunto: "Residente",
       oficio: null,
       foto: null
     },
@@ -40,7 +40,7 @@ export class PersonasService {
       correo: "juan_barreto@javeriana.edu.co",
       clave: "Hola1234",
       numCelular: 3138290923,
-      rolConjunto: "RESIDENTE",
+      rolConjunto: "Residente",
       oficio: null,
       foto: null
     },
@@ -52,7 +52,7 @@ export class PersonasService {
       correo: "m@hotmail.com",
       clave: "12345678",
       numCelular: 3143231643,
-      rolConjunto: "ADMIN",
+      rolConjunto: "Administrador",
       oficio: null,
       foto: null
     },
@@ -64,22 +64,42 @@ export class PersonasService {
       correo: "j@gmail.com",
       clave: "000111",
       numCelular: 3143231876,
-      rolConjunto: "EMPLEADO",
+      rolConjunto: "Empleado",
       oficio: null,
       foto: null
     }
   ]
 
   private personaActiva:number;
-
   constructor() {}
 
   ngInit(){
   }
-
+  aux : any;
   setPersonaActiva(idPersona:number){
+    console.log("entro");
     window.localStorage['personaActiva'] = idPersona.toString();
+    this.aux = this.getPersonaActivaAux().rolConjunto;
+    console.log(this.aux + " Antes");
+    this.setRolPersonaActiva( this.aux );
   }// setPersonaActiva
+
+
+  setRolPersonaActiva(rolP:String){
+    console.log("eeeel "+ rolP);
+    if(rolP == "Empleado"){
+      console.log("ente a empleadoo");
+      window.localStorage['rolPersonaActiva'] = "EMPLEADO";
+    }
+    if(rolP == "Administrador"){
+      console.log("ente a administradooor");
+      window.localStorage['rolPersonaActiva'] = "ADMIN";
+    }
+    if(rolP == "Residente"){
+      console.log("ente a ressss");
+      window.localStorage['rolPersonaActiva'] = "RESIDENTE";
+    }
+  }
 
   getIdPersona(corr : String){
     let cont =0;
@@ -91,16 +111,37 @@ export class PersonasService {
     }
   }
 
+  getPersonaActivaAux(){
+    this.personaActiva = Number(window.localStorage['personaActiva'] || -1);
+    if(this.personaActiva == -1)
+      return null;
+    else{
+      console.log("hello");
+      return this.getPersona(this.personaActiva);
+    }
+      
+  }
+  rolAux: any;
   getPersonaActiva(){
+    this.rolAux = (window.localStorage['rolPersonaActiva'] || (-1).toString() );
+    if(this.rolAux == -1)
+      return null;
+    else
+      console.log("aquiiii no estroooo");
+      return this.rolAux;
+  }// getPersonaActiva
+
+  
+  getPersonaID(){
     this.personaActiva = Number(window.localStorage['personaActiva'] || -1);
     if(this.personaActiva == -1)
       return null;
     else
-      return this.getPersona(this.personaActiva);
-  }// getPersonaActiva
+      return this.personaActiva;
+  }
 
   getUserActivo(){
-    return this.getPersonaActiva().rolConjunto;
+    return this.getPersonaActiva();
   }
 
   getPersonas() {

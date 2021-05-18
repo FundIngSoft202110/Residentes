@@ -1,45 +1,64 @@
 <app-header titulo="ASAMBLEA" menu=ADMIN></app-header>
-<dx-tab-panel
-    #tabPanel
-    [height]="500"
-    [dataSource]="companies"
-    [selectedIndex]="0"
-    [loop]="false"
-    [animationEnabled]="true"
-    [swipeEnabled]="true"
->
-    <div *dxTemplate="let company of 'title'">
-        <span>{{company.CompanyName}}</span>
-    </div>
-    <div *dxTemplate="let company of 'item'">
-        <div class="tabpanel-item">
-			<dx-form id="form"
-			[formData]="asamblea"
-			>
-		
-			<dxi-item *ngIf="step==1" itemType="group" cssClass="first-group" [colCount]="4">
-				
-				<dxi-item itemType="group" [colSpan]="3">
-						<dxi-item dataField="IdAsamblea"></dxi-item>
-					<dxi-item dataField="FechaAsamblea" editorType="dxDateBox" [editorOptions]="{ width: '100%'}"></dxi-item>
-						<dxi-item dataField="Tema"></dxi-item>
-						<dxi-item dataField="NumeroPropuestas" editorType="dxSelectBox" [editorOptions]="{ items: Nopciones }"></dxi-item>
-				</dxi-item>
-			</dxi-item>
-		
-			<dxi-item  itemType="group" cssClass="second-group" [colCount]="2">
-				
-				<dxi-item itemType="group">
-					
-					<dxi-item dataField="Nombre"></dxi-item>
-					
-				</dxi-item>
-			</dxi-item>
-			
-		</dx-form>
-        </div>
-    </div>
-</dx-tab-panel>
-<div class="item-box">
-    Item <span>{{tabPanel.selectedIndex + 1}}</span> of <span>{{itemCount}}</span>
+
+
+
+   
+	<ion-content *ngIf="step==1" class="vertical-center-admin">
+		<ion-card class="ion-text-left"  *ngFor="let asamblea of asambleas">
+		  <ion-card-header>
+			<ion-card-subtitle> {{asamblea.FechaAsamblea}} </ion-card-subtitle>
+			<ion-card-title> {{asamblea.Tema}} </ion-card-title>
+		  </ion-card-header>
+			<ion-card-content> {{asamblea.Activo}} </ion-card-content>
+		</ion-card>
+	  </ion-content>
+	   
+	 <div *ngIf="step==1">
+	  <dx-button
+	  
+	  class="lado"
+	  stylingMode="contained"
+	  icon="add"
+	  [width]="250"
+	  [height]="80"
+	  text="Nueva asamblea"
+	  (onClick)="this.step=2"
+	  
+	  >    
+	  
+	  </dx-button>
+	</div>
+	
+	
+
+
+
+
+
+<div *ngIf="step==2"class="list-container" >
+    <dx-form id="form" [formData]="asambleas">
+
+        <dxi-item itemType="group" cssClass="first-group" [colCount]="4">
+
+            <dxi-item itemType="group" [colSpan]="3">
+
+                <dxi-item dataField="FechaAsamblea" editorType="dxDateBox" [editorOptions]="{ width: '100%'}">
+                </dxi-item>
+                <dxi-item dataField="Tema"></dxi-item>
+                <dxi-item dataField="NumeroPropuestas" editorType="dxSelectBox" [editorOptions]="{ items: Nopciones }">
+                </dxi-item>
+            </dxi-item>
+        </dxi-item>
+
+        <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
+
+            <dxi-item itemType="group">
+
+                <dxi-item dataField="Nombre"></dxi-item>
+
+            </dxi-item>
+        </dxi-item>
+
+    </dx-form>
+
 </div>

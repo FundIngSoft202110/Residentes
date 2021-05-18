@@ -5,10 +5,10 @@
         <ion-card>
             <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Apartamentos</ion-label>
             <ion-list>
-                <ion-item>
-                    <ion-select [(ngModel)]="place" (ionChange)="optionsFn();" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Seleccione" >
+                <ion-item lines="none">
+                    <ion-select [(ngModel)]="place" (ionChange)="optionsFn();" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="&nbsp;&nbsp;Seleccione" id="rounded" >
                         <div *ngFor="let apto of aptos">
-                            <ion-select-option value="{{apto.id}}">{{apto.torre}}-{{apto.numero}}
+                            <ion-select-option value="{{apto.id}}">&nbsp;&nbsp;{{apto.torre}}-{{apto.numero}}
                             </ion-select-option>
                         </div>
                     </ion-select>
@@ -32,7 +32,7 @@
 
     <div id="centrado">
         <br> <br>
-        <ion-button color="residente" (click)="openUrl()">
+        <ion-button color="residente" routerLink="/nuevo-paquete">
             <ion-label> Nuevo Paquete </ion-label>
         </ion-button>
     </div>

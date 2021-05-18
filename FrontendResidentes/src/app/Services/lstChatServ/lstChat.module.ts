@@ -1,5 +1,7 @@
 export interface lstChat{
-    Rol: string;
-    Nombre: string;
-    Foto: string;
+    idc: number;
+    rol: string;
+    oficio: string;
+    nombre: string;
+    foto: string;
 }

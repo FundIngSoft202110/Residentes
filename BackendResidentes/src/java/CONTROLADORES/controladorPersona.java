@@ -36,7 +36,7 @@ public class controladorPersona {
     public List<Persona>getPersonas(){
        
         List<Persona> pp = new ArrayList<>();
-        String consulta = "SELECT * FROM persona ";
+        String consulta = "SELECT * FROM Persona ";
         Persona p = new Persona();
          try (
            PreparedStatement statement = this.con.prepareStatement(consulta);
@@ -149,6 +149,85 @@ public class controladorPersona {
          return pp;
     }
 
+    @GET
+    @Path("/Empleados/{idConjunto}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Persona> getEmpleadosConjunto(@PathParam("idConjunto") int id){
+
+        List<Persona> empleados = new ArrayList<>();
+        Persona p;
+        String consulta ="SELECT p.Id, p.Oficio, p.Nombre, p.Apellido, p.Foto "
+                       + "FROM Persona AS p, PersonaXConjunto as pxc "
+                       + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND p.RolConjunto = 'Empleado'";
+
+        try (
+           PreparedStatement statement = this.con.prepareStatement(consulta);
+           ){
+
+
+         statement.setInt(1, id);
+
+         try(
+                 ResultSet rs = statement.executeQuery();
+                 ){
+
+          while (rs.next()){
+            p = new Persona();
+            p.setIdPersona(rs.getInt("IdPersona"));
+            p.setNombre(rs.getString("Nombre"));
+            p.setApellido(rs.getString("Apellido"));
+            p.setOficio(rs.getString("Oficio"));
+            p.setFoto(rs.getString("Foto"));
+            empleados.add(p);
+          }
+         }
+           } catch (SQLException sqle) { 
+
+          }
+
+         return empleados;
+    }
+    
+    @GET
+    @Path("/Admin/{idConjunto}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Persona getAdminConjunto(@PathParam("idConjunto") int id){
+
+        Persona p;
+        p = new Persona();
+        String consulta ="SELECT p.Id, p.Oficio, p.Nombre, p.Apellido, p.Foto "
+                       + "FROM Persona AS p, PersonaXConjunto as pxc "
+                       + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND p.RolConjunto = 'Administrador'";
+
+        try (
+           PreparedStatement statement = this.con.prepareStatement(consulta);
+           ){
+
+
+         statement.setInt(1, id);
+
+         try(
+                 ResultSet rs = statement.executeQuery();
+                 ){
+
+          while (rs.next()){
+            p = new Persona();
+            p.setIdPersona(rs.getInt("IdPersona"));
+            p.setNombre(rs.getString("Nombre"));
+            p.setApellido(rs.getString("Apellido"));
+            p.setOficio("Administrador");
+          }
+         }
+           } catch (SQLException sqle) { 
+               
+          }
+
+         return p;
+    }
+    
+    
+    
+    
     @PUT
     @Path("/UpdateC/{Usuario}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -216,5 +295,7 @@ public class controladorPersona {
        return"Fallo de creacion";
     }
     
+    
+
 }
 
