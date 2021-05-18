@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PersonasService } from '../personas/personas.service';
 import { Conjunto } from './conjunto.model';
+import { HttpClient } from '@angular/common/http';
+import { IPRESIDENTES } from 'src/app/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +36,9 @@ export class ConjuntosService {
     }
   ]
 
-  constructor(private personasService:PersonasService) { 
+  private conjuntoPago:any;
+
+  constructor(private personasService:PersonasService, private http: HttpClient) { 
     this.setConjuntoActivo(1);
   }
 
@@ -47,8 +51,6 @@ export class ConjuntosService {
     return this.conjuntos.find(conjunto => { return conjunto.id == conjuntoId });
   }// end getConjunto
 
-  private conjuntoActivo: number;
-
 	setConjuntoActivo(id: number) {
 		window.localStorage['conjuntoActivo'] = id.toString();
 	}// setConjuntoActivo
@@ -60,5 +62,18 @@ export class ConjuntosService {
 	getConjuntoActivo(){
 		return Number(window.localStorage['conjuntoActivo'] || -1);
 	}// getConjuntoActivo
+
+  public getPagoAdminUrl(url: string) {
+    return this.http.get(url);
+  }
+
+  url: string;
+  public getPagoAdmin(num: number) {
+    this.url = IPRESIDENTES + "consultas/apartamentos/apartamentos/"+num.toString();
+    this.getPagoAdminUrl(this.url)
+      .subscribe(respuesta => {
+        this.conjuntoPago = respuesta;
+      })
+  }
 
 }

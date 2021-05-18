@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PersonasService } from '../personas/personas.service';
 import { HttpClient } from '@angular/common/http';
+import { IPRESIDENTES } from 'src/app/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class AuthenticateServiceService {
   }
 
   public obtener() {
-    this.getUsuarios("http://192.168.0.27:8080/BackendResidentes/consultas/personas")
+    this.getUsuarios(IPRESIDENTES + "consultas/personas")
       .subscribe(respuesta => {
         console.log("subscirbe ", respuesta);
         this.p = respuesta;

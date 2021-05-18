@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IPRESIDENTES } from 'src/app/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -74,7 +75,7 @@ export class ServIngAptoService {
   }
   url: string;
   public getAptos(num: number) {
-    this.url = "http://192.168.0.27:8080/BackendResidentes/consultas/apartamentos/apartamentos/"+num.toString();
+    this.url = IPRESIDENTES + "consultas/apartamentos/apartamentos/"+num.toString();
     this.getAptosU(this.url)
       .subscribe(respuesta => {
         this.apartamentos = respuesta;
