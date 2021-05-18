@@ -69,7 +69,7 @@ export class PaquetesService {
   // Toco mandar el conjunto y apartamento en el Back.
   getPaquetes() {
     this.idApto = this.aptosService.getAptoActivo().id;
-    this.idConjunto = this.conjuntosService.getConjuntoActivo().id;
+    this.idConjunto = this.conjuntosService.getConjuntoActivo();
     for(let paquete of this.paquetes){
       if(paquete.idConjunto == this.idConjunto && paquete.idApto == this.idApto){
         this.paquetesAux.push(paquete);
