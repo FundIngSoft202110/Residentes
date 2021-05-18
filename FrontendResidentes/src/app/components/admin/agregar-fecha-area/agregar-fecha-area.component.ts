@@ -12,6 +12,7 @@ import { DxCheckBoxModule,
          DxAutocompleteModule,
          DxFormComponent
        } from 'devextreme-angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-agregar-fecha-area',
@@ -29,9 +30,11 @@ export class AgregarFechaAreaComponent implements OnInit {
 	diasDisponibles: string[];
 
   link = 'agregar-area';
+  label="top";
+  rojo="#e27c65"
 
 
-  constructor(service: AgregarFechaAreaService) {
+  constructor(service: AgregarFechaAreaService,private navCtrl: NavController) {
     this.fechaArea = service.getFechaArea();
 		this.horaDeApertura = service.getHoraDeApertura();
     this.horaDeCierre = service.getHoraDeCierre();
@@ -39,5 +42,14 @@ export class AgregarFechaAreaComponent implements OnInit {
    }
 
   ngOnInit() {}
+
+  goToCancel() {
+    this.navCtrl.navigateForward("/agregar-area");
+  }
+
+  goToAcept() {
+    notify("Agregado Correctametnte");
+    
+  }
 
 }

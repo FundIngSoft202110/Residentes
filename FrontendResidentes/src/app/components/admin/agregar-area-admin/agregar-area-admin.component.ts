@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import notify from 'devextreme/ui/notify';
 import {AgregarAreaAdminServiceService, NuevaArea} from '../../../Services/AgregarAreaAdmin/agregar-area-admin-service.service';
+import{ConjuntosService} from '../../../Services/conjuntos/conjuntos.service'
 import { NgModule, ViewChild, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -12,6 +13,7 @@ import { DxCheckBoxModule,
          DxAutocompleteModule,
          DxFormComponent
        } from 'devextreme-angular';
+import { NavController } from '@ionic/angular';
 
 const sendRequest = function(value) {
     const validEmail = "test@dx-email.com";
@@ -32,12 +34,18 @@ const sendRequest = function(value) {
 export class AgregarAreaAdminComponent implements OnInit{
     @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
   
-    nuevaArea: NuevaArea;
+    nuevaArea: NuevaArea = new NuevaArea();
 	tipo: string[];
+    label ="top";
+    linkAgregarHora="agregar-fecha";
+    respuesta : any;
+    
+    
      
-    constructor(service: AgregarAreaAdminServiceService) {
+    constructor(private service: AgregarAreaAdminServiceService, private navCtrl: NavController, conjunto:ConjuntosService) {
 		this.tipo = service.getTipo();
-        
+        this.nuevaArea.Idconjunto= conjunto.getConjuntoActivo();
+        this.nuevaArea.Estado="H";
     }
    
     onFormSubmit = function(e) {
@@ -52,4 +60,16 @@ export class AgregarAreaAdminComponent implements OnInit{
         e.preventDefault();
     }
     ngOnInit() {}
+
+    goToRegister() {
+        
+      }
+      public mandarArea(){
+        
+        console.log("holiii",this.nuevaArea);
+    //     this.service.postAreaNueva("",this.nuevaArea)
+    //     .subscribe(respuesta=> {
+    //         this.respuesta = respuesta;})
+     // this.navCtrl.navigateForward(this.linkAgregarHora);
+      }
 }

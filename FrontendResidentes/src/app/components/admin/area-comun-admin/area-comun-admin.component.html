@@ -17,7 +17,7 @@
 	[formData]="area">
 	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
 		<dxi-item itemType="group" [colSpan]="3">
-            	<dxi-item dataField="ListaDeAreasComunes" editorType="dxSelectBox" [editorOptions]="{ items: listaAreas }"></dxi-item>
+            	<dxi-item dataField="ListaDeAreasComunes" editorType="dxSelectBox" [editorOptions]="{ items: listaDeAreasComunes }"></dxi-item>
 		</dxi-item>
 	</dxi-item>
 	<dxi-item itemtype="button">
@@ -27,7 +27,7 @@
 			   type="danger"
 			   [width]="180"
 			   [useSubmitBehavior]="true"
-			   (onClick)="click($event)">
+			   >
 		   </dx-button>
 	</dxi-item>
 	<dxi-item itemtype="button">
@@ -37,7 +37,7 @@
 			   type="success"
 			   [width]="120"
 			   [useSubmitBehavior]="true"
-			   (onClick)="click($event)">
+			   >
 		   </dx-button>
 	</dxi-item>
 	<dxi-item itemType="group" caption=" ">
@@ -48,7 +48,7 @@
 			   type="success"
 			   [width]="120"
 			   [useSubmitBehavior]="true"
-			   (onClick)="click($event)">
+			   >
 		   </dx-button>
 	</dxi-item>
 </dxi-item>

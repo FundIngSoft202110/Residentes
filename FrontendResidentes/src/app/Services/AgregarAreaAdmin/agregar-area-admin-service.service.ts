@@ -4,12 +4,14 @@ import { HttpClient} from '@angular/common/http';
 
 
 export class NuevaArea {
+    Idconjunto: any;
     NombreDelArea: string;
 	Tipo: string;
 	CapacidadMaxima: number;
 	Descripcion: string; 
     Estado: string;
 }
+
 
 
 
@@ -27,6 +29,10 @@ let tipo: string[] = [
 @Injectable()
 export class AgregarAreaAdminServiceService {
    
+
+    setIdConjunto(id:any){
+      
+    }
 
 	getTipo() {
 		return tipo;

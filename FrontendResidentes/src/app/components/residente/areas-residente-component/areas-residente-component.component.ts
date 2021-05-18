@@ -37,6 +37,7 @@ export class AreasResidenteComponent implements OnInit  {
     area: Area;
 	tipo: string[];
 	listaDeAreasComunes: string[];
+   
 
 	constructor(service: AreaComunResidenteService) {
 		this.area = service.getArea();
@@ -51,7 +52,7 @@ export class AreasResidenteComponent implements OnInit  {
      
      
     now: Date = new Date();
-    currentValue: Date = new Date();
+    currentValue: any;
     firstDay: number = 0;
     minDateValue: Date | null = null;
     maxDateValue: Date | null = null;

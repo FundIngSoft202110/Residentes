@@ -1,5 +1,9 @@
+<ion-toolbar color="residente">
+</ion-toolbar >
+<div class="estetic">
 <dx-form id="form"
-	[formData]="fechaArea">
+	[formData]="fechaArea"
+	[labelLocation]="label">
 	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
 		<dxi-item itemType="group" [colSpan]="3">
 				<dxi-item dataField="HoraDeApertura" editorType="dxSelectBox" [editorOptions]="{ items: horaDeApertura, value: '' }"></dxi-item>
@@ -7,24 +11,25 @@
             	<dxi-item dataField="DiasDisponibles" editorType="dxSelectBox" [editorOptions]="{ items: diasDisponibles, value: '' }"></dxi-item>
 		</dxi-item>
 	</dxi-item>
-    <dxi-item itemtype="button">
-		<dx-button
-			id="button"
-			text="Aceptar"
-			type="success"
-			[width]="180"
-			[useSubmitBehavior]="true"
-			(onClick)="click($event)">
-		</dx-button>
-	</dxi-item>
-    <dxi-item itemtype="button">
-		<dx-button
-		id="button"
-		text="Cancelar"
-		type="danger"
-		[width]="180"
-		[useSubmitBehavior]="true"
-		(onClick)="click($event)">
-		</dx-button>
-	</dxi-item>
+  
 </dx-form>
+
+<ion-button class="botIng"
+      (click)="goToAcept()"
+      expand="full"
+      shape="round"
+      color="residente"
+      type="submit"
+      >Aceptar</ion-button
+    >
+
+	<ion-button class="botIng"
+      (click)="goToCancel()"
+      expand="full"
+      shape="round"
+      color="danger"
+      type="submit"
+      >Cancelar</ion-button
+    >
+
+</div>
