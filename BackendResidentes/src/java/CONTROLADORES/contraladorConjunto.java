@@ -96,7 +96,7 @@ public class contraladorConjunto {
                 ) {
             statement.setInt(1, idConjunto);
             statement.setInt(2, idApto);
-            statement.executeQuery();
+            statement.executeUpdate();
             return "Modificado exitosamente";
 
         } catch (SQLException sqle) {

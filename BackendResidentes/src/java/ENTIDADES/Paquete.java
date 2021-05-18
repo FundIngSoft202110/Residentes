@@ -6,6 +6,7 @@
 package ENTIDADES;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -54,11 +55,11 @@ public class Paquete implements Serializable {
     @NotNull
     @Column(name = "Fecha")
     @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private int fecha;
     @Basic(optional = false)
     @NotNull
     @Column(name = "Hora")
-    private BigInteger hora;
+    private BigDecimal hora;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -77,7 +78,7 @@ public class Paquete implements Serializable {
         this.paquetePK = paquetePK;
     }
 
-    public Paquete(PaquetePK paquetePK, String tamano, Date fecha, BigInteger hora, String remitente) {
+    public Paquete(PaquetePK paquetePK, String tamano, int fecha, BigDecimal hora, String remitente) {
         this.paquetePK = paquetePK;
         this.tamano = tamano;
         this.fecha = fecha;
@@ -105,19 +106,19 @@ public class Paquete implements Serializable {
         this.tamano = tamano;
     }
 
-    public Date getFecha() {
+    public int getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(int fecha) {
         this.fecha = fecha;
     }
 
-    public BigInteger getHora() {
+    public BigDecimal getHora() {
         return hora;
     }
 
-    public void setHora(BigInteger hora) {
+    public void setHora(BigDecimal hora) {
         this.hora = hora;
     }
 
