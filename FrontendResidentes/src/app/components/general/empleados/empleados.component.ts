@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { LstChatServicioService } from 'src/app/Services/lstChatServ/lst-chat-servicio.service';
 import { lstChat } from 'src/app/Services/lstChatServ/lstChat.module';
 import { PersonasService } from 'src/app/Services/personas/personas.service';
@@ -10,29 +11,31 @@ import { PersonasService } from 'src/app/Services/personas/personas.service';
 })
 export class EmpleadosComponent implements OnInit {
   public user:string="RESIDENTE";
+  idAConj : any;
   //private personasService:PersonasService;
   rol='A';
   chatBuscado: any;
   chats =[];
-  constructor(private serChats: LstChatServicioService, private personasService: PersonasService) { }
+  constructor(private  conjServ: ConjuntosService,private serChats: LstChatServicioService, private personasService: PersonasService) { }
 
   ngOnInit() {
+    this.idAConj = this.conjServ.getConjuntoActivo(); 
     console.log("entreee");
     this.rol = this.personasService.getUserActivo();
     if(this.rol == "EMPLEADO"){
       console.log("entreee Emp");
-      this.chats = this.serChats.getlstMsjAptoAdmin();
+      this.chats = this.serChats.getlstMsjAptoAdmin(this.idAConj);
       console.log(this.chats);
     }
 
     if(this.rol == "ADMIN"){
       console.log("entreee admun");
-      this.chats = this.serChats.getlstMsjAptoEmp();
+      this.chats = this.serChats.getlstMsjAptoEmp(this.idAConj);
     }
 
     if(this.rol == "RESIDENTE"){
       console.log("entreee res");
-      this.chats = this.serChats.getlstMsjsEmpAdmin();
+      this.chats = this.serChats.getlstMsjsEmpAdmin(this.idAConj);
       console.log(this.chats);
     }
 
