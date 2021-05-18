@@ -72,9 +72,10 @@ export class ServIngAptoService {
   constructor(private http: HttpClient) {
 
   }
-
+  url: string;
   public getAptos(num: number) {
-    this.getAptosU("localhost:8080/BackendResidentes/consultas/apartamentos/")
+    this.url = "http://192.168.0.14:8080/BackendResidentes/consultas/apartamentos/apartamentos/"+num.toString;
+    this.getAptosU(this.url)
       .subscribe(respuesta => {
         console.log("subscirbe " + respuesta);
         this.apartamentos = respuesta;
@@ -106,7 +107,7 @@ export class ServIngAptoService {
       console.log("entre");
       for (let ind of this.apartamentos) {
         if ((credential.torre == this.apartamentos[cont].torre) && (credential.piso == this.apartamentos[cont].piso) && (credential.numero == this.apartamentos[cont].numero) && (credential.password == this.apartamentos[cont].contrasena)) {
-
+          this.setIdApto(this.apartamentos[cont].idApartamento);
           accept("Login correcto");
           van = 1;
         }
