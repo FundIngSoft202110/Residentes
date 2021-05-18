@@ -3,6 +3,7 @@ import { Apto } from 'src/app/Services/aptos/apto.model';
 import { AptosService } from 'src/app/Services/aptos/aptos.service';
 import { Paquete } from 'src/app/Services/paquetes/paquete.model';
 import { PaquetesService } from 'src/app/Services/paquetes/paquetes.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-paquetes-empleado-component',
@@ -13,9 +14,9 @@ export class PaquetesEmpleadoComponent implements OnInit {
 
   paquetes : Paquete[] = [];
   aptos : Apto[] = [];
-  place : number;
+  aptoSeleccionado : number =0;
 
-  constructor(private paquetesService : PaquetesService, private aptosService : AptosService) { }
+  constructor(private navCtrl: NavController,private paquetesService : PaquetesService, private aptosService : AptosService) { }
 
   ngOnInit() {
     this.aptos = this.aptosService.getAptos();
@@ -25,9 +26,15 @@ export class PaquetesEmpleadoComponent implements OnInit {
     
   }
 
-  optionsFn(){ //here item is an object 
+  optionsApto(){ //here item is an object 
     this.paquetes.length = 0;
-    this.aptosService.setAptoActivo(this.place);
+    this.aptosService.setAptoActivo(this.aptoSeleccionado);
     this.paquetes = this.paquetesService.getPaquetes();
   }
+
+  botonNuevoPaquete(){
+    this.aptoSeleccionado = 0;
+    this.navCtrl.navigateForward("/nuevo-paquete");
+  }
+
 }

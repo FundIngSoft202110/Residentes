@@ -6,7 +6,7 @@
             <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Apartamentos</ion-label>
             <ion-list>
                 <ion-item lines="none">
-                    <ion-select [(ngModel)]="place" (ionChange)="optionsFn();" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="&nbsp;&nbsp;Seleccione" id="rounded" >
+                    <ion-select [(ngModel)]="aptoSeleccionado" (ionChange)="optionsApto();" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="&nbsp;&nbsp;Seleccione" id="rounded" >
                         <div *ngFor="let apto of aptos">
                             <ion-select-option value="{{apto.id}}">&nbsp;&nbsp;{{apto.torre}}-{{apto.numero}}
                             </ion-select-option>
@@ -32,7 +32,7 @@
 
     <div id="centrado">
         <br> <br>
-        <ion-button color="residente" routerLink="/nuevo-paquete">
+        <ion-button color="residente" (click)="botonNuevoPaquete()">
             <ion-label> Nuevo Paquete </ion-label>
         </ion-button>
     </div>
