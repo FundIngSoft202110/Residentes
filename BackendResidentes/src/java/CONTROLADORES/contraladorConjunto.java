@@ -63,25 +63,25 @@ public class contraladorConjunto {
     
     @GET
     @Path("/cuotaAdmin/{IdConjunto}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String mostrarCuota(@PathParam("IdConjunto") int id) {
-        String cuotaAdmin = "";
-        String consulta = "SELECT * FROM Apartamento AS a WHERE  a.ConjuntoIdConjunto = ?";
+    @Produces(MediaType.APPLICATION_JSON)
+    public Conjunto mostrarCuota(@PathParam("IdConjunto") int id) {
+        Conjunto conjunto = new Conjunto();
+        String consulta = "SELECT LinkDePago, PrecioAdmin FROM Conjunto AS c WHERE  c.idConjunto = ?";
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta);
                 ) {
             statement.setInt(1, id);
         
             try(ResultSet rs = statement.executeQuery();){
-
                 while (rs.next()) {
-                    cuotaAdmin = rs.getString("LinkDePago");
+                    conjunto.setLinkDePago(rs.getString("LinkDePago"));
+                    conjunto.setPrecioAdmin(rs.getBigDecimal("PrecioAdmin"));
                 }
             }
         } catch (SQLException sqle) {
 
         }
-        return cuotaAdmin;
+        return conjunto;
     }
     
        /* @POST
