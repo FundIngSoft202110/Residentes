@@ -20,7 +20,7 @@ public class MensajeJS {
     private BigDecimal fecha_hora;
     private String RolEmpleado;
     private String RolAdmin;
-    private BigDecimal visto;
+    private String visto;
 
     public int getIdConjunto() {
         return idConjunto;
@@ -86,15 +86,15 @@ public class MensajeJS {
         this.RolAdmin = RolAdmin;
     }
 
-    public BigDecimal getVisto() {
+    public String getVisto() {
         return visto;
     }
 
-    public void setVisto(BigDecimal visto) {
+    public void setVisto(String visto) {
         this.visto = visto;
     }
 
-    public MensajeJS(int idConjunto, int idEmpleado, int idAdmin, int idApto, String contenido, BigDecimal fecha_hora, String RolEmpleado, String RolAdmin, BigDecimal visto) {
+    public MensajeJS(int idConjunto, int idEmpleado, int idAdmin, int idApto, String contenido, BigDecimal fecha_hora, String RolEmpleado, String RolAdmin, String visto) {
         this.idConjunto = idConjunto;
         this.idEmpleado = idEmpleado;
         this.idAdmin = idAdmin;
