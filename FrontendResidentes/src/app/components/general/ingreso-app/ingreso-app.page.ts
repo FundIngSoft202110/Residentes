@@ -54,7 +54,7 @@ export class IngresoAppPage implements OnInit {
       
       cor = this.personasService.getIdPersona(credentials.email);
       console.log("este es el cor",cor);
-      this.personasService.setPersonaActiva(2);
+      this.personasService.setPersonaActiva(cor);
       console.log(cor);
       this.navCtrl.navigateForward("/netflix");
     }).catch(err=>{

@@ -6,48 +6,52 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthenticateServiceService {
-  personas=[];
-  p:any;
+  personas = [];
+  p: any;
 
-  constructor(private http:HttpClient, pServ : PersonasService) {
-   // this.personas = pServ.getPersonas(); 
-     this.obtener();
+  constructor(private http: HttpClient) {
+    // this.personas = pServ.getPersonas(); 
+    this.obtener();
+  }
+
+  public getP(){
+    return this.p;
   }
 
   public obtener() {
-    this.getUsuarios("http://192.168.76.71:8080/BackendResidentes/consultas/personas")
-        .subscribe(respuesta => {
-            console.log("subscirbe " ,respuesta);
-            this.p = respuesta;
-            console.log("esta es la p", this.p);
-    })
-  }  
-  public getUsuarios(url:string){
+    this.getUsuarios("http://192.168.0.27:8080/BackendResidentes/consultas/personas")
+      .subscribe(respuesta => {
+        console.log("subscirbe ", respuesta);
+        this.p = respuesta;
+        console.log("esta es la p", this.p);
+      })
+  }
+  public getUsuarios(url: string) {
     return this.http.get(url);
- }
-  
-  loginUser(credential){
+  }
+
+  loginUser(credential) {
     //return fetch("IRL_DEL_SUPERSERVIDOR")
 
     this.obtener();
     return new Promise((accept, reject) => {
       accept("Login correcto");
-      let van =0;
-      let cont=0;
-  
-      for(let ind of  this.p){
+      let van = 0;
+      let cont = 0;
+
+      for (let ind of this.p) {
         console.log("este el correo de la perdedora", this.p[cont].correo, this.p[cont].contrasena);
         console.log("las credential", credential.email, credential.password);
-        if( ( credential.email == this.p[cont].correo) && ( credential.password == this.p[cont].contrasena) ){
+        if ((credential.email == this.p[cont].correo) && (credential.password == this.p[cont].contrasena)) {
           console.log("este el correo de la perdedora ene el if", this.p[cont].correo, this.p[cont].contrasena);
-        console.log("las credential", credential.email, credential.password);
+          console.log("las credential", credential.email, credential.password);
           accept("Login correcto");
 
-          van =1;
+          van = 1;
         }
         cont++;
       }
-      if(van == 0){
+      if (van == 0) {
         reject("login incorrecto");
       }
     });

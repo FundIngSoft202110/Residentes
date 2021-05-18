@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AuthenticateServiceService } from '../servIngre/authenticate-service.service';
 import { Persona } from './persona.model';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { Persona } from './persona.model';
 
 export class PersonasService {
 
-  private personas:Persona[] = [ 
+  private personas: Persona[] = [
     {
       id: 1,
       nombre: "Maria",
@@ -70,77 +71,73 @@ export class PersonasService {
     }
   ]
 
-  private personaActiva:number;
-  constructor() {}
+  private personaActiva: number;
+  constructor(private authenticateServiceService: AuthenticateServiceService) { }
 
-  ngInit(){
-  }
-  aux : any;
-  setPersonaActiva(idPersona:number){
-    console.log("entro");
+  ngInit() { }
+
+  aux: any;
+  setPersonaActiva(idPersona: number) {
     window.localStorage['personaActiva'] = idPersona.toString();
-    this.aux = this.getPersonaActivaAux().rolConjunto;
-    console.log(this.aux + " Antes");
-    this.setRolPersonaActiva( this.aux );
-  }// setPersonaActiva
+    this.aux = this.getRolP(idPersona);
+    this.setRolPersonaActiva(this.aux);
+  }// end setPersonaActiva
+
+  getRolP(idPersona: number) {
+    for (let pers of this.authenticateServiceService.getP()) {
+      if (idPersona == pers.idPersona)
+        return pers.rolConjunto;
+    }
+  }// end getROlP
 
 
-  setRolPersonaActiva(rolP:String){
-    console.log("eeeel "+ rolP);
-    if(rolP == "Empleado"){
-      console.log("ente a empleadoo");
+  setRolPersonaActiva(rolP: String) {
+    if (rolP == "Empleado")
       window.localStorage['rolPersonaActiva'] = "EMPLEADO";
-    }
-    if(rolP == "Administrador"){
-      console.log("ente a administradooor");
+    if (rolP == "Administrador")
       window.localStorage['rolPersonaActiva'] = "ADMIN";
-    }
-    if(rolP == "Residente"){
-      console.log("ente a ressss");
+    if (rolP == "Residente")
       window.localStorage['rolPersonaActiva'] = "RESIDENTE";
-    }
   }
 
-  getIdPersona(corr : String){
-    let cont =0;
-    for(let p of this.personas){
-      if( this.personas[cont].correo == corr){
-        return this.personas[cont].id;
+  getIdPersona(corr: String) {
+    let cont = 0;
+    for (let p of this.authenticateServiceService.getP()) {
+      if (p.correo == corr) {
+        return p.idPersona;
       }
       cont++;
     }
   }
 
-  getPersonaActivaAux(){
+  getPersonaActivaAux() {
     this.personaActiva = Number(window.localStorage['personaActiva'] || -1);
-    if(this.personaActiva == -1)
+    if (this.personaActiva == -1)
       return null;
-    else{
-      console.log("hello");
+    else {
       return this.getPersona(this.personaActiva);
     }
-      
+
   }
   rolAux: any;
-  getPersonaActiva(){
-    this.rolAux = (window.localStorage['rolPersonaActiva'] || (-1).toString() );
-    if(this.rolAux == -1)
+  getPersonaActiva() {
+    this.rolAux = (window.localStorage['rolPersonaActiva'] || (-1).toString());
+    if (this.rolAux == -1)
       return null;
     else
-      console.log("aquiiii no estroooo");
       return this.rolAux;
   }// getPersonaActiva
 
-  
-  getPersonaID(){
+
+  getPersonaID() {
     this.personaActiva = Number(window.localStorage['personaActiva'] || -1);
-    if(this.personaActiva == -1)
+    if (this.personaActiva == -1)
       return null;
     else
       return this.personaActiva;
   }
 
-  getUserActivo(){
+  getUserActivo() {
     return this.getPersonaActiva();
   }
 
@@ -148,11 +145,11 @@ export class PersonasService {
     return this.personas;
   } // end getPersonas
 
-  getPersona(personaId:number) { 
+  getPersona(personaId: number) {
     return this.personas.find(persona => { return persona.id == personaId });
   }// end getPersona
 
-  addPersona(nombre:string, apellido:string, usuario:string, correo:string, clave:string, numCelular: number, rolConjunto:string){ 
+  addPersona(nombre: string, apellido: string, usuario: string, correo: string, clave: string, numCelular: number, rolConjunto: string) {
     this.personas.push({
       id: this.personas.length + 1,
       nombre,
@@ -166,8 +163,8 @@ export class PersonasService {
       foto: null
     });
   } // end addPersona
-  
-  deletePersona(personaId:number) {
-    this.personas.splice(personaId,1);
+
+  deletePersona(personaId: number) {
+    this.personas.splice(personaId, 1);
   } // end deletePersona
 }

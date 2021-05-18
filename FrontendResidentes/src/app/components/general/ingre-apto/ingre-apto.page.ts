@@ -80,8 +80,7 @@ export class IngreAptoPage implements OnInit {
       //this.authService.loginUser(credentials, 1).then(res => {
       this.authService.loginUserP(credentials).then(res => {
       this.errorMessage = "";
-      
-      this.navCtrl.navigateForward("/home");
+      this.navCtrl.navigateForward("/noticias");
     }).catch(err=>{
       console.log("errorr");
       this.errorMessage = err;
