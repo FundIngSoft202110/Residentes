@@ -26,6 +26,18 @@ export class ModificarFechaAreaComponent implements OnInit {
 	horaDeCierre: string[];
 	diasDisponibles: string[];
 
+	buttonOptions1: any = {
+        text: "Guardar/Modificar",
+        type: "success",
+        useSubmitBehavior: true
+    }
+    
+    buttonOptions2: any = {
+        text: "Cancelar",
+        type: "danger",
+        useSubmitBehavior: true
+    }
+
   constructor(service:ModificarFechaAreaService) { 
     this.fechaArea = service.getFechaArea();
 		this.horaDeApertura = service.getHoraDeApertura();

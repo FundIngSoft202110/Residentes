@@ -3,7 +3,6 @@
     padding: 20px;
 }
 
-::ng-deep #button {
-    margin:0 auto;
-    display:block;
+::ng-deep .second-group {
+    background-color: rgba(191, 191, 191, 0.15);
 }

@@ -37,12 +37,6 @@ export class AgregarAreaAdminComponent implements OnInit{
     Respuesta:any;
     nuevaArea: NuevaArea;
 	tipo: string[];
-<<<<<<< HEAD
-     
-    constructor(service: AgregarAreaAdminServiceService) {
-        this.nuevaArea = service.getNuevaArea();
-		this.tipo = service.getTipo();
-=======
     status = ["Deshabilitado","Habilitado"];
     conjuntoA : any;
 
@@ -63,7 +57,6 @@ export class AgregarAreaAdminComponent implements OnInit{
         
 		this.tipo = AgregarAreaAdminService.getTipo();
         this.conjuntoA= conjunto.getConjuntoActivo().id;
->>>>>>> dbb5a794c21bcaaf2b1aa85f57f3eeea1e25bb29
         
     }
     ngOnInit() {

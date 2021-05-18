@@ -25,8 +25,6 @@ export class ModificarAreaAdminComponent implements OnInit {
     estado: any;
     nuevaArea: NuevaArea;
 	tipo: string[];
-<<<<<<< HEAD
-=======
     respueta: any;
     disponibles : any;
     conjuntoA: any;
@@ -43,7 +41,6 @@ export class ModificarAreaAdminComponent implements OnInit {
         useSubmitBehavior: true
     }
    
->>>>>>> dbb5a794c21bcaaf2b1aa85f57f3eeea1e25bb29
     
    
     constructor(private service: ModificarAreaAdminService, conjunto: ConjuntosService) {
