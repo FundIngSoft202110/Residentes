@@ -13,19 +13,16 @@
 	<dxi-item itemType="group" cssClass="second-group" [colCount]="2">
 		<dxi-item dataField="Descripcion" [colSpan]="2" editorType="dxTextArea" [editorOptions]="{ height: 140 }"></dxi-item>
 	</dxi-item>
-    <dxi-item 
-            itemType="button"
-            horizontalAlignment="center"
-            [buttonOptions]="buttonOptions1">
-    </dxi-item>
-    <dxi-item 
-            itemType="button"
-            horizontalAlignment="center"
-            [buttonOptions]="buttonOptions2">
-    </dxi-item>
-    <dxi-item 
-            itemType="button"
-            horizontalAlignment="center"
-            [buttonOptions]="buttonOptions3">
-    </dxi-item>
+	<dxi-item itemType="group" caption=" ">
+	<dxi-item itemtype="button">
+		<dx-button
+               id="button"
+			   text="Agregar Area"
+			   type="success"
+			   [width]="120"
+			   [useSubmitBehavior]="true"
+			   (onClick)="click($event)">
+		   </dx-button>
+	</dxi-item>
+</dxi-item>
 </dx-form>

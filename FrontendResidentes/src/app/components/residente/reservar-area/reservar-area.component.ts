@@ -25,24 +25,6 @@ export class ReservarAreaComponent {
 	hora_f: any;
 	cantidad_p: any;
  
-    buttonOptions1: any = {
-        text: "Agregar",
-        type: "success",
-        useSubmitBehavior: true
-    }
-    
-    buttonOptions2: any = {
-        text: "Modificar",
-        type: "success",
-        useSubmitBehavior: true
-    }
-
-    
-    buttonOptions3: any = {
-        text: "Eliminar",
-        type: "danger",
-        useSubmitBehavior: true
-    }
   
 	constructor(service: ReservarAreaResidenteService) {
 		this.reserva = service.getReserva();

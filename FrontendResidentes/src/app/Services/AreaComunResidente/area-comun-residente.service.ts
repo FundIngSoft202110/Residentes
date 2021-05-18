@@ -1,31 +1,38 @@
 import { Injectable } from '@angular/core';
 
-export class Company {
-
-    Name: string;
-
+export class Area {
+    Tipo: string;
+	ListaDeAreasComunes: string;
 }
 
-let companies: Company[] = [{
+let area: Area = {
+    "Tipo": "Deportivo",
+    "ListaDeAreasComunes": "Cancha de futbol"
+};
 
-    Name: "Super Mart of the West"
-}, {
+let tipo: string[] = [
+    "Deportivo",
+    "Relajante",
+    "Social"
+];
 
-    Name: "Electronics Depot"
-
-}, {
-
-    Name: "K&S Music"
-
-}, {
-
-    Name: "Tom's Club"
-}];
+let listaDeAreasComunes: string[] = [
+    "Cancha de futbol",
+    "Salon Comunal",
+    "Piscina"
+];
 
 
 @Injectable()
 export class AreaComunResidenteService {
-    getCompanies() : Company[] {
-        return companies;
-    }
+    getArea() {
+		return area;
+	}
+
+	getTipo() {
+		return tipo;
+	}
+	getListaDeAreasComunes() {
+		return listaDeAreasComunes;
+	}
 }

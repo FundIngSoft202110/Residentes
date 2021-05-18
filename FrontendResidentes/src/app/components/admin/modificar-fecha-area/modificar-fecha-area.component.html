@@ -7,14 +7,24 @@
             	<dxi-item dataField="DiasDisponibles" editorType="dxSelectBox" [editorOptions]="{ items: diasDisponibles, value: '' }"></dxi-item>
 		</dxi-item>
 	</dxi-item>
-        <dxi-item 
-            itemType="button"
-            horizontalAlignment="center"
-            [buttonOptions]="buttonOptions1">
-        </dxi-item>
-        <dxi-item 
-            itemType="button"
-            horizontalAlignment="center"
-            [buttonOptions]="buttonOptions2">
-        </dxi-item>
+    <dxi-item itemtype="button">
+        <dx-button
+           id="button"
+           text="Guardar/Modificar"
+           type="success"
+           [width]="180"
+           [useSubmitBehavior]="true"
+           (onClick)="click($event)">
+       </dx-button>
+    </dxi-item>
+    <dxi-item itemtype="button">
+        <dx-button
+           id="button"
+           text="Cancelar"
+           type="danger"
+           [width]="180"
+           [useSubmitBehavior]="true"
+           (onClick)="click($event)">
+       </dx-button>
+    </dxi-item>
 </dx-form>

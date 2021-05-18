@@ -3,6 +3,12 @@
     padding: 20px;
 }
 
-::ng-deep .second-group {
-    background-color: rgba(191, 191, 191, 0.15);
+::ng-deep #button {
+    margin:0 auto;
+    display:block;
+}
+
+::ng-deep #calendar-container {
+    margin:0 auto;
+    display:block;
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import notify from 'devextreme/ui/notify';
-import { HttpClient} from '@angular/common/http';
-import {NuevaArea,AgregarAreaAdminServiceService} from '../../../Services/AgregarAreaAdmin/agregar-area-admin-service.service';
-import {ConjuntosService} from '../../../Services/conjuntos/conjuntos.service'
+import {AgregarAreaAdminServiceService, NuevaArea} from '../../../Services/AgregarAreaAdmin/agregar-area-admin-service.service';
 import { NgModule, ViewChild, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -33,51 +31,13 @@ const sendRequest = function(value) {
 
 export class AgregarAreaAdminComponent implements OnInit{
     @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
-    areaComun: any;
-    Respuesta:any;
+  
     nuevaArea: NuevaArea;
 	tipo: string[];
-    status = ["Deshabilitado","Habilitado"];
-    conjuntoA : any;
-
-    buttonOptions1: any = {
-        text: "Agregar Horario",
-        type: "success",
-        useSubmitBehavior: true
-    }
-    buttonOptions2: any = {
-        text: "Aceptar",
-        type: "success",
-        useSubmitBehavior: true
-    }
-    
-    
-   
-    constructor(private AgregarAreaAdminService: AgregarAreaAdminServiceService, conjunto: ConjuntosService) {
+     
+    constructor(service: AgregarAreaAdminServiceService) {
+		this.tipo = service.getTipo();
         
-		this.tipo = AgregarAreaAdminService.getTipo();
-        this.conjuntoA= conjunto.getConjuntoActivo().id;
-        
-    }
-    ngOnInit() {
-      
-    } 
-
-    public postAreaComun(){
-        this.AgregarAreaAdminService.postAreaNueva("http://192.168.76.71:8080/BackendResidentes/consultas/AreasComunes/NuevaArea",NuevaArea)
-        .subscribe(respuesta => {
-            console.log(respuesta);
-            this.Respuesta =respuesta;
-            })
-    }
-
-    public GetAreasComunes(){
-        this.AgregarAreaAdminService.getAreasComunes("http://192.168.76.71:8080/BackendResidentes/consultas/AreasComunes/areaEspecifica/conjunto/${this.conjuntoA}/nomArea/${nuevaArea.NombreDelArea}")
-        .subscribe(
-            respuesta=>{
-                this.areaComun = respuesta;
-            }
-        )
     }
    
     onFormSubmit = function(e) {
@@ -88,9 +48,8 @@ export class AgregarAreaAdminComponent implements OnInit{
                 at: "center top"
             }
         }, "success", 3000);
-
+        
         e.preventDefault();
     }
-   
- 
+    ngOnInit() {}
 }
