@@ -9,24 +9,42 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 })
 export class PagosComponent implements OnInit {
 
+  public conjuntoPago:any;
+  public conjuntoActivo:number;
+  public urlPago:string = "";
+  public precioAdmin:number = 0;
+  
   constructor(private conjuntosService: ConjuntosService, private inAppBrowser: InAppBrowser) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.conjuntoActivo = this.conjuntosService.getConjuntoActivo();
+    this.cargarDatosAdmin(this.conjuntoActivo);
+  }
 
-  getUrl(){
-    return this.conjuntosService.getConjunto(this.getConjuto()).linkDePago;
+  async cargarDatosAdmin(conjuntoActivoP:number){
+    if(this.conjuntoActivo != -1){
+      this.conjuntosService.getPagoAdmin(this.conjuntoActivo);
+      await new Promise(resolve => setTimeout(resolve, 250));
+      this.conjuntoPago = this.conjuntosService.getConjuntoPago();
+      console.log("CONJUNTO PAGO: ", this.conjuntoPago);
+      console.log("CONJUNTO PAGO LIN: ", this.conjuntoPago.linkDePago);
+      this.urlPago = "http://" + this.conjuntoPago.linkDePago;
+      this.precioAdmin = this.conjuntoPago.precioAdmin;
+    }
+  }
+
+  async waitBD(){
+    await new Promise(resolve => setTimeout(resolve, 250));
   }
 
   openUrl(){
-    this.inAppBrowser.create(this.getUrl(),'_self');
-  }
-
-  getConjuto(){
-    return 1;
+    this.waitBD();  
+    this.inAppBrowser.create(this.urlPago,'_self');
   }
 
   getPrecio(){
-    return this.conjuntosService.getConjunto(this.getConjuto()).precioAdmin;
+    this.waitBD();
+    return  this.precioAdmin;
   }
 
 }

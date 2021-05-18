@@ -80,6 +80,7 @@ export class PersonasService {
   setPersonaActiva(idPersona: number) {
     window.localStorage['personaActiva'] = idPersona.toString();
     this.aux = this.getRolP(idPersona);
+    console.log("Jjdjd: ",this.aux);
     this.setRolPersonaActiva(this.aux);
   }// end setPersonaActiva
 
@@ -93,12 +94,18 @@ export class PersonasService {
 
   setRolPersonaActiva(rolP: String) {
     console.log("rolP in Persona: ", rolP);
-    if (rolP == "Empleado")
+    if (rolP == "Empleado"){
+      console.log("ENTREEE EMPLEADO");
       window.localStorage['rolPersonaActiva'] = "EMPLEADO";
-    if (rolP == "Administrador")
+    }
+    if (rolP == "Administrador"){
+      console.log("ENTREEE ADMIN");
       window.localStorage['rolPersonaActiva'] = "ADMIN";
-    if (rolP == "Residente")
-      window.localStorage['rolPersonaActiva'] = "RESIDENTE";
+    }
+    if (rolP == "Residente"){
+      console.log("ENTREEE RESIDENTE");
+        window.localStorage['rolPersonaActiva'] = "RESIDENTE";
+      }
   }
 
   getIdPersona(corr: String) {

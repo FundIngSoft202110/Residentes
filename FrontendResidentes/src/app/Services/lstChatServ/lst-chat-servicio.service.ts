@@ -391,6 +391,17 @@ export class LstChatServicioService {
 
   nombre: any;
 
+  getChat1(){
+    return this.chatsList;
+  }
+
+  getChat2(){
+    return this.chatsList2;
+  }
+  getChat3(){
+    return this.chatsList3;
+  }
+  
   getChatN(){
     this.nombre = (window.localStorage['chatnombre'] || (-1).toString);
     if(this.nombre == '-1')
