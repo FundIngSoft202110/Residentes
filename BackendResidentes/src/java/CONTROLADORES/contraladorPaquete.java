@@ -111,7 +111,7 @@ public class contraladorPaquete {
             this.con.prepareStatement(consulta);
             statement.setInt(1, idConjunto);
             statement.setInt(2, idApto);
-            statement.setInt(2, idPaquete);
+            statement.setInt(3, idPaquete);
             statement.executeUpdate();
 
             return "Se pudo eliminar satisfactoriamente";

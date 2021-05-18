@@ -62,20 +62,31 @@ public class contraladorConjunto {
     }
     
     @GET
-    @Path("/cuotaAdmin/{IdConjunto}")
+    @Path("/cuotaAdmin/{IdConjunto}/{IdApto}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Conjunto mostrarCuota(@PathParam("IdConjunto") int id) {
+    public Conjunto mostrarCuota(@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto) {
         Conjunto conjunto = new Conjunto();
+        BigDecimal pagoAdmin = BigDecimal.ZERO;
+        String consultaA = "SELECT PagoAdmin FROM Apartamento AS a WHERE  a.ConjuntoIdConjunto = ? AND a.IdApartamento = ?";
         String consulta = "SELECT LinkDePago, PrecioAdmin FROM Conjunto AS c WHERE  c.idConjunto = ?";
         try (
+                PreparedStatement statementA = this.con.prepareStatement(consultaA);
                 PreparedStatement statement = this.con.prepareStatement(consulta);
                 ) {
-            statement.setInt(1, id);
+            statementA.setInt(1, idApto);
+            statement.setInt(1, idConjunto);
         
-            try(ResultSet rs = statement.executeQuery();){
+            try(ResultSet rsA = statement.executeQuery();
+                ResultSet rs = statement.executeQuery();){
+                while(rsA.next()){
+                    pagoAdmin = rsA.getBigDecimal("PagoAdmin");
+                }
                 while (rs.next()) {
                     conjunto.setLinkDePago(rs.getString("LinkDePago"));
-                    conjunto.setPrecioAdmin(rs.getBigDecimal("PrecioAdmin"));
+                    if(pagoAdmin.intValue() > 0)
+                        conjunto.setPrecioAdmin(rs.getBigDecimal("PrecioAdmin"));
+                    else
+                        conjunto.setPrecioAdmin(BigDecimal.ZERO);
                 }
             }
         } catch (SQLException sqle) {
