@@ -1,6 +1,5 @@
 <app-header titulo="DISPONIBILIDAD AREA COMUN" menu=RESIDENTE></app-header>
-<dx-form id="form"
-	[formData]="reserva">
+<dx-form id="form" [formData]="reserva">
 	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
 		<dxi-item itemType="group" [colSpan]="3">
 				<dxi-item dataField="Fecha"></dxi-item>
@@ -21,7 +20,7 @@
 			   type="success"
 			   [width]="120"
 			   [useSubmitBehavior]="true"
-			   (onClick)="click($event)">
+			   >
 		   </dx-button>
 	</dxi-item>
 </dxi-item>

@@ -75,7 +75,8 @@ export class ServIngAptoService {
   }
   url: string;
   public getAptos(num: number) {
-    this.url = IPRESIDENTES + "consultas/apartamentos/apartamentos/"+num.toString();
+    console.log("IDCONJUNTO EN APTOS BU: ", num);
+    this.url = IPRESIDENTES + "consultas/apartamentos/apartamentosc/"+num.toString();
     this.getAptosU(this.url)
       .subscribe(respuesta => {
         this.apartamentos = respuesta;
@@ -100,7 +101,8 @@ export class ServIngAptoService {
 
   async loginUser(credential, num: number) {
     this.getAptos(num);
-    await new Promise(resolve => setTimeout(resolve, 250));
+    await new Promise(resolve => setTimeout(resolve, 500));
+    console.log("Aptos = ", this.apartamentos);
     return new Promise((accept, reject) => {
       let van = 0;
       let cont = 0;

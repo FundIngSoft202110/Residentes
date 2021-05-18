@@ -4,14 +4,17 @@ import { HttpClient} from '@angular/common/http';
 
 
 export class NuevaArea {
-    Idconjunto: any;
-    NombreDelArea: string;
-	Tipo: string;
-	CapacidadMaxima: number;
-	Descripcion: string; 
-    Estado: string;
+    areacomunPK: AreaComunPK;
+    nombre: string;
+	tipo: string;
+	capacidad: number;
+	descripcion: string; 
+    estado: string;
 }
 
+export class AreaComunPK{
+    conjuntoIdConjunto : any;
+}
 
 
 
@@ -30,9 +33,7 @@ let tipo: string[] = [
 export class AgregarAreaAdminServiceService {
    
 
-    setIdConjunto(id:any){
-      
-    }
+   
 
 	getTipo() {
 		return tipo;

@@ -67,13 +67,15 @@ export class ConjuntosService {
     return this.http.get(url);
   }
 
-  url: string;
-  public getPagoAdmin(num: number) {
-    this.url = IPRESIDENTES + "consultas/apartamentos/apartamentos/"+num.toString();
-    this.getPagoAdminUrl(this.url)
+  async getPagoAdmin(num: number) {
+    this.getPagoAdminUrl(IPRESIDENTES + "consultas/Conjuntos/cuotaAdmin/"+num.toString())
       .subscribe(respuesta => {
         this.conjuntoPago = respuesta;
       })
+  }
+
+  getConjuntoPago(){
+    return this.conjuntoPago;
   }
 
 }

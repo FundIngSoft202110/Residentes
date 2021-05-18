@@ -50,7 +50,7 @@ export class AreasResidenteComponent implements OnInit  {
 		this.listaDeAreasComunes = service.getListaDeAreasComunes();
 	}
      
-     
+    pos="top";
     now: Date = new Date();
     currentValue: any;
     firstDay: number = 0;

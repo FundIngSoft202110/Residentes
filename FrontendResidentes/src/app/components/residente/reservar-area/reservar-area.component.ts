@@ -24,6 +24,7 @@ export class ReservarAreaComponent {
 	hora_i: any;
 	hora_f: any;
 	cantidad_p: any;
+  pos:"top";
  
   
 	constructor(service: ReservarAreaResidenteService) {
