@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output } from '@angular/core';
 import notify from 'devextreme/ui/notify';
-import {AgregarAreaAdminServiceService, NuevaArea} from '../../../Services/AgregarAreaAdmin/agregar-area-admin-service.service';
+import {AgregarAreaAdminServiceService, NuevaArea, AreaComunPK} from '../../../Services/AgregarAreaAdmin/agregar-area-admin-service.service';
 import{ConjuntosService} from '../../../Services/conjuntos/conjuntos.service'
 import { NgModule, ViewChild, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +14,7 @@ import { DxCheckBoxModule,
          DxFormComponent
        } from 'devextreme-angular';
 import { NavController } from '@ionic/angular';
+
 
 const sendRequest = function(value) {
     const validEmail = "test@dx-email.com";
@@ -32,9 +33,11 @@ const sendRequest = function(value) {
 })
 
 export class AgregarAreaAdminComponent implements OnInit{
+    
     @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
   
     nuevaArea: NuevaArea = new NuevaArea();
+    areacomunPK: AreaComunPK = new AreaComunPK();
 	tipo: string[];
     label ="top";
     linkAgregarHora="agregar-fecha";
@@ -44,8 +47,9 @@ export class AgregarAreaAdminComponent implements OnInit{
      
     constructor(private service: AgregarAreaAdminServiceService, private navCtrl: NavController, conjunto:ConjuntosService) {
 		this.tipo = service.getTipo();
-        this.nuevaArea.Idconjunto= conjunto.getConjuntoActivo();
-        this.nuevaArea.Estado="H";
+        this.areacomunPK.conjuntoIdConjunto=conjunto.getConjuntoActivo();
+        this.nuevaArea.areacomunPK=this.areacomunPK;
+        this.nuevaArea.estado="H";
     }
    
     onFormSubmit = function(e) {
@@ -65,11 +69,16 @@ export class AgregarAreaAdminComponent implements OnInit{
         
       }
       public mandarArea(){
-        
+      
         console.log("holiii",this.nuevaArea);
-    //     this.service.postAreaNueva("",this.nuevaArea)
-    //     .subscribe(respuesta=> {
-    //         this.respuesta = respuesta;})
-     // this.navCtrl.navigateForward(this.linkAgregarHora);
+         this.service.postAreaNueva("http://192.168.76.71:8080/BackendResidentes/consultas/AreasComunes/NuevaArea",this.nuevaArea)
+       .subscribe(respuesta=> {
+        console.log("lo agrego ???",respuesta);    
+        this.respuesta = respuesta;
+        console.log("respuesta:",this.respuesta);   
+        // si la agrega pero no me muestra la respuesta
+    })
+
+      this.navCtrl.navigateForward(this.linkAgregarHora);
       }
 }
