@@ -1,26 +1,48 @@
 import { Injectable } from '@angular/core';
 import { PersonasService } from '../personas/personas.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticateServiceService {
   personas=[];
+  p:any;
 
-  constructor(pServ : PersonasService) {
-    this.personas = pServ.getPersonas(); 
+  constructor(private http:HttpClient, pServ : PersonasService) {
+   // this.personas = pServ.getPersonas(); 
+     this.obtener();
   }
+
+  public obtener() {
+    this.getUsuarios("http://192.168.76.71:8080/BackendResidentes/consultas/personas")
+        .subscribe(respuesta => {
+            console.log("subscirbe " ,respuesta);
+            this.p = respuesta;
+            console.log("esta es la p", this.p);
+    })
+  }  
+  public getUsuarios(url:string){
+    return this.http.get(url);
+ }
   
   loginUser(credential){
     //return fetch("IRL_DEL_SUPERSERVIDOR")
 
+    this.obtener();
     return new Promise((accept, reject) => {
-       accept("Login correcto");
+      accept("Login correcto");
       let van =0;
       let cont=0;
-      for(let ind of  this.personas){
-        if( ( credential.email == this.personas[cont].correo) && ( credential.password == this.personas[cont].clave) ){
+  
+      for(let ind of  this.p){
+        console.log("este el correo de la perdedora", this.p[cont].correo, this.p[cont].contrasena);
+        console.log("las credential", credential.email, credential.password);
+        if( ( credential.email == this.p[cont].correo) && ( credential.password == this.p[cont].contrasena) ){
+          console.log("este el correo de la perdedora ene el if", this.p[cont].correo, this.p[cont].contrasena);
+        console.log("las credential", credential.email, credential.password);
           accept("Login correcto");
+
           van =1;
         }
         cont++;
