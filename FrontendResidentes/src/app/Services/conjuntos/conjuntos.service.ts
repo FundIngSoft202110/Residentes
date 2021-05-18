@@ -58,11 +58,7 @@ export class ConjuntosService {
 	}
 
 	getConjuntoActivo(){
-		this.conjuntoActivo = Number(window.localStorage['conjuntoActivo'] || -1);
-		if(this.conjuntoActivo == -1)
-			return null;
-		else
-			return this.getConjunto(this.conjuntoActivo);
+		return Number(window.localStorage['conjuntoActivo'] || -1);
 	}// getConjuntoActivo
 
 }
