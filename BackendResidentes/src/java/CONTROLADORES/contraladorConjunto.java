@@ -18,6 +18,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -59,6 +60,49 @@ public class contraladorConjunto {
         return conjuntos;
 
     }
+    
+    @GET
+    @Path("/cuotaAdmin/{IdConjunto}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String mostrarCuota(@PathParam("IdConjunto") int id) {
+        String cuotaAdmin = "";
+        String consulta = "SELECT * FROM Apartamento AS a WHERE  a.ConjuntoIdConjunto = ?";
+        try (
+                PreparedStatement statement = this.con.prepareStatement(consulta);
+                ) {
+            statement.setInt(1, id);
+        
+            try(ResultSet rs = statement.executeQuery();){
+
+                while (rs.next()) {
+                    cuotaAdmin = rs.getString("LinkDePago");
+                }
+            }
+        } catch (SQLException sqle) {
+
+        }
+        return cuotaAdmin;
+    }
+    
+       /* @POST
+    @Path("/NuevoConjunto")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    
+    public String pagarAdmin (@PathParam("IdConjunto") int id) {
+        String consulta = "UPDATE residentes.Conjunto SET PrecioAdmin = '0' WHERE (`IdConjunto` = ?);";
+        try (
+                PreparedStatement statement = this.con.prepareStatement(consulta);
+                ) {
+            statement.setInt(1, id);
+            statement.executeQuery();
+            
+            return "Modificado exitosamente";
+
+        } catch (SQLException sqle) {
+            return  "Error en la ejecución: " + sqle.getErrorCode() + " " +  sqle.getMessage();
+        }
+    }*/
 
     @POST
     @Path("/NuevoConjunto")
