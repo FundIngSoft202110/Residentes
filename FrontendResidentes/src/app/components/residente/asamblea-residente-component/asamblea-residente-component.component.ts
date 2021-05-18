@@ -95,7 +95,7 @@ export class AsambleaResidenteComponent implements OnInit {
       return "residente";
     }
     else{
-      return "#cdcdcd"
+      return "#cdcdcd";
     }
   }// end getColorResultados
 
