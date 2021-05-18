@@ -34,20 +34,7 @@ export class AgregarAreaAdminComponent implements OnInit{
   
     nuevaArea: NuevaArea;
 	tipo: string[];
-   
-    buttonOptions1: any = {
-        text: "Agregar Horario",
-        type: "success",
-        useSubmitBehavior: true
-    }
-    buttonOptions2: any = {
-        text: "Aceptar",
-        type: "success",
-        useSubmitBehavior: true
-    }
-    
-    
-   
+     
     constructor(service: AgregarAreaAdminServiceService) {
         this.nuevaArea = service.getNuevaArea();
 		this.tipo = service.getTipo();

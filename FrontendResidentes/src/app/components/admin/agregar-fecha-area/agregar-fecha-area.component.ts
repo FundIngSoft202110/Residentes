@@ -30,18 +30,6 @@ export class AgregarFechaAreaComponent implements OnInit {
 
   link = 'agregar-area';
 
-	buttonOptions1: any = {
-        text: "Aceptar",
-        type: "success",
-        useSubmitBehavior: true
-    }
-    
-    buttonOptions2: any = {
-        text: "Cancelar",
-        type: "danger",
-        useSubmitBehavior: true,
-        routerLink: this.link
-    }
 
   constructor(service: AgregarFechaAreaService) {
     this.fechaArea = service.getFechaArea();

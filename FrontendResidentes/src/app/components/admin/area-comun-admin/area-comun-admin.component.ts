@@ -32,7 +32,7 @@ const sendRequest = function(value) {
 })
 
 export class AreaComunAdminComponent {
-    @ViewChild(DxFormComponent, { static: false }) form1:DxFormComponent
+    @ViewChild("eventRadioGroup") eventRadioGroup: DxRadioGroupComponent;
     area: Area;
 	tipo: string[];
 	listaDeAreasComunes: string[];
@@ -48,20 +48,6 @@ export class AreaComunAdminComponent {
 		this.listaDeAreasComunes = service.getListaDeAreasComunes();
 	}
 
-    buttonOptions1: any = {
-        text: "Eliminar",
-        type: "danger",
-        useSubmitBehavior: true
-    }
-    buttonOptions2: any = {
-        text: "Modificar",
-        type: "success",
-        useSubmitBehavior: true
-    }
-    buttonOptions3: any = {
-        text: "Nueva Area",
-        type: "success",
-        useSubmitBehavior: true
-    }
+
     
 }

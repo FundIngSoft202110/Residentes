@@ -20,7 +20,6 @@ import { HeaderComponent } from './components/general/header/header.component';
 import { MenuAdminComponent } from './components/admin/menu-admin/menu-admin.component';
 import { MenuEmpleadoComponent } from './components/empleado/menu-empleado/menu-empleado.component';
 import { MenuResidenteComponent } from './components/residente/menu-residente/menu-residente.component';
-import { AreasResidenteComponent } from './components/residente/areas-residente-component/areas-residente-component.component';
 import { AsambleaResidenteComponent } from './components/residente/asamblea-residente-component/asamblea-residente-component.component';
 import { PagosComponent } from './components/residente/pagos-component/pagos-component.component';
 import { PaquetesResidenteComponent } from './components/residente/paquetes-residente-component/paquetes-residente-component.component';
@@ -43,6 +42,7 @@ import { AgregarAreaAdminComponent } from './components/admin/agregar-area-admin
 import { ModificarAreaAdminComponent } from './components/admin/modificar-area-admin/modificar-area-admin.component';
 import { AgregarFechaAreaComponent } from './components/admin/agregar-fecha-area/agregar-fecha-area.component';
 import { ModificarFechaAreaComponent } from './components/admin/modificar-fecha-area/modificar-fecha-area.component';
+import { AreasResidenteComponent } from './components/residente/areas-residente-component/areas-residente-component.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -105,10 +105,6 @@ const routes: Routes = [
   {
     path: 'seleccion-conjunto',
     component: SeleccionConjuntoComponent
-  },
-  {
-    path: 'areas-residente',
-    component: AreasResidenteComponent
   },
   {
     path: 'lista-asambleas-residentes',
@@ -180,6 +176,10 @@ const routes: Routes = [
     component: ModificarFechaAreaComponent
   },
   {
+    path: 'area-residente',
+    component: AreasResidenteComponent
+  },
+  {
     path: 'ingre-apto',
     loadChildren: () => import('../app/components/general/ingre-apto/ingre-apto.module').then( m => m.IngreAptoPageModule)
   },
@@ -238,7 +238,6 @@ const routes: Routes = [
     ManualComponent,
     NetflixComponent,
     RegistroComponent,
-    AreasResidenteComponent,
     AsambleaResidenteComponent,
     PagosComponent,
     PaquetesResidenteComponent,
@@ -255,6 +254,7 @@ const routes: Routes = [
     ModificarAreaAdminComponent,
     AgregarFechaAreaComponent,
     ModificarFechaAreaComponent,
+    AreasResidenteComponent,
   ]
 })
 export class AppRoutingModule { }

@@ -24,19 +24,6 @@ export class ModificarAreaAdminComponent implements OnInit {
     estado: any;
     nuevaArea: NuevaArea;
 	tipo: string[];
-   
-    buttonOptions1: any = {
-        text: "Modificar Horario",
-        type: "success",
-        useSubmitBehavior: true
-    }
-
-    buttonOptions2: any = {
-        text: "Guardar/Modificar",
-        type: "success",
-        useSubmitBehavior: true
-    }
-    
     
    
     constructor(service: ModificarAreaAdminService) {
