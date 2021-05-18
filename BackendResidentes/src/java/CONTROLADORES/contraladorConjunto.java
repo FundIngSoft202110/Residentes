@@ -84,25 +84,26 @@ public class contraladorConjunto {
         return conjunto;
     }
     
-       /* @POST
-    @Path("/NuevoConjunto")
+    @POST 
+    @Path("/pagarAdmin/{IdConjunto}/{IdApto}") 
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     
-    public String pagarAdmin (@PathParam("IdConjunto") int id) {
-        String consulta = "UPDATE residentes.Conjunto SET PrecioAdmin = '0' WHERE (`IdConjunto` = ?);";
+    public String pagarAdmin (@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto) {
+        String consulta = "UPDATE Apartamento SET PagoAdmin = '0' WHERE (`IdApartamento` = ?) and (`ConjuntoIdConjunto` = ?);";
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta);
                 ) {
-            statement.setInt(1, id);
+            statement.setInt(1, idConjunto);
+            statement.setInt(2, idApto);
             statement.executeQuery();
-            
             return "Modificado exitosamente";
 
         } catch (SQLException sqle) {
-            return  "Error en la ejecución: " + sqle.getErrorCode() + " " +  sqle.getMessage();
+            System.out.println("Error en la ejecución: " + sqle.getErrorCode() + " " +  sqle.getMessage());
         }
-    }*/
+        return "Error modificando";
+    }
 
     @POST
     @Path("/NuevoConjunto")
