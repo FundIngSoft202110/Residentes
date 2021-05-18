@@ -40,7 +40,7 @@ export class IngresoAppPage implements OnInit {
       ),
       password: new FormControl(
         "",
-        Validators.compose([Validators.required, Validators.minLength(5)])
+        Validators.compose([Validators.required, Validators.minLength(2)])
       )
     });
   }
@@ -51,8 +51,10 @@ export class IngresoAppPage implements OnInit {
     this.authService.loginUser(credentials).then(res => {
       this.errorMessage = "";
       let cor ;
+      
       cor = this.personasService.getIdPersona(credentials.email);
-      this.personasService.setPersonaActiva(cor);
+      console.log("este es el cor",cor);
+      this.personasService.setPersonaActiva(2);
       console.log(cor);
       this.navCtrl.navigateForward("/netflix");
     }).catch(err=>{
