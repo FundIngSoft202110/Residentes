@@ -35,8 +35,8 @@
 
 
 
-<div *ngIf="step==2"class="list-container" >
-    <dx-form id="form" [formData]="asambleas">
+<div *ngIf="step==2"  class="estetica">
+    <dx-form id="form" [formData]="asambleas" [labelLocation]="labelL">
 
         <dxi-item itemType="group" cssClass="first-group" [colCount]="4">
 
@@ -50,15 +50,49 @@
             </dxi-item>
         </dxi-item>
 
-        <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
-
-            <dxi-item itemType="group">
-
-                <dxi-item dataField="Nombre"></dxi-item>
-
-            </dxi-item>
-        </dxi-item>
+        
 
     </dx-form>
 
+	<dx-button
+	  
+	  class="lado"
+	  stylingMode="contained"
+	  icon="upload"
+	  [width]="250"
+	  [height]="50"
+	  text="Crear Asamblea"
+	  (onClick)="this.step=3"
+	  
+	  >    
+	  
+	  </dx-button>
+
+	<dx-button
+	  
+	  class="lado-cancelar"
+	  stylingMode="contained"
+	  icon="close"
+	  [width]="250"
+	  [height]="50"
+	  text="Cancelar"
+	  (onClick)="this.step=1"
+	  
+	  >    
+	  
+	  </dx-button>
+
+	  
+
+</div>
+
+<div *ngIf="step==3">
+<dxi-item itemType="group" cssClass="second-group" [colCount]="2">
+
+	<dxi-item itemType="group">
+
+		<dxi-item dataField="Nombre"></dxi-item>
+
+	</dxi-item>
+</dxi-item>
 </div>

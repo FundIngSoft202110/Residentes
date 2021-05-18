@@ -24,6 +24,7 @@ export class AsambleaAdminComponent implements OnInit {
   step = 1;
   backButtonOptions: any;
   asambleas = [];
+  labelL ="top";
 
 
 
