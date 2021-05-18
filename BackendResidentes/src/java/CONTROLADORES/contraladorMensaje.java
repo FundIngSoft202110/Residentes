@@ -38,9 +38,9 @@ public class contraladorMensaje {
         List<Contacto> contactos = new ArrayList<>();
         Contacto contact;
         //Contactos empleados
-        String consulta ="SELECT p.Id, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
+        String consulta ="SELECT p.IdPersona, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
                        + "FROM Persona AS p, PersonaXConjunto as pxc "
-                       + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND ( p.RolConjunto = 'Empleado' OR p.RolConjunto = 'Administrador' )";
+                       + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND (p.RolConjunto = 'Empleado' OR p.RolConjunto = 'Administrador' )";
         try (
            PreparedStatement statement = this.con.prepareStatement(consulta);
            ){
@@ -57,7 +57,7 @@ public class contraladorMensaje {
                  if(rs.getString("RolConjunto").equals("Administrador")){
                     contact.setOficio("Admin");
                     contact.setRol("administrador");
-                    contact.setFoto(rs.getString("X"));
+                    contact.setFoto("X");
                  }else{
                      contact.setOficio(rs.getString("Oficio"));
                     contact.setRol("empleado");
@@ -82,7 +82,7 @@ public class contraladorMensaje {
         List<Contacto> contactos = new ArrayList<>();
         Contacto contact;
         //Contactos empleados
-        String consulta ="SELECT p.Id, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
+        String consulta ="SELECT p.IdPersona, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
                        + "FROM Persona AS p, PersonaXConjunto as pxc "
                        + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND p.RolConjunto = 'Empleado' ";
         try (
@@ -144,7 +144,7 @@ public class contraladorMensaje {
         List<Contacto> contactos = new ArrayList<>();
         Contacto contact;
         //Contactos empleados
-        String consulta ="SELECT p.Id, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
+        String consulta ="SELECT p.IdPersona, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
                        + "FROM Persona AS p, PersonaXConjunto as pxc "
                        + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND p.RolConjunto = 'Administrador' ";
         try (
@@ -225,6 +225,7 @@ public class contraladorMensaje {
                  mensaje.setFechaHora(rs.getBigDecimal("Fecha_Hora"));
                  mensaje.setRolEmpleado(rs.getString("RolEmpleado"));
                  mensaje.setRolAdmin("X");
+                 mensajes.add(mensaje);
                }
             }
          } catch (SQLException sqle) { 
@@ -261,6 +262,7 @@ public class contraladorMensaje {
                  mensaje.setFechaHora(rs.getBigDecimal("Fecha_Hora"));
                  mensaje.setRolEmpleado(rs.getString("RolEmpleado"));
                  mensaje.setRolAdmin("X");
+                 mensajes.add(mensaje);
                }
             }
          } catch (SQLException sqle) { 
@@ -280,7 +282,7 @@ public class contraladorMensaje {
         //Contactos empleados
         String consulta ="SELECT m.Contenido, m.Fecha_Hora , m.RolAdmin "
                        + "FROM Mensaje AS m "
-                       + "WHERE m.ConjuntoIdConjunto = ? AND m.PersonaIdAdmin = ? AND m.PersonaIdEmpleado = ? ";
+                       + "WHERE m.ConjuntoIdConjunto = ? AND m.PersonaIdAdmin = ? AND m.ApartamentoIdApartamento = ? ";
         try (
            PreparedStatement statement = this.con.prepareStatement(consulta);
            ){
@@ -297,6 +299,7 @@ public class contraladorMensaje {
                  mensaje.setFechaHora(rs.getBigDecimal("Fecha_Hora"));
                  mensaje.setRolEmpleado("X");
                  mensaje.setRolAdmin(rs.getString("RolAdmin"));
+                 mensajes.add(mensaje);
                }
             }
          } catch (SQLException sqle) { 
