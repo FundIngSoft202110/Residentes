@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
+import { QuejasAdminService } from 'src/app/Services/quejas-admins/quejas-admin.service';
 
 @Component({
   selector: 'app-quejas-admin-component',
@@ -6,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quejas-admin-component.component.scss'],
 })
 export class QuejasAdminComponent implements OnInit {
+  quejas = [];
+  idAConj : any;
+  constructor(private  conjServ: ConjuntosService, private quejServ: QuejasAdminService) { }
 
-  constructor() { }
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.idAConj = this.conjServ.getConjuntoActivo();
+    this.quejas = this.quejServ.getQuejas();
+  }
 
 }
