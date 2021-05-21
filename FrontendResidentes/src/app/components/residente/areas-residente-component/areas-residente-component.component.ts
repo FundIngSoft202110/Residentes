@@ -15,6 +15,7 @@ import { DxCheckBoxModule,
          DxRadioGroupComponent,
        } from 'devextreme-angular';
 import notify from 'devextreme/ui/notify';
+import { NavController } from '@ionic/angular';
 
 const sendRequest = function(value) {
     const validEmail = "test@dx-email.com";
@@ -39,7 +40,7 @@ export class AreasResidenteComponent implements OnInit  {
 	listaDeAreasComunes: string[];
    
 
-	constructor(service: AreaComunResidenteService) {
+	constructor(service: AreaComunResidenteService, private navCtrl: NavController) {
 		this.area = service.getArea();
 		this.tipo = service.getTipo();
         this.tipo=[
@@ -49,6 +50,16 @@ export class AreasResidenteComponent implements OnInit  {
         ]
 		this.listaDeAreasComunes = service.getListaDeAreasComunes();
 	}
+
+    mandarNueva() {
+        this.navCtrl.navigateForward("/reservar-area");
+      }
+    mandarMisReservas() {
+        this.navCtrl.navigateForward("/mis-reservas");
+      }
+    mandarDisponibilidad() {
+        this.navCtrl.navigateForward("/disponibilidad-area");
+      }
      
     pos="top";
     now: Date = new Date();
