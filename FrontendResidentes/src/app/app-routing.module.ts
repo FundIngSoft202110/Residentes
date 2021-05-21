@@ -218,6 +218,11 @@ const routes: Routes = [
     path: 'chatB',
     loadChildren: () => import('./components/general/chatp/chatp.module').then( m => m.ChatpPageModule)
   },
+  {
+    path: 'agregar-empleado',
+    loadChildren: () => import('./components/admin/agregar-empleado/agregar-empleado.module').then( m => m.AgregarEmpleadoPageModule)
+  },
+
 
 
 

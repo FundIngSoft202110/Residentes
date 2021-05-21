@@ -1,0 +1,99 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="residente">
+  </ion-toolbar >
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goBack()">
+      <ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon>
+    </ion-buttons>
+    <ion-title slot="start" color="residente-txt">Agregar Empleado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="for" [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+    <br>
+    <ion-item>
+      <ion-label class="req" >Usuario</ion-label>
+      <ion-input formControlName="usuario"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.usuario">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('usuario').hasError(validation.type) &&
+            (loginForm.get('usuario').dirty || loginForm.get('usuario').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <ion-item>
+      <ion-label class="req" >Oficio</ion-label>
+      <ion-input formControlName="oficio"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.oficio">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('oficio').hasError(validation.type) &&
+            (loginForm.get('oficio').dirty || loginForm.get('oficio').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <ion-item>
+      <ion-label class="req" >Imagen</ion-label>
+      <ion-input formControlName="imagen"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.imagen">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('imagen').hasError(validation.type) &&
+            (loginForm.get('imagen').dirty || loginForm.get('imagen').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+
+    <br>
+    <br>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="msjErr">{{errorMessage}}</div>
+    <ion-button class="botIng"
+      expand="full"
+      shape="round"
+      color="residente"
+      [disabled]="!loginForm.valid"
+      type="submit"
+      >Agregar Empleado</ion-button
+    >
+  </form>
+</ion-content>
+
+<ion-footer>
+  
+</ion-footer>
