@@ -60,7 +60,7 @@ public class controladorApartamento {
     }
 
     @GET
-    @Path("/apartamentos/{IdConjunto}")
+    @Path("/apartamentosc/{IdConjunto}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Apartamento> getAptosConjunto(@PathParam("IdConjunto") int id) {
         List<Apartamento> apto = new ArrayList<>();

@@ -37,7 +37,7 @@ public class controladorPersona {
     public List<Persona> getPersonas() {
 
         List<Persona> pp = new ArrayList<>();
-        String consulta = "SELECT * FROM persona ";
+        String consulta = "SELECT * FROM Persona";
         
          try (
            PreparedStatement statement = this.con.prepareStatement(consulta);

@@ -48,7 +48,7 @@ public class contraladorConjunto {
                 con.setNombre(rs.getNString("Nombre"));
                 con.setDireccion(rs.getNString("Direccion"));
                 con.setLinkDePago(rs.getNString("LinkDePago"));
-                con.setPrecioAdmin(rs.getBigDecimal("PrecioAdmin"));
+                con.setPrecioAdmin(rs.getInt("PrecioAdmin"));
                 con.setManual(rs.getNString("Manual"));
                 con.setNumeroPisos(rs.getBigDecimal("NumeroPisos"));
                 con.setNumeroTorres(rs.getBigDecimal("NumeroTorres"));
@@ -68,31 +68,32 @@ public class contraladorConjunto {
     @Produces(MediaType.APPLICATION_JSON)
     public Conjunto mostrarCuota(@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto) {
         Conjunto conjunto = new Conjunto();
-        BigDecimal pagoAdmin = BigDecimal.ZERO;
+        int pagoAdmin = 0;
         String consultaA = "SELECT PagoAdmin FROM Apartamento AS a WHERE  a.ConjuntoIdConjunto = ? AND a.IdApartamento = ?";
         String consulta = "SELECT LinkDePago, PrecioAdmin FROM Conjunto AS c WHERE  c.idConjunto = ?";
         try (
                 PreparedStatement statementA = this.con.prepareStatement(consultaA);
                 PreparedStatement statement = this.con.prepareStatement(consulta);
                 ) {
-            statementA.setInt(1, idApto);
+            statementA.setInt(1, idConjunto);
+            statementA.setInt(2, idApto);
             statement.setInt(1, idConjunto);
         
-            try(ResultSet rsA = statement.executeQuery();
+            try(ResultSet rsA = statementA.executeQuery();
                 ResultSet rs = statement.executeQuery();){
                 while(rsA.next()){
-                    pagoAdmin = rsA.getBigDecimal("PagoAdmin");
+                    pagoAdmin = rsA.getInt("PagoAdmin");
                 }
                 while (rs.next()) {
-                    conjunto.setLinkDePago(rs.getString("LinkDePago"));
-                    if(pagoAdmin.intValue() > 0)
-                        conjunto.setPrecioAdmin(rs.getBigDecimal("PrecioAdmin"));
+                    conjunto.setLinkDePago(rs.getString("LinkDePago")); m
+                    if(pagoAdmin > 0)
+                        conjunto.setPrecioAdmin(rs.getInt("PrecioAdmin"));
                     else
-                        conjunto.setPrecioAdmin(BigDecimal.ZERO);
+                        conjunto.setPrecioAdmin(0);
                 }
             }
         } catch (SQLException sqle) {
-
+            System.out.println("ho");
         }
         return conjunto;
     }
@@ -135,7 +136,7 @@ public class contraladorConjunto {
             String nombre = conjunto.getNombre();
             String link = conjunto.getLinkDePago();
             String dir = conjunto.getDireccion();
-            BigDecimal precio = conjunto.getPrecioAdmin();
+            int precio = conjunto.getPrecioAdmin();
             BigDecimal torres = conjunto.getNumeroTorres();
             BigDecimal pisos = conjunto.getNumeroPisos();
             BigDecimal aptos = conjunto.getNumeroApartamentos();
@@ -143,7 +144,7 @@ public class contraladorConjunto {
             statement.setString(1, nombre);
             statement.setString(2, link);
             statement.setString(3, dir);
-            statement.setBigDecimal(4, precio);
+            statement.setInt(4, precio);
             statement.setBigDecimal(5, torres);
             statement.setBigDecimal(6, pisos);
             statement.setBigDecimal(7, aptos);
