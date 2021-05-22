@@ -68,7 +68,7 @@ export class ConjuntosService {
   }
 
   async getPagoAdmin(num: number) {
-    this.getPagoAdminUrl(IPRESIDENTES + "consultas/Conjuntos/cuotaAdmin/"+num.toString())
+    this.getPagoAdminUrl(IPRESIDENTES + "consultas/Conjuntos/cuotaAdmin/"+num.toString()+"/1/")
       .subscribe(respuesta => {
         this.conjuntoPago = respuesta;
       })

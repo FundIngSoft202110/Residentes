@@ -102,7 +102,7 @@ export class PersonasService {
       console.log("ENTREEE ADMIN");
       window.localStorage['rolPersonaActiva'] = "ADMIN";
     }
-    if (rolP == "Residente"){
+    if (rolP == "Residente" || rolP == "RESIDENTE"){
       console.log("ENTREEE RESIDENTE");
         window.localStorage['rolPersonaActiva'] = "RESIDENTE";
       }

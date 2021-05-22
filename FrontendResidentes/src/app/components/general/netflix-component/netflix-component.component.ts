@@ -4,6 +4,7 @@ import { AptosService } from '../../../Services/aptos/aptos.service'
 import { PersonasService } from 'src/app/Services/personas/personas.service';
 import { Apto } from 'src/app/Services/aptos/apto.model';
 import { Conjunto } from 'src/app/Services/conjuntos/conjunto.model';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-netflix-component',
@@ -15,7 +16,7 @@ export class NetflixComponent implements OnInit {
   conjuntos = []
   public usuario: string;
 
-  constructor(private personasService:PersonasService, private conjuntoService : ConjuntosService, private aptoService: AptosService) { }
+  constructor(private personasService:PersonasService, private conjuntoService : ConjuntosService, private aptoService: AptosService, private navCtrl: NavController) { }
 
   ngOnInit() {
     this.usuario = this.personasService.getUserActivo();
@@ -31,14 +32,15 @@ export class NetflixComponent implements OnInit {
     return this.conjuntoService.getConjunto(apto.idConjunto);
   }// getConjunto
 
-  getRouteConjunto(conjunto:Conjunto){
+  goConjunto(conjunto:Conjunto){
+    console.log("ID CONJUNTO: ",conjunto.id);
     this.conjuntoService.setConjuntoActivo(conjunto.id);
-    if(this.usuario == "ADMIN"  )
-      return "/noticias";
-    if(this.usuario == "EMPLEADO"){
-      return "/empleados";
-    }else if( this.usuario == "RESIDENTE" ){
-      return "/ingre-apto";
-    }// end if
+    if(this.usuario == "ADMIN"  ){
+      this.navCtrl.navigateForward("/noticias");
+    }else if(this.usuario == "EMPLEADO"){
+      this.navCtrl.navigateForward("/empleados");
+    }else if( this.usuario == "RESIDENTE" || this.usuario == "Residente" ){
+      this.navCtrl.navigateForward("/ingre-apto");
+    } // end if
   }// end getRouteConjunto
 }// end NetflixComponent

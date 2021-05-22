@@ -40,7 +40,6 @@ export class AgregarFechaAreaComponent implements OnInit {
 
   constructor(private service: AgregarFechaAreaService,private navCtrl: NavController, conjunto:ConjuntosService) {
     this.areacomunPK.conjuntoIdConjunto=conjunto.getConjuntoActivo();
-    this.areacomunPK.idArea = 
 		this.horaDeApertura = service.getHoraDeApertura();
     this.horaDeCierre = service.getHoraDeCierre();
     this.diasDisponibles = service.getDiasDisponibles();
