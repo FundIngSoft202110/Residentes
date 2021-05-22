@@ -11,6 +11,7 @@ import {
     DxAutocompleteModule,
     DxFormComponent
 } from 'devextreme-angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-reservar-area',
@@ -27,7 +28,7 @@ export class ReservarAreaComponent {
   pos:"top";
  
   
-	constructor(service: ReservarAreaResidenteService) {
+	constructor(service: ReservarAreaResidenteService, private navCtrl: NavController) {
 		this.reserva = service.getReserva();
         this.hora_i = service.getHora_i();
         this.hora_f = service.getHora_f();

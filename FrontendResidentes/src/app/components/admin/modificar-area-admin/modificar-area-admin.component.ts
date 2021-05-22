@@ -12,6 +12,7 @@ import { DxCheckBoxModule,
          DxAutocompleteModule,
          DxFormComponent
        } from 'devextreme-angular';
+import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-modificar-area-admin',
   providers: [ModificarAreaAdminService],
@@ -26,10 +27,17 @@ export class ModificarAreaAdminComponent implements OnInit {
 	tipo: string[];
     
    
-    constructor(service: ModificarAreaAdminService) {
+    constructor(service: ModificarAreaAdminService, private navCtrl: NavController) {
         this.nuevaArea = service.getNuevaArea();
 		this.tipo = service.getTipo();
         
+    }
+
+    mandarModificarFecha() {
+        this.navCtrl.navigateForward("/modificar-fecha");
+      }
+    mandarAreaComun(){
+        this.navCtrl.navigateForward("/area-comun-admin"); 
     }
    
     onFormSubmit = function(e) {
