@@ -20,7 +20,7 @@ export class EmpleadosComponent implements OnInit{
 
   ngOnInit(){
 
-  }
+  } 
 
   async ionViewWillEnter() {
     this.idAConj = this.conjServ.getConjuntoActivo(); 
@@ -28,12 +28,12 @@ export class EmpleadosComponent implements OnInit{
     this.rol = this.personasService.getUserActivo();
     if(this.rol == "EMPLEADO"){
       console.log("entreee Emp");
-      this.chats = this.serChats.getlstMsjAptoAdmin(this.idAConj);
+      this.serChats.getlstMsjAptoAdmin(this.idAConj);
       console.log(this.chats);
     }
     if(this.rol == "ADMIN"){
       console.log("entreee admun");
-      this.chats = this.serChats.getlstMsjAptoEmp(this.idAConj);
+      this.serChats.getlstMsjAptoEmp(this.idAConj);
     }
     if(this.rol == "RESIDENTE"){
       console.log("entreee res");

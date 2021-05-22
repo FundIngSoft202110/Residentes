@@ -373,16 +373,14 @@ export class LstChatServicioService {
   } // end getConjuntos
   getlstMsjAptoAdmin(id:number) {
     this.obtener(IPRESIDENTES + "consultas/mensajes/empleado/" + id.toString() );
-    return this.chat;
   }
   getlstMsjAptoEmp(id:number) {
     this.obtener(IPRESIDENTES + "consultas/mensajes/admin/" + id.toString());
-    return this.chat;
   }
 
   getChat(){
     return this.chat;
-  }
+  }//BARRETO
 
   public getChatss(url: string) {
     return this.http.get(url);
