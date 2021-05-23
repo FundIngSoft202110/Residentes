@@ -10,10 +10,9 @@
     </ng-template>
     <ng-template #elseBlock>
       <ion-buttons slot="start" (click)="toggleMenu()">
-        <ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon>
+        <ion-label slot="start" color="residente-txt"><ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon><strong>&nbsp;&nbsp;{{titulo}}</strong></ion-label>
       </ion-buttons>
     </ng-template>
-    <ion-title slot="start" color="residente-txt">{{titulo}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
