@@ -5,6 +5,7 @@
  */
 package CONTROLADORES;
 
+import API.ConexionBD;
 import ENTIDADES.Conjunto;
 import ENTIDADES.Queja;
 import ENTIDADES.QuejaInfo;

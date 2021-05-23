@@ -39,7 +39,7 @@ public class contraladorMensaje {
         List<Contacto> contactos = new ArrayList<>();
         Contacto contact;
         //Contactos empleados
-        String consulta = "SELECT p.IdPersona, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
+        String consulta = "SELECT p.IdPersona, pxc.Oficio, p.Nombre, p.Apellido, pxc.Foto, p.RolConjunto "
                 + "FROM Persona AS p, PersonaXConjunto as pxc "
                 + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND (p.RolConjunto = 'Empleado' OR p.RolConjunto = 'Administrador' )";
         try (
@@ -80,7 +80,7 @@ public class contraladorMensaje {
         List<Contacto> contactos = new ArrayList<>();
         Contacto contact;
         //Contactos empleados
-        String consulta = "SELECT p.IdPersona, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
+        String consulta = "SELECT p.IdPersona, pxc.Oficio, p.Nombre, p.Apellido, pxc.Foto, p.RolConjunto "
                 + "FROM Persona AS p, PersonaXConjunto as pxc "
                 + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND p.RolConjunto = 'Empleado' ";
         try (
@@ -137,7 +137,7 @@ public class contraladorMensaje {
         List<Contacto> contactos = new ArrayList<>();
         Contacto contact;
         //Contactos empleados
-        String consulta = "SELECT p.IdPersona, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
+        String consulta = "SELECT p.IdPersona, pxc.Oficio, p.Nombre, p.Apellido, pxc.Foto, p.RolConjunto "
                 + "FROM Persona AS p, PersonaXConjunto as pxc "
                 + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND p.RolConjunto = 'Administrador' ";
         try (

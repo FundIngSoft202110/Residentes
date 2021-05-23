@@ -87,7 +87,7 @@ public class contraladorConjunto {
                     pagoAdmin = rsA.getInt("PagoAdmin");
                 }
                 while (rs.next()) {
-                    conjunto.setLinkDePago(rs.getString("LinkDePago")); m
+                    //conjunto.setLinkDePago(rs.getString("LinkDePago")); m
                     if(pagoAdmin > 0)
                         conjunto.setPrecioAdmin(rs.getInt("PrecioAdmin"));
                     else
