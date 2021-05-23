@@ -7,6 +7,7 @@ package CONTROLADORES;
 
 import API.ConexionBD;
 import ENTIDADES.Conjunto;
+import ENTIDADES.DTOrespuestas;
 import ENTIDADES.Empleado;
 import java.io.File;
 import java.math.BigDecimal;
@@ -87,7 +88,7 @@ public class contraladorConjunto {
                     pagoAdmin = rsA.getInt("PagoAdmin");
                 }
                 while (rs.next()) {
-                    //conjunto.setLinkDePago(rs.getString("LinkDePago")); m
+                    conjunto.setLinkDePago(rs.getString("LinkDePago"));
                     if(pagoAdmin > 0)
                         conjunto.setPrecioAdmin(rs.getInt("PrecioAdmin"));
                     else
@@ -100,31 +101,31 @@ public class contraladorConjunto {
         return conjunto;
     }
 
-    @POST
+    @PUT
     @Path("/pagarAdmin/{IdConjunto}/{IdApto}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-
-    public String pagarAdmin(@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas pagarAdmin(@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto) {
         String consulta = "UPDATE Apartamento SET PagoAdmin = '0' WHERE (`IdApartamento` = ?) and (`ConjuntoIdConjunto` = ?);";
+        DTOrespuestas res = new DTOrespuestas();
         try (
                  PreparedStatement statement = this.con.prepareStatement(consulta);) {
-            statement.setInt(1, idConjunto);
-            statement.setInt(2, idApto);
+            statement.setInt(1, idApto);
+            statement.setInt(2, idConjunto);
             statement.executeUpdate();
-            return "Modificado exitosamente";
+            res.setRespuesta("Modificado exitosamente");
+            return res;
 
         } catch (SQLException sqle) {
             System.out.println("Error en la ejecución: " + sqle.getErrorCode() + " " + sqle.getMessage());
         }
-        return "Error modificando";
+        res.setRespuesta("Error modificando");
+        return res;
     }
 
     @POST
     @Path("/NuevoConjunto")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-
     public String nuevoConjunto(Conjunto conjunto) {
 
         String consulta = "INSERT INTO conjunto (`Nombre`, `LinkDePago`, `Direccion`, `PrecioAdmin`, `NumeroTorres`, `NumeroPisos`, `NumeroApartamentos`) VALUES (?, ?, ? ,?, ?, ?,?)";
