@@ -83,6 +83,10 @@ export class ServIngAptoService {
       })
   }
 
+  public getApartamentos(){
+    return this.apartamentos;
+  }
+
   public getAptosU(url: string){
     return this.http.get(url);
   }

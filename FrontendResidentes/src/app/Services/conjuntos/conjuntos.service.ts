@@ -55,10 +55,6 @@ export class ConjuntosService {
 		window.localStorage['conjuntoActivo'] = id.toString();
 	}// setConjuntoActivo
 
-	clearConjuntoActivo(){
-		window.localStorage.clear();
-	}
-
 	getConjuntoActivo(){
 		return Number(window.localStorage['conjuntoActivo'] || -1);
 	}// getConjuntoActivo

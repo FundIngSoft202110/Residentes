@@ -5,6 +5,7 @@ import { PersonasService } from 'src/app/Services/personas/personas.service';
 import { Apto } from 'src/app/Services/aptos/apto.model';
 import { Conjunto } from 'src/app/Services/conjuntos/conjunto.model';
 import { NavController } from '@ionic/angular';
+import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
 
 @Component({
   selector: 'app-netflix-component',
@@ -16,10 +17,13 @@ export class NetflixComponent implements OnInit {
   conjuntos = []
   public usuario: string;
 
-  constructor(private personasService:PersonasService, private conjuntoService : ConjuntosService, private aptoService: AptosService, private navCtrl: NavController) { }
+  constructor(private personasService:PersonasService, private conjuntoService : ConjuntosService, private servIngAptoService: ServIngAptoService, private navCtrl: NavController) { }
 
   ngOnInit() {
-    this.usuario = this.personasService.getUserActivo();
+  }
+
+  ionViewWillEnter(){
+    this.usuario = this.personasService.getPersonaActiva();
     console.log(this.usuario);
     this.conjuntos = this.conjuntoService.getConjuntos();
   }// end ngOnInit
@@ -33,7 +37,6 @@ export class NetflixComponent implements OnInit {
   }// getConjunto
 
   goConjunto(conjunto:Conjunto){
-    console.log("ID CONJUNTO: ",conjunto.id);
     this.conjuntoService.setConjuntoActivo(conjunto.id);
     if(this.usuario == "ADMIN"  ){
       this.navCtrl.navigateForward("/noticias");

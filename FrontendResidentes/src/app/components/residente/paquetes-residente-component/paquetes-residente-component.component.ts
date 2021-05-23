@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
-import { Paquete } from 'src/app/Services/paquetes/paquete.model';
 import { PaquetesService } from 'src/app/Services/paquetes/paquetes.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { PaquetesService } from 'src/app/Services/paquetes/paquetes.service';
 })
 export class PaquetesResidenteComponent implements OnInit {
 
-  paquetes : Paquete[] = [];
+  public paquetes :any;
   public paqueteView : string[] = []; 
   public conjuntoActivo:number;
   public aptoActivo:number;
@@ -19,9 +18,6 @@ export class PaquetesResidenteComponent implements OnInit {
   constructor(private paquetesService : PaquetesService, private conjuntosService: ConjuntosService, private servIngAptoService: ServIngAptoService) { }
 
   ngOnInit() {
-    this.paquetes = this.paquetesService.getPaquetes();
-    for(let paquete of this.paquetes)
-      this.paqueteView.push('oculto');
   }
 
   async ionViewWillEnter(){
@@ -30,24 +26,27 @@ export class PaquetesResidenteComponent implements OnInit {
     this.paquetesService.cargarPaquetes(this.conjuntoActivo, this.aptoActivo);
     await this.waitBD(); 
     this.paquetes = this.paquetesService.getPaquetes();
+    console.log("PAQUETESSSSSS : ", this.paquetes);
+    for(let paquete of this.paquetes)
+      this.paqueteView.push('oculto');
   } // end ionViewWillEnter
 
   async waitBD(){
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise(resolve => setTimeout(resolve, 1000));
   }
 
-  listOpen(paquete:Paquete){
-    console.log("Paquete = ", paquete.id, " CHange = ", this.paqueteView[paquete.id - 1]);
-    if(this.paqueteView[paquete.id - 1] == 'mostrar'){
-      this.paqueteView[paquete.id - 1]='oculto';
+  listOpen(paquete:any){
+    console.log("Paquete = ", paquete.paquetePK.idPaqueete, " CHange = ", this.paqueteView[paquete.paquetePK.idPaqueete - 1]);
+    if(this.paqueteView[paquete.paquetePK.idPaqueete - 1] == 'mostrar'){
+      this.paqueteView[paquete.paquetePK.idPaqueete - 1]='oculto';
     }else{
-      this.paqueteView[paquete.id - 1]='mostrar';
+      this.paqueteView[paquete.paquetePK.idPaqueete - 1]='mostrar';
     }
-    console.log("Paquete = ", paquete.id, "  Post CHange = ", this.paqueteView[paquete.id - 1]);
+    console.log("Paquete = ", paquete.id, "  Post CHange = ", this.paqueteView[paquete.paquetePK.idPaqueete - 1]);
   }
 
-  getPaqueteView(paquete:Paquete){
-    return this.paqueteView[paquete.id-1];
+  getPaqueteView(paquete:any){
+    return this.paqueteView[paquete.paquetePK.idPaqueete-1];
   }
 
 }

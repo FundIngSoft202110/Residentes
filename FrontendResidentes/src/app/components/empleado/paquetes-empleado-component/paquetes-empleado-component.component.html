@@ -8,7 +8,7 @@
                 <ion-item lines="none">
                     <ion-select [(ngModel)]="aptoSeleccionado" (ionChange)="optionsApto();" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="&nbsp;&nbsp;Seleccione" id="rounded" >
                         <div *ngFor="let apto of aptos">
-                            <ion-select-option value="{{apto.id}}">&nbsp;&nbsp;{{apto.torre}}-{{apto.numero}}
+                            <ion-select-option value="{{apto.apartamentoPK.idApartamento}}">&nbsp;&nbsp;{{apto.torre}}-{{apto.piso}}{{apto.numero}}
                             </ion-select-option>
                         </div>
                     </ion-select>
@@ -21,7 +21,7 @@
         <ion-card>
             <div *ngFor="let paquete of paquetes">
                 <ion-item>
-                    <ion-label>Paquete {{paquete.id}}</ion-label>
+                    <ion-label>Paquete {{paquete.paquetePK.idPaqueete}}</ion-label>
                     <ion-buttons slot="end" (click)="eliminarPaquete(paquete)">
                         <ion-icon slot="icon-only" color="residente" name="trash-outline"></ion-icon>
                     </ion-buttons>
