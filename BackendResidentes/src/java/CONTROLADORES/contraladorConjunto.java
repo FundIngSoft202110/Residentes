@@ -172,7 +172,8 @@ public class contraladorConjunto {
     @Path("/agregarEmpleadoConjunto/{idConjunto}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public String agregarEmpleadoConjunto(@PathParam("idConjunto") int idC, Empleado e) {
+    public DTOrespuestas agregarEmpleadoConjunto(@PathParam("idConjunto") int idC, Empleado e) {
+        DTOrespuestas res = new DTOrespuestas();
         String consulta = "SELECT p.IdPersona "
                 + "FROM Persona as P "
                 + "WHERE p.Usuario = ?";
@@ -194,7 +195,8 @@ public class contraladorConjunto {
                     idEmpleado = (rs.getInt("IdPersona"));
                 }
                 if (idEmpleado == 0) {
-                    return "El empleado no existe";
+                    res.setRespuesta("El empleado no existe");
+                    return res;
                 } else {
 
                     try ( PreparedStatement statement1 = this.con.prepareStatement(consulta2);) {
@@ -207,7 +209,8 @@ public class contraladorConjunto {
                                 existe = true;
                             }
                             if (existe) {
-                                return "El empleado ya existe";
+                                res.setRespuesta("El empleado ya existe");
+                                return res;
                             } else {
                                 try ( PreparedStatement statement3 = this.con.prepareStatement(consulta3);) {
                                     String oficio = e.getOficio();
@@ -219,8 +222,8 @@ public class contraladorConjunto {
                                     statement3.setString(4, imagen);
 
                                     statement3.executeUpdate();
-
-                                    return "Empleado asociado correctamente";
+                                    res.setRespuesta("Empleado asociado correctamente");
+                                    return res;
                                 }
                             }
                         }
@@ -228,7 +231,8 @@ public class contraladorConjunto {
                 }
             }
         } catch (SQLException ex) {
-            return "No fue posible asociar el empleado al conjunto";
+            res.setRespuesta("No fue posible asociar el empleado al conjunto");
+            return res;
         }
     }
 

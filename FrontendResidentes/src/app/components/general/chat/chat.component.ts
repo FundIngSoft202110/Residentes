@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent } from '@ionic/angular';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { AlertController, IonContent, NavController } from '@ionic/angular';
 import { IPRESIDENTES } from 'src/app/constants';
 import { ChatServicioService } from 'src/app/Services/chatserv/chat-servicio.service';
 import { mensaje } from 'src/app/Services/chatserv/mensaje';
@@ -28,8 +29,12 @@ export class ChatComponent implements OnInit {
   public user: string = "RESIDENTE";
   public usuario: string;
   @ViewChild(IonContent) content: IonContent
+  @Input() routeBack: string
 
-  constructor(private servApto: ServIngAptoService, private serChats: LstChatServicioService, private chatServ: ChatServicioService, private personasService: PersonasService, private conjuntoService: ConjuntosService) {
+  constructor(private servApto: ServIngAptoService, private serChats: LstChatServicioService, 
+              private chatServ: ChatServicioService, private personasService: PersonasService, 
+              private conjuntoService: ConjuntosService, private navCtrl: NavController,
+              public alertController: AlertController) {
 
   }
   ngOnInit() {
@@ -199,4 +204,38 @@ export class ChatComponent implements OnInit {
       })
   }
 
+  goBack(){
+    console.log("Quintana ");
+    this.navCtrl.navigateForward("/empleados");
+  }
+
+  deleteEmp(){
+    console.log("Quintana ");
+    this.presentAlertConfirm();
+  }
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirmación',
+      message: '¿Está seguro que desea eliminar el empleado ' + this.usuDesti + '?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Aceptar',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 }
