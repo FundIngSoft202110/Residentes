@@ -67,10 +67,25 @@ export class ConjuntosService {
     return this.http.get(url);
   }
 
-  async getPagoAdmin(num: number) {
-    this.getPagoAdminUrl(IPRESIDENTES + "consultas/Conjuntos/cuotaAdmin/"+num.toString()+"/1/")
+  public putPagoAdminUrl(url: string) {
+    return this.http.put(url,this.conjuntoPago);
+  }
+
+  async getPagoAdmin(numConjunto: number, numApto: number) {
+    this.getPagoAdminUrl(IPRESIDENTES + "consultas/Conjuntos/cuotaAdmin/"+numConjunto.toString()+"/"+numApto.toString())
       .subscribe(respuesta => {
         this.conjuntoPago = respuesta;
+      })
+  }
+
+
+  varRes:any;
+  
+  async pagarAdmin(numConjunto: number, numApto: number) {
+    this.putPagoAdminUrl(IPRESIDENTES + "consultas/Conjuntos/pagarAdmin/"+numConjunto.toString()+"/"+numApto.toString())
+      .subscribe(respuesta => {
+        this.varRes = respuesta;
+        console.log("Respuesta = ", this.varRes);
       })
   }
 

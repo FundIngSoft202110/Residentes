@@ -5,7 +5,7 @@ export class mensaje {
     idApto: number;
     contenido : string;
     fecha_hora : number;
-    RolEmpleado : string;
-    RolAdmin: string;
+    rolEmpleado : string;
+    rolAdmin: string;
     visto : number;
   }
