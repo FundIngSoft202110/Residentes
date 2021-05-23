@@ -149,7 +149,7 @@ export class ChatServicioService {
     });
   } // end addConjunto
 
-  public postNuevoMsj(url:string,body){
+  public postNuevoMsj(url:string,body:any){
     console.log("hello");
     return this.http.post(url,body);
     
