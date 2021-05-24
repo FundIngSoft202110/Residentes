@@ -118,14 +118,14 @@ public class controladorApartamento {
          
       
       try(
-                 ResultSet rs = statement.executeQuery();
-                 ){
-                 int idApto = rs.getInt(1);
-                 String contrasena2 = rs.getNString(2);
-                 if(!contrasena.equals(contrasena2)){
-                     idApto = -1;
-                 }
-                 return idApto;
+        ResultSet rs = statement.executeQuery();
+        ){
+        int idApto = rs.getInt(1);
+        String contrasena2 = rs.getNString(2);
+        if(!contrasena.equals(contrasena2)){
+            idApto = -1;
+        }
+        return idApto;
       }
          
         }catch(SQLException sqle){

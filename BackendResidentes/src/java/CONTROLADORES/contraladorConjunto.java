@@ -171,11 +171,11 @@ public class contraladorConjunto {
     @POST
     @Path("/agregarEmpleadoConjunto/{idConjunto}")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public DTOrespuestas agregarEmpleadoConjunto(@PathParam("idConjunto") int idC, Empleado e) {
         DTOrespuestas res = new DTOrespuestas();
         String consulta = "SELECT p.IdPersona "
-                + "FROM Persona as P "
+                + "FROM Persona as p "
                 + "WHERE p.Usuario = ?";
 
         String consulta2 = "SELECT p.PersonaIdPersona, p.ConjuntoIdConjunto "
@@ -205,11 +205,15 @@ public class contraladorConjunto {
 
                         try ( ResultSet rs2 = statement.executeQuery();) {
                             boolean existe = false;
+                            Integer count = 0;
                             while (rs2.next()) {
+                                int b = Integer.parseInt(rs.getString(1));
+                                if(b != 0)
+                                    count += 1;
                                 existe = true;
                             }
                             if (existe) {
-                                res.setRespuesta("El empleado ya existe");
+                                res.setRespuesta(count.toString()); //el empleado ya existe
                                 return res;
                             } else {
                                 try ( PreparedStatement statement3 = this.con.prepareStatement(consulta3);) {

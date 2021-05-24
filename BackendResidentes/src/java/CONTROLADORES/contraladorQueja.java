@@ -32,9 +32,9 @@ public class contraladorQueja {
     public List<QuejaInfo> quejasConjunto(@PathParam("IdConjunto") int id) {
         QuejaInfo queja = new QuejaInfo();
         List<QuejaInfo> quejas = new ArrayList<>();
-        String consulta = "SELECT a.Torre, a.Numero, a.Piso, q.ApartamentoConjuntoIdConjunto, q.Asunto "
-                        + "FROM Apartamento as a, Qujas as q "
-                        + "WHERE a.IdApartamento = q.ApartamentoIdApartament AND q.ConjuntoIdConjunto = ? ";
+        String consulta = "SELECT a.Torre, a.Numero, a.Piso, q.anonimo, q.Asunto "
+                        + "FROM Apartamento as a, Queja as q "
+                        + "WHERE a.IdApartamento = q.ApartamentoIdApartamento AND q.ConjuntoIdConjunto = ? ";
         try (
                  PreparedStatement statement = this.con.prepareStatement(consulta);) {
             statement.setInt(1, id);
@@ -42,13 +42,13 @@ public class contraladorQueja {
             try ( ResultSet rs = statement.executeQuery();) {
                 while (rs.next()) {
                     queja.setRemitente(rs.getString("Torre") + "-" + rs.getString("Piso") + rs.getString("Numero"));
-                    queja.setAnonimo(rs.getInt("ApartamentoConjuntoIdConjunto"));
+                    queja.setAnonimo(rs.getInt("anonimo"));
                     queja.setAsunto(rs.getString("Asunto"));
                     quejas.add(queja);
                 }
             }
         } catch (SQLException sqle) {
-
+            System.out.println("error");
         }
         return quejas;
     }
