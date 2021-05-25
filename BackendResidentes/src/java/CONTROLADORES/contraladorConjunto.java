@@ -174,7 +174,7 @@ public class contraladorConjunto {
     @Produces(MediaType.APPLICATION_JSON)
     public DTOrespuestas agregarEmpleadoConjunto(@PathParam("idConjunto") int idC, Empleado e) {
         DTOrespuestas res = new DTOrespuestas();
-        String consulta = "SELECT p.IdPersona "
+         String consulta = "SELECT p.IdPersona "
                 + "FROM Persona as p "
                 + "WHERE p.Usuario = ?";
 
