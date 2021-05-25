@@ -22,7 +22,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/quejas")
-public class contraladorQueja {
+public class contraladorQueja { 
     ConexionBD conexion = new ConexionBD();
     Connection con = conexion.conectar();
     
@@ -30,7 +30,7 @@ public class contraladorQueja {
     @Path("/quejasConjunto/{IdConjunto}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<QuejaInfo> quejasConjunto(@PathParam("IdConjunto") int id) {
-        QuejaInfo queja = new QuejaInfo();
+        QuejaInfo queja;
         List<QuejaInfo> quejas = new ArrayList<>();
         String consulta = "SELECT a.Torre, a.Numero, a.Piso, q.anonimo, q.Asunto "
                         + "FROM Apartamento as a, Queja as q "
@@ -41,6 +41,7 @@ public class contraladorQueja {
 
             try ( ResultSet rs = statement.executeQuery();) {
                 while (rs.next()) {
+                    queja = new QuejaInfo();
                     queja.setRemitente(rs.getString("Torre") + "-" + rs.getString("Piso") + rs.getString("Numero"));
                     queja.setAnonimo(rs.getInt("anonimo"));
                     queja.setAsunto(rs.getString("Asunto"));
