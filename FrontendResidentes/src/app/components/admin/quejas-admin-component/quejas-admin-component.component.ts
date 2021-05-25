@@ -18,12 +18,14 @@ export class QuejasAdminComponent implements OnInit {
 
   async ionViewWillEnter(){
     this.idAConj = this.conjServ.getConjuntoActivo();
+    console.log("Conjunto Quejas: ", this.idAConj);
     this.quejServ.getQuejas(this.idAConj);
     await this.waitBD();
     this.quejas = this.quejServ.getQujeasList();
+    console.log("Quejas: ", this.quejas);
   }
 
   async waitBD(){
-    await new Promise(resolve => setTimeout(resolve, 250));
+    await new Promise(resolve => setTimeout(resolve, 500));
   }
 }
