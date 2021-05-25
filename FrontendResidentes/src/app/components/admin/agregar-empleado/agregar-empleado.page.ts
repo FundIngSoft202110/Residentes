@@ -29,7 +29,10 @@ export class AgregarEmpleadoPage implements OnInit {
   constructor(private navCtrl: NavController, private formBuilder: FormBuilder,
               private agEmpSer: AgregarEmpldService, private  conjServ: ConjuntosService) { }
 
-  ngOnInit() {
+  /*ngOnInit(){
+  } */
+  
+  ngOnInit(){
     this.idAConj = this.conjServ.getConjuntoActivo();
     this.loginForm = this.formBuilder.group({
       usuario: new FormControl(
@@ -58,6 +61,7 @@ export class AgregarEmpleadoPage implements OnInit {
 
   rta : any;
   async loginUser(credentials) {
+    console.log("Credenciales: ", credentials);
     this.agEmpSer.postNuevoEmpld(IPRESIDENTES + "consultas/Conjuntos/agregarEmpleadoConjunto/" + this.idAConj, credentials)
       .subscribe(rest => {
         console.log(rest);
