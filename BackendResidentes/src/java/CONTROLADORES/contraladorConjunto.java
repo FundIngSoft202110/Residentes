@@ -37,7 +37,6 @@ public class contraladorConjunto {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-
     public List<Conjunto> getConjuntos() {
 
         List<Conjunto> conjuntos = new ArrayList<>();
@@ -170,7 +169,7 @@ public class contraladorConjunto {
     }
 
     @POST
-        @Path("/agregarEmpleadoConjunto/{idConjunto}")
+    @Path("/agregarEmpleadoConjunto/{idConjunto}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public DTOrespuestas agregarEmpleadoConjunto(@PathParam("idConjunto") int idC, Empleado e) {
@@ -183,7 +182,7 @@ public class contraladorConjunto {
                 + "FROM PersonaXConjunto as p "
                 + "WHERE p.PersonaIdPersona = ? AND p.ConjuntoIdConjunto = ?";
 
-        String consulta3 = "INSERT INTO PersonaXConjunto(`PersonaIdPersona`,`ConjuntoIdConjunto`, `Oficio`, `Imagen`) VALUES(?, ?, ? ,?)";
+        String consulta3 = "INSERT INTO PersonaXConjunto(`PersonaIdPersona`,`ConjuntoIdConjunto`, `Oficio`, `Foto`) VALUES(?, ?, ? ,?)";
 
         try ( PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
@@ -204,19 +203,15 @@ public class contraladorConjunto {
                         statement1.setInt(1, idEmpleado);
                         statement1.setInt(2, idC);
 
-                        try ( ResultSet rs2 = statement.executeQuery();) {
+                        try ( ResultSet rs2 = statement1.executeQuery();) {
                             boolean existe = false;
-                            Integer count = 0;
                             while (rs2.next()) {
-                                int b = Integer.parseInt(rs.getString(1));
-                                if(b != 0)
-                                    count += 1;
                                 existe = true;
                             }
-                            if (existe) {
-                                res.setRespuesta(count.toString()); //el empleado ya existe
+                            if(existe){
+                                res.setRespuesta("El empleado ya existe");
                                 return res;
-                            } else {
+                            }else{
                                 try ( PreparedStatement statement3 = this.con.prepareStatement(consulta3);) {
                                     String oficio = e.getOficio();
                                     String imagen = e.getImagen();
@@ -260,13 +255,12 @@ public class contraladorConjunto {
         return "Manual Actualizado";
     }
 
-    @DELETE 
-    @Path("/eliminarEmpleado/{IdConjunto}/{IdEmpleado")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
+    @DELETE
+    @Path("/eliminarEmpleado/{IdConjunto}/{IdEmpleado}")
+    @Produces(MediaType.APPLICATION_JSON)
     public DTOrespuestas eliminarEmpleado(@PathParam("IdConjunto") int idConjunto, @PathParam("IdEmpleado") int idEmpleado) {
         DTOrespuestas rta = new DTOrespuestas();
-        String consulta = "DELETE FROM PersonasXConjunto "
+        String consulta = "DELETE FROM PersonaXConjunto "
                         + "WHERE PersonaIdPersona = ? AND ConjuntoIdConjunto = ?";
         
         try ( PreparedStatement statement = this.con.prepareStatement(consulta);) {
