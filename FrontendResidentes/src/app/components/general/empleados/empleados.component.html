@@ -32,7 +32,7 @@
 <ion-footer *ngIf="rol==='ADMIN'">
     <ion-card color="residente" class="ion-text-center">
         <ion-card-header>
-            <ion-card-subtitle>Agregar empleado</ion-card-subtitle>
+            <ion-card-subtitle (click)="goToAdd()">Agregar empleado</ion-card-subtitle>
         </ion-card-header>
     </ion-card>
 </ion-footer>

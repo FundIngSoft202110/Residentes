@@ -221,11 +221,7 @@ const routes: Routes = [
   {
     path: 'agregar-empleado',
     loadChildren: () => import('./components/admin/agregar-empleado/agregar-empleado.module').then( m => m.AgregarEmpleadoPageModule)
-  },
-  {
-    path: 'agregar-empleado',
-    loadChildren: () => import('./components/admin/agregar-empleado/agregar-empleado.module').then( m => m.AgregarEmpleadoPageModule)
-  },
+  }
 
 
 

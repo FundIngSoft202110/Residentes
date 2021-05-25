@@ -3,7 +3,11 @@
 <ion-content>
     <ion-card *ngFor="let queja of quejas">
         <ion-card-header> 
-            <ion-card-tittle  style="font-size:25px; font-weight: bold"  text-wrap>
+            <ion-card-tittle *ngIf="queja.anonimo==='1'" style="font-size:25px; font-weight: bold"  text-wrap>
+                <ion-icon name="person-circle-outline" color="residente-txt"></ion-icon>
+                &nbsp;&nbsp;Anónimo
+            </ion-card-tittle> 
+            <ion-card-tittle *ngIf="queja.anonimo==='0'" style="font-size:25px; font-weight: bold"  text-wrap>
                 <ion-icon name="person-circle-outline" color="residente-txt"></ion-icon>
                 &nbsp;&nbsp;{{queja.Nombre}}
             </ion-card-tittle> 

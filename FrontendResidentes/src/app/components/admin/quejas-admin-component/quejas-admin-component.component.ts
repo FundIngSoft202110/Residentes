@@ -12,9 +12,18 @@ export class QuejasAdminComponent implements OnInit {
   idAConj : any;
   constructor(private  conjServ: ConjuntosService, private quejServ: QuejasAdminService) { }
 
-  ngOnInit() {
-    this.idAConj = this.conjServ.getConjuntoActivo();
-    this.quejas = this.quejServ.getQuejas();
+  ngOnInit() { 
+
   }
 
+  async ionViewWillEnter(){
+    this.idAConj = this.conjServ.getConjuntoActivo();
+    this.quejServ.getQuejas(this.idAConj);
+    await this.waitBD();
+    this.quejas = this.quejServ.getQujeasList();
+  }
+
+  async waitBD(){
+    await new Promise(resolve => setTimeout(resolve, 250));
+  }
 }

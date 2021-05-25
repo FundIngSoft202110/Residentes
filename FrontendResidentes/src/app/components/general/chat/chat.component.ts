@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AlertController, IonContent, NavController } from '@ionic/angular';
 import { IPRESIDENTES } from 'src/app/constants';
+import { AgregarEmpldService } from 'src/app/Services/agregar-empld/agregar-empld.service';
 import { ChatServicioService } from 'src/app/Services/chatserv/chat-servicio.service';
 import { mensaje } from 'src/app/Services/chatserv/mensaje';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
@@ -34,7 +35,7 @@ export class ChatComponent implements OnInit {
   constructor(private servApto: ServIngAptoService, private serChats: LstChatServicioService, 
               private chatServ: ChatServicioService, private personasService: PersonasService, 
               private conjuntoService: ConjuntosService, private navCtrl: NavController,
-              public alertController: AlertController) {
+              public alertController: AlertController, private agEmpSer: AgregarEmpldService) {
 
   }
   ngOnInit() {
@@ -230,7 +231,11 @@ export class ChatComponent implements OnInit {
         }, {
           text: 'Aceptar',
           handler: () => {
-            console.log('Confirm Okay');
+            this.agEmpSer.deleteEmpleado(IPRESIDENTES + "consultas/Conjuntos/eliminarEmpleado/" + this.idConjunto + "/" + this.chatid)
+            .subscribe(respuesta => {
+              console.log(respuesta);
+              this.goBack();
+            })
           }
         }
       ]

@@ -1,10 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IPRESIDENTES } from 'src/app/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuejasAdminService {
-  quejas = [
+  quejas2 = [
     {
       Nombre: "Quintana",
       Contenido: "Mucho ruido"
@@ -38,9 +40,26 @@ export class QuejasAdminService {
       Contenido: "No más vida"
     }
   ]
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getQuejas(){
+  quejas : any;
+  obtener(url: string) {
+    console.log("MUeree obtener");
+    this.getQuejasAdmin(url)
+      .subscribe(respuesta => {
+        console.log("subscirbe ", respuesta);
+        this.quejas = respuesta;
+      })
+  }
+  getQuejas(idConjunto : number){
+    this.obtener(IPRESIDENTES + "consultas/quejas/quejasConjunto/" + idConjunto.toString() );
+  }
+
+  public getQuejasAdmin(url: string) {
+    return this.http.get(url);
+  }
+
+  getQujeasList(){
     return this.quejas;
   }
 }

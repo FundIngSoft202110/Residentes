@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -169,7 +170,7 @@ public class contraladorConjunto {
     }
 
     @POST
-    @Path("/agregarEmpleadoConjunto/{idConjunto}")
+        @Path("/agregarEmpleadoConjunto/{idConjunto}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public DTOrespuestas agregarEmpleadoConjunto(@PathParam("idConjunto") int idC, Empleado e) {
@@ -259,4 +260,27 @@ public class contraladorConjunto {
         return "Manual Actualizado";
     }
 
+    @DELETE 
+    @Path("/eliminarEmpleado/{IdConjunto}/{IdEmpleado")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public DTOrespuestas eliminarEmpleado(@PathParam("IdConjunto") int idConjunto, @PathParam("IdEmpleado") int idEmpleado) {
+        DTOrespuestas rta = new DTOrespuestas();
+        String consulta = "DELETE FROM PersonasXConjunto "
+                        + "WHERE PersonaIdPersona = ? AND ConjuntoIdConjunto = ?";
+        
+        try ( PreparedStatement statement = this.con.prepareStatement(consulta);) {
+
+            statement.setInt(1, idEmpleado);
+            statement.setInt(2, idConjunto);
+            statement.executeUpdate();
+            rta.setRespuesta("El empleado fue eliminado exitosamente");
+            return rta;
+        } catch (SQLException ex) {
+            rta.setRespuesta("No fue posible eliminar al empleado");
+            return rta;
+        }
+        
+    }
+    
 }

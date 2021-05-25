@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { LstChatServicioService } from 'src/app/Services/lstChatServ/lst-chat-servicio.service';
 import { lstChat } from 'src/app/Services/lstChatServ/lstChat.module';
@@ -10,13 +11,17 @@ import { PersonasService } from 'src/app/Services/personas/personas.service';
   styleUrls: ['./empleados.component.scss'],
 })
 export class EmpleadosComponent implements OnInit{
+  
   public user:string="RESIDENTE";
   idAConj : any;
   //private personasService:PersonasService;
   rol='A';
   chatBuscado: any;
   chats =[];
-  constructor(private  conjServ: ConjuntosService,private serChats: LstChatServicioService, private personasService: PersonasService) { }
+  
+  //@Input() routeBack: string
+  constructor(private  conjServ: ConjuntosService,private serChats: LstChatServicioService, 
+              private personasService: PersonasService, private navCtrl: NavController) { }
 
   ngOnInit(){
 
@@ -69,5 +74,10 @@ export class EmpleadosComponent implements OnInit{
     console.log(chat.nombre);
     console.log(chat.rol);
     console.log(chat.idc);
+  }
+
+  goToAdd(){
+    console.log("Quintana ");
+    this.navCtrl.navigateForward("/agregar-empleado");
   }
 }
