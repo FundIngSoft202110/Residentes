@@ -12,9 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -24,14 +21,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author alejandrodiaz
+ * @author juansebastianbarretojimenez
  */
 @Entity
-@Table(name = "queja")
+@Table(name = "Queja", catalog = "residentes", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Queja.findAll", query = "SELECT q FROM Queja q"),
     @NamedQuery(name = "Queja.findByIdQueja", query = "SELECT q FROM Queja q WHERE q.idQueja = :idQueja"),
+    @NamedQuery(name = "Queja.findByAnonimo", query = "SELECT q FROM Queja q WHERE q.anonimo = :anonimo"),
     @NamedQuery(name = "Queja.findByAsunto", query = "SELECT q FROM Queja q WHERE q.asunto = :asunto")})
 public class Queja implements Serializable {
 
@@ -41,19 +39,13 @@ public class Queja implements Serializable {
     @Basic(optional = false)
     @Column(name = "IdQueja")
     private Integer idQueja;
+    @Column(name = "Anonimo")
+    private Integer anonimo;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "Asunto")
     private String asunto;
-    @JoinColumns({
-        @JoinColumn(name = "ApartamentoIdApartamento", referencedColumnName = "IdApartamento"),
-        @JoinColumn(name = "ApartamentoConjuntoIdConjunto", referencedColumnName = "ConjuntoIdConjunto")})
-    @ManyToOne
-    private Apartamento apartamento;
-    @JoinColumn(name = "ConjuntoIdConjunto", referencedColumnName = "IdConjunto")
-    @ManyToOne
-    private Conjunto conjuntoIdConjunto;
 
     public Queja() {
     }
@@ -75,28 +67,20 @@ public class Queja implements Serializable {
         this.idQueja = idQueja;
     }
 
+    public Integer getAnonimo() {
+        return anonimo;
+    }
+
+    public void setAnonimo(Integer anonimo) {
+        this.anonimo = anonimo;
+    }
+
     public String getAsunto() {
         return asunto;
     }
 
     public void setAsunto(String asunto) {
         this.asunto = asunto;
-    }
-
-    public Apartamento getApartamento() {
-        return apartamento;
-    }
-
-    public void setApartamento(Apartamento apartamento) {
-        this.apartamento = apartamento;
-    }
-
-    public Conjunto getConjuntoIdConjunto() {
-        return conjuntoIdConjunto;
-    }
-
-    public void setConjuntoIdConjunto(Conjunto conjuntoIdConjunto) {
-        this.conjuntoIdConjunto = conjuntoIdConjunto;
     }
 
     @Override

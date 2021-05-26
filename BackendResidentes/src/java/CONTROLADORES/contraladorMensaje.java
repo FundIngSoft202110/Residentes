@@ -7,6 +7,7 @@ package CONTROLADORES;
 
 import API.ConexionBD;
 import ENTIDADES.Contacto;
+import ENTIDADES.DTOrespuestas;
 import ENTIDADES.Mensaje;
 import ENTIDADES.MensajeJS;
 import ENTIDADES.Persona;
@@ -39,7 +40,7 @@ public class contraladorMensaje {
         List<Contacto> contactos = new ArrayList<>();
         Contacto contact;
         //Contactos empleados
-        String consulta = "SELECT p.IdPersona, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
+        String consulta = "SELECT p.IdPersona, pxc.Oficio, p.Nombre, p.Apellido, pxc.Foto, p.RolConjunto "
                 + "FROM Persona AS p, PersonaXConjunto as pxc "
                 + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND (p.RolConjunto = 'Empleado' OR p.RolConjunto = 'Administrador' )";
         try (
@@ -80,7 +81,7 @@ public class contraladorMensaje {
         List<Contacto> contactos = new ArrayList<>();
         Contacto contact;
         //Contactos empleados
-        String consulta = "SELECT p.IdPersona, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
+        String consulta = "SELECT p.IdPersona, pxc.Oficio, p.Nombre, p.Apellido, pxc.Foto, p.RolConjunto "
                 + "FROM Persona AS p, PersonaXConjunto as pxc "
                 + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND p.RolConjunto = 'Empleado' ";
         try (
@@ -137,7 +138,7 @@ public class contraladorMensaje {
         List<Contacto> contactos = new ArrayList<>();
         Contacto contact;
         //Contactos empleados
-        String consulta = "SELECT p.IdPersona, p.Oficio, p.Nombre, p.Apellido, p.Foto, p.RolConjunto "
+        String consulta = "SELECT p.IdPersona, pxc.Oficio, p.Nombre, p.Apellido, pxc.Foto, p.RolConjunto "
                 + "FROM Persona AS p, PersonaXConjunto as pxc "
                 + "WHERE pxc.ConjuntoIdConjunto = ? AND p.IdPersona = pxc.PersonaIdPersona AND p.RolConjunto = 'Administrador' ";
         try (
@@ -291,9 +292,9 @@ public class contraladorMensaje {
     @POST
     @Path("/NuevoMensaje")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String nuevoMensaje(MensajeJS mensaje) {
-
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas nuevoMensaje(MensajeJS mensaje) {
+        DTOrespuestas res = new DTOrespuestas();
         String consulta1 = "INSERT INTO Mensaje (`ConjuntoIdConjunto`, `PersonaIdEmpleado`, `ApartamentoIdApartamento`,  `Contenido`, `Fecha_Hora`, `RolEmpleado` , `RolAdmin`, `Visto`) VALUES (?, ?, ? ,?, ?, ?, ?, ?)";
         String consulta2 = "INSERT INTO Mensaje (`ConjuntoIdConjunto`, `ApartamentoIdApartamento`, `PersonaIdAdmin`, `Contenido`, `Fecha_Hora`, `RolEmpleado` , `RolAdmin`, `Visto`) VALUES (?, ?, ? ,?, ?, ?, ?, ?)";
         String consulta3 = "INSERT INTO Mensaje (`ConjuntoIdConjunto`, `PersonaIdEmpleado`, `PersonaIdAdmin`, `Contenido`, `Fecha_Hora`, `RolEmpleado` , `RolAdmin`, `Visto`) VALUES (?, ?, ? ,?, ?, ?, ?, ?)";
@@ -315,10 +316,10 @@ public class contraladorMensaje {
             int idEmple = mensaje.getIdEmpleado();
             int idApto = mensaje.getIdApto();
             int idAdmin = mensaje.getIdAdmin();
+            String rolAdmin = mensaje.getRolAdmin();
             String contenido = mensaje.getContenido();
             BigDecimal fecha_h = mensaje.getFecha_hora();
             String rolEmple = mensaje.getRolEmpleado();
-            String rolAdmin = mensaje.getRolAdmin();
             String vist = mensaje.getVisto();
 
             statement.setInt(1, conjuntoId);
@@ -339,14 +340,14 @@ public class contraladorMensaje {
             statement.setString(7, rolAdmin);
             statement.setString(8, vist);
             statement.executeUpdate();
-
-            return "Agregado exitosamente";
+            res.setRespuesta("Agregado exitosamente");
+            return res;
 
         } catch (SQLException sqle) {
             System.out.println("Error en la ejecución:" + sqle.getErrorCode() + " " + sqle.getMessage());
         }
-
-        return "Fallo de creacion";
+        res.setRespuesta("Fallo de creacion");
+        return res;
     }
 
 }

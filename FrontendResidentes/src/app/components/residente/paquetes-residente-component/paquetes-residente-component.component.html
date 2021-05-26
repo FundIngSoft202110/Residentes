@@ -4,7 +4,7 @@
     <ion-card>
     <div *ngFor="let paquete of paquetes"> 
         <ion-item>
-            <ion-label><strong> Paquete {{paquete.id}} </strong></ion-label>
+            <ion-label><strong> Paquete {{paquete.paquetePK.idPaqueete}} </strong></ion-label>
             <ion-buttons slot="end" (click)="listOpen(paquete)"> 
                 <ion-icon slot="icon-only" color="residente" name="add-circle-outline"></ion-icon>
             </ion-buttons>

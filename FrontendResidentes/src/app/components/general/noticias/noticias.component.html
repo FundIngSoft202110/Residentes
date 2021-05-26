@@ -8,17 +8,30 @@
 
             </ion-textarea>
         </ion-item>
-        <div id="derecha">
-            <ion-button color="residente" routerLink="/nuevo-paquete">
+        
+            <div id = "derecha">
+            <ion-button color="residente" id="botonImagen">
+                <ion-icon name="image-outline"></ion-icon>
+            </ion-button>
+        </div>
+        
+            <div id="derecha">
+            <ion-button color="residente" id="botonPublicar">
                 <ion-label>Publicar</ion-label>
             </ion-button>
-            <br> <br>
         </div>
+        
+        
     </div>
     <div style="overflow:scroll" class="content-div">
         <ion-card id="rounded">
             <ion-card-content>
-            <ion-card-title><ion-icon name="person-circle-outline" color="residente-txt"></ion-icon>&nbsp;&nbsp;Titulo</ion-card-title>
+            <ion-item lines="none">
+                <ion-avatar item-start>
+                <ion-img src="/../../../../assets/icon/IconConjuntos/avatar.jpg"></ion-img>
+              </ion-avatar>
+              <ion-label>&nbsp;&nbsp;Titulo</ion-label>
+            </ion-item>
             <ion-img src="/../../../../assets/icon/IconConjuntos/Edi.png" alt="Conjunto"></ion-img>
             <br>
             <ion-label>Informacion de la publicacion</ion-label>
@@ -26,7 +39,12 @@
         </ion-card>
         <ion-card id="rounded">
             <ion-card-content>
-            <ion-card-title><ion-icon name="person-circle-outline" color="residente-txt"></ion-icon>&nbsp;&nbsp;Titulo</ion-card-title>
+            <ion-item lines="none">
+                <ion-avatar item-start>
+                <ion-img src="/../../../../assets/icon/IconConjuntos/avatar.jpg"></ion-img>
+              </ion-avatar>
+              <ion-label>&nbsp;&nbsp;Titulo</ion-label>
+            </ion-item>
             <ion-img src="/../../../../assets/icon/IconConjuntos/Edi.png" alt="Conjunto"></ion-img>
             <br>
             <ion-label>Informacion de la publicacion</ion-label>

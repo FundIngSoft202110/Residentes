@@ -26,6 +26,14 @@ export class ReservacionAreaResidenteComponent implements OnInit {
           })
       });
   }
+
+  mandarModificar() {
+    this.navCtrl.navigateForward("/mis-reservas");
+  }
+  mandarEliminar() {
+    this.navCtrl.navigateForward("/mis-reservas");
+  }
+
  goToRegister() {
    this.navCtrl.navigateForward("/registro");
  }

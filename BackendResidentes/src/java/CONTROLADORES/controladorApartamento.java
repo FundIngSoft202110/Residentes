@@ -60,7 +60,7 @@ public class controladorApartamento {
     }
 
     @GET
-    @Path("/apartamentos/{IdConjunto}")
+    @Path("/apartamentosc/{IdConjunto}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Apartamento> getAptosConjunto(@PathParam("IdConjunto") int id) {
         List<Apartamento> apto = new ArrayList<>();
@@ -118,14 +118,14 @@ public class controladorApartamento {
          
       
       try(
-                 ResultSet rs = statement.executeQuery();
-                 ){
-                 int idApto = rs.getInt(1);
-                 String contrasena2 = rs.getNString(2);
-                 if(!contrasena.equals(contrasena2)){
-                     idApto = -1;
-                 }
-                 return idApto;
+        ResultSet rs = statement.executeQuery();
+        ){
+        int idApto = rs.getInt(1);
+        String contrasena2 = rs.getNString(2);
+        if(!contrasena.equals(contrasena2)){
+            idApto = -1;
+        }
+        return idApto;
       }
          
         }catch(SQLException sqle){

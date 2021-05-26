@@ -12,8 +12,4 @@ export class MenuEmpleadoComponent implements OnInit {
 
   ngOnInit() {}
 
-  salirConjunto(){
-    this.conjuntoService.clearConjuntoActivo();
-  }
-
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
 
 @Component({
   selector: 'app-pagos-component',
@@ -11,26 +12,29 @@ export class PagosComponent implements OnInit {
 
   public conjuntoPago:any;
   public conjuntoActivo:number;
+  public aptoActivo:number;
   public urlPago:string = "";
   public precioAdmin:number = 0;
   
-  constructor(private conjuntosService: ConjuntosService, private inAppBrowser: InAppBrowser) { }
+  constructor(private conjuntosService: ConjuntosService, private inAppBrowser: InAppBrowser, private servIngAptoService: ServIngAptoService) { }
 
-  ngOnInit() {
+  ngOnInit(){
+  } 
+
+  async ionViewWillEnter(){
     this.conjuntoActivo = this.conjuntosService.getConjuntoActivo();
-    this.cargarDatosAdmin(this.conjuntoActivo);
+    this.aptoActivo = this.servIngAptoService.getIdApto();
+    this.cargarDatosAdmin();
   }
 
-  async cargarDatosAdmin(conjuntoActivoP:number){
-    if(this.conjuntoActivo != -1){
-      this.conjuntosService.getPagoAdmin(this.conjuntoActivo);
-      await new Promise(resolve => setTimeout(resolve, 250));
+  async cargarDatosAdmin(){
+      this.conjuntosService.getPagoAdmin(this.conjuntoActivo, this.aptoActivo);
+      await this.waitBD(); 
       this.conjuntoPago = this.conjuntosService.getConjuntoPago();
       console.log("CONJUNTO PAGO: ", this.conjuntoPago);
       console.log("CONJUNTO PAGO LIN: ", this.conjuntoPago.linkDePago);
       this.urlPago = "http://" + this.conjuntoPago.linkDePago;
       this.precioAdmin = this.conjuntoPago.precioAdmin;
-    }
   }
 
   async waitBD(){
@@ -38,12 +42,11 @@ export class PagosComponent implements OnInit {
   }
 
   openUrl(){
-    this.waitBD();  
     this.inAppBrowser.create(this.urlPago,'_self');
+    this.conjuntosService.pagarAdmin(this.conjuntoActivo, this.aptoActivo);
   }
 
   getPrecio(){
-    this.waitBD();
     return  this.precioAdmin;
   }
 

@@ -16,19 +16,19 @@ export class IngreAptoPage implements OnInit {
   validation_messages = {
     torre: [
       { type: "required", message: " La torre es requerido" },
-      { type: "pattern", message: "Solo numeros son validos" }
+      { type: "pattern", message: "Solo números son validos" }
     ],
     piso: [
       { type: "required", message: " El piso es requerido" },
-      { type: "pattern", message: "Solo numeros son validos" }
+      { type: "pattern", message: "Solo números son validos" }
     ],
     numero: [
       { type: "required", message: " El numero es requerido" },
-      { type: "pattern", message: "Solo numeros son validos" }
+      { type: "pattern", message: "Solo números son validos" }
     ],
     password: [
-      { type: "required", message: " El password es requerido" },
-      { type: "minlength", message: "Minimo 5 letras para el password" }
+      { type: "required", message: " La contraseña es requerida" },
+      { type: "minlength", message: "Minimo 5 letras para la contraseña" }
     ]
   };
   private aptos:any;
@@ -70,14 +70,11 @@ export class IngreAptoPage implements OnInit {
 
   ngOnInit() {
     this.idAConj = this.conjServ.getConjuntoActivo(); 
-    //this.aptos = this.authService.getAptos(1);
-    //this.test();
-    //console.log(this.aptos);
+    this.authService.getAptos(this.idAConj);
   }
 
   loginUser(credentials) {
       this.authService.loginUser(credentials, this.idAConj).then(res => {
-     // this.authService.loginUserP(credentials).then(res => {
       this.errorMessage = "";
       this.navCtrl.navigateForward("/noticias");
     }).catch(err=>{
