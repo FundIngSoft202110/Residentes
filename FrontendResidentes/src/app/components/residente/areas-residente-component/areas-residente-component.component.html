@@ -32,6 +32,17 @@
         </dx-calendar>
     </div>
 </div>
+<dx-form id="form"
+	[formData]="area">
+	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
+		<dxi-item>
+			<div class="form-avatar"></div>
+		</dxi-item>
+		<dxi-item itemType="group" [colSpan]="3">
+            	<dxi-item dataField="HorasDisponibles" editorType="dxSelectBox" [editorOptions]="{ items: horasDisponibles, value: '' }"></dxi-item>
+		</dxi-item>
+	</dxi-item>
+</dx-form>
 
 <ion-button class="boton"
       (click)="mandarDisponibilidad()"

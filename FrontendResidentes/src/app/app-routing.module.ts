@@ -51,6 +51,7 @@ registerLocaleData(localeDe);
 import { NuevoPaqueteComponent } from './components/empleado/nuevo-paquete/nuevo-paquete.component';
 import { ReservacionAreaResidenteComponent } from './components/residente/reservacion-area-residente/reservacion-area-residente.component';
 import { DisponibilidadAreaComponent } from './components/residente/disponibilidad-area/disponibilidad-area.component';
+import { ModificarReservaAreaComponent } from './components/residente/modificar-reserva-area/modificar-reserva-area.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -207,6 +208,10 @@ const routes: Routes = [
     component: DisponibilidadAreaComponent
   },
   {
+    path: 'modificar-reserva-area',
+    component: ModificarReservaAreaComponent
+  },
+  {
     path: 'ingre-apto',
     loadChildren: () => import('../app/components/general/ingre-apto/ingre-apto.module').then( m => m.IngreAptoPageModule)
   },
@@ -300,6 +305,9 @@ const routes: Routes = [
     CalendarPaqueteComponent,
     TestComponent,
     ReservacionAreaResidenteComponent, // ojo
+    DisponibilidadAreaComponent,
+    ModificarReservaAreaComponent,
+    ReservacionAreaResidenteComponent // ojo
   ],
   providers:[
     {provide: LOCALE_ID, useValue:'es-Co'}

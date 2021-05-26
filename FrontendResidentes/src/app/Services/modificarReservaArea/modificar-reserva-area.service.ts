@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 
 export class Reserva {
 	Fecha: string;
@@ -34,8 +37,10 @@ let hora_f: string[] = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "0
 
 let cantidad_p: string[] = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"];
 
+
 @Injectable()
-export class ReservarAreaResidenteService {
+export class ModificarReservaAreaService {
+  
 	getReserva() {
 		return reserva;
 	}

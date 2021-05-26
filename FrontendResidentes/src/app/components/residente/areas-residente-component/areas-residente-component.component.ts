@@ -38,6 +38,7 @@ export class AreasResidenteComponent implements OnInit  {
     area: Area;
 	tipo: string[];
 	listaDeAreasComunes: string[];
+    horasDisponibles: string[];
    
 
 	constructor(service: AreaComunResidenteService, private navCtrl: NavController) {
@@ -49,6 +50,7 @@ export class AreasResidenteComponent implements OnInit  {
     		"Social"
         ]
 		this.listaDeAreasComunes = service.getListaDeAreasComunes();
+        this.horasDisponibles = service.getHorasDisponibles();
 	}
 
     mandarNueva() {
