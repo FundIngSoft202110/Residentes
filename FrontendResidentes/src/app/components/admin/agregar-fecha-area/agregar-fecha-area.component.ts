@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import notify from 'devextreme/ui/notify';
-import {AgregarFechaAreaService, FechaArea,areaComunPK,AreaComun} from '../../../Services/AgregarFechaArea/agregar-fecha-area.service';
+import {AgregarFechaAreaService, FechaArea,AreaComun, areaComunPKfecha} from '../../../Services/AgregarFechaArea/agregar-fecha-area.service';
 import { NgModule, ViewChild, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -23,19 +23,19 @@ import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 })
 export class AgregarFechaAreaComponent implements OnInit {
  
-  @Input() areaentrante:any;
+ 
   @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
 
   fechaArea: FechaArea;
   areacomun: AreaComun;
-  areacomunPK:areaComunPK;
+  areacomunPK:areaComunPKfecha;
 	horaDeApertura: string[];
 	horaDeCierre: string[];
 	diasDisponibles: string[];
 
   link = 'agregar-area';
   label="top";
-  rojo="#e27c65"
+  
 
 
   constructor(private service: AgregarFechaAreaService,private navCtrl: NavController, conjunto:ConjuntosService) {
@@ -57,8 +57,8 @@ export class AgregarFechaAreaComponent implements OnInit {
     
   }
   
-  public postNuevosDias(){
-     this.service.postDiasDisponibles("",this.fechaArea)
-  }
+  // public postNuevosDias(){
+  //    this.service.postDiasDisponibles("",this.fechaArea)
+  // }
 
 }

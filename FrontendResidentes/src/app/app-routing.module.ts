@@ -191,7 +191,7 @@ const routes: Routes = [
     component: ModificarAreaAdminComponent
   },
   {
-    path: 'agregar-fecha',
+    path: 'afecha',
     component: AgregarFechaAreaComponent
   },
   {
@@ -299,8 +299,7 @@ const routes: Routes = [
     ModificarFechaAreaComponent,
     CalendarPaqueteComponent,
     TestComponent,
-    DisponibilidadAreaComponent,
-    ReservacionAreaResidenteComponent // ojo
+    ReservacionAreaResidenteComponent, // ojo
   ],
   providers:[
     {provide: LOCALE_ID, useValue:'es-Co'}
