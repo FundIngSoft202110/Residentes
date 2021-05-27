@@ -9,7 +9,6 @@ import { Paquete } from './paquete.model';
 })
 export class PaquetesService {
   private paquetes:any;
-  private fechaActual:any;
   constructor(private http: HttpClient) { }
 
   public getPaquetesUrl(url: string) {
@@ -19,6 +18,10 @@ export class PaquetesService {
   public postPaquetesUrl(url: string, body:any) {
     return this.http.post(url,body);
   } // end postPaquetesUrl
+
+  public deletePaquetesUrl(url: string) {
+    return this.http.delete(url);
+  } // end deletePaquetesUrl
 
   async nuevoPaquete(paquete:Paquete){
     this.postPaquetesUrl(IPRESIDENTES + "consultas/paquetes/nuevoPaquete", paquete)
@@ -34,19 +37,15 @@ export class PaquetesService {
       })
   } // end cargarPaquetes
 
-  async cargarFechaActual() {
-    this.getPaquetesUrl(IPRESIDENTES + "consultas/paquetes/fechaActual")
+  async elimnarPaquete(numConjunto: number, numApto: number, numPaquete:number) {
+    this.deletePaquetesUrl(IPRESIDENTES + "consultas/paquetes/eliminarPaquete/"+numConjunto.toString()+"/"+numApto.toString()+"/"+numPaquete.toString())
       .subscribe(respuesta => {
-        this.fechaActual = respuesta;
+        console.log("Respuesta: ", respuesta);
       })
-  } // end cargarFechaActual
+  } // end cargarPaquetes
   
   getPaquetes() {
     return this.paquetes;
   } // end getPaquetes
 
-  getFechaActual(){
-    return this.fechaActual;
-  } // end getFechaActual
-  
 } // end PaquetesService

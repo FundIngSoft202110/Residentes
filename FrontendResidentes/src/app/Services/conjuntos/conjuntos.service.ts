@@ -9,6 +9,7 @@ import { IPRESIDENTES } from 'src/app/constants';
 })
 export class ConjuntosService {
   conjuntoxPersona : any;
+  private fechaActual:any;
   private conjuntos:Conjunto[] = [ 
     {
       id: 1,
@@ -59,23 +60,23 @@ export class ConjuntosService {
 		return Number(window.localStorage['conjuntoActivo'] || -1);
 	}// getConjuntoActivo
 
-  public getPagoAdminUrl(url: string) {
+  public getConjuntoUrl(url: string) {
     return this.http.get(url);
   }
 
-  public putPagoAdminUrl(url: string) {
+  public putConjuntoUrl(url: string) {
     return this.http.put(url,this.conjuntoPago);
   }
 
   async getPagoAdmin(numConjunto: number, numApto: number) {
-    this.getPagoAdminUrl(IPRESIDENTES + "consultas/Conjuntos/cuotaAdmin/"+numConjunto.toString()+"/"+numApto.toString())
+    this.getConjuntoUrl(IPRESIDENTES + "consultas/Conjuntos/cuotaAdmin/"+numConjunto.toString()+"/"+numApto.toString())
       .subscribe(respuesta => {
         this.conjuntoPago = respuesta;
       })
   }
 
   async getConjuntosPersona(idPersona: string) {
-    this.getPagoAdminUrl(IPRESIDENTES + "consultas/Conjuntos/netflix/" + idPersona)
+    this.getConjuntoUrl(IPRESIDENTES + "consultas/Conjuntos/netflix/" + idPersona)
       .subscribe(respuesta => {
         this.conjuntoxPersona = respuesta;
       })
@@ -84,15 +85,26 @@ export class ConjuntosService {
   varRes:any;
   
   async pagarAdmin(numConjunto: number, numApto: number) {
-    this.putPagoAdminUrl(IPRESIDENTES + "consultas/Conjuntos/pagarAdmin/"+numConjunto.toString()+"/"+numApto.toString())
+    this.putConjuntoUrl(IPRESIDENTES + "consultas/Conjuntos/pagarAdmin/"+numConjunto.toString()+"/"+numApto.toString())
       .subscribe(respuesta => {
         this.varRes = respuesta;
         console.log("Respuesta = ", this.varRes);
       })
   }
 
+  async cargarFechaActual() {
+    this.getConjuntoUrl(IPRESIDENTES + "consultas/Conjuntos/fechaActual")
+      .subscribe(respuesta => {
+        this.fechaActual = respuesta;
+      })
+  } // end cargarFechaActual
+
   getConjuntoPago(){
     return this.conjuntoPago;
   }
+
+  getFechaActual(){
+    return this.fechaActual;
+  } // end getFechaActual
 
 }
