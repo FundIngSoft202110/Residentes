@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 
 
 export class Asamblea {
-	id: number;
-	fecha: string;
-	tema: string;
-	NumeroPropuestas: number;
-	estado: string;
+	IdAsamblea: number;
+	ConjuntoIdConjunto:number;
+	Fecha: string;
+	Tema: string;
+	Estado: string;
 }
 
 export class Opciones {
@@ -25,25 +25,25 @@ export class AsambleaService {
 
 	private asambleas: Asamblea[] = [
 		{
-			id: 1,
-			fecha: "2021/05/01",
-			tema: "Junta anual",
-			NumeroPropuestas: 0,
-			estado: "Activa"
+			IdAsamblea: 1,
+			ConjuntoIdConjunto: 1,
+			Fecha: "2021/05/01",
+			Tema: "Junta anual",
+			Estado: "Activa"
 		},
 		{
-			id: 2,
-			fecha: "2021/02/21",
-			tema: "Junta extraordinaria",
-			NumeroPropuestas: 0,
-			estado: "Finalizada"
+			IdAsamblea: 2,
+			ConjuntoIdConjunto: 1,
+			Fecha: "2021/02/21",
+			Tema: "Junta extraordinaria",
+			Estado: "Finalizada"
 		},
 		{
-			id: 3,
-			fecha: "2021/06/21",
-			tema: "Junta extraordinaria",
-			NumeroPropuestas: 0,
-			estado: "Programada"
+			IdAsamblea: 3,
+			ConjuntoIdConjunto: 1,
+			Fecha: "2021/06/21",
+			Tema: "Junta extraordinaria",
+			Estado: "Programada"
 		}
 	]
 
@@ -70,9 +70,8 @@ export class AsambleaService {
 	}
 
 	getAsamblea(id: number) {
-		return this.asambleas.find(asamblea => { return asamblea.id == id });
+		return this.asambleas.find(asamblea => { return asamblea.IdAsamblea == id });
 	}
-
 
 	getNopciones() {
 		return Nopciones;

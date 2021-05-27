@@ -36,9 +36,9 @@ export class NuevoPaqueteComponent implements OnInit {
   } // end waitBD
 
   async ionViewWillEnter(){
-    this.paquetesService.cargarFechaActual();
+    this.conjuntosService.cargarFechaActual();
     await this.waitBD();
-    this.fecha = this.paquetesService.getFechaActual();
+    this.fecha = this.conjuntosService.getFechaActual();
     this.mes = this.fecha.mes;
     this.dia = this.fecha.dia;
     this.anio = this.fecha.anio;

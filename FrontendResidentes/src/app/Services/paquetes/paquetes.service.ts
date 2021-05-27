@@ -9,7 +9,6 @@ import { Paquete } from './paquete.model';
 })
 export class PaquetesService {
   private paquetes:any;
-  private fechaActual:any;
   constructor(private http: HttpClient) { }
 
   public getPaquetesUrl(url: string) {
@@ -44,20 +43,9 @@ export class PaquetesService {
         console.log("Respuesta: ", respuesta);
       })
   } // end cargarPaquetes
-
-  async cargarFechaActual() {
-    this.getPaquetesUrl(IPRESIDENTES + "consultas/paquetes/fechaActual")
-      .subscribe(respuesta => {
-        this.fechaActual = respuesta;
-      })
-  } // end cargarFechaActual
   
   getPaquetes() {
     return this.paquetes;
   } // end getPaquetes
 
-  getFechaActual(){
-    return this.fechaActual;
-  } // end getFechaActual
-  
 } // end PaquetesService

@@ -9,9 +9,9 @@ import { PersonasService } from 'src/app/Services/personas/personas.service';
 export class NoticiasComponent implements OnInit {
   constructor(private personasService:PersonasService) { }
 
-  ngOnInit() {}
+  ngOnInit() {} // end ngOnInit
 
   getUser(){
     return this.personasService.getUserActivo();
-  }
-}
+  } // end getUser
+} // end NoticiasComponent

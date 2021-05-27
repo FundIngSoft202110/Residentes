@@ -42,7 +42,8 @@ export class PagosComponent implements OnInit {
   }
 
   openUrl(){
-    this.inAppBrowser.create(this.urlPago,'_self');
+    this.inAppBrowser.create(this.urlPago,/*'_self'*/);
+    console.log("COnjunto = ", this.conjuntoActivo, " Apto = ", this.aptoActivo);
     this.conjuntosService.pagarAdmin(this.conjuntoActivo, this.aptoActivo);
   }
 
