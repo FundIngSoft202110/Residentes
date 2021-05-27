@@ -8,6 +8,7 @@ package CONTROLADORES;
 import API.ConexionBD;
 import ENTIDADES.Conjunto;
 import ENTIDADES.DTOConjuntos;
+import ENTIDADES.DTOfecha;
 import ENTIDADES.DTOrespuestas;
 import ENTIDADES.Empleado;
 import java.io.File;
@@ -16,6 +17,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -66,6 +68,20 @@ public class contraladorConjunto {
         return conjuntos;
 
     }
+    
+    @GET
+    @Path("/fechaActual")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOfecha fechaActual(){
+        DTOfecha res = new DTOfecha();
+        LocalDateTime fecha = LocalDateTime.now();
+        res.setAnio(fecha.getYear());
+        res.setMes(fecha.getMonthValue());
+        res.setDia(fecha.getDayOfMonth());
+        res.setHora(fecha.getHour());
+        res.setMinutos(fecha.getMinute());
+        return res;
+    } // end fechaActual
 
     @GET
     @Path("/cuotaAdmin/{IdConjunto}/{IdApto}")

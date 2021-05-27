@@ -5,6 +5,7 @@
  */
 package CONTROLADORES;
 
+import API.ConexionBD;
 import ENTIDADES.Asamblea;
 import ENTIDADES.DTOasambleas;
 import ENTIDADES.Persona;

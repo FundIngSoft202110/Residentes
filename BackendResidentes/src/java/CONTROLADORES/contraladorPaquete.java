@@ -6,7 +6,6 @@
 package CONTROLADORES;
 
 import API.ConexionBD;
-import ENTIDADES.DTOfecha;
 import ENTIDADES.DTOrespuestas;
 import ENTIDADES.Paquete;
 import ENTIDADES.PaquetePK;
@@ -25,7 +24,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.time.LocalDateTime;
 
 @Path("/paquetes")
 public class contraladorPaquete {
@@ -65,20 +63,6 @@ public class contraladorPaquete {
 
         return pqt;
     }
-    
-    @GET
-    @Path("/fechaActual")
-    @Produces(MediaType.APPLICATION_JSON)
-    public DTOfecha fechaActual(){
-        DTOfecha res = new DTOfecha();
-        LocalDateTime fecha = LocalDateTime.now();
-        res.setAnio(fecha.getYear());
-        res.setMes(fecha.getMonthValue());
-        res.setDia(fecha.getDayOfMonth());
-        res.setHora(fecha.getHour());
-        res.setMinutos(fecha.getMinute());
-        return res;
-    } // end fechaActual
     
     /*MÉTODO PARA AGREGAR  UN  PAQUETE DE UN APTO EN UN  CONJUNTO*/
     @POST
