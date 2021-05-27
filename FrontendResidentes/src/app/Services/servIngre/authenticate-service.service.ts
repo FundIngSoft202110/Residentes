@@ -32,29 +32,21 @@ export class AuthenticateServiceService {
   }
 
   loginUser(credential) {
-    //return fetch("IRL_DEL_SUPERSERVIDOR")
-
     this.obtener();
     return new Promise((accept, reject) => {
-      accept("Login correcto");
       let van = 0;
       let cont = 0;
-
       for (let ind of this.p) {
-        console.log("este el correo de la perdedora", this.p[cont].correo, this.p[cont].contrasena);
-        console.log("las credential", credential.email, credential.password);
-        if ((credential.email == this.p[cont].correo) && (credential.password == this.p[cont].contrasena)) {
-          console.log("este el correo de la perdedora ene el if", this.p[cont].correo, this.p[cont].contrasena);
-          console.log("las credential", credential.email, credential.password);
+        if ((credential.email === this.p[cont].correo) && (credential.password === this.p[cont].contrasena)) {
           accept("Login correcto");
-
           van = 1;
+          break;
         }
         cont++;
-      }
+      } // end for
       if (van == 0) {
         reject("login incorrecto");
-      }
+      } // end if
     });
-  }
-}
+  } // end loginUser
+} // end AuthenticateServiceService

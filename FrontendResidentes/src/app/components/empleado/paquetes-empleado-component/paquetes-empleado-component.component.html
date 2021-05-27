@@ -21,7 +21,7 @@
         <ion-card>
             <div *ngFor="let paquete of paquetes">
                 <ion-item>
-                    <ion-label>Paquete {{paquete.paquetePK.idPaqueete}}</ion-label>
+                    <ion-label>Paquete {{paquete.num}}</ion-label>
                     <ion-buttons slot="end" (click)="eliminarPaquete(paquete)">
                         <ion-icon slot="icon-only" color="residente" name="trash-outline"></ion-icon>
                     </ion-buttons>
