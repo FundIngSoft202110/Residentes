@@ -21,6 +21,7 @@ export class PaquetesEmpleadoComponent implements OnInit {
   public conjuntoActivo:number;
   public aptoActivo:number;
   private contInicial:number = 0;
+  public paqueteView : string[] = []; 
 
   constructor(private navCtrl: NavController,private paquetesService : PaquetesService, private conjuntosService: ConjuntosService, private servIngAptoService: ServIngAptoService) { }
 
@@ -42,6 +43,18 @@ export class PaquetesEmpleadoComponent implements OnInit {
 
   eliminarPaquete(paquete:Paquete){
     
+  }
+
+  listOpen(paquete:any){
+    if(this.paqueteView[paquete.paquetePK.idPaqueete - 1] == 'mostrar'){
+      this.paqueteView[paquete.paquetePK.idPaqueete - 1]='oculto';
+    }else{
+      this.paqueteView[paquete.paquetePK.idPaqueete - 1]='mostrar';
+    }
+  }
+
+  getPaqueteView(paquete:any){
+    return this.paqueteView[paquete.paquetePK.idPaqueete-1];
   }
 
   async optionsApto(){

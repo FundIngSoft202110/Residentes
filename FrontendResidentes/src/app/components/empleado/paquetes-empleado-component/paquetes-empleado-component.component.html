@@ -22,10 +22,27 @@
             <div *ngFor="let paquete of paquetes">
                 <ion-item>
                     <ion-label>Paquete {{paquete.num}}</ion-label>
+                    <ion-buttons slot="end" (click)="listOpen(paquete)"> 
+                        <ion-icon slot="icon-only" color="residente" name="add-circle-outline"></ion-icon>
+                    </ion-buttons>
                     <ion-buttons slot="end" (click)="eliminarPaquete(paquete)">
                         <ion-icon slot="icon-only" color="residente" name="trash-outline"></ion-icon>
                     </ion-buttons>
                 </ion-item>
+                <ion-list *ngIf="getPaqueteView(paquete)=='mostrar'">
+                    <ion-item>
+                        <ion-label color="medium"> Tamaño: {{paquete.tamano}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label color="medium"> Fecha: {{convertDate(paquete.fecha)}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label color="medium"> Hora: {{convertHour(paquete.hora)}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label color="medium"> Remitente: {{paquete.remitente}}</ion-label>
+                    </ion-item>
+                </ion-list>
             </div>
         </ion-card>
     </div>
