@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author alejandrodiaz
+ * @author juansebastianbarretojimenez
  */
 @Embeddable
 public class PaquetePK implements Serializable {

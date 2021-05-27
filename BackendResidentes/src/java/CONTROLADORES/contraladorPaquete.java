@@ -6,6 +6,8 @@
 package CONTROLADORES;
 
 import API.ConexionBD;
+import ENTIDADES.DTOfecha;
+import ENTIDADES.DTOrespuestas;
 import ENTIDADES.Paquete;
 import ENTIDADES.PaquetePK;
 import java.math.BigDecimal;
@@ -23,11 +25,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDateTime;
 
 @Path("/paquetes")
 public class contraladorPaquete {
     ConexionBD conexion = new ConexionBD();
     Connection con = conexion.conectar();
+    
     @GET
     @Path("/{IdConjunto}/{IdApto}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -49,7 +53,7 @@ public class contraladorPaquete {
                     apk = new PaquetePK(rs.getInt("IdPaqueete"), rs.getInt("ApartamentoConjuntoIdConjunto"), rs.getInt("ApartamentoIdApartamento"));
                     a.setPaquetePK(apk);
                     a.setTamano(rs.getString("Tamano"));
-                    a.setFecha(rs.getInt("Fecha"));
+                    a.setFecha(rs.getBigDecimal("Fecha"));
                     a.setHora(rs.getBigDecimal("Hora"));
                     a.setRemitente(rs.getString("Remitente"));
                     pqt.add(a);
@@ -62,13 +66,27 @@ public class contraladorPaquete {
         return pqt;
     }
     
+    @GET
+    @Path("/fechaActual")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOfecha fechaActual(){
+        DTOfecha res = new DTOfecha();
+        LocalDateTime fecha = LocalDateTime.now();
+        res.setAnio(fecha.getYear());
+        res.setMes(fecha.getMonthValue());
+        res.setDia(fecha.getDayOfMonth());
+        res.setHora(fecha.getHour());
+        res.setMinutos(fecha.getMinute());
+        return res;
+    } // end fechaActual
+    
     /*MÉTODO PARA AGREGAR  UN  PAQUETE DE UN APTO EN UN  CONJUNTO*/
     @POST
     @Path("/nuevoPaquete")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String agregarPaquete(Paquete paquete) {
-
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas agregarPaquete(Paquete paquete) {
+        DTOrespuestas res = new DTOrespuestas();
         String consulta = "INSERT INTO Paquete (`ApartamentoConjuntoIdConjunto`, `ApartamentoIdApartamento`, `Tamano`, `Fecha`, `Hora`, `Remitente`) VALUES (?, ?, ? ,?, ?, ?)";
 
         try (
@@ -77,32 +95,33 @@ public class contraladorPaquete {
             int conjuntoId = paquete.getPaquetePK().getApartamentoConjuntoIdConjunto();
             int idApto = paquete.getPaquetePK().getApartamentoIdApartamento();
             String tamano = paquete.getTamano();
-            int fecha = paquete.getFecha();
+            BigDecimal fecha = paquete.getFecha();
             BigDecimal hora = paquete.getHora();
             String remitente = paquete.getRemitente();
 
             statement.setInt(1, conjuntoId);
             statement.setInt(2, idApto);
             statement.setString(3, tamano);
-            statement.setInt(4, fecha);
+            statement.setBigDecimal(4, fecha);
             statement.setBigDecimal(5, hora);
             statement.setString(6, remitente);
             statement.executeUpdate();
-
-            return "Agregado exitosamente";
+            res.setRespuesta("Agregado exitosamente");
+            return res;
 
         } catch (SQLException sqle) {
             System.out.println("Error en la ejecución:" + sqle.getErrorCode() + " " + sqle.getMessage());
         }
-
-        return "Fallo de creacion";
+        res.setRespuesta("Fallo de creacion");
+        return res;
     }
     
     /*MÉTODO PARA ELIMINAR  UN  PAQUETE DE UN APTO EN UN  CONJUNTO*/
     @DELETE
     @Path("/eliminarPaquete/{IdConjunto}/{IdApto}/{IdPaqueete}")
-    public String eliminarPaquete(@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto, @PathParam("IdPaqueete") int idPaquete) {
-
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas eliminarPaquete(@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto, @PathParam("IdPaqueete") int idPaquete) {
+        DTOrespuestas res = new DTOrespuestas();
         String consulta = "DELETE FROM Paquete WHERE ApartamentoConjuntoIdConjunto=? AND ApartamentoIdApartamento=? AND IdPaqueete=?";
         PreparedStatement statement;
         try {
@@ -113,12 +132,12 @@ public class contraladorPaquete {
             statement.setInt(2, idApto);
             statement.setInt(3, idPaquete);
             statement.executeUpdate();
-
-            return "Se pudo eliminar satisfactoriamente";
+            res.setRespuesta("Se pudo eliminar satisfactoriamente");
+            return res;
 
         } catch (SQLException sqle) {
         }
-
-        return "No se pudo eliminar";
+        res.setRespuesta("No se pudo eliminar");
+        return res;
     }
 }

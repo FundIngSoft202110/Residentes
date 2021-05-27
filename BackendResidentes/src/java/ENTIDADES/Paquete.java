@@ -8,29 +8,23 @@ package ENTIDADES;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author alejandrodiaz
+ * @author juansebastianbarretojimenez
  */
 @Entity
-@Table(name = "paquete")
+@Table(name = "Paquete")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Paquete.findAll", query = "SELECT p FROM Paquete p"),
@@ -54,8 +48,7 @@ public class Paquete implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Fecha")
-    @Temporal(TemporalType.DATE)
-    private int fecha;
+    private BigDecimal fecha;
     @Basic(optional = false)
     @NotNull
     @Column(name = "Hora")
@@ -65,11 +58,6 @@ public class Paquete implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "Remitente")
     private String remitente;
-    @JoinColumns({
-        @JoinColumn(name = "ApartamentoIdApartamento", referencedColumnName = "IdApartamento", insertable = false, updatable = false),
-        @JoinColumn(name = "ApartamentoConjuntoIdConjunto", referencedColumnName = "ConjuntoIdConjunto", insertable = false, updatable = false)})
-    @ManyToOne(optional = false)
-    private Apartamento apartamento;
 
     public Paquete() {
     }
@@ -78,7 +66,7 @@ public class Paquete implements Serializable {
         this.paquetePK = paquetePK;
     }
 
-    public Paquete(PaquetePK paquetePK, String tamano, int fecha, BigDecimal hora, String remitente) {
+    public Paquete(PaquetePK paquetePK, String tamano, BigDecimal fecha, BigDecimal hora, String remitente) {
         this.paquetePK = paquetePK;
         this.tamano = tamano;
         this.fecha = fecha;
@@ -106,11 +94,11 @@ public class Paquete implements Serializable {
         this.tamano = tamano;
     }
 
-    public int getFecha() {
+    public BigDecimal getFecha() {
         return fecha;
     }
 
-    public void setFecha(int fecha) {
+    public void setFecha(BigDecimal fecha) {
         this.fecha = fecha;
     }
 
@@ -128,14 +116,6 @@ public class Paquete implements Serializable {
 
     public void setRemitente(String remitente) {
         this.remitente = remitente;
-    }
-
-    public Apartamento getApartamento() {
-        return apartamento;
-    }
-
-    public void setApartamento(Apartamento apartamento) {
-        this.apartamento = apartamento;
     }
 
     @Override
