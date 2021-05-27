@@ -20,6 +20,10 @@ export class PaquetesService {
     return this.http.post(url,body);
   } // end postPaquetesUrl
 
+  public deletePaquetesUrl(url: string) {
+    return this.http.delete(url);
+  } // end deletePaquetesUrl
+
   async nuevoPaquete(paquete:Paquete){
     this.postPaquetesUrl(IPRESIDENTES + "consultas/paquetes/nuevoPaquete", paquete)
     .subscribe(respuesta =>{
@@ -31,6 +35,13 @@ export class PaquetesService {
     this.getPaquetesUrl(IPRESIDENTES + "consultas/paquetes/"+numConjunto.toString()+"/"+numApto.toString())
       .subscribe(respuesta => {
         this.paquetes = respuesta;
+      })
+  } // end cargarPaquetes
+
+  async elimnarPaquete(numConjunto: number, numApto: number, numPaquete:number) {
+    this.deletePaquetesUrl(IPRESIDENTES + "consultas/paquetes/eliminarPaquete/"+numConjunto.toString()+"/"+numApto.toString()+"/"+numPaquete.toString())
+      .subscribe(respuesta => {
+        console.log("Respuesta: ", respuesta);
       })
   } // end cargarPaquetes
 

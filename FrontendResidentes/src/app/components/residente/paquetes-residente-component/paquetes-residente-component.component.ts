@@ -12,6 +12,7 @@ import { PaquetesService } from 'src/app/Services/paquetes/paquetes.service';
 export class PaquetesResidenteComponent implements OnInit {
 
   public paquetes :any;
+  paquetesSer :any;
   public paqueteView : string[] = []; 
   public conjuntoActivo:number;
   public aptoActivo:number;
@@ -26,8 +27,14 @@ export class PaquetesResidenteComponent implements OnInit {
     this.aptoActivo = this.servIngAptoService.getIdApto();
     this.paquetesService.cargarPaquetes(this.conjuntoActivo, this.aptoActivo);
     await this.waitBD(); 
-    this.paquetes = this.paquetesService.getPaquetes();
-    console.log("PAQUETESSSSSS : ", this.paquetes);
+    this.paquetesSer = this.paquetesService.getPaquetes();
+    console.log("PAQUETESSSSSS : ", this.paquetesSer);
+    var conteo = 0;
+    for(let paquete of this.paquetesSer){
+      var paqueteAux = {num:conteo+1, paquete:this.paquetesSer[conteo]};
+      conteo += 1;
+      this.paquetes.push(paqueteAux);
+    }
     for(let paquete of this.paquetes)
       this.paqueteView.push('oculto');
   } // end ionViewWillEnter
@@ -37,15 +44,15 @@ export class PaquetesResidenteComponent implements OnInit {
   }
 
   listOpen(paquete:any){
-    if(this.paqueteView[paquete.paquetePK.idPaqueete - 1] == 'mostrar'){
-      this.paqueteView[paquete.paquetePK.idPaqueete - 1]='oculto';
+    if(this.paqueteView[paquete.num - 1] == 'mostrar'){
+      this.paqueteView[paquete.num - 1]='oculto';
     }else{
-      this.paqueteView[paquete.paquetePK.idPaqueete - 1]='mostrar';
+      this.paqueteView[paquete.num - 1]='mostrar';
     }
   }
 
   getPaqueteView(paquete:any){
-    return this.paqueteView[paquete.paquetePK.idPaqueete-1];
+    return this.paqueteView[paquete.num-1];
   }
 
   convertHour(hour: number):string{
@@ -55,9 +62,15 @@ export class PaquetesResidenteComponent implements OnInit {
     hours = Math.trunc((hour/100)%100);
     if(hours > 11){
       hours -= 12;
-      return hours.toString() + ":" + minutes.toString() + " pm";
+      if(minutes > 9)
+        return hours.toString() + ":" + minutes.toString() + " pm";
+      else
+        return hours.toString() + ":0" + minutes.toString() + " pm";
     }else{
-      return hours.toString() + ":" + minutes.toString() + " am";
+      if(minutes > 9)
+        return hours.toString() + ":" + minutes.toString() + " am";
+      else
+      return hours.toString() + ":0" + minutes.toString() + " am";
     } // end if
   } // end convertHour
 

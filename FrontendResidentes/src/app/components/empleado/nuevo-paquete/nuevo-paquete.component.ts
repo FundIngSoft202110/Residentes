@@ -22,6 +22,7 @@ export class NuevoPaqueteComponent implements OnInit {
   public anio:number = 0;
   public dia:number = 0;
   public hora:number = 0;
+  public horaAux:number = 0;
   public minuto:number = 0;
   public horaCompleta:string = "";
   paqueteNuevo:Paquete = new Paquete();
@@ -38,23 +39,23 @@ export class NuevoPaqueteComponent implements OnInit {
     this.paquetesService.cargarFechaActual();
     await this.waitBD();
     this.fecha = this.paquetesService.getFechaActual();
-    console.log(this.fecha, "      horaaa: ", this.fecha.hora);
     this.mes = this.fecha.mes;
     this.dia = this.fecha.dia;
     this.anio = this.fecha.anio;
     this.hora = this.fecha.hora;
     this.minuto = this.fecha.minutos;
     if(this.hora > 11){
-      this.hora -= 12;
+      this.horaAux = this.hora;
+      this.horaAux -= 12;
       if(this.minuto > 9)
-        this.horaCompleta = this.hora.toString() + ":" + this.minuto.toString() + " pm";
+        this.horaCompleta = this.horaAux.toString() + ":" + this.minuto.toString() + " pm";
       else
-      this.horaCompleta = this.hora.toString() + ":0" + this.minuto.toString() + " pm";
+        this.horaCompleta = this.horaAux.toString() + ":0" + this.minuto.toString() + " pm";
     }else{
       if(this.minuto > 9)
         this.horaCompleta = this.hora.toString() + ":" + this.minuto.toString() + " am";
       else
-      this.horaCompleta = this.hora.toString() + ":0" + this.minuto.toString() + " am";
+        this.horaCompleta = this.hora.toString() + ":0" + this.minuto.toString() + " am";
     } // end if
   } // end ionViewWillEnter
 
@@ -65,14 +66,6 @@ export class NuevoPaqueteComponent implements OnInit {
   getHora(){
     return this.horaCompleta;
   } // end getHora
-
-  optionsTamano(){ //here item is an object 
-    console.log(this.tamanoSeleccionado);
-  }
-
-  Remitente(){
-    console.log(this.remi);
-  }
 
   getColorReportar(){
     if((this.tamanoSeleccionado == "") || (this.remi == "")){
@@ -92,7 +85,6 @@ export class NuevoPaqueteComponent implements OnInit {
       this.paqueteNuevo.fecha = this.dia * 1000000 + this.mes * 10000 + this.anio;
       this.paqueteNuevo.hora = this.hora*100 + this.minuto;
       this.paqueteNuevo.remitente = this.remi;
-      console.log("Paquete nuevo: ", this.paqueteNuevo);
       this.paquetesService.nuevoPaquete(this.paqueteNuevo);
       this.tamanoSeleccionado = "";
       this.remi = "";

@@ -31,18 +31,21 @@
                 </ion-item>
                 <ion-list *ngIf="getPaqueteView(paquete)=='mostrar'">
                     <ion-item>
-                        <ion-label color="medium"> Tamaño: {{paquete.tamano}}</ion-label>
+                        <ion-label color="medium"> Tamaño: {{paquete.paquete.tamano}}</ion-label>
                     </ion-item>
                     <ion-item>
-                        <ion-label color="medium"> Fecha: {{convertDate(paquete.fecha)}}</ion-label>
+                        <ion-label color="medium"> Fecha: {{convertDate(paquete.paquete.fecha)}}</ion-label>
                     </ion-item>
                     <ion-item>
-                        <ion-label color="medium"> Hora: {{convertHour(paquete.hora)}}</ion-label>
+                        <ion-label color="medium"> Hora: {{convertHour(paquete.paquete.hora)}}</ion-label>
                     </ion-item>
                     <ion-item>
-                        <ion-label color="medium"> Remitente: {{paquete.remitente}}</ion-label>
+                        <ion-label color="medium"> Remitente: {{paquete.paquete.remitente}}</ion-label>
                     </ion-item>
                 </ion-list>
+            </div>
+            <div *ngIf="getLength()==0">
+                <ion-img src="/../../../../assets/icon/IconConjuntos/paquete.JPG" alt="Paquete"></ion-img>
             </div>
         </ion-card>
     </div>
