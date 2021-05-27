@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable, Output } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 
 export class FechaArea {
@@ -9,11 +9,11 @@ export class FechaArea {
 }
 
 export class AreaComun{
-	areacomunPK:areaComunPK;
+	areacomunPK:areaComunPKfecha;
 
 }
 
-export class areaComunPK{
+export class areaComunPKfecha{
     idArea:any;
 	conjuntoIdConjunto: any;
 }
@@ -31,7 +31,7 @@ let diasDisponibles: string[] = ["Lunes-Viernes", "Lunes-Domingo", "Viernes-Domi
 
 @Injectable()
 export class AgregarFechaAreaService {
-	//@Output() disparadorareacomun: EventEmiter<any> = new EventEmitter();
+
 	constructor(private http: HttpClient){
 
     }

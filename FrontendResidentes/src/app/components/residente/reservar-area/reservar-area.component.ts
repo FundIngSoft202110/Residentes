@@ -22,6 +22,7 @@ import { NavController } from '@ionic/angular';
 
 export class ReservarAreaComponent {
 	reserva: Reserva;
+  horasDisponibles: string[];
 	hora_i: any;
 	hora_f: any;
 	cantidad_p: any;
@@ -30,8 +31,11 @@ export class ReservarAreaComponent {
   
 	constructor(service: ReservarAreaResidenteService, private navCtrl: NavController) {
 		this.reserva = service.getReserva();
+        this.horasDisponibles = service.getHorasDisponibles();
         this.hora_i = service.getHora_i();
         this.hora_f = service.getHora_f();
         this.cantidad_p = service.getCantidad_p();
 	}
+  
+  ngOnInit() {}
 }
