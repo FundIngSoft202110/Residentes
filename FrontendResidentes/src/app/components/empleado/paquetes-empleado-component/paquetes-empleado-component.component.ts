@@ -15,10 +15,13 @@ import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto
 export class PaquetesEmpleadoComponent implements OnInit {
 
   paquetes : any;
+  paquetesSer :any;
   aptos : any;
   aptoSeleccionado : number =0;
   public conjuntoActivo:number;
   public aptoActivo:number;
+  private contInicial:number = 0;
+  public paqueteView : string[] = []; 
 
   constructor(private navCtrl: NavController,private paquetesService : PaquetesService, private conjuntosService: ConjuntosService, private servIngAptoService: ServIngAptoService) { }
 
@@ -32,7 +35,6 @@ export class PaquetesEmpleadoComponent implements OnInit {
   async ionViewWillEnter(){
     this.aptoSeleccionado = 0;
     this.conjuntoActivo = this.conjuntosService.getConjuntoActivo();
-    this.aptoActivo = this.servIngAptoService.getIdApto();
     this.servIngAptoService.getAptos(this.conjuntoActivo);
     await this.waitBD(); 
     this.aptos = this.servIngAptoService.getApartamentos();
@@ -43,11 +45,33 @@ export class PaquetesEmpleadoComponent implements OnInit {
     
   }
 
-  async optionsApto(){ //here item is an object 
-    //this.aptosService.setAptoActivo(this.aptoSeleccionado);
+  listOpen(paquete:any){
+    if(this.paqueteView[paquete.paquetePK.idPaqueete - 1] == 'mostrar'){
+      this.paqueteView[paquete.paquetePK.idPaqueete - 1]='oculto';
+    }else{
+      this.paqueteView[paquete.paquetePK.idPaqueete - 1]='mostrar';
+    }
+  }
+
+  getPaqueteView(paquete:any){
+    return this.paqueteView[paquete.paquetePK.idPaqueete-1];
+  }
+
+  async optionsApto(){
+    this.paquetes = [];
+    this.paquetesSer = [];
+    this.servIngAptoService.setIdApto(this.aptoSeleccionado);
     this.paquetesService.cargarPaquetes(this.conjuntoActivo, this.aptoSeleccionado);
     await this.waitBD();
-    this.paquetes = this.paquetesService.getPaquetes();
+    this.paquetesSer = this.paquetesService.getPaquetes();
+    console.log("PAQUETESSSSS: ", this.paquetesSer);
+    var conteo = 0;
+    for(let paquete of this.paquetesSer){
+      var paqueteAux = {num:conteo+1, paquete:this.paquetesSer[conteo]};
+      conteo += 1;
+      this.paquetes.push(paqueteAux);
+    }
+    console.log("CONTEOOOOO: ", this.paquetes);
   }
 
   botonNuevoPaquete(){

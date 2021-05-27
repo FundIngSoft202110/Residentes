@@ -7,6 +7,7 @@ package CONTROLADORES;
 
 import API.ConexionBD;
 import ENTIDADES.Conjunto;
+import ENTIDADES.DTOConjuntos;
 import ENTIDADES.DTOrespuestas;
 import ENTIDADES.Empleado;
 import java.io.File;
@@ -101,6 +102,33 @@ public class contraladorConjunto {
         return conjunto;
     }
 
+    @GET
+    @Path("/netflix/{idPersona}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<DTOConjuntos> conjuntosPersona(@PathParam("idPersona") int idPersona) {
+        String consulta = "SELECT c.IdConjunto, c.Nombre "
+                        + "FROM Conjunto as c, PersonaXConjunto as pxc "
+                        + "WHERE c.IdConjunto = pxc.ConjuntoIdConjunto AND pxc.PersonaIdPersona = ? ";
+        DTOConjuntos conjunto;
+        List<DTOConjuntos> conjuntosPersona = new ArrayList<>(); 
+        try (
+                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
+                 statement.setInt(1, idPersona);
+            
+            try(ResultSet rs = statement.executeQuery();){
+                while(rs.next()){
+                    conjunto = new DTOConjuntos();
+                    conjunto.setId(rs.getInt("IdConjunto"));
+                    conjunto.setNombre(rs.getString("Nombre"));
+                    conjuntosPersona.add(conjunto);
+                }
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución: " + sqle.getErrorCode() + " " + sqle.getMessage());
+        }
+        return conjuntosPersona;
+    }
+    
     @PUT
     @Path("/pagarAdmin/{IdConjunto}/{IdApto}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -121,7 +149,7 @@ public class contraladorConjunto {
         res.setRespuesta("Error modificando");
         return res;
     }
-
+    
     @POST
     @Path("/NuevoConjunto")
     @Consumes(MediaType.APPLICATION_JSON)

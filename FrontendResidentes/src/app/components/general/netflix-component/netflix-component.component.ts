@@ -14,7 +14,7 @@ import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto
 })
 export class NetflixComponent implements OnInit {
 
-  conjuntos = []
+  conjuntos : any;
   public usuario: string;
 
   constructor(private personasService:PersonasService, private conjuntoService : ConjuntosService, private servIngAptoService: ServIngAptoService, private navCtrl: NavController) { }
@@ -25,7 +25,7 @@ export class NetflixComponent implements OnInit {
   ionViewWillEnter(){
     this.usuario = this.personasService.getPersonaActiva();
     console.log(this.usuario);
-    this.conjuntos = this.conjuntoService.getConjuntos();
+    this.conjuntos = this.conjuntoService.getConjuntosPersona(this.usuario);
   }// end ngOnInit
 
   getUser(){

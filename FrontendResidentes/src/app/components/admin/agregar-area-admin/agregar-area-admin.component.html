@@ -1,4 +1,5 @@
 <app-header titulo="AGREGAR AREA COMUN" menu=ADMIN></app-header>
+<div class="borde">
 <dx-form id="form"
 	[formData]="nuevaArea"
 	[labelLocation]="label">
@@ -7,11 +8,14 @@
 				<dxi-item dataField="nombre"></dxi-item>
             	<dxi-item dataField="tipo" editorType="dxSelectBox" [editorOptions]="{ items: tipo, value: '' }"></dxi-item>
 				<dxi-item dataField="capacidad"></dxi-item>
-            	<dxi-item dataField="descripcion" [colSpan]="2" editorType="dxTextArea" [editorOptions]="{ height: 140 }"></dxi-item>
-		
+		        <dxi-item dataField="HoraDeApertura" editorType="dxSelectBox" [editorOptions]="{ items: horaDeApertura, value: '' }"></dxi-item>
+            	<dxi-item dataField="HoraDeCierre" editorType="dxSelectBox" [editorOptions]="{ items: horaDeCierre, value: '' }"></dxi-item>
+            	<dxi-item dataField="DiasDisponibles" editorType="dxSelectBox" [editorOptions]="{ items: diasDisponibles, value: '' }"></dxi-item>
+                <dxi-item dataField="descripcion" [colSpan]="2" editorType="dxTextArea" [editorOptions]="{ height: 140 }"></dxi-item>
 	</dxi-item>
 
 </dx-form>
+</div>
 
 <ion-button class="botIng"
       (click)="mandarArea()"

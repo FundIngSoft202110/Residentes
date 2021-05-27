@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MONTHS } from 'src/app/constants';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
 import { PaquetesService } from 'src/app/Services/paquetes/paquetes.service';
@@ -36,17 +37,38 @@ export class PaquetesResidenteComponent implements OnInit {
   }
 
   listOpen(paquete:any){
-    console.log("Paquete = ", paquete.paquetePK.idPaqueete, " CHange = ", this.paqueteView[paquete.paquetePK.idPaqueete - 1]);
     if(this.paqueteView[paquete.paquetePK.idPaqueete - 1] == 'mostrar'){
       this.paqueteView[paquete.paquetePK.idPaqueete - 1]='oculto';
     }else{
       this.paqueteView[paquete.paquetePK.idPaqueete - 1]='mostrar';
     }
-    console.log("Paquete = ", paquete.id, "  Post CHange = ", this.paqueteView[paquete.paquetePK.idPaqueete - 1]);
   }
 
   getPaqueteView(paquete:any){
     return this.paqueteView[paquete.paquetePK.idPaqueete-1];
   }
 
-}
+  convertHour(hour: number):string{
+    var minutes:number;
+    var hours:number;
+    minutes = Math.trunc(hour%100);
+    hours = Math.trunc((hour/100)%100);
+    if(hours > 11){
+      hours -= 12;
+      return hours.toString() + ":" + minutes.toString() + " pm";
+    }else{
+      return hours.toString() + ":" + minutes.toString() + " am";
+    } // end if
+  } // end convertHour
+
+  convertDate(date: number):string{
+    var year:number;
+    var month:number;
+    var day:number;
+    year = Math.trunc(date%10000);
+    month = Math.trunc((date/10000)%100);
+    day = Math.trunc((date/1000000)%100);
+    return MONTHS[Math.trunc(month)-1] + " " + day.toString() + " " + year.toString();
+  } // end convertDay
+
+} // end PaquetesResidenteComponent

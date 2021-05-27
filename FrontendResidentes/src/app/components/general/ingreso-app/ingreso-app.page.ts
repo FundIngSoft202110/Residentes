@@ -20,7 +20,7 @@ export class IngresoAppPage implements OnInit {
     ],
     password: [
       { type: "required", message: " El password es requerido" },
-      { type: "minlength", message: "Minimo 5 letras para el password" }
+      { type: "minlength", message: "Minimo 3 letras para el password" }
     ]
   };
   errorMessage: string = "";
@@ -40,22 +40,38 @@ export class IngresoAppPage implements OnInit {
       ),
       password: new FormControl(
         "",
-        Validators.compose([Validators.required, Validators.minLength(2)])
+        Validators.compose([Validators.required, Validators.minLength(3)])
       )
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
+
+  ionViewWillEnter(){
+    this.loginForm = this.formBuilder.group({
+      email: new FormControl(
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
+        ])
+      ),
+      password: new FormControl(
+        "",
+        Validators.compose([Validators.required, Validators.minLength(3)])
+      )
+    });
+  }
 
   loginUser(credentials) {
     this.authService.loginUser(credentials).then(res => {
       this.errorMessage = "";
       let cor ;
-      
       cor = this.personasService.getIdPersona(credentials.email);
-      console.log("este es el cor",cor);
       this.personasService.setPersonaActiva(cor);
-      console.log(cor);
+      this.loginForm.clearValidators();
       this.navCtrl.navigateForward("/netflix");
     }).catch(err=>{
       this.errorMessage = err;
