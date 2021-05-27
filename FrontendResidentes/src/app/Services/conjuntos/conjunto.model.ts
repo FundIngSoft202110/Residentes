@@ -1,4 +1,4 @@
-export interface Conjunto{
+export class Conjunto{
     id: number;
     nombre: string;
     linkDePago: string;
@@ -6,3 +6,4 @@ export interface Conjunto{
     precioAdmin: number;
     manual: string;
 }
+
