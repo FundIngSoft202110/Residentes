@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 
 
 export class Asamblea {
-	IdAsamblea: number;
-	FechaAsamblea: string;
-	Tema: string;
+	id: number;
+	fecha: string;
+	tema: string;
 	NumeroPropuestas: number;
-	Activo: string;
+	estado: string;
 }
 
 export class Opciones {
@@ -25,32 +25,32 @@ export class AsambleaService {
 
 	private asambleas: Asamblea[] = [
 		{
-			IdAsamblea: 1,
-			FechaAsamblea: "2021/05/01",
-			Tema: "Junta anual",
+			id: 1,
+			fecha: "2021/05/01",
+			tema: "Junta anual",
 			NumeroPropuestas: 0,
-			Activo: "Activa"
+			estado: "Activa"
 		},
 		{
-			IdAsamblea: 2,
-			FechaAsamblea: "2021/02/21",
-			Tema: "Junta extraordinaria",
+			id: 2,
+			fecha: "2021/02/21",
+			tema: "Junta extraordinaria",
 			NumeroPropuestas: 0,
-			Activo: "Finalizada"
+			estado: "Finalizada"
 		},
 		{
-			IdAsamblea: 3,
-			FechaAsamblea: "2021/06/21",
-			Tema: "Junta extraordinaria",
+			id: 3,
+			fecha: "2021/06/21",
+			tema: "Junta extraordinaria",
 			NumeroPropuestas: 0,
-			Activo: "Programada"
+			estado: "Programada"
 		}
 	]
 
 	private asambleaAbierta: number;
 
-	setAsambleaAbierta(idAsamblea: number) {
-		window.localStorage['asambleaAbierta'] = idAsamblea.toString();
+	setAsambleaAbierta(id: number) {
+		window.localStorage['asambleaAbierta'] = id.toString();
 	}// setAsambleaAbierta
 
 	clearAsambleaAbierta(){
@@ -69,8 +69,8 @@ export class AsambleaService {
 		return this.asambleas;
 	}
 
-	getAsamblea(idAsamblea: number) {
-		return this.asambleas.find(asamblea => { return asamblea.IdAsamblea == idAsamblea });
+	getAsamblea(id: number) {
+		return this.asambleas.find(asamblea => { return asamblea.id == id });
 	}
 
 
