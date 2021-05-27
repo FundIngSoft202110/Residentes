@@ -219,7 +219,7 @@ export class ChatComponent implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Confirmación',
-      message: '¿Está seguro que desea eliminar el empleado ' + this.usuDesti + '?',
+      message: '¿Está seguro que desea eliminar el empleado ' + this.chatn + '?',
       buttons: [
         {
           text: 'Cancelar',

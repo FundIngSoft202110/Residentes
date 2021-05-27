@@ -18,9 +18,9 @@ export class ListaAsambleasResidentesComponent implements OnInit {
   }// end 
 
   goRoute(asamblea:Asamblea){
-    if(asamblea.Activo != 'Programada'){
-      this.asambleaService.setAsambleaAbierta(asamblea.IdAsamblea);
-      console.log("Asamblea = ", asamblea.IdAsamblea, " Estado = ", asamblea.Activo);
+    if(asamblea.estado != 'Programada'){
+      this.asambleaService.setAsambleaAbierta(asamblea.id);
+      console.log("Asamblea = ", asamblea.id, " Estado = ", asamblea.estado);
       this.navCtrl.navigateForward("/asamblea-residente");
     }
   }

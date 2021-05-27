@@ -8,7 +8,7 @@ import { IPRESIDENTES } from 'src/app/constants';
   providedIn: 'root'
 })
 export class ConjuntosService {
-
+  conjuntoxPersona : any;
   private conjuntos:Conjunto[] = [ 
     {
       id: 1,
@@ -74,6 +74,12 @@ export class ConjuntosService {
       })
   }
 
+  async getConjuntosPersona(idPersona: string) {
+    this.getPagoAdminUrl(IPRESIDENTES + "consultas/Conjuntos/netflix/" + idPersona)
+      .subscribe(respuesta => {
+        this.conjuntoxPersona = respuesta;
+      })
+  }
 
   varRes:any;
   
