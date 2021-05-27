@@ -101,41 +101,6 @@ public class contraladorConjunto {
         }
         return conjunto;
     }
-    
-    @GET
-    @Path("/cuotaAdmin/{IdConjunto}/{IdApto}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Conjunto mostrarCuota(@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto) {
-        Conjunto conjunto = new Conjunto();
-        int pagoAdmin = 0;
-        String consultaA = "SELECT PagoAdmin FROM Apartamento AS a WHERE  a.ConjuntoIdConjunto = ? AND a.IdApartamento = ?";
-        String consulta = "SELECT LinkDePago, PrecioAdmin FROM Conjunto AS c WHERE  c.idConjunto = ?";
-        try (
-                PreparedStatement statementA = this.con.prepareStatement(consultaA);
-                PreparedStatement statement = this.con.prepareStatement(consulta);
-                ) {
-            statementA.setInt(1, idConjunto);
-            statementA.setInt(2, idApto);
-            statement.setInt(1, idConjunto);
-        
-            try(ResultSet rsA = statementA.executeQuery();
-                ResultSet rs = statement.executeQuery();){
-                while(rsA.next()){
-                    pagoAdmin = rsA.getInt("PagoAdmin");
-                }
-                while (rs.next()) {
-                    conjunto.setLinkDePago(rs.getString("LinkDePago"));
-                    if(pagoAdmin > 0)
-                        conjunto.setPrecioAdmin(rs.getInt("PrecioAdmin"));
-                    else
-                        conjunto.setPrecioAdmin(0);
-                }
-            }
-        } catch (SQLException sqle) {
-            System.out.println("ho");
-        }
-        return conjunto;
-    }
 
     @GET
     @Path("/netflix/{idPersona}")
@@ -163,7 +128,28 @@ public class contraladorConjunto {
         }
         return conjuntosPersona;
     }
+    
+    @PUT
+    @Path("/pagarAdmin/{IdConjunto}/{IdApto}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas pagarAdmin(@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto) {
+        String consulta = "UPDATE Apartamento SET PagoAdmin = '0' WHERE (`IdApartamento` = ?) and (`ConjuntoIdConjunto` = ?);";
+        DTOrespuestas res = new DTOrespuestas();
+        try (
+                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
+            statement.setInt(1, idApto);
+            statement.setInt(2, idConjunto);
+            statement.executeUpdate();
+            res.setRespuesta("Modificado exitosamente");
+            return res;
 
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución: " + sqle.getErrorCode() + " " + sqle.getMessage());
+        }
+        res.setRespuesta("Error modificando");
+        return res;
+    }
+    
     @POST
     @Path("/NuevoConjunto")
     @Consumes(MediaType.APPLICATION_JSON)
