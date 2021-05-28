@@ -36,7 +36,7 @@ public class contraladorNoticia {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Noticia> cargarNoticias(@PathParam("IdConjunto") int idConjunto) {
         List<Noticia> noti = new ArrayList<>();
-        String consulta = "SELECT * FROM Noticia AS n WHERE (`ConjuntoIdConjunto` = ?);";
+s        String consulta = "SELECT * FROM Noticia AS n WHERE (`ConjuntoIdConjunto` = ?);";
         Noticia a;
         NoticiaPK apk;
         try (
@@ -53,7 +53,7 @@ public class contraladorNoticia {
                     a.setTitulo(rs.getString("Titulo"));
                     a.setDescripcion(rs.getString("Descripcion"));
                     a.setImagen(rs.getString("Imagen"));
-                    a.setFecha(rs.getDate("Fecha"));
+                    a.setFecha(rs.getBigDecimal("Fecha"));
                     noti.add(a);
                 }
             }
@@ -62,17 +62,22 @@ public class contraladorNoticia {
         }
 
         return noti;
-    }
+    } // end cargarNoticias
     
     /*MÉTODO PARA AGREGAR  UNA NOTICIA EN UN  CONJUNTO*/
     @POST
     @Path("/nuevaNoticia")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public DTOrespuestas agregarPaquete(Noticia noticia) {
+    public DTOrespuestas publicarNoticias(Noticia noticia) {
         DTOrespuestas res = new DTOrespuestas();
-        String consulta = "INSERT INTO Noticia (`IdNoticia`, `ConjuntoIdConjunto`, `Titulo`, `Descripcion`, `Imagen`, `fecha`) VALUES (?, ?, ? ,?, ?, ?)";
-
+        String consulta;
+        String consulta1 = "INSERT INTO Noticia (`ConjuntoIdConjunto`, `Titulo`, `Descripcion`, `Imagen`, `fecha`) VALUES (?, ?, ? ,?, ?)";
+        String consulta2 = "INSERT INTO Noticia (`ConjuntoIdConjunto`, `Titulo`, `Descripcion`,`fecha`) VALUES (?, ?, ? ,?)";
+        if(noticia.getImagen() == "0")
+            consulta =  consulta2;
+        else
+            consulta = consulta1;
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
             
@@ -80,13 +85,13 @@ public class contraladorNoticia {
             String titulo = noticia.getTitulo();
             String descripcion = noticia.getDescripcion();
             String imagen = noticia.getImagen();
-            Date fecha = noticia.getFecha();
+            BigDecimal fecha = noticia.getFecha();
 
             statement.setInt(1, conjuntoId);
             statement.setString(2, titulo);
             statement.setString(3, descripcion);
             statement.setString(4, imagen);
-            statement.setDate(5, (java.sql.Date) fecha);
+            statement.setBigDecimal(5, fecha);
             statement.executeUpdate();
             res.setRespuesta("Agregado exitosamente");
             return res;
@@ -96,7 +101,7 @@ public class contraladorNoticia {
         }
         res.setRespuesta("Fallo de creacion");
         return res;
-    } // end agregarPaquete
+    } // end publicarNoticias
     
     /*MÉTODO PARA ELIMINAR  UNA NOTICIA DE UN  CONJUNTO*/
     @DELETE

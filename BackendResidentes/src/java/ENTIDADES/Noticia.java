@@ -6,7 +6,7 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -59,7 +59,7 @@ public class Noticia implements Serializable {
     @NotNull
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private BigDecimal fecha;
     @JoinColumn(name = "ConjuntoIdConjunto", referencedColumnName = "IdConjunto", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Conjunto conjunto;
@@ -71,7 +71,7 @@ public class Noticia implements Serializable {
         this.noticiaPK = noticiaPK;
     }
 
-    public Noticia(NoticiaPK noticiaPK, String titulo, String descripcion, Date fecha) {
+    public Noticia(NoticiaPK noticiaPK, String titulo, String descripcion, BigDecimal fecha) {
         this.noticiaPK = noticiaPK;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -114,11 +114,11 @@ public class Noticia implements Serializable {
         this.imagen = imagen;
     }
 
-    public Date getFecha() {
+    public BigDecimal getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(BigDecimal fecha) {
         this.fecha = fecha;
     }
 
