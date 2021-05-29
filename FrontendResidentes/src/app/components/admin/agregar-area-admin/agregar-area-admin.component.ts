@@ -14,6 +14,7 @@ import { DxCheckBoxModule,
          DxFormComponent
        } from 'devextreme-angular';
 import { NavController } from '@ionic/angular';
+import { IPRESIDENTESA } from 'src/app/constants';
 
 
 const sendRequest = function(value) {
@@ -85,7 +86,7 @@ export class AgregarAreaAdminComponent implements OnInit{
       
         console.log("holiii",this.nuevaArea);
        
-         this.service.postAreaNueva("http://192.168.76.71:8080/BackendResidentes/consultas/AreasComunes/NuevaArea",this.nuevaArea)
+         this.service.postAreaNueva(IPRESIDENTESA+"/consultas/AreasComunes/NuevaArea",this.nuevaArea)
        .subscribe(respuesta=> {
            
         this.respuesta = respuesta;
@@ -100,7 +101,7 @@ export class AgregarAreaAdminComponent implements OnInit{
       }
 
      public traerArea(){
-         this.service.getAreaEspecifica("http://192.168.76.71:8080/BackendResidentes/consultas//consultas/AreasComunes/areaEspecifica/conjunto/$:{conjunto.getConjuntoActivo()}/nomArea/$:{nuevaArea.nombre}")
+         this.service.getAreaEspecifica(IPRESIDENTESA+"/consultas//consultas/AreasComunes/areaEspecifica/conjunto/"+this.conjunto.getConjuntoActivo()+"/nomArea/"+this.nuevaArea.nombre)
          .subscribe(respuesta=> {
              this.respuestaArea = respuesta;
 

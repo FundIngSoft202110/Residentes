@@ -16,6 +16,7 @@ import { DxSelectBoxModule,
 import notify from 'devextreme/ui/notify';
 import { NavController } from '@ionic/angular';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
+import { IPRESIDENTESA } from 'src/app/constants';
 
 
 const sendRequest = function(value) {
@@ -46,7 +47,7 @@ export class AreaComunAdminComponent {
     conjuntoA : any;
     tiposelect: any;
     listaRespuestas:string[]=[];
-   
+    valorEstado:boolean;
     
     
 
@@ -94,11 +95,11 @@ export class AreaComunAdminComponent {
     }
 
     BorrarArea(){
-        this.traerAreas();
+        
     }
 
     public traerAreas(){
-         this.service.getAreasBack("http://192.168.76.71:8080/BackendResidentes/consultas/AreasComunes/areasComunesTipo/conjunto/"+this.conjuntoA+"/nomTipoArea/"+this.tiposelect)
+         this.service.getAreasBack(IPRESIDENTESA+"/consultas/AreasComunes/areasComunesTipo/conjunto/"+this.conjuntoA+"/nomTipoArea/"+this.tiposelect)
          .subscribe(respuesta => {
              this.listaDeAreasComunesR= respuesta;
             this.setAreas();

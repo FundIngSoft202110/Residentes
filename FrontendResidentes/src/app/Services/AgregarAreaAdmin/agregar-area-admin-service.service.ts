@@ -19,9 +19,6 @@ export class AreaComunPK{
 }
 
 
-
-
-
 let tipo: string[] = [
     "Deportiva",
     "Social",

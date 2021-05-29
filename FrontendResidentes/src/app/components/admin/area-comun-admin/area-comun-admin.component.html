@@ -8,7 +8,8 @@
                 <dx-radio-group
                     [items]="tipo"
                     [(value)]="tiposelect"
-                    layout="horizontal">
+                    layout="horizontal"
+                     (onOptionChanged)="traerAreas()">
                 </dx-radio-group>
             </div>
         </div>
@@ -27,7 +28,7 @@
 </dx-form>
 
 <p class="derecho">Habilitar/Deshabiliatar</p>
-<ion-toggle class= "derechoT" color="residente" ></ion-toggle>
+<ion-toggle class= "derechoT" [(ngModel)]="valorEstado" color="residente" ></ion-toggle>
 
 <ion-button class="botIng2"
       (click)="BorrarArea()"
@@ -41,7 +42,7 @@
 	  Eliminar</ion-button
     >
 	<ion-button class="botIng3"
-      (click)="verArea()"
+      (click)="modificarArea()"
       expand="full"
       shape="round"
       color="residente"
