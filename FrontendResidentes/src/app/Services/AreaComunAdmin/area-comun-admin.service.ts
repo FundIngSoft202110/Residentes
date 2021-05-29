@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 
 export class Area {
-    Tipo: string;
-	ListaDeAreasComunes: string;
+  
+	Selccionada: any	;
 }
 
-let area: Area = {
-    "Tipo": "Deportivo",
-    "ListaDeAreasComunes": "Cancha de futbol"
+
+export class listaAreas{
+   respuesta : any;
 };
 
+
+
 let tipo: string[] = [
-    "Deportivo",
+    "Deportiva",
     "Relajante",
     "Social"
 ];
@@ -23,10 +26,15 @@ let listaDeAreasComunes: string[] = [
 ];
 
 
+
 @Injectable()
 export class AreaComunAdminService {
+
+	constructor(private http: HttpClient){
+
+	}
 	getArea() {
-		return area;
+	  
 	}
 
 	getTipo() {
@@ -34,6 +42,9 @@ export class AreaComunAdminService {
 	}
 	getListaDeAreasComunes() {
 		return listaDeAreasComunes;
+	}
+	getAreasBack(url:string){
+       return this.http.get(url);
 	}
 }
 

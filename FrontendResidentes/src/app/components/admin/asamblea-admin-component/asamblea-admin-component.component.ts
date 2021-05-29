@@ -51,6 +51,9 @@ export class AsambleaAdminComponent implements OnInit {
     this.asambleas = this.service.getAsambleas();
   }
 
+  nuevaAsamblea(){
+    
+  }
 
 
 
