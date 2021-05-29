@@ -36,6 +36,14 @@ export class NetflixComponent implements OnInit {
     return this.conjuntoService.getConjunto(apto.idConjunto);
   }// getConjunto
 
+  goAgregar(){
+    if(this.usuario == "ADMIN"  ){
+      this.navCtrl.navigateForward("/nuevo-conjunto");
+    }else{
+      this.navCtrl.navigateForward("/seleccion-conjunto");
+    }
+  }
+
   goConjunto(conjunto:Conjunto){
     this.conjuntoService.setConjuntoActivo(conjunto.id);
     if(this.usuario == "ADMIN"  ){
