@@ -41,13 +41,15 @@ import { ReservarAreaComponent } from './components/residente/reservar-area/rese
 import { AreaComunAdminComponent } from './components/admin/area-comun-admin/area-comun-admin.component';
 import { AgregarAreaAdminComponent } from './components/admin/agregar-area-admin/agregar-area-admin.component';
 import { ModificarAreaAdminComponent } from './components/admin/modificar-area-admin/modificar-area-admin.component';
-import { AgregarFechaAreaComponent } from './components/admin/agregar-fecha-area/agregar-fecha-area.component';
-import { ModificarFechaAreaComponent } from './components/admin/modificar-fecha-area/modificar-fecha-area.component';
+
+
+import { NgCalendarModule } from 'ionic2-calendar';
+
 import localeDe from '@angular/common/locales/es-CO';
 registerLocaleData(localeDe);
 import { NuevoPaqueteComponent } from './components/empleado/nuevo-paquete/nuevo-paquete.component';
 import { ReservacionAreaResidenteComponent } from './components/residente/reservacion-area-residente/reservacion-area-residente.component';
-import { DisponibilidadAreaComponent } from './components/residente/disponibilidad-area/disponibilidad-area.component';
+
 import { ModificarReservaAreaComponent } from './components/residente/modificar-reserva-area/modificar-reserva-area.component';
 //ngx-extended-pdf-viwer
 
@@ -181,21 +183,10 @@ const routes: Routes = [
     path: 'modificar-area',
     component: ModificarAreaAdminComponent
   },
-  {
-    path: 'afecha',
-    component: AgregarFechaAreaComponent
-  },
-  {
-    path: 'modificar-fecha',
-    component: ModificarFechaAreaComponent
-  },
+  
   {
     path: 'mis-reservas',
     component: ReservacionAreaResidenteComponent
-  },
-  {
-    path: 'disponibilidad-area',
-    component: DisponibilidadAreaComponent
   },
   {
     path: 'modificar-reserva-area',
@@ -289,10 +280,7 @@ const routes: Routes = [
     AreaComunAdminComponent,
     AgregarAreaAdminComponent,
     ModificarAreaAdminComponent,
-    AgregarFechaAreaComponent,
-    ModificarFechaAreaComponent,
     ReservacionAreaResidenteComponent, // ojo
-    DisponibilidadAreaComponent,
     ModificarReservaAreaComponent,
     ReservacionAreaResidenteComponent // ojo
   ],

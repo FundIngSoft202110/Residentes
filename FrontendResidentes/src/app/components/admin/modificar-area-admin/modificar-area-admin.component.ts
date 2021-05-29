@@ -25,11 +25,22 @@ export class ModificarAreaAdminComponent implements OnInit {
     estado: any;
     nuevaArea: NuevaArea;
 	tipo: string[];
-    
+  top="top"
+
+  horaDeApertura: number[];
+  horaDeCierre: number[];
+  diasDisponibles: string[];
+  editEstado: string[] = [
+    "Disponible",
+    "Cerrada"
+];
    
     constructor(service: ModificarAreaAdminService, private navCtrl: NavController) {
         this.nuevaArea = service.getNuevaArea();
 		this.tipo = service.getTipo();
+    this.horaDeApertura = service.getHoraDeApertura();
+        this.horaDeCierre = service.getHoraDeCierre();
+        this.diasDisponibles = service.getDiasDisponibles();
         
     }
 

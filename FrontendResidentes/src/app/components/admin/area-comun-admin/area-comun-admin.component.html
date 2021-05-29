@@ -1,4 +1,5 @@
-<app-header titulo="AREAS COMUNES" menu=ADMIN></app-header>
+<app-header titulo="ÁREAS COMUNES" menu=ADMIN></app-header>
+<div class="forma">
 <div class="form">
     <div class="dx-fieldset">
         <div class="dx-field">
@@ -6,50 +7,61 @@
             <div class="dx-field-value">
                 <dx-radio-group
                     [items]="tipo"
-                    [value]="tipo[0]"
-                    layout="horizontal">
+                    [(value)]="tiposelect"
+                    layout="horizontal"
+                     (onOptionChanged)="traerAreas()">
                 </dx-radio-group>
             </div>
         </div>
         </div>
     </div>
 <dx-form id="form"
-	[formData]="area">
+	[formData]="area"
+	[labelLocation]="top">
 	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
-		<dxi-item itemType="group" [colSpan]="3">
-            	<dxi-item dataField="ListaDeAreasComunes" editorType="dxSelectBox" [editorOptions]="{ items: listaDeAreasComunes }"></dxi-item>
-		</dxi-item>
+	
+            	<dxi-item dataField="Seleccionada" editorType="dxSelectBox" 
+                [editorOptions]="{ caption: 'Seleccione un area',items: listaRespuestas }"></dxi-item>
+		
 	</dxi-item>
-	<dxi-item itemtype="button">
-		<dx-button
-               id="button"
-			   text="Eliminar"
-			   type="danger"
-			   [width]="180"
-			   [useSubmitBehavior]="true"
-			   >
-		   </dx-button>
-	</dxi-item>
-	<dxi-item itemtype="button">
-		<dx-button
-               id="button"
-			   text="Modificar"
-			   type="success"
-			   [width]="120"
-			   [useSubmitBehavior]="true"
-			   >
-		   </dx-button>
-	</dxi-item>
-	<dxi-item itemType="group" caption=" ">
-	<dxi-item itemtype="button">
-		<dx-button
-               id="button"
-			   text="Nueva Area"
-			   type="success"
-			   [width]="120"
-			   [useSubmitBehavior]="true"
-			   >
-		   </dx-button>
-	</dxi-item>
-</dxi-item>
+
 </dx-form>
+
+<p class="derecho">Habilitar/Deshabiliatar</p>
+<ion-toggle class= "derechoT" [(ngModel)]="valorEstado" color="residente" ></ion-toggle>
+
+<ion-button class="botIng2"
+      (click)="BorrarArea()"
+      expand="full"
+      shape="round"
+      color="residente"
+      type="submit"
+	 
+      >
+	  <ion-icon name="trash"></ion-icon>
+	  Eliminar</ion-button
+    >
+	<ion-button class="botIng3"
+      (click)="modificarArea()"
+      expand="full"
+      shape="round"
+      color="residente"
+      type="submit"
+	 
+      >
+	  <ion-icon name="pencil"></ion-icon>
+	  Modificar</ion-button
+    >
+	<ion-button class="botIng4"
+      (click)="mandarAreaNueva()"
+      expand="full"
+      shape="round"
+      color="residente"
+      type="submit"
+	  
+
+      >
+	  <ion-icon name="add-circle"></ion-icon>
+	  Nueva Area</ion-button
+    >
+</div>

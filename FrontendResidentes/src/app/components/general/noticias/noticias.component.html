@@ -2,35 +2,60 @@
 
 <ion-content>
     <div>
-        <br>
-        <ion-item lines="none">
-            <ion-textarea placeholder="&nbsp;&nbsp;Comparte con tu comunidad" id="rounded">
-            </ion-textarea>
-        </ion-item>
-        <div id="derecha">
-            <ion-button color="residente" id="botonImagen">
-                <ion-icon name="image-outline"></ion-icon>
-            </ion-button>
-        </div>
-        <div id="derecha">
-            <ion-button color="residente" id="botonPublicar">
-                <ion-label>Publicar</ion-label>
-            </ion-button>
-        </div>
-    </div>
-    <div style="overflow:scroll" class="content-div">
-        <ion-card id="rounded">
-            <ion-card-content>
-                <ion-item lines="none">
-                    <ion-avatar item-start>
-                        <ion-img src="/../../../../assets/icon/IconConjuntos/avatar.jpg"></ion-img>
-                    </ion-avatar>
-                    <ion-label>&nbsp;&nbsp;Titulo</ion-label>
-                </ion-item>
-                <ion-img src="/../../../../assets/icon/IconConjuntos/Edi.png" alt="Conjunto"></ion-img>
-                <br>
-                <ion-label>Informacion de la publicacion</ion-label>
-            </ion-card-content>
+        <ion-card *ngIf="getMostrar() == 1">
+            <ion-input placeholder="&nbsp;&nbsp;Titulo"></ion-input>
         </ion-card>
+        <ion-card>
+            <ion-textarea placeholder="Comparte con tu comunidad" (click)="click()">
+            </ion-textarea>
+            <div id="derecha" *ngIf="getMostrar() == 1">
+                <ion-button color="residente" id="botonImagen">
+                    <ion-icon name="image-outline"></ion-icon>
+                </ion-button>
+            </div>
+        </ion-card>
+        <ion-row>
+            <ion-col>
+                <div id="izquierda">
+                    <ion-button color="residente" id="botonPublicar" (click)="cancelarNoticia()">
+                        <ion-label>Cancelar</ion-label>
+                    </ion-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div id="derecha">
+                    <ion-button color="residente" id="botonPublicar" (click)="publicarNoticia()">
+                        <ion-label>Publicar</ion-label>
+                    </ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+    <div style="overflow:scroll" id="content-div">
+        <div  *ngFor="let noticia of noticias">
+            <ion-card id="rounded">
+                <ion-card-content>
+                    <ion-item lines="none">
+                        <ion-avatar item-start>
+                            <ion-img src="/../../../../assets/icon/IconConjuntos/avatar.jpg"></ion-img>
+                        </ion-avatar>
+                        <p>&nbsp;&nbsp;{{noticia.titulo}}</p>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <p>{{convertDate(noticia.fecha)}}</p>
+                    </ion-item>
+                    <ion-item *ngIf="noticia.imagen != null" lines="none">
+                        <ion-img src="/../../../../assets/QuintanaS.jpeg" alt="Conjunto"></ion-img>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <p>{{noticia.descripcion}}</p>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div *ngIf="getMostrar() == 1">
+            <br>
+            <br>
+        </div>
     </div>
 </ion-content>

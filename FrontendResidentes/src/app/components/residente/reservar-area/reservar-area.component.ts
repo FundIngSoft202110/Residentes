@@ -12,6 +12,8 @@ import {
     DxFormComponent
 } from 'devextreme-angular';
 import { NavController } from '@ionic/angular';
+import { ViewChild } from '@angular/core';
+
 
 @Component({
   selector: 'app-reservar-area',
@@ -21,6 +23,7 @@ import { NavController } from '@ionic/angular';
 })
 
 export class ReservarAreaComponent {
+  @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
 	reserva: Reserva;
   horasDisponibles: string[];
 	hora_i: any;
@@ -38,4 +41,6 @@ export class ReservarAreaComponent {
 	}
   
   ngOnInit() {}
+
+    
 }

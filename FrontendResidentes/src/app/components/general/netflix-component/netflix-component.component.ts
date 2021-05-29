@@ -16,25 +16,36 @@ export class NetflixComponent implements OnInit {
 
   conjuntos : any;
   public usuario: string;
+  public idUsuario:number;
 
   constructor(private personasService:PersonasService, private conjuntoService : ConjuntosService, private servIngAptoService: ServIngAptoService, private navCtrl: NavController) { }
 
-  ngOnInit() {
+  ngOnInit(){}
+
+  async waitBD(){
+    await new Promise(resolve => setTimeout(resolve, 250));
   }
 
-  ionViewWillEnter(){
+  async ionViewWillEnter(){
     this.usuario = this.personasService.getPersonaActiva();
-    console.log(this.usuario);
-    this.conjuntos = this.conjuntoService.getConjuntosPersona(this.usuario);
+    this.idUsuario = this.personasService.getPersonaActivaAux();
+    console.log(this.usuario, "  Id usuario: ", this.idUsuario);
+    this.conjuntoService.getConjuntosPersona(this.idUsuario);
+    await this.waitBD();
+    this.conjuntos = this.conjuntoService.getConjuntos(); 
   }// end ngOnInit
 
   getUser(){
     return this.usuario;
   }// end getUser
 
-  getConjunto(apto:Apto){
-    return this.conjuntoService.getConjunto(apto.idConjunto);
-  }// getConjunto
+  goAgregar(){
+    if(this.usuario == "ADMIN"  ){
+      this.navCtrl.navigateForward("/nuevo-conjunto");
+    }else{
+      this.navCtrl.navigateForward("/seleccion-conjunto");
+    }
+  }
 
   goConjunto(conjunto:Conjunto){
     this.conjuntoService.setConjuntoActivo(conjunto.id);

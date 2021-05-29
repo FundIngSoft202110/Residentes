@@ -82,6 +82,6 @@ export class PaquetesResidenteComponent implements OnInit {
     month = Math.trunc((date/10000)%100);
     day = Math.trunc((date/1000000)%100);
     return MONTHS[Math.trunc(month)-1] + " " + day.toString() + " " + year.toString();
-  } // end convertDay
+  } // end convertDate
 
 } // end PaquetesResidenteComponent
