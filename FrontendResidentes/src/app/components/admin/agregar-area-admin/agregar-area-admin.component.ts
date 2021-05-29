@@ -4,7 +4,6 @@ import {AgregarAreaAdminServiceService, NuevaArea, AreaComunPK} from '../../../S
 import{ConjuntosService} from '../../../Services/conjuntos/conjuntos.service'
 import { NgModule, ViewChild, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {AgregarFechaAreaService, FechaArea,areaComunPKfecha,AreaComun} from '../../../Services/AgregarFechaArea/agregar-fecha-area.service';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxCheckBoxModule,
          DxSelectBoxModule,
@@ -15,6 +14,7 @@ import { DxCheckBoxModule,
          DxFormComponent
        } from 'devextreme-angular';
 import { NavController } from '@ionic/angular';
+import { IPRESIDENTESA } from 'src/app/constants';
 
 
 const sendRequest = function(value) {
@@ -43,12 +43,13 @@ export class AgregarAreaAdminComponent implements OnInit{
     label ="top";
     linkAgregarHora="agregar-fecha";
     respuesta : any;
-    fechaArea: FechaArea;
-    areacomun: AreaComun;
-    horaDeApertura: string[];
-    horaDeCierre: string[];
+    
+    horaDeApertura: number[];
+    horaDeCierre: number[];
     diasDisponibles: string[];
-    areacomunPKfecha:areaComunPKfecha;
+   
+    respuestaTiempos: any;
+    respuestaArea: any;
     
     
      
@@ -57,9 +58,10 @@ export class AgregarAreaAdminComponent implements OnInit{
         this.areacomunPK.conjuntoIdConjunto=conjunto.getConjuntoActivo();
         this.nuevaArea.areacomunPK=this.areacomunPK;
         this.nuevaArea.estado="H";
-        // this.horaDeApertura = serviceFecha.getHoraDeApertura();
-        // this.horaDeCierre = serviceFecha.getHoraDeCierre();
-        // this.diasDisponibles = serviceFecha.getDiasDisponibles();
+        this.horaDeApertura = service.getHoraDeApertura();
+        this.horaDeCierre = service.getHoraDeCierre();
+        this.diasDisponibles = service.getDiasDisponibles();
+        
     }
    
     onFormSubmit = function(e) {
@@ -73,7 +75,9 @@ export class AgregarAreaAdminComponent implements OnInit{
         
         e.preventDefault();
     }
-    ngOnInit() {}
+    ngOnInit() {
+        
+    }
 
     goToRegister() {
         
@@ -81,14 +85,28 @@ export class AgregarAreaAdminComponent implements OnInit{
       public mandarArea(){
       
         console.log("holiii",this.nuevaArea);
-         this.service.postAreaNueva("http://192.168.76.71:8080/BackendResidentes/consultas/AreasComunes/NuevaArea",this.nuevaArea)
+       
+         this.service.postAreaNueva(IPRESIDENTESA+"/consultas/AreasComunes/NuevaArea",this.nuevaArea)
        .subscribe(respuesta=> {
-        console.log("lo agrego ???",respuesta);    
+           
         this.respuesta = respuesta;
-        console.log("respuesta:",this.respuesta);   
-        // si la agrega pero no me muestra la respuesta
-    })
+        console.log(this.respuesta);
+     
+        notify(this.respuesta.respuesta);
+          })
+      
+    
 
       this.navCtrl.navigateForward(this.linkAgregarHora);
       }
+
+     public traerArea(){
+         this.service.getAreaEspecifica(IPRESIDENTESA+"/consultas//consultas/AreasComunes/areaEspecifica/conjunto/"+this.conjunto.getConjuntoActivo()+"/nomArea/"+this.nuevaArea.nombre)
+         .subscribe(respuesta=> {
+             this.respuestaArea = respuesta;
+
+         })
+         console.log("areaActual:",this.respuestaArea)
+         
+     }
 }

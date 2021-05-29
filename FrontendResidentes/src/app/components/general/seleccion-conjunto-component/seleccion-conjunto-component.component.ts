@@ -1,10 +1,13 @@
 import { NgModule, Component, OnInit, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Router } from '@angular/router';
 import { DxSelectBoxModule, DxListModule, DxTemplateModule } from 'devextreme-angular';
 import DataSource from 'devextreme/data/data_source';
+import { concat } from 'rxjs';
+import { PersonasService } from 'src/app/Services/personas/personas.service';
 
-import { Conjunto, selConjService } from '../../../Services/SeleccionConjuntoServ/seleccion-conj-serv.service' ;
+import { selConjService } from '../../../Services/SeleccionConjuntoServ/seleccion-conj-serv.service' ;
 
 
 if(!/localhost/.test(document.location.host)) {
@@ -21,12 +24,22 @@ if(!/localhost/.test(document.location.host)) {
 
 
 
-export class SeleccionConjuntoComponent {
-  conjuntos: Conjunto[];
-
-  constructor(service: selConjService) {
+export class SeleccionConjuntoComponent implements OnInit{
+  conjuntos: any;
+  idPerActiva;
+  constructor(service: selConjService, private personasService: PersonasService, private router: Router) {
       this.conjuntos = service.getConjuntos();
   }
+  click(id){
+    console.log("hola " , id , " - ", this.idPerActiva);
+    this.router.navigateByUrl("/netflix");
+  }
+
+  ngOnInit() {
+    this.idPerActiva = this.personasService.getPersonaID();
+  }
+
+
 }
 
 

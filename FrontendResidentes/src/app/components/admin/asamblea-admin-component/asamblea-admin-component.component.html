@@ -14,19 +14,15 @@
 	  </ion-content>
 	   
 	 <div *ngIf="step==1">
-	  <dx-button
-	  
-	  class="lado"
-	  stylingMode="contained"
-	  icon="add"
-	  [width]="250"
-	  [height]="80"
-	  text="Nueva asamblea"
-	  (onClick)="this.step=2"
-	  
-	  >    
-	  
-	  </dx-button>
+		<ion-button class="boton"
+		(click)="nuevaAsamblea()"
+		expand="full"
+		shape="round"
+		color="residente"
+		type="submit"
+		>
+		<ion-icon name="add-circle"></ion-icon>
+		 Modificar Area</ion-button> 
 	</div>
 	
 	

@@ -50,6 +50,48 @@
                     message="Link invalido">
                 </dxi-validation-rule>
             </dxi-item>
+
+            <dxi-item dataField="Cantidad de torres">
+                
+                <div class="dx-field-value">
+                    <dx-number-box #numberBox
+                        type="required"
+                        [max]="100"
+                        [min]="1"
+                        [showSpinButtons]="true"
+                        (onKeyDown)="keyDown($event)"
+                        [value]="1"
+                    ></dx-number-box>
+                </div>
+            </dxi-item>
+
+            <dxi-item dataField="Cantidad de pisos">
+                
+                <div class="dx-field-value">
+                    <dx-number-box #numberBox
+                        type="required"
+                        [max]="100"
+                        [min]="1"
+                        [showSpinButtons]="true"
+                        (onKeyDown)="keyDown($event)"
+                        [value]="1"
+                    ></dx-number-box>
+                </div>
+            </dxi-item>
+
+            <dxi-item dataField="Cantidad de aptosxpiso">
+                
+                <div class="dx-field-value">
+                    <dx-number-box #numberBox
+                        type="required"
+                        [max]="100"
+                        [min]="1"
+                        [showSpinButtons]="true"
+                        (onKeyDown)="keyDown($event)"
+                        [value]="1"
+                    ></dx-number-box>
+                </div>
+            </dxi-item>
             
         </dxi-item>
         
