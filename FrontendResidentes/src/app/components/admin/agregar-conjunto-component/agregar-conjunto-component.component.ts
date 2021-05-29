@@ -45,7 +45,7 @@ export class AgregarConjuntoComponent implements OnInit {
 
   @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
    
-  conjunto: Conjunto;
+  conjunto: any;
   
   buttonOptions: any = {
       text: "Agregar",

@@ -1,5 +1,6 @@
 <app-header-start titulo="Selecciona tu conjunto"></app-header-start>
 <ion-content>
+    <br>
 <div class="list-container">
     <dx-list 
         #list
@@ -8,12 +9,13 @@
         [searchEnabled]="true"
         searchExpr="Name"
         searchMode="contains">
-            <div *dxTemplate="let data of 'item'">
+            <div *dxTemplate="let data of 'item'" (click)="click( data.id)">
                 <div>{{data.Name}}</div>
             </div>
     </dx-list>
 </div>
-<ion-card routerLink="/netflix" color= "residente">
+<!-------------
+    <ion-card routerLink="/netflix" color= "residente">
     <ion-card-header>
         <ion-card-subtitle> Agregar </ion-card-subtitle>   
     </ion-card-header>
@@ -22,6 +24,6 @@
     <ion-card-header>
         <ion-card-subtitle> Nuevo Conjunto </ion-card-subtitle>   
     </ion-card-header>
-  </ion-card>
+  </ion-card> -->
 </ion-content>
 
