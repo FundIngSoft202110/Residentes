@@ -1,10 +1,9 @@
 import {Component, OnInit, Output } from '@angular/core';
 import notify from 'devextreme/ui/notify';
-import {AgregarAreaAdminServiceService, NuevaArea, AreaComunPK} from '../../../Services/AgregarAreaAdmin/agregar-area-admin-service.service';
+import {AgregarAreaAdminServiceService, NuevaArea, AreaComunPK, FechaArea, AreaComun , areaComunPKfecha} from '../../../Services/AgregarAreaAdmin/agregar-area-admin-service.service';
 import{ConjuntosService} from '../../../Services/conjuntos/conjuntos.service'
 import { NgModule, ViewChild, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {AgregarFechaAreaService, FechaArea,areaComunPKfecha,AreaComun} from '../../../Services/AgregarFechaArea/agregar-fecha-area.service';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxCheckBoxModule,
          DxSelectBoxModule,
@@ -57,9 +56,9 @@ export class AgregarAreaAdminComponent implements OnInit{
         this.areacomunPK.conjuntoIdConjunto=conjunto.getConjuntoActivo();
         this.nuevaArea.areacomunPK=this.areacomunPK;
         this.nuevaArea.estado="H";
-        // this.horaDeApertura = serviceFecha.getHoraDeApertura();
-        // this.horaDeCierre = serviceFecha.getHoraDeCierre();
-        // this.diasDisponibles = serviceFecha.getDiasDisponibles();
+        this.horaDeApertura = service.getHoraDeApertura();
+        this.horaDeCierre = service.getHoraDeCierre();
+        this.diasDisponibles = service.getDiasDisponibles();
     }
    
     onFormSubmit = function(e) {
