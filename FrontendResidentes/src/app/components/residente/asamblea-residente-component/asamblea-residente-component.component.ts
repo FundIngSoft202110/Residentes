@@ -19,13 +19,13 @@ export class AsambleaResidenteComponent implements OnInit {
   opcionesPropuesta: Opcion[][] = [];
   votosUsuario:number[];
   colorCards:string[];
-  asamblea:Asamblea;
+  idAsamblea:number;
 
   constructor(private navCtrl: NavController, private propuestasService: PropuestasService, private opcionesService: OpcionesService, private votosServices: VotosService, private asambleaService: AsambleaService) { }
 
   ngOnInit() {
-    this.asamblea = this.asambleaService.getAsambleaAbierta();
-    this.propuestas = this.propuestasService.getPropuestas(this.asamblea.IdAsamblea);
+    this.idAsamblea = this.asambleaService.getAsambleaAbierta();
+    /*this.propuestas = this.propuestasService.getPropuestas(this.asamblea.IdAsamblea);
     this.votosUsuario = [];
     this.colorCards = [];
     this.opcionesPropuesta = [];
@@ -35,14 +35,14 @@ export class AsambleaResidenteComponent implements OnInit {
         this.votosUsuario.push(0);
         this.colorCards.push("residente");
         //console.log("if activa == ", this.asamblea.Activo, " asaam = ", this.asamblea.IdAsamblea);
-        if(this.asamblea.Estado == 'Activa'){
+        if(this.asamblea.estado == 'Activa'){
           this.opcion = this.opcionesService.getOpciones(prop.id);
           for(let opc of this.opcion)
             opc.cantidadVotos = 0; // SOLO PRUEBA
           this.opcionesPropuesta.push([...this.opcion]);
         }// end if
       }// end if
-    }// end for
+    }// end for*/
   }// end ngOnInit
 
   votar(opcion: Opcion, propuesta: Propuesta){

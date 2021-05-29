@@ -1,13 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { NULL_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
+import { IPRESIDENTES } from 'src/app/constants';
 
+export class AsambleaPK{
+    idAsamblea: number;
+    ConjuntoIdConjunto :number;
+}
 
 export class Asamblea {
-	IdAsamblea: number;
-	ConjuntoIdConjunto:number;
-	Fecha: string;
-	Tema: string;
-	Estado: string;
+	asambleaPK: AsambleaPK;
+	ConjuntoIdConjunto: number;
+	fecha: number;
+	hora: number;
+	Tema: number;
+	estado: string;
 }
 
 export class Opciones {
@@ -23,54 +30,38 @@ let Nopciones: number[] = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 })
 export class AsambleaService {
 
-	private asambleas: Asamblea[] = [
-		{
-			IdAsamblea: 1,
-			ConjuntoIdConjunto: 1,
-			Fecha: "2021/05/01",
-			Tema: "Junta anual",
-			Estado: "Activa"
-		},
-		{
-			IdAsamblea: 2,
-			ConjuntoIdConjunto: 1,
-			Fecha: "2021/02/21",
-			Tema: "Junta extraordinaria",
-			Estado: "Finalizada"
-		},
-		{
-			IdAsamblea: 3,
-			ConjuntoIdConjunto: 1,
-			Fecha: "2021/06/21",
-			Tema: "Junta extraordinaria",
-			Estado: "Programada"
-		}
-	]
+	private asambleas: any;
 
 	private asambleaAbierta: number;
+
+	constructor(private http: HttpClient) {
+	}
 
 	setAsambleaAbierta(id: number) {
 		window.localStorage['asambleaAbierta'] = id.toString();
 	}// setAsambleaAbierta
 
-	clearAsambleaAbierta(){
-		window.localStorage.clear();
-	}
-
-	getAsambleaAbierta(){
+	getAsambleaAbierta() {
 		this.asambleaAbierta = Number(window.localStorage['asambleaAbierta'] || -1);
-		if(this.asambleaAbierta == -1)
+		if (this.asambleaAbierta == -1)
 			return null;
 		else
-			return this.getAsamblea(this.asambleaAbierta);
+			return this.asambleaAbierta;
 	}// getAsambleaAbierta
+
+	public getConjuntoUrl(url: string) {
+		return this.http.get(url);
+	} // end getConjuntoUrl
+
+	async cargarAsambleas(numConjunto: number) {
+		this.getConjuntoUrl(IPRESIDENTES + "consultas/asambleas/" + numConjunto.toString())
+			.subscribe(respuesta => {
+				this.asambleas = respuesta;
+			})
+	}
 
 	getAsambleas() {
 		return this.asambleas;
-	}
-
-	getAsamblea(id: number) {
-		return this.asambleas.find(asamblea => { return asamblea.IdAsamblea == id });
 	}
 
 	getNopciones() {

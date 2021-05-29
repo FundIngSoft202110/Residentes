@@ -23,7 +23,7 @@ export class ResultadosResidenteComponent implements OnInit {
   }
 
   getAsamblea(){
-    return this.asambleaService.getAsamblea(this.propuesta.idAsamblea).Tema;
+    return /*this.asambleaService.getAsamblea(this.propuesta.idAsamblea).Tema*/"Abejas";
   }
 
   getPropuesta(){

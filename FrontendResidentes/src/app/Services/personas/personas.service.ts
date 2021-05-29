@@ -123,7 +123,7 @@ export class PersonasService {
     if (this.personaActiva == -1)
       return null;
     else {
-      return this.getPersona(this.personaActiva);
+      return this.personaActiva;
     }
 
   }
