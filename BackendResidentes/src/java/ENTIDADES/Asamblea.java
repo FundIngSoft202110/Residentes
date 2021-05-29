@@ -6,37 +6,32 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author alejandrodiaz
+ * @author juansebastianbarretojimenez
  */
 @Entity
-@Table(name = "asamblea")
+@Table(name = "Asamblea")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Asamblea.findAll", query = "SELECT a FROM Asamblea a"),
     @NamedQuery(name = "Asamblea.findByIdAsamblea", query = "SELECT a FROM Asamblea a WHERE a.asambleaPK.idAsamblea = :idAsamblea"),
+    @NamedQuery(name = "Asamblea.findByEstado", query = "SELECT a FROM Asamblea a WHERE a.estado = :estado"),
     @NamedQuery(name = "Asamblea.findByConjuntoIdConjunto", query = "SELECT a FROM Asamblea a WHERE a.asambleaPK.conjuntoIdConjunto = :conjuntoIdConjunto"),
     @NamedQuery(name = "Asamblea.findByFecha", query = "SELECT a FROM Asamblea a WHERE a.fecha = :fecha"),
+    @NamedQuery(name = "Asamblea.findByHora", query = "SELECT a FROM Asamblea a WHERE a.hora = :hora"),
     @NamedQuery(name = "Asamblea.findByTema", query = "SELECT a FROM Asamblea a WHERE a.tema = :tema")})
 public class Asamblea implements Serializable {
 
@@ -45,19 +40,22 @@ public class Asamblea implements Serializable {
     protected AsambleaPK asambleaPK;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 3)
+    @Column(name = "estado")
+    private String estado;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "Fecha")
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private BigDecimal fecha;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "Hora")
+    private BigDecimal hora;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "Tema")
     private String tema;
-    @OneToMany(mappedBy = "asamblea")
-    private List<Propuesta> propuestaList;
-    @JoinColumn(name = "ConjuntoIdConjunto", referencedColumnName = "IdConjunto", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Conjunto conjunto;
 
     public Asamblea() {
     }
@@ -66,9 +64,11 @@ public class Asamblea implements Serializable {
         this.asambleaPK = asambleaPK;
     }
 
-    public Asamblea(AsambleaPK asambleaPK, Date fecha, String tema) {
+    public Asamblea(AsambleaPK asambleaPK, String estado, BigDecimal fecha, BigDecimal hora, String tema) {
         this.asambleaPK = asambleaPK;
+        this.estado = estado;
         this.fecha = fecha;
+        this.hora = hora;
         this.tema = tema;
     }
 
@@ -84,12 +84,28 @@ public class Asamblea implements Serializable {
         this.asambleaPK = asambleaPK;
     }
 
-    public Date getFecha() {
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public BigDecimal getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(BigDecimal fecha) {
         this.fecha = fecha;
+    }
+
+    public BigDecimal getHora() {
+        return hora;
+    }
+
+    public void setHora(BigDecimal hora) {
+        this.hora = hora;
     }
 
     public String getTema() {
@@ -98,23 +114,6 @@ public class Asamblea implements Serializable {
 
     public void setTema(String tema) {
         this.tema = tema;
-    }
-
-    @XmlTransient
-    public List<Propuesta> getPropuestaList() {
-        return propuestaList;
-    }
-
-    public void setPropuestaList(List<Propuesta> propuestaList) {
-        this.propuestaList = propuestaList;
-    }
-
-    public Conjunto getConjunto() {
-        return conjunto;
-    }
-
-    public void setConjunto(Conjunto conjunto) {
-        this.conjunto = conjunto;
     }
 
     @Override
@@ -139,7 +138,7 @@ public class Asamblea implements Serializable {
 
     @Override
     public String toString() {
-        return "ENTIDADES.Asamblea[ asambleaPK=" + asambleaPK + " ]";
+        return "API.Asamblea[ asambleaPK=" + asambleaPK + " ]";
     }
     
 }
