@@ -8,20 +8,27 @@
 #derecha{
     width: 94%;
     text-align: right;
-  }
+}
+
+#izquierda{
+    width: 94%;
+    padding-left: 5%;
+    text-align: left;
+}
 
 ion-textarea{
-    width: 120%;
-    height: 100px;
-    border: solid 1px var(--ion-color-residente-txt);
+    width: 98%;
+    height: 50px;
+    padding-left: 6% !important;
 }
 
 ion-item{
-    width: 96%;
+    width: 100%;
+    padding-left: 0%;
 }
 
 #botonPublicar{
-    width: 50%;
+    width: 92%;
     height: 30px;
 }
 
@@ -34,15 +41,21 @@ ion-card{
     width: 92%;
     border: solid 1px var(--ion-color-residente-txt);
     box-shadow: none !important;
+    ion-card-content{
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
 }
 
 ion-content {
     --overflow: hidden;
 }
 
-.content-div{
-    height: 70%;
-}
+/*#content-div{
+    height: 80%;
+}*/
 
 ion-card-title{
     font-size: 100%;

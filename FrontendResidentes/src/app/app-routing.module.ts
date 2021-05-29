@@ -42,9 +42,9 @@ import { AreaComunAdminComponent } from './components/admin/area-comun-admin/are
 import { AgregarAreaAdminComponent } from './components/admin/agregar-area-admin/agregar-area-admin.component';
 import { ModificarAreaAdminComponent } from './components/admin/modificar-area-admin/modificar-area-admin.component';
 
-import { TestComponent } from './components/empleado/test/test.component'; // OJO
+
 import { NgCalendarModule } from 'ionic2-calendar';
-import { CalendarPaqueteComponent } from './components/empleado/calendar-paquete/calendar-paquete.component';
+
 import localeDe from '@angular/common/locales/es-CO';
 registerLocaleData(localeDe);
 import { NuevoPaqueteComponent } from './components/empleado/nuevo-paquete/nuevo-paquete.component';
@@ -54,13 +54,6 @@ import { ModificarReservaAreaComponent } from './components/residente/modificar-
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
-  {
-    path: 'calendar',
-    component: CalendarPaqueteComponent
-  },{
-    path: 'test',
-    component: TestComponent
-  },
   {
     path: 'home',
     component: HomeComponent
@@ -249,7 +242,6 @@ const routes: Routes = [
     DxRadioGroupModule,
     DxTabPanelModule,
     BrowserModule,
-    NgCalendarModule,
     DxCalendarModule
   ],
   exports: [RouterModule],
@@ -288,8 +280,6 @@ const routes: Routes = [
     AreaComunAdminComponent,
     AgregarAreaAdminComponent,
     ModificarAreaAdminComponent,
-    CalendarPaqueteComponent,
-    TestComponent,
     ReservacionAreaResidenteComponent, // ojo
     ModificarReservaAreaComponent,
     ReservacionAreaResidenteComponent // ojo

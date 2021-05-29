@@ -1,9 +1,9 @@
-export interface Paquete{
-    id   : number;
-    idApto : number;
-    idConjunto :number;
+import { PaquetePK } from "./paquetePK.model";
+
+export class Paquete{
+    paquetePK: PaquetePK;
     tamano  : string;
-    fecha   : string;
-    hora : string;
+    fecha   : number;
+    hora : number;
     remitente : string;
 }

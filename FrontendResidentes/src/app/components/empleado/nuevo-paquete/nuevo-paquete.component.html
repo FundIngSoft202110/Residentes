@@ -1,4 +1,4 @@
-<app-header titulo="PAQUETES" menu=EMPLEADO></app-header>
+<app-header titulo="PAQUETES" menu=NO routeBack="/paquetes-empleado"></app-header>
 
 <ion-content>
   <div class="content-div">
@@ -6,60 +6,36 @@
       <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Tamaño</ion-label>
       <ion-list>
         <ion-item lines="none">
-          <ion-select [(ngModel)]="tamanoSeleccionado" (ionChange)="optionsTamano();" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="&nbsp;&nbsp;Seleccione"
+          <ion-select [(ngModel)]="tamanoSeleccionado" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="&nbsp;&nbsp;Seleccione"
             id="rounded">
             <div>
-              <ion-select-option value="Grande">&nbsp;&nbsp;Grande</ion-select-option>
-              <ion-select-option value="Mediano">&nbsp;&nbsp;Mediano</ion-select-option>
-              <ion-select-option value="Pequeño">&nbsp;&nbsp;Pequeño</ion-select-option>
+              <ion-select-option value="grande">&nbsp;&nbsp;grande</ion-select-option>
+              <ion-select-option value="mediano">&nbsp;&nbsp;mediano</ion-select-option>
+              <ion-select-option value="pequeño">&nbsp;&nbsp;pequeño</ion-select-option>
             </div>
           </ion-select>
         </ion-item>
-<!--         <div>
-          <ng-container>
-            <div class="msjVeri"
-              *ngIf="
-                loginForm.get('tamano').hasError(validation.type) &&
-                (loginForm.get('tamano').dirty || loginForm.get('tamano').touched)
-              "
-            >
-              {{ validation.message }}
-            </div>
-          </ng-container>
-        </div> -->
       </ion-list> 
     </ion-card> 
     <ion-card>
       <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Fecha</ion-label>
       <ion-item lines="none">
-        <ion-input disabled id="labelborde" id="rounded">&nbsp;&nbsp;18/05/2021</ion-input>
+        <ion-input disabled id="labelborde" id="rounded">&nbsp;&nbsp;{{getFecha()}}</ion-input>
       </ion-item>
     </ion-card> 
 
     <ion-card>
       <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Hora</ion-label>
       <ion-item lines="none">
-        <ion-input disabled id="labelborde" id="rounded">&nbsp;&nbsp;14:02</ion-input>
+          <ion-input disabled id="labelborde" id="rounded">&nbsp;&nbsp;{{getHora()}}</ion-input>
       </ion-item>
     </ion-card> 
 
     <ion-card>
       <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Remitente</ion-label>
       <ion-item lines="none">
-        <ion-input [(ngModel)]="remi" (ionChange)="Remitente();" id="rounded">&nbsp;&nbsp;</ion-input>
+        <ion-input [(ngModel)]="remi" id="rounded">&nbsp;&nbsp;</ion-input>
       </ion-item>
-      <!-- <div>
-        <ng-container>
-          <div class="msjVeri"
-            *ngIf="
-              loginForm.get('remitente').hasError(validation.type) &&
-              (loginForm.get('remitente').dirty || loginForm.get('remitente').touched)
-            "
-          >
-            {{ validation.message }}
-          </div>
-        </ng-container>
-      </div> -->
     </ion-card>
   </div>
 
