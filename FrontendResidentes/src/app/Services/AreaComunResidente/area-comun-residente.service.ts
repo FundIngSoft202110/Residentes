@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export class Area {
@@ -33,6 +34,9 @@ let horasDisponibles: string[] = [
 
 @Injectable()
 export class AreaComunResidenteService {
+    constructor(private http :HttpClient){
+
+    }
     getArea() {
 		return area;
 	}
@@ -46,4 +50,9 @@ export class AreaComunResidenteService {
     getHorasDisponibles() {
 		return horasDisponibles;
 	}
+
+    public getAreasTipo(url:string){
+       return this.http.get(url);
+    }
+
 }

@@ -1,25 +1,21 @@
 <app-header titulo="ÁREAS COMUNES" menu=RESIDENTE></app-header>
-
+<div class = "mover">
 <div id="form1">
     <div class="dx-fieldset">
         <div class="dx-field">
             <div class="dx-field-label">Tipo: </div>
             <div class="dx-field-value">
-                <dx-radio-group [items]="tipo" [value]="tipo[0]" layout="horizontal">
+                <dx-radio-group [items]="tipo" 
+                                 layout="horizontal"
+                                 (onOptionChanged)="traerAreastipo()">
                 </dx-radio-group>
             </div>
         </div>
     </div>
 </div>
 
-<dx-form id="form" [labelLocation]="pos" [formData]="area">
-    <dxi-item itemType="group" cssClass="first-group" [colCount]="4">
-        <dxi-item itemType="group" [colSpan]="3">
-            <dxi-item dataField="ListaDeAreasComunes" editorType="dxSelectBox"
-                [editorOptions]="{ items: listaDeAreasComunes }"></dxi-item>
-        </dxi-item>
-    </dxi-item>
-</dx-form>
+<div class="margen2">Lista Areas Comunes</div>
+<dx-select-box class="margen1" [items]="listaDeAreasComunes"></dx-select-box>
 
 <div id="calendar-demo">
     <div class="widget-container">
@@ -32,27 +28,20 @@
         </dx-calendar>
     </div>
 </div>
-<dx-form id="form"
-	[formData]="area">
-	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
-		<dxi-item>
-			<div class="form-avatar"></div>
-		</dxi-item>
-		<dxi-item itemType="group" [colSpan]="3">
-            	<dxi-item dataField="HorasDisponibles" editorType="dxSelectBox" [editorOptions]="{ items: horasDisponibles, value: '' }"></dxi-item>
-		</dxi-item>
-	</dxi-item>
-</dx-form>
+
+<div class="margen3">Horas Disponibles</div>
+<dx-select-box class="margen1" [items]="horasDisponibles"></dx-select-box>
 
 
-<ion-button class="boton"
+
+<ion-button class="boton1"
       (click)="mandarMisReservas()"
       expand="full"
       shape="round"
       color="residente"
       type="submit"
       >Mis Reservas</ion-button>
-<ion-button class="boton"
+<ion-button class="boton2"
       (click)="mandarNueva()"
       expand="full"
       shape="round"
@@ -60,4 +49,5 @@
       type="submit"
       >Nueva Reserva</ion-button>
 
+    </div>
       
