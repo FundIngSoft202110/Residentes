@@ -35,30 +35,27 @@ public class controladorApartamento {
         String consulta = "SELECT * FROM Apartamento ";
         Apartamento a = new Apartamento();
         ApartamentoPK apk = new ApartamentoPK();
-         try (
-           PreparedStatement statement = this.con.prepareStatement(consulta);
-           ResultSet rs = statement.executeQuery();
-                 
-            ){
+        try (
+                PreparedStatement statement = this.con.prepareStatement(consulta);
+                ResultSet rs = statement.executeQuery();) {
 
-          while (rs.next()){
-            a = new Apartamento();
-            apk = new ApartamentoPK(rs.getInt("IdApartamento"), rs.getInt("ConjuntoIdConjunto"));
-            a.setApartamentoPK(apk);
-            a.setTorre(rs.getInt("Torre"));
-            a.setPiso(rs.getInt("Piso"));
-            a.setNumero(rs.getInt("Numero"));
-            a.setContrasena(rs.getString("Contrasena"));
-            apto.add(a);
-          }
-           } catch (SQLException sqle) { 
-        
-          
-}        
-        
-         return apto;
+            while (rs.next()) {
+                a = new Apartamento();
+                apk = new ApartamentoPK(rs.getInt("IdApartamento"), rs.getInt("ConjuntoIdConjunto"));
+                a.setApartamentoPK(apk);
+                a.setTorre(rs.getInt("Torre"));
+                a.setPiso(rs.getInt("Piso"));
+                a.setNumero(rs.getInt("Numero"));
+                a.setContrasena(rs.getString("Contrasena"));
+                apto.add(a);
+            }
+        } catch (SQLException sqle) {
+
+        }
+
+        return apto;
     }
-
+    
     @GET
     @Path("/apartamentosc/{IdConjunto}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -68,11 +65,10 @@ public class controladorApartamento {
         Apartamento a = new Apartamento();
         ApartamentoPK apk = new ApartamentoPK();
         try (
-                PreparedStatement statement = this.con.prepareStatement(consulta);
-                ) {
+                PreparedStatement statement = this.con.prepareStatement(consulta);) {
             statement.setInt(1, id);
-        
-            try(ResultSet rs = statement.executeQuery();){
+
+            try (ResultSet rs = statement.executeQuery();) {
 
                 while (rs.next()) {
                     a = new Apartamento();
@@ -92,65 +88,83 @@ public class controladorApartamento {
         return apto;
     }
 
+    @GET
+    @Path("/aptoNoticia/{IdConjunto}/{IdApto}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas getAptoNoticia(@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto) {
+        DTOrespuestas res = null;
+        String consulta = "SELECT CONCAT(a.torre, '-', a.piso, a.numero) AS Apto " +
+                          "FROM Apartamento AS a " +
+                          "WHERE  a.ConjuntoIdConjunto = ? AND a.IdApartamento = ?;";
+        try (
+                PreparedStatement statement = this.con.prepareStatement(consulta);) {
+            statement.setInt(1, idConjunto);
+            statement.setInt(2, idApto);
+
+            try (ResultSet rs = statement.executeQuery();) {
+                while (rs.next()){
+                    res = new DTOrespuestas(rs.getString("Apto"));
+                }
+            }
+        } catch (SQLException sqle) {
+
+        }
+
+        return res;
+    }
 
     @GET
     @Path("/apartamentos/{AptoConjunto}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public int getAptoIngreso(@PathParam("AptoConjunto") Apartamento apartamento ){
-         
-         String consulta ="SELECT a.IdApartamento, a.Contrasena FROM apartamento a WHERE a.ConjuntoIdConjunto=? AND a.Torre =? AND a.Piso=? AND a.Numero=?";
-         try (
-           
-           PreparedStatement statement = this.con.prepareStatement(consulta);
-           ){
-   
-     
-      int conjunto = apartamento.getApartamentoPK().getConjuntoIdConjunto();
-      int torre = apartamento.getTorre();
-      int piso = apartamento.getPiso();
-      int numero = apartamento.getNumero();
-      String contrasena = apartamento.getContrasena();
-        
-      statement.setInt(1, conjunto);
-      statement.setInt(2, torre);
-      statement.setInt(3, piso);
-      statement.setInt(4, numero);
-         
-      
-      try(
-        ResultSet rs = statement.executeQuery();
-        ){
-        int idApto = rs.getInt(1);
-        String contrasena2 = rs.getNString(2);
-        if(!contrasena.equals(contrasena2)){
-            idApto = -1;
+    public int getAptoIngreso(@PathParam("AptoConjunto") Apartamento apartamento) {
+
+        String consulta = "SELECT a.IdApartamento, a.Contrasena FROM apartamento a WHERE a.ConjuntoIdConjunto=? AND a.Torre =? AND a.Piso=? AND a.Numero=?";
+        try (
+                PreparedStatement statement = this.con.prepareStatement(consulta);) {
+
+            int conjunto = apartamento.getApartamentoPK().getConjuntoIdConjunto();
+            int torre = apartamento.getTorre();
+            int piso = apartamento.getPiso();
+            int numero = apartamento.getNumero();
+            String contrasena = apartamento.getContrasena();
+
+            statement.setInt(1, conjunto);
+            statement.setInt(2, torre);
+            statement.setInt(3, piso);
+            statement.setInt(4, numero);
+
+            try (
+                    ResultSet rs = statement.executeQuery();) {
+                int idApto = rs.getInt(1);
+                String contrasena2 = rs.getNString(2);
+                if (!contrasena.equals(contrasena2)) {
+                    idApto = -1;
+                }
+                return idApto;
+            }
+
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución:" + sqle.getErrorCode() + " " + sqle.getMessage());
         }
-        return idApto;
-      }
-         
-        }catch(SQLException sqle){
-              System.out.println("Error en la ejecución:"  + sqle.getErrorCode() + " " + sqle.getMessage());  
-         }
-        
-       return 0;
+
+        return 0;
     }
 
-
-  public List<Apartamento> crearAptos(int numPiso, int numTorres, int numApto, int numConjunto) {
+    public List<Apartamento> crearAptos(int numPiso, int numTorres, int numApto, int numConjunto) {
 
         List<Apartamento> aptosConjunto = new ArrayList<>();
 
         for (int i = 0; i < numTorres; i++) {
             for (int j = 0; j < numPiso; j++) {
                 for (int k = 0; k < numApto; k++) {
-                     ApartamentoPK pk= new ApartamentoPK(); 
-                     Apartamento apto= new Apartamento (); 
-                     pk.setConjuntoIdConjunto(numConjunto);
-                     apto.setApartamentoPK(pk);
-                     apto.setTorre(i);
-                     apto.setPiso(j);
-                     apto.setNumero(k);
-                     apto.setContrasena("1234");
+                    ApartamentoPK pk = new ApartamentoPK();
+                    Apartamento apto = new Apartamento();
+                    pk.setConjuntoIdConjunto(numConjunto);
+                    apto.setApartamentoPK(pk);
+                    apto.setTorre(i);
+                    apto.setPiso(j);
+                    apto.setNumero(k);
+                    apto.setContrasena("1234");
                     aptosConjunto.add(apto);
                 }
             }
@@ -159,7 +173,8 @@ public class controladorApartamento {
         return aptosConjunto;
 
     }
-public void aptosBase(int numPiso, int numTorres, int numApto, int numConjunto) {
+
+    public void aptosBase(int numPiso, int numTorres, int numApto, int numConjunto) {
 
         List<Apartamento> aptos = crearAptos(numPiso, numTorres, numApto, numConjunto);
         String consulta = "INSERT INTO apartamento (ConjuntoIdConjunto, Torre, Numero, Contrasena, Piso) VALUES (?, ?, ?, ?,?)";

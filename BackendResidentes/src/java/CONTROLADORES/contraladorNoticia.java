@@ -36,7 +36,7 @@ public class contraladorNoticia {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Noticia> cargarNoticias(@PathParam("IdConjunto") int idConjunto) {
         List<Noticia> noti = new ArrayList<>();
-        String consulta = "SELECT * FROM Noticia AS n WHERE (`ConjuntoIdConjunto` = ?);";
+        String consulta = "SELECT * FROM Noticia AS n WHERE (`ConjuntoIdConjunto` = ?) ORDER BY IdNoticia DESC;";
         Noticia a;
         NoticiaPK apk;
         try (
