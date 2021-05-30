@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -15,8 +16,18 @@ let tasks: Task[] = [
   { id: 4, text: "Review Health Insurance Options Under the Affordable Care Act" },
   { id: 5, text: "New Brochures" },
 ];
+
+@Injectable()
 export class ReservacionAreaResidenteService {
+  constructor(private http: HttpClient){
+
+  }
+
   getTasks(): Task[] {
     return tasks;
 }
+  getMisReservas(url: string){
+    return this.http.get(url);
+
+  }
 }
