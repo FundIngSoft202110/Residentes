@@ -14,7 +14,7 @@ import { PropuestasService } from 'src/app/Services/propuestas/propuestas.servic
 
 export class ResultadosResidenteComponent implements OnInit {
 
-  private propuesta: Propuesta;
+  private propuesta: number;
 
   constructor(private navCtrl: NavController,private propuestasService: PropuestasService, private asambleaService: AsambleaService, private ganadorService: GanadorService, private opcionesService: OpcionesService) { }
 
@@ -27,15 +27,15 @@ export class ResultadosResidenteComponent implements OnInit {
   }
 
   getPropuesta(){
-    return this.propuesta.descripcion;
+    return /*this.propuesta.descripcion*/ "?JWDJEW?";
   }
 
   getTotalVotaciones(){
-    return this.propuesta.votosTotales;
+    return /*this.propuesta.votosTotales*/ 0;
   }
 
   getGanador(){
-    return this.opcionesService.getOpciones(this.propuesta.id)[this.ganadorService.getGanador(this.propuesta.id).idOpcion-1].nombre;
+    return /*this.opcionesService.getOpciones(this.propuesta.id)[this.ganadorService.getGanador(this.propuesta.id).idOpcion-1].nombre*/"SI";
   }
 
   backAs(){

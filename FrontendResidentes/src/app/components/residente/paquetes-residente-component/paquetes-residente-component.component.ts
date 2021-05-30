@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MONTHS } from 'src/app/constants';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
@@ -11,7 +12,7 @@ import { PaquetesService } from 'src/app/Services/paquetes/paquetes.service';
 })
 export class PaquetesResidenteComponent implements OnInit {
 
-  public paquetes :any;
+  public paquetes :any[] = [];
   paquetesSer :any;
   public paqueteView : string[] = []; 
   public conjuntoActivo:number;
@@ -41,7 +42,7 @@ export class PaquetesResidenteComponent implements OnInit {
 
   async waitBD(){
     await new Promise(resolve => setTimeout(resolve, 1000));
-  }
+  } // end waitBD
 
   listOpen(paquete:any){
     if(this.paqueteView[paquete.num - 1] == 'mostrar'){
@@ -56,32 +57,11 @@ export class PaquetesResidenteComponent implements OnInit {
   }
 
   convertHour(hour: number):string{
-    var minutes:number;
-    var hours:number;
-    minutes = Math.trunc(hour%100);
-    hours = Math.trunc((hour/100)%100);
-    if(hours > 11){
-      hours -= 12;
-      if(minutes > 9)
-        return hours.toString() + ":" + minutes.toString() + " pm";
-      else
-        return hours.toString() + ":0" + minutes.toString() + " pm";
-    }else{
-      if(minutes > 9)
-        return hours.toString() + ":" + minutes.toString() + " am";
-      else
-      return hours.toString() + ":0" + minutes.toString() + " am";
-    } // end if
+    return this.conjuntosService.convertHour(hour);
   } // end convertHour
 
   convertDate(date: number):string{
-    var year:number;
-    var month:number;
-    var day:number;
-    year = Math.trunc(date%10000);
-    month = Math.trunc((date/10000)%100);
-    day = Math.trunc((date/1000000)%100);
-    return MONTHS[Math.trunc(month)-1] + " " + day.toString() + " " + year.toString();
+    return this.conjuntosService.convertDate(date);
   } // end convertDate
 
 } // end PaquetesResidenteComponent

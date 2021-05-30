@@ -49,22 +49,22 @@ export class AsambleaService {
 			return this.asambleaAbierta;
 	}// getAsambleaAbierta
 
-	public getConjuntoUrl(url: string) {
+	public getAsambleaUrl(url: string) {
 		return this.http.get(url);
 	} // end getConjuntoUrl
 
 	async cargarAsambleas(numConjunto: number) {
-		this.getConjuntoUrl(IPRESIDENTES + "consultas/asambleas/" + numConjunto.toString())
+		this.getAsambleaUrl(IPRESIDENTES + "consultas/asambleas/" + numConjunto.toString())
 			.subscribe(respuesta => {
 				this.asambleas = respuesta;
 			})
-	}
+	} // end cargarAsambleas
 
 	getAsambleas() {
 		return this.asambleas;
-	}
+	} // end getAsambleas
 
 	getNopciones() {
 		return Nopciones;
-	}
+	} // end getNopciones
 }

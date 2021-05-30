@@ -6,6 +6,8 @@ import { PropuestasService } from 'src/app/Services/propuestas/propuestas.servic
 import { OpcionesService } from 'src/app/Services/opciones/opciones.service';
 import { VotosService } from 'src/app/Services/votos/votos.service';
 import { Asamblea, AsambleaService } from 'src/app/Services/asambleas/asamblea.service';
+import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
+import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
 
 @Component({
   selector: 'app-asamblea-residente-component',
@@ -14,19 +16,39 @@ import { Asamblea, AsambleaService } from 'src/app/Services/asambleas/asamblea.s
 })
 export class AsambleaResidenteComponent implements OnInit {
 
-  propuestas: Propuesta[];
+  public propuestas: Propuesta[];
+  private idAsamblea: number;
+  private idConjunto: number;
+  private idApto: number;
+
   opcion: Opcion[];
   opcionesPropuesta: Opcion[][] = [];
-  votosUsuario:number[];
-  colorCards:string[];
-  idAsamblea:number;
+  votosUsuario: number[];
+  colorCards: string[];
 
-  constructor(private navCtrl: NavController, private propuestasService: PropuestasService, private opcionesService: OpcionesService, private votosServices: VotosService, private asambleaService: AsambleaService) { }
+
+
+
+  constructor(private navCtrl: NavController, private propuestasService: PropuestasService,
+    private opcionesService: OpcionesService, private votosServices: VotosService,
+    private asambleaService: AsambleaService, private conjuntosService: ConjuntosService,
+    private servIngAptoService: ServIngAptoService,) { }
 
   ngOnInit() {
+  } // end ngOnInit
+
+  async waitBD(){
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  } // end waitBD
+
+  async ionViewWillEnter() {
     this.idAsamblea = this.asambleaService.getAsambleaAbierta();
-    /*this.propuestas = this.propuestasService.getPropuestas(this.asamblea.IdAsamblea);
-    this.votosUsuario = [];
+    this.idConjunto = this.conjuntosService.getConjuntoActivo();
+    this.idApto = this.servIngAptoService.getIdApto();
+    this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
+    await this.waitBD();
+    this.propuestas = this.propuestasService.getPropuestas();
+    /* this.votosUsuario = [];
     this.colorCards = [];
     this.opcionesPropuesta = [];
     for(let prop of this.propuestas){
@@ -43,41 +65,41 @@ export class AsambleaResidenteComponent implements OnInit {
         }// end if
       }// end if
     }// end for*/
-  }// end ngOnInit
+  }// end ionViewWillEnter
 
-  votar(opcion: Opcion, propuesta: Propuesta){
-    if(!this.votosUsuario[propuesta.id - 1]){
-      if(!propuesta.parar){
+  getPropuestas():any{
+    return this.propuestas;
+  } // end getPropuestas
+
+  votar(opcion: Opcion, propuesta: Propuesta) {
+    if (!this.votosUsuario[propuesta.id - 1]) {
+      if (!propuesta.parar) {
         this.votosServices.addVoto(opcion.id, propuesta.id);
-        this.propuestas[propuesta.id-1].votosTotales += 1;
-        this.opcionesPropuesta[propuesta.id-1][opcion.id-1].cantidadVotos += 1;
-        this.colorCards[propuesta.id-1] = "red";
+        this.propuestas[propuesta.id - 1].votosTotales += 1;
+        this.opcionesPropuesta[propuesta.id - 1][opcion.id - 1].cantidadVotos += 1;
+        this.colorCards[propuesta.id - 1] = "red";
         this.votosUsuario[propuesta.id - 1] = 1;
         console.log("Voto en ", propuesta.descripcion, " por ", opcion.nombre);
-        console.log("VotosTotales = ", this.propuestas[propuesta.id-1].votosTotales);
-        console.log("CantidadVotos Opcion 1 = ", this.opcionesPropuesta[propuesta.id-1][0].cantidadVotos);
-        console.log("CantidadVotos Opcion 2 = ", this.opcionesPropuesta[propuesta.id-1][1].cantidadVotos);
+        console.log("VotosTotales = ", this.propuestas[propuesta.id - 1].votosTotales);
+        console.log("CantidadVotos Opcion 1 = ", this.opcionesPropuesta[propuesta.id - 1][0].cantidadVotos);
+        console.log("CantidadVotos Opcion 2 = ", this.opcionesPropuesta[propuesta.id - 1][1].cantidadVotos);
       }
-      else{
-        this.colorCards[propuesta.id-1] = "red";
+      else {
+        this.colorCards[propuesta.id - 1] = "red";
       }
-      
+
     }
   } // votar
 
-  getColorCards(propuesta: Propuesta){
-    return this.colorCards[propuesta.id-1];
+  getColorCards(propuesta: Propuesta) {
+    return this.colorCards[propuesta.id - 1];
   }
 
-  getPropNombre(propuesta: Propuesta): string{
-    return propuesta.descripcion;
+  getOpcSlideInfo(propuesta:any) {
+    return propuesta.opciones;
   }
 
-  getOpcSlideInfo(propuesta: Propuesta){
-    return this.opcionesPropuesta[propuesta.id - 1]; 
-  }
-
-  getNombreOpcion(opcion: Opcion, propuesta: Propuesta): string{
+  getNombreOpcion(opcion: Opcion, propuesta: Propuesta): string {
     return this.getOpcSlideInfo(propuesta)[opcion.id - 1].nombre;
   }
 
@@ -90,17 +112,17 @@ export class AsambleaResidenteComponent implements OnInit {
     slides.slidePrev();
   }
 
-  getColorResultados(propuesta: Propuesta){
-    if(propuesta.habilitar){
+  getColorResultados(propuesta: Propuesta) {
+    if (propuesta.habilitar) {
       return "residente";
     }
-    else{
+    else {
       return "#cdcdcd";
     }
   }// end getColorResultados
 
   enviarPropuesta(propuesta: Propuesta) {
-    if(propuesta.habilitar){
+    if (propuesta.habilitar) {
       this.propuestasService.setPropuestaAbierta(propuesta.id);
       this.navCtrl.navigateForward("/resultados-residente");
     }// end if

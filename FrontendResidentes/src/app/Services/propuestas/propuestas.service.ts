@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IPRESIDENTES } from 'src/app/constants';
 import { Propuesta } from './propuesta.model';
 
 @Injectable({
@@ -6,51 +8,9 @@ import { Propuesta } from './propuesta.model';
 })
 export class PropuestasService {
 
-  private propuestasAsam: Propuesta[];
-  private propuestas: Propuesta[] = [
-    {
-      id: 1,
-      idAsamblea: 1,
-      idConjunto: 1,
-      descripcion: "Aprobar el uso del presupuesto para arreglar los tejados",
-      votosTotales: 3,
-      habilitar: true,
-      parar: true,
-      subir: true
-    },
-    {
-      id: 2,
-      idAsamblea: 1,
-      idConjunto: 1,
-      descripcion: "Cambiar la empresa de seguridad",
-      votosTotales: 3,
-      habilitar: true,
-      parar: true,
-      subir: true
-    },
-    {
-      id: 3,
-      idAsamblea: 2,
-      idConjunto: 1,
-      descripcion: "Aprobar el uso del presupuesto para pintar las paredes",
-      votosTotales: 3,
-      habilitar: true,
-      parar: false,
-      subir: true
-    },
-    {
-      id: 4,
-      idAsamblea: 2,
-      idConjunto: 1,
-      descripcion: "Eliga la empresa de seguridad",
-      votosTotales: 3,
-      habilitar: false,
-      parar: false,
-      subir: true
-    }
-  ]
+  private propuestas:any;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   private propuestaAbierta: number;
 
@@ -58,23 +18,27 @@ export class PropuestasService {
 		window.localStorage['propuestaAbierta'] = IdPropuesta.toString();
 	}// setPropuestaAbierta
 
-	getPropuestaAbierta(){
+	getPropuestaAbierta():number{
 		this.propuestaAbierta = Number(window.localStorage['propuestaAbierta'] || -1);
 		if(this.propuestaAbierta == -1)
 			return null;
 		else
-			return this.getPropuesta(this.propuestaAbierta);
+			return this.propuestaAbierta;
 	}// getPropuestaAbierta
 
-  getPropuestas(idAsamblea:number) {
-    this.propuestasAsam = [];
-    for(let prop of this.propuestas)
-      if(prop.idAsamblea == idAsamblea)
-        this.propuestasAsam.push(prop);
-    return this.propuestasAsam;
-  } // end getPropuestas
+  public getPropuestaUrl(url: string) {
+		return this.http.get(url);
+	} // end getPropuestaUrl
 
-  getPropuesta(propuestaId: number) {
-    return this.propuestas.find(propuesta => { return propuesta.id == propuestaId });
-  }// end getPropuesta
-}
+	async cargarPropuestas(numConjunto: number, numApto:number, numAsamblea:number) {
+		this.getPropuestaUrl(IPRESIDENTES + "consultas/asambleas/mostrarPropuestas/"+numConjunto.toString()+"/"+numApto.toString()+"/"+numAsamblea.toString())
+			.subscribe(respuesta => {
+				this.propuestas = respuesta;
+			})
+	} // end cargarPropuestas
+
+  getPropuestas() {
+    return this.propuestas;
+  }// end getPropuestas
+
+} // end PropuestasService

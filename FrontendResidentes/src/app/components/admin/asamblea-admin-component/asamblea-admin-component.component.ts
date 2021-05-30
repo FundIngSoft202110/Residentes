@@ -32,7 +32,7 @@ export class AsambleaAdminComponent implements OnInit {
 
   constructor(private service: AsambleaService, opcionesServices: OpcionesService, propuestaServices: PropuestasService) {
     //this.asamblea = service.getAsamblea(1);
-    this.propuesta = propuestaServices.getPropuestas(1);
+    this.propuesta = propuestaServices.getPropuestas();
     this.opciones = opcionesServices.getOpciones(1);
     this.Nopciones = service.getNopciones();
 
