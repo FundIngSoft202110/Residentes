@@ -6,10 +6,8 @@
 package ENTIDADES;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.List;
+import java.math.BigInteger;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -17,12 +15,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -39,7 +35,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Areacomun.findByTipo", query = "SELECT a FROM Areacomun a WHERE a.tipo = :tipo"),
     @NamedQuery(name = "Areacomun.findByCapacidad", query = "SELECT a FROM Areacomun a WHERE a.capacidad = :capacidad"),
     @NamedQuery(name = "Areacomun.findByDescripcion", query = "SELECT a FROM Areacomun a WHERE a.descripcion = :descripcion"),
-    @NamedQuery(name = "Areacomun.findByEstado", query = "SELECT a FROM Areacomun a WHERE a.estado = :estado")})
+    @NamedQuery(name = "Areacomun.findByEstado", query = "SELECT a FROM Areacomun a WHERE a.estado = :estado"),
+    @NamedQuery(name = "Areacomun.findByHoraApertura", query = "SELECT a FROM Areacomun a WHERE a.horaApertura = :horaApertura"),
+    @NamedQuery(name = "Areacomun.findByHoraCierre", query = "SELECT a FROM Areacomun a WHERE a.horaCierre = :horaCierre"),
+    @NamedQuery(name = "Areacomun.findByNombreDia", query = "SELECT a FROM Areacomun a WHERE a.nombreDia = :nombreDia")})
 public class Areacomun implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -69,13 +68,22 @@ public class Areacomun implements Serializable {
     @Size(min = 1, max = 2)
     @Column(name = "Estado")
     private String estado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "areacomun")
-    private List<Diasdispo> diasdispoList;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "HoraApertura")
+    private int horaApertura;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "horaCierre")
+    private int horaCierre;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "NombreDia")
+    private String nombreDia;
     @JoinColumn(name = "ConjuntoIdConjunto", referencedColumnName = "IdConjunto", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Conjunto conjunto;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "areacomun")
-    private List<Reserva> reservaList;
 
     public Areacomun() {
     }
@@ -84,13 +92,16 @@ public class Areacomun implements Serializable {
         this.areacomunPK = areacomunPK;
     }
 
-    public Areacomun(AreacomunPK areacomunPK, String nombre, String tipo, int capacidad, String descripcion, String estado) {
+    public Areacomun(AreacomunPK areacomunPK, String nombre, String tipo, int capacidad, String descripcion, String estado, int horaApertura, int horaCierre, String nombreDia) {
         this.areacomunPK = areacomunPK;
         this.nombre = nombre;
         this.tipo = tipo;
         this.capacidad = capacidad;
         this.descripcion = descripcion;
         this.estado = estado;
+        this.horaApertura = horaApertura;
+        this.horaCierre = horaCierre;
+        this.nombreDia = nombreDia;
     }
 
     public Areacomun(int idArea, int conjuntoIdConjunto) {
@@ -147,13 +158,30 @@ public class Areacomun implements Serializable {
         this.estado = estado;
     }
 
-    @XmlTransient
-    public List<Diasdispo> getDiasdispoList() {
-        return diasdispoList;
+    public int getHoraApertura() {
+        return horaApertura;
     }
 
-    public void setDiasdispoList(List<Diasdispo> diasdispoList) {
-        this.diasdispoList = diasdispoList;
+    public void setHoraApertura(int horaApertura) {
+        this.horaApertura = horaApertura;
+    }
+
+    public int getHoraCierre() {
+        return horaCierre;
+    }
+
+    public void setHoraCierre(int horaCierre) {
+        this.horaCierre = horaCierre;
+    }
+
+    
+
+    public String getNombreDia() {
+        return nombreDia;
+    }
+
+    public void setNombreDia(String nombreDia) {
+        this.nombreDia = nombreDia;
     }
 
     public Conjunto getConjunto() {
@@ -162,15 +190,6 @@ public class Areacomun implements Serializable {
 
     public void setConjunto(Conjunto conjunto) {
         this.conjunto = conjunto;
-    }
-
-    @XmlTransient
-    public List<Reserva> getReservaList() {
-        return reservaList;
-    }
-
-    public void setReservaList(List<Reserva> reservaList) {
-        this.reservaList = reservaList;
     }
 
     @Override
