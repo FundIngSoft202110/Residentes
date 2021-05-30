@@ -1,0 +1,79 @@
+<ion-menu side="start" menuId="menu-residente" contentId="main-residente">
+  <ion-header>
+    <ion-toolbar color="residente">
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="/noticias" detail="false">
+        <ion-icon slot="start" name= "newspaper-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Noticias
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="/pagos" detail="false">
+        <ion-icon slot="start" name= "cash-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Pagos
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="/lista-asambleas-residentes" detail="false">
+        <ion-icon slot="start" name= "people-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Asamblea
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="/areas-residente"detail="false">
+        <ion-icon slot="start" name= "calendar-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Areas Comunes
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="/paquetes-residente" detail="false">
+        <ion-icon slot="start" name= "cube-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Paquetes
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="/empleados" detail="false">
+        <ion-icon slot="start" name= "id-card-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Empleados
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="/manual" detail="false">
+        <ion-icon slot="start" name= "document-text-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Manual de Convivencia
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="/quejas-residente" detail="false">
+        <ion-icon slot="start" name= "sad-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Quejas
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="/netflix" detail="false">
+        <ion-icon slot="start" name= "sync-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Cambiar Conjuntos
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="/acerca-nosotros" detail="false">
+        <ion-icon slot="start" name= "information-circle-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Sobre Residentes
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="/ingreso" detail="false">
+        <ion-icon slot="start" name= "log-out-outline" color="residente-txt"> </ion-icon>
+        <ion-label>
+          Cerrar Sesion
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main-residente"></ion-router-outlet>

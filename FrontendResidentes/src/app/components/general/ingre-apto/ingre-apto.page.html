@@ -1,0 +1,108 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/netflix" color="primary">
+        <ion-icon color= "residente" slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div color= "residente" id="header">
+    <h1 >Ingreso Apartamento</h1>
+    
+  </div>
+
+  <form class="for" [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+    <ion-item>
+      <ion-label class="req" >Torre</ion-label>
+      <ion-input formControlName="torre"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.torre">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('torre').hasError(validation.type) &&
+            (loginForm.get('torre').dirty || loginForm.get('torre').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label class="req" >Piso</ion-label>
+      <ion-input formControlName="piso"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.piso">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('piso').hasError(validation.type) &&
+            (loginForm.get('piso').dirty || loginForm.get('piso').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+    <ion-item>
+      <ion-label class="req" >Numero</ion-label>
+      <ion-input formControlName="numero"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.numero">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('numero').hasError(validation.type) &&
+            (loginForm.get('numero').dirty || loginForm.get('numero').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+
+    <br>
+    <br>
+    <ion-item>
+      <ion-label class="req">Contaseña</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('password').hasError(validation.type) &&
+            (loginForm.get('password').dirty ||
+              loginForm.get('password').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="msjErr">{{errorMessage}}</div>
+    <ion-button class="botIng"
+      expand="full"
+      shape="round"
+      color="residente"
+      [disabled]="!loginForm.valid"
+      type="submit"
+      >Ingresar apto</ion-button
+    >
+  </form>
+</ion-content>
+
+<ion-footer>
+  
+</ion-footer>

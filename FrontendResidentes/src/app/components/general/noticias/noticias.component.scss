@@ -1,0 +1,62 @@
+#rounded {
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;  
+}
+
+#derecha{
+    width: 94%;
+    text-align: right;
+}
+
+#izquierda{
+    width: 94%;
+    padding-left: 5%;
+    text-align: left;
+}
+
+ion-textarea{
+    width: 98%;
+    height: 50px;
+    padding-left: 6% !important;
+}
+
+ion-item{
+    width: 100%;
+    padding-left: 0%;
+}
+
+#botonPublicar{
+    width: 92%;
+    height: 30px;
+}
+
+#botonImagen{
+    width: 20%;
+    height: 30px;
+}
+
+ion-card{
+    width: 92%;
+    border: solid 1px var(--ion-color-residente-txt);
+    box-shadow: none !important;
+    ion-card-content{
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
+}
+
+ion-content {
+    --overflow: hidden;
+}
+
+/*#content-div{
+    height: 80%;
+}*/
+
+ion-card-title{
+    font-size: 100%;
+}

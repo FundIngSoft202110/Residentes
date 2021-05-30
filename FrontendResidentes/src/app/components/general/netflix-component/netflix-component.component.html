@@ -1,0 +1,19 @@
+<app-header-start titulo="Tus conjuntos"></app-header-start>
+
+<ion-content padding class="vertical-center">
+  <section class="ion-text-center">
+    <ion-label color="medium"> <i>Selecciona un conjunto</i> <br> <br> </ion-label>
+  </section>
+
+  <ion-card class="ion-text-center" (click)="goConjunto(conjunto)" *ngFor="let conjunto of getConjuntos()">
+      <ion-card-title> {{conjunto.nombre}} </ion-card-title>
+      <ion-img src="/../../../../assets/icon/IconConjuntos/Edi.png" alt="Conjunto"></ion-img>
+    <br>
+  </ion-card>
+
+  <ion-card class="ion-text-center" (click)="goAgregar()">
+    <ion-img src="./../../../../assets/icon/IconConjuntos/add.png" alt="Agregar"></ion-img>
+  </ion-card>
+
+
+</ion-content>

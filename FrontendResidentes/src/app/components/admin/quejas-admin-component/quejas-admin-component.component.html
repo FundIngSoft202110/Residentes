@@ -1,0 +1,20 @@
+<app-header titulo="QUEJAS" menu=ADMIN></app-header>
+
+<ion-content>
+    <ion-card *ngFor="let queja of quejas">
+        <ion-card-header> 
+            <ion-card-title *ngIf="queja.anonimo == 1" style="font-size:25px; font-weight: bold"  text-wrap>
+                <ion-icon name="person-circle-outline" color="residente-txt"></ion-icon>
+                &nbsp;&nbsp;Anónimo
+            </ion-card-title> 
+            <ion-card-title *ngIf="queja.anonimo==0" style="font-size:25px; font-weight: bold"  text-wrap>
+                <ion-icon name="person-circle-outline" color="residente-txt"></ion-icon>
+                &nbsp;&nbsp;{{queja.remitente}}
+            </ion-card-title> 
+        </ion-card-header>
+        <ion-card-content style="font-size:20px">
+            {{queja.asunto}}
+        </ion-card-content>
+      <br>
+    </ion-card>
+</ion-content>

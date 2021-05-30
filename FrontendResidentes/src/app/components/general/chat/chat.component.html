@@ -1,0 +1,59 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar color="residente">
+    </ion-toolbar >
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="goBack()">
+          <ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon>
+        </ion-buttons>
+        <ion-text slot="start" color="residente-txt">
+            <h3>{{chatn}}</h3>
+        </ion-text>
+        <ion-icon *ngIf="usuario==='ADMIN' && chatrol==='empleado'"  class="basura" name="trash-outline" (click)="deleteEmp()"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+<!---<app-header titulo="HOLA" menu="NO" routeBack="/empleados">
+    <ion-icon *ngIf="usuario==='ADMIN'" class="basura" name="trash-outline"></ion-icon>
+    (click)="goBack()"
+</app-header>--->
+
+<ion-content>
+    <ion-grid>
+        <ion-row *ngFor= "let mensaje of mensajes">
+            
+            <ion-col size="9" *ngIf=" ((( (usuario !== 'EMPLEADO') && ( (chatrol === 'empleado')   )) && (mensaje.rolEmpleado === 'remitente')) || ((usuario === 'EMPLEADO') && (mensaje.rolEmpleado === 'destinatario'))) ||  ( ( (usuario !== 'EMPLEADO') &&  (chatrol !== 'empleado') ) &&  ( (usuario === 'ADMIN' && (mensaje.rolAdmin === 'destinatario')) || (usuario === 'RESIDENTE' && (mensaje.rolAdmin === 'remitente')) ) ) " class= "mensaje otro-mensaje">
+                
+                <span>
+                    {{mensaje.contenido}}
+                </span>
+                <div class="time" text-right><br>
+                    {{mensaje.fechaHora | date:'short'}}
+                </div>
+            </ion-col>
+
+            <ion-col offset="3" size="9"  *ngIf=" ((( (usuario !== 'EMPLEADO') && ( (chatrol === 'empleado')   )) && (mensaje.rolEmpleado === 'destinatario')) || ((usuario === 'EMPLEADO') && (mensaje.rolEmpleado === 'remitente'))) ||  ( ( (usuario !== 'EMPLEADO') &&  (chatrol !== 'empleado') ) &&  ( (usuario === 'ADMIN' && (mensaje.rolAdmin === 'remitente')) || (usuario === 'RESIDENTE' && (mensaje.rolAdmin === 'destinatario')) ) ) " class= "mensaje mi-mensaje">
+                
+                <span>
+                    {{mensaje.contenido}}
+                </span>
+                <div class="time" text-right><br>
+                    {{mensaje.fechaHora | date:'short'}}
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<ion-footer>
+    <ion-toolbar light="light">
+        <ion-row align-items-center no-padding>
+            <ion-col size="10"> 
+                <textarea autosize maxRows="2" maxlength = "240" [(ngModel)]="newMsg" class="mensaje-entrada"></textarea>
+            </ion-col>
+            <ion-col size="2"> 
+                <ion-card  class="msg-btn" 
+                (click)="enviarMensaje()" [disabled]="newMsg === ''">
+                <ion-icon  name="send-outline" style="zoom:2.0;"></ion-icon>
+                </ion-card> 
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

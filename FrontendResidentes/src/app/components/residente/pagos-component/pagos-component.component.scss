@@ -1,0 +1,40 @@
+#paypal{
+    left: 40%;
+    width: 12%;
+    height: 8%;
+    box-shadow: none !important;
+    #paypal-img{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#pse{
+    left: 25%;
+    width: 37%;
+    height: 9%;
+    box-shadow: none !important;
+    #pse-img{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#cards{
+    left: 35%;
+    width: 20%;
+    height: 9%;
+    box-shadow: none !important;
+    #cards-img{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#centrado{
+    text-align: center;
+}
+
+ion-label{
+    font-size: 1.3rem;
+}

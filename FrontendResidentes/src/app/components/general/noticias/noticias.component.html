@@ -1,0 +1,58 @@
+<app-header titulo="NOTICIAS" menu="{{getUser()}}"></app-header>
+
+<ion-content>
+    <div>
+        <ion-card>
+            <ion-textarea [(ngModel)]="descripcion" placeholder="Comparte con tu comunidad" (click)="click()">
+            </ion-textarea>
+            <div id="derecha" *ngIf="getMostrar() == 1">
+                <input type="file" #fileInput (change)="uploadFile($event)" hidden="true" accept="image/*" />
+                <ion-button color="residente" id="botonImagen" (click)="selectImageSource()">
+                    <ion-icon name="image-outline"></ion-icon>
+                </ion-button>
+            </div>
+        </ion-card>
+        <ion-row>
+            <ion-col>
+                <div id="izquierda">
+                    <ion-button color="residente" id="botonPublicar" (click)="cancelarNoticia()">
+                        <ion-label>Cancelar</ion-label>
+                    </ion-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div id="derecha">
+                    <ion-button color="residente" id="botonPublicar" (click)="publicarNoticia()">
+                        <ion-label>Publicar</ion-label>
+                    </ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+    <div style="overflow:scroll" id="content-div">
+        <div *ngFor="let noticia of noticias">
+            <ion-card id="rounded">
+                <ion-card-content>
+                    <ion-item lines="none">
+                        <ion-avatar item-start>
+                            <ion-img src="/../../../../assets/icon/IconConjuntos/avatar.jpg"></ion-img>
+                        </ion-avatar>
+                        <p>&nbsp;&nbsp;{{noticia.titulo}}</p>
+                        <ion-buttons *ngIf="getEli(noticia)" slot="end" (click)="eliminarNoticia(noticia)">
+                            <ion-icon slot="icon-only" color="residente" name="trash-outline"></ion-icon>
+                        </ion-buttons>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <p>{{convertDate(noticia.fecha)}}</p>
+                    </ion-item>
+                    <ion-item *ngIf="noticia.imagen != null" lines="none">
+                        <!--<ion-img src=" alt="Conjunto"></ion-img>-->
+                    </ion-item>
+                    <ion-item lines="none">
+                        <p>{{noticia.descripcion}}</p>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </div>
+</ion-content>

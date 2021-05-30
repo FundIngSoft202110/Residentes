@@ -1,0 +1,48 @@
+<app-header titulo="PAQUETES" menu=NO routeBack="/paquetes-empleado"></app-header>
+
+<ion-content>
+  <div class="content-div">
+    <ion-card> <br> <br> 
+      <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Tamaño</ion-label>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-select [(ngModel)]="tamanoSeleccionado" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="&nbsp;&nbsp;Seleccione"
+            id="rounded">
+            <div>
+              <ion-select-option value="grande">&nbsp;&nbsp;grande</ion-select-option>
+              <ion-select-option value="mediano">&nbsp;&nbsp;mediano</ion-select-option>
+              <ion-select-option value="pequeño">&nbsp;&nbsp;pequeño</ion-select-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-list> 
+    </ion-card> 
+    <ion-card>
+      <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Fecha</ion-label>
+      <ion-item lines="none">
+        <ion-input disabled id="labelborde" id="rounded">&nbsp;&nbsp;{{getFecha()}}</ion-input>
+      </ion-item>
+    </ion-card> 
+
+    <ion-card>
+      <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Hora</ion-label>
+      <ion-item lines="none">
+          <ion-input disabled id="labelborde" id="rounded">&nbsp;&nbsp;{{getHora()}}</ion-input>
+      </ion-item>
+    </ion-card> 
+
+    <ion-card>
+      <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Remitente</ion-label>
+      <ion-item lines="none">
+        <ion-input [(ngModel)]="remi" id="rounded">&nbsp;&nbsp;</ion-input>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div id="centrado">
+    <br> <br>
+    <ion-button color="{{getColorReportar()}}" (click)="botonReportar()">
+      <ion-label> Reportar </ion-label>
+    </ion-button>
+  </div>
+</ion-content>

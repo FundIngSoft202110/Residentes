@@ -1,0 +1,29 @@
+ion-slides {
+    --bullet-background: #c9e265;
+    --bullet-background-active: #c9e265;
+    height: 100%;
+    width: 100%;
+}
+
+ion-card{
+    left: 10%;
+    width: 70%;
+}
+ion-slide {
+    display: block;
+}
+
+ion-textarea{
+    left: 20%;
+    width: 60%;
+}
+
+.content-div{
+    height: 75%;
+}
+
+ion-content {
+    --overflow: hidden;
+}
+
+

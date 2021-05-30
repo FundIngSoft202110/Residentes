@@ -1,0 +1,17 @@
+::ng-deep .selected-data,
+::ng-deep .options {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(191, 191, 191, 0.15);
+}
+::ng-deep .selected-data .caption {
+    font-weight: bold;
+    font-size: 115%;
+}
+
+.boton{
+    padding-left: 40px;
+    padding-right:20px;
+    width: 300px;
+    margin-bottom: 100px;
+}

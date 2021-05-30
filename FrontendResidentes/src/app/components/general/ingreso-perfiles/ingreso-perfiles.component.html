@@ -1,0 +1,33 @@
+
+
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="success"  routeBack="/netflix">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div id="header">
+    <h1 color ="residente">RESIDENTES</h1>
+    <label>Ingresa tu apartamento</label>
+  </div>
+
+  <form id="form">
+    <ion-input class="entrada" placeholder="Usuario - Apartamento"></ion-input><br><br>
+    <ion-input class="entrada" type="password" placeholder="Contraseña"></ion-input>
+    <br><br><br><br>
+    <ion-card routerLink="/noticias" color= "residente" class="ion-text-center">
+      <ion-card-header>
+          <ion-card-subtitle>ACEPTAR </ion-card-subtitle>   
+      </ion-card-header>
+    </ion-card>  
+  </form>
+</ion-content>
