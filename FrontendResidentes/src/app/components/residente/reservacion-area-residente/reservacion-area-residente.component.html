@@ -1,5 +1,6 @@
-<app-header titulo="Mis Reservas" menu=RESIDENTE></app-header>
-    <div class="widget-container">
+<app-header titulo="MIS RESERVAS" menu=RESIDENTE></app-header>
+   <div class="margen">
+         <div class="bordelista">
         <dx-list #list
             [dataSource]="tasks"
             [height]="400"
@@ -7,12 +8,12 @@
             [selectAllMode]="selectAllModeVlaue"
             [showSelectionControls]="true"
             [selectedItemKeys]="[]"></dx-list>
-    </div>
+      </div>      
 <ion-button class="boton"
-      (click)="mandarEliminar()"
+      
       expand="full"
       shape="round"
-      color="danger"
+      color="residente"
       type="submit"
       >Eliminar</ion-button>
 <ion-button class="boton"
@@ -29,3 +30,5 @@
       color="residente"
       type="submit"
       >Volver</ion-button>
+
+</div> 

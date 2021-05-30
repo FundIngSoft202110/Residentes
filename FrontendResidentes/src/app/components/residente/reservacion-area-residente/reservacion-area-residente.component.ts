@@ -11,7 +11,7 @@ import { IPRESIDENTESA } from 'src/app/constants';
 @Component({
   selector: 'app-reservacion-area-residente',
   templateUrl: './reservacion-area-residente.component.html',
-  providers:[],
+  providers:[ReservacionAreaResidenteService],
   styleUrls: ['./reservacion-area-residente.component.scss'],
 })
 export class ReservacionAreaResidenteComponent implements OnInit {
@@ -19,6 +19,9 @@ export class ReservacionAreaResidenteComponent implements OnInit {
   selectAllModeVlaue: string = "page";
   selectionModeValue: string = "all";
   listaMisReservas: any;
+  linkvolver="/areas-residente";
+  linkModificar="/modificar-reserva-area";
+  
 
   constructor(private service: ReservacionAreaResidenteService, private navCtrl: NavController) {
       this.tasks = new DataSource({
@@ -29,18 +32,18 @@ export class ReservacionAreaResidenteComponent implements OnInit {
       });
   }
 
-  /*
+  
   mandarModificar() {
-    this.navCtrl.navigateForward("/mis-reservas");
+    this.navCtrl.navigateForward(this.linkModificar);
   }
   mandarEliminar() {
-    this.navCtrl.navigateForward("/mis-reservas");
+   
   }
 
   goToRegister() {
-   this.navCtrl.navigateForward("/registro");
+   this.navCtrl.navigateForward(this.linkvolver);
   }
-  */
+  
 
   ngOnInit() {}
 

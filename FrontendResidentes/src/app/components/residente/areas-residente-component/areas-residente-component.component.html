@@ -1,5 +1,5 @@
 <app-header titulo="ÁREAS COMUNES" menu=RESIDENTE></app-header>
-
+<div class = "mover">
 <div id="form1">
     <div class="dx-fieldset">
         <div class="dx-field">
@@ -33,7 +33,8 @@
     </div>
 </div>
 <dx-form id="form"
-	[formData]="area">
+	[formData]="area"
+    [labelLocation]="pos">
 	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
 		<dxi-item>
 			<div class="form-avatar"></div>
@@ -45,14 +46,14 @@
 </dx-form>
 
 
-<ion-button class="boton"
+<ion-button class="boton1"
       (click)="mandarMisReservas()"
       expand="full"
       shape="round"
       color="residente"
       type="submit"
       >Mis Reservas</ion-button>
-<ion-button class="boton"
+<ion-button class="boton2"
       (click)="mandarNueva()"
       expand="full"
       shape="round"
@@ -60,4 +61,5 @@
       type="submit"
       >Nueva Reserva</ion-button>
 
+    </div>
       

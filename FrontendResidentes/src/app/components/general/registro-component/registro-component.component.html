@@ -1,33 +1,33 @@
-
-    <app-header-start titulo="Registrate"></app-header-start>
+<app-header  menu=NO routeBack="/ingreso"></app-header>
+    <app-header-start titulo="Registrate" ></app-header-start>
     <div class="content-block dx-card responsive-paddings">
     <form action="your-action" (submit)="onFormSubmit($event)">
  
         <dx-form id="form" [formData]="usuario" [showColonAfterLabel]="false"
             [showValidationSummary]="false" validationGroup="customerData" [labelLocation]="labelL">
             <dxi-item itemType="group">
-                <dxi-item dataField="RolConjunto" layout="horizontal" [label]="{text: 'Rol'}" editorType="dxRadioGroup" [editorOptions]="{ items: roles}">
+                <dxi-item dataField="rolConjunto" layout="horizontal" [label]="{text: 'Rol'}" editorType="dxRadioGroup" [editorOptions]="{ items: roles}">
                     <dxi-validation-rule type="required" message="Rol es requerido">    
                     </dxi-validation-rule>
                 </dxi-item>
-                <dxi-item dataField="Nombres">
+                <dxi-item dataField="nombre">
                     <dxi-validation-rule type="required" message="Nombre es requerido">
                     </dxi-validation-rule>
                     <dxi-validation-rule type="pattern" [pattern]="namePattern" message=" no use numeros en su nombre">
                     </dxi-validation-rule>
                 </dxi-item>
-                <dxi-item dataField="Apellidos">
+                <dxi-item dataField="apellido">
                     <dxi-validation-rule type="required" message="Apellido es requerido">
                     </dxi-validation-rule>
                     <dxi-validation-rule type="pattern" [pattern]="namePattern" message="no use numeros en su Apellido">
                     </dxi-validation-rule>
                 </dxi-item>
-                <dxi-item dataField="Usuario">
+                <dxi-item dataField="usuario">
                     <dxi-validation-rule type="required" message="Usuario es requerido">
                     </dxi-validation-rule>
                     
                 </dxi-item>
-                <dxi-item dataField="Correo">
+                <dxi-item dataField="correo">
                     <dxi-validation-rule type="required" message="Correo requerido">
                     </dxi-validation-rule>
                     <dxi-validation-rule type="email" message="Correo Invalido">
@@ -36,7 +36,7 @@
                      [validationCallback]="asyncValidation">
                     </dxi-validation-rule> -->
                 </dxi-item>
-                <dxi-item dataField="Contrasena" [label]="{text: 'Contraseña'}"  [editorOptions]="{ mode: 'password' }">
+                <dxi-item dataField="contrasena" [label]="{text: 'Contraseña'}"  [editorOptions]="{ mode: 'password' }">
                     <dxi-validation-rule type="required" message="Contraseña es obligatoria">
                     </dxi-validation-rule>
                 </dxi-item>
@@ -49,42 +49,21 @@
                         message="contraseña incorrecta">
                     </dxi-validation-rule>
                 </dxi-item>
-                <dxi-item dataField="NumCelular" [label]="{text: 'Telefono'}" [editorOptions]="{ 
-                mask: '(300)0000000',
-                maskRules: phoneRules,
-                useMaskedValue: true,
-                maskInvalidMessage: 'Telefono no valido'}">
-                <dxi-validation-rule type="required" message="Telefono requerido">
-                </dxi-validation-rule> 
-                    <dxi-validation-rule type="pattern" [pattern]="phonePattern"
-                        message="Forma del telefono no compatible">
-                    </dxi-validation-rule>
-                </dxi-item>
            </dxi-item>
         </dx-form>
 
     </form>
  <div>
 
-     <dx-button
-     class="ladoVolver"
-     stylingMode="contained"
-     icon="arrowleft"
-     [width]="35"
-     [routerLink]="link"
-     >    
-     
-     </dx-button>
+    <ion-button class="botonGuardar"
+      (click)="onFormSubmit($event)"
+      expand="full"
+      shape="round"
+      color="residente"
+      type="submit"
+	 
+      >Guardar</ion-button
+    >
 
-     <dx-button
-     class="lado"
-     stylingMode="contained"
-     text="Guardar"
-     icon="save"
-     [routerLink]="linkGuardado"
-     [width]="120"
-     (onClick)="onFormSubmit($event)"
-     >    
-     </dx-button>
  </div>
 </div>

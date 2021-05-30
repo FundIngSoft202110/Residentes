@@ -8,6 +8,8 @@ import notify from 'devextreme/ui/notify';
 import { Usuario,RegistroServicioService } from '../../../Services/registro-servicio/registro-servicio.service';
 import { NavController } from '@ionic/angular';
 import { HostListener } from '@angular/core';
+import { IPRESIDENTES, IPRESIDENTESA } from 'src/app/constants';
+
 
 
 
@@ -19,6 +21,7 @@ import { HostListener } from '@angular/core';
 
 export class RegistroComponent implements OnInit {
     labelL ="top";
+    noti:any;
     respuestapost:any;
     usuariosbase:any;
     usuario: Usuario = new Usuario();
@@ -50,29 +53,35 @@ export class RegistroComponent implements OnInit {
             "Empleado",
             "Administrador"
         ]
-        
+        //this.getUsarios();
 
     }
 
     ngOnInit() {
-       this.getUsarios();
+      // this.getUsarios();
+       console.log("holiii",this.usuariosbase)
     }
 
-    public getUsarios() {
+    // public getUsarios() {
         
-        this.RegistroServicioService.getUsario("http://192.168.76.71:8080/BackendResidentes/consultas/personas/usuario/$:{usario.us}")
-            .subscribe(respuesta => {
-                this.usuariosbase=respuesta;
+    //     this.RegistroServicioService.getUsario(IPRESIDENTESA+"/consultas/personas/usuario/"+this.usuariosbase.usuario)
+    //         .subscribe(respuesta => {
+    //             this.usuariosbase=respuesta;
+    //             console.log(this.usuariosbase);
                 
-        })
-    }
+    //     })
+    // }
 
     public postNuevo() {
         
-        this.RegistroServicioService.postUsuarioNuevo("http://192.168.76.71:8080/BackendResidentes/consultas/NuevoUsuario",this.usuario)
+        this.RegistroServicioService.postUsuarioNuevo(IPRESIDENTESA+"/consultas/personas/NuevoUsuario",this.usuario)
             .subscribe(respuesta => {
                 console.log(respuesta);
+              //  this.getUsarios();
+                console.log("holiii22",this.usuariosbase)
                 this.respuestapost=respuesta;
+               this.noti=this.respuestapost.respuesta;
+
                  
         })
     }
@@ -94,24 +103,47 @@ export class RegistroComponent implements OnInit {
         console.log("aca esta",this.usuario);
         this.postNuevo();
         console.log("respuesta post",this.respuestapost);
-        notify({
-            message: "Se ha registrado con exito",
-            position: {
-                my: "center top",
-                at: "center top"
-            }
-        }, "success", 3000);
+        //cambiar por el alert de sebas
+        alert(this.noti);
 
-        e.preventDefault();
+      
         
         
         
        
-    }
+    } 
+    
 
     goIngreso() {
         this.navCtrl.navigateForward("/ingreso");
     }
+    // async eliminarPaquete(paquete:any){
+    //     this.presentAlertConfirm(paquete);
+    //   }
+    
+    //   async presentAlertConfirm(paquete:any) {
+    //     const alert = await this.alertController.create({
+    //       cssClass: 'my-custom-class',
+    //       header: 'Confirmación',
+    //       message: '¿Está seguro que desea eliminar el paquete ' + paquete.num + '?',
+    //       buttons: [
+    //         {
+    //           text: 'Cancelar',
+    //           role: 'cancel',
+    //           cssClass: 'secondary',
+    //           handler: (blah) => {
+    //           }
+    //         }, {
+    //           text: 'Aceptar',
+    //           handler: () => {
+    //             this.paquetesService.elimnarPaquete(this.conjuntoActivo, this.servIngAptoService.getIdApto(), paquete.paquete.paquetePK.idPaqueete);
+    //             this.paquetes = [];
+    //             this.paquetesSer = [];
+    //             this.cargarAptos(1);
+    //           }
+    //         }
+    //       ]
+    //     });
   
 
 }

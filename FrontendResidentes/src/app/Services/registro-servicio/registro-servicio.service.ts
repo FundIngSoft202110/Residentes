@@ -3,13 +3,12 @@ import { HttpClient} from '@angular/common/http';
 
 
  export class Usuario {
-  Nombres: any;
-  Apellidos: any;
-  Usuario: any;
-  Correo: any;
-  Contrasena: any;
-  NumCelular: any;
-  RolConjunto:any;
+  nombre: any;
+  apellido: any;
+  usuario: any;
+  correo: any;
+  contrasena: any;
+  rolConjunto:any;
 }
 
 // let customer : Customer = {

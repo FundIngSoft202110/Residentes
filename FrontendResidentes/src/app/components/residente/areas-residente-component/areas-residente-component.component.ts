@@ -39,13 +39,15 @@ export class AreasResidenteComponent implements OnInit  {
 	tipo: string[];
 	listaDeAreasComunes: string[];
     horasDisponibles: string[];
+    linkMisReservas="/mis-reservas";
+    linnkNuevaReserva ="/reservar-area"
    
 
 	constructor(service: AreaComunResidenteService, private navCtrl: NavController) {
 		this.area = service.getArea();
 		this.tipo = service.getTipo();
         this.tipo=[
-    		"Deportivo",
+    		"Deportiva",
     		"Relajante",
     		"Social"
         ]
@@ -54,14 +56,12 @@ export class AreasResidenteComponent implements OnInit  {
 	}
 
     mandarNueva() {
-        this.navCtrl.navigateForward("/reservar-area");
+        this.navCtrl.navigateForward(this.linnkNuevaReserva);
       }
     mandarMisReservas() {
-        this.navCtrl.navigateForward("/mis-reservas");
+        this.navCtrl.navigateForward(this.linkMisReservas);
       }
-    mandarDisponibilidad() {
-        this.navCtrl.navigateForward("/disponibilidad-area");
-      }
+   
      
     pos="top";
     now: Date = new Date();
