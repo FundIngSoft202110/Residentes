@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+defineCustomElements(window);
 
 @NgModule({
   declarations: [AppComponent],
