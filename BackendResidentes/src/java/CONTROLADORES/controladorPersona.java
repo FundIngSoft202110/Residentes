@@ -53,7 +53,7 @@ public class controladorPersona {
             p.setUsuario(rs.getString("Usuario"));
             p.setCorreo(rs.getString("Correo"));
             p.setContrasena(rs.getString("Contrasena"));
-            p.setNumCelular(rs.getBigDecimal("NumCelular"));
+ 
             p.setRolConjunto(rs.getString("RolConjunto"));
  
             pp.add(p);
@@ -126,7 +126,7 @@ public class controladorPersona {
                     p.setUsuario(rs.getString("Usuario"));
                     p.setCorreo(rs.getString("Correo"));
                     p.setContrasena(rs.getString("Contrasena"));
-                    p.setNumCelular(rs.getBigDecimal("NumCelular"));
+                   
                     p.setRolConjunto(rs.getString("RolConjunto"));
                     p.setOficio(rs.getString("Oficio"));
                     p.setFoto(rs.getString("Foto"));

@@ -79,10 +79,6 @@ public class Persona implements Serializable {
     private String contrasena;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "NumCelular")
-    private BigDecimal numCelular;
-    @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 15)
     @Column(name = "RolConjunto")
     private String rolConjunto;
@@ -106,14 +102,14 @@ public class Persona implements Serializable {
         this.idPersona = idPersona;
     }
 
-    public Persona(Integer idPersona, String nombre, String apellido, String usuario, String correo, String contrasena, BigDecimal numCelular, String rolConjunto) {
+    public Persona(Integer idPersona, String nombre, String apellido, String usuario, String correo, String contrasena, String rolConjunto) {
         this.idPersona = idPersona;
         this.nombre = nombre;
         this.apellido = apellido;
         this.usuario = usuario;
         this.correo = correo;
         this.contrasena = contrasena;
-        this.numCelular = numCelular;
+       
         this.rolConjunto = rolConjunto;
     }
 
@@ -165,13 +161,6 @@ public class Persona implements Serializable {
         this.contrasena = contrasena;
     }
 
-    public BigDecimal getNumCelular() {
-        return numCelular;
-    }
-
-    public void setNumCelular(BigDecimal numCelular) {
-        this.numCelular = numCelular;
-    }
 
     public String getRolConjunto() {
         return rolConjunto;
