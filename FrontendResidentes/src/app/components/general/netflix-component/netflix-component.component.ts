@@ -23,7 +23,7 @@ export class NetflixComponent implements OnInit {
   ngOnInit(){}
 
   async waitBD(){
-    await new Promise(resolve => setTimeout(resolve, 750));
+    await new Promise(resolve => setTimeout(resolve, 1000));
   }
 
   async ionViewWillEnter(){
@@ -35,11 +35,16 @@ export class NetflixComponent implements OnInit {
     this.conjuntos = this.conjuntoService.getConjuntos(); 
   }// end ngOnInit
 
+  getConjuntos(){
+    return this.conjuntos;
+  }
+
   getUser(){
     return this.usuario;
   }// end getUser
 
   goAgregar(){
+    this.conjuntos = [];
     if(this.usuario == "ADMIN"  ){
       this.navCtrl.navigateForward("/nuevo-conjunto");
     }else{
@@ -50,10 +55,13 @@ export class NetflixComponent implements OnInit {
   goConjunto(conjunto:Conjunto){
     this.conjuntoService.setConjuntoActivo(conjunto.id);
     if(this.usuario == "ADMIN"  ){
+      this.conjuntos = [];
       this.navCtrl.navigateForward("/noticias");
     }else if(this.usuario == "EMPLEADO"){
+      this.conjuntos = [];
       this.navCtrl.navigateForward("/empleados");
     }else if( this.usuario == "RESIDENTE" || this.usuario == "Residente" ){
+      this.conjuntos = [];
       this.navCtrl.navigateForward("/ingre-apto");
     } // end if
   }// end getRouteConjunto

@@ -1,7 +1,10 @@
 import { not } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import notify from 'devextreme/ui/notify';
 import { MONTHS } from 'src/app/constants';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
+import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
 import { Noticia } from 'src/app/Services/noticias/noticia.model';
 import { NoticiaPK } from 'src/app/Services/noticias/noticiaPK.model';
 import { NoticiasService } from 'src/app/Services/noticias/noticias.service';
@@ -15,6 +18,7 @@ import { PersonasService } from 'src/app/Services/personas/personas.service';
 export class NoticiasComponent implements OnInit {
   public noticias:any;
   private idConjutno:number;
+  private idApto:number;
   private mostrar:number = 0;
   hoja = document.createElement('style');
   descripcion : string ="";
@@ -23,8 +27,12 @@ export class NoticiasComponent implements OnInit {
   public mes:number = 0;
   public anio:number = 0;
   public dia:number = 0;
+  private user:string;
+  private respuesta:any;
 
-  constructor(private personasService:PersonasService, private noticiasService: NoticiasService, private conjuntosService: ConjuntosService) { }
+  constructor(private personasService:PersonasService, private noticiasService: NoticiasService, 
+              private conjuntosService: ConjuntosService, private servIngAptoService: ServIngAptoService,
+              public alertController: AlertController) { }
 
   ngOnInit() {
   } // end ngOnInit
@@ -35,6 +43,8 @@ export class NoticiasComponent implements OnInit {
 
 
   async ionViewWillEnter(){
+    this.user = this.personasService.getUserActivo();
+    console.log("USUARIOOOOO: ", this.user);
     this.conjuntosService.cargarFechaActual();
     await this.waitBD();
     this.fecha = this.conjuntosService.getFechaActual();
@@ -45,13 +55,17 @@ export class NoticiasComponent implements OnInit {
     document.body.appendChild(this.hoja);
     this.idConjutno = this.conjuntosService.getConjuntoActivo();
     this.noticiasService.cargarNoticias(this.idConjutno);
+    if(this.user == "RESIDENTE"){
+      this.idApto = this.servIngAptoService.getIdApto();
+      this.noticiasService.cargarAptoNoticia(this.idConjutno, this.idApto);
+    } // end if
     await this.waitBD(); 
     this.noticias = this.noticiasService.getNoticias();
     console.log("Noticiass: ", this.noticias);
   } // end ionViewWillEnter
 
   getUser(){
-    return this.personasService.getUserActivo();
+    return this.user;
   } // end getUser
 
   getFecha(){
@@ -70,7 +84,7 @@ export class NoticiasComponent implements OnInit {
 
   click(){
     this.mostrar = 1;
-    this.hoja.innerHTML = "#content-div {height: 50%;}";
+    this.hoja.innerHTML = "#content-div {height: 70%;}";
     document.body.appendChild(this.hoja);
     console.log("MUereeee");
   }
@@ -81,26 +95,78 @@ export class NoticiasComponent implements OnInit {
 
   cancelarNoticia(){
     this.mostrar = 0;
-    this.hoja.innerHTML = "#content-div {height:20%;}";
+    this.hoja.innerHTML = "#content-div {height:80%;}";
     document.body.appendChild(this.hoja);
     this.descripcion = "";
   }
 
-  publicarNoticia(){
+  eliminarNoticia(noticia:Noticia){
+    this.presentAlertConfirm(noticia);
+  } // end
+
+  async cargarNoti(){
+    await this.waitBD(); 
+    this.noticiasService.cargarNoticias(this.idConjutno);
+    await this.waitBD(); 
+    this.noticias = this.noticiasService.getNoticias();
+    this.respuesta = this.noticiasService.getRespuesta();
+    notify(this.respuesta.respuesta, 'sucess');
+  } // end cargarNoti
+
+  async presentAlertConfirm(noticia:Noticia) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirmación',
+      message: '¿Está seguro que desea eliminar la noticia ' + noticia.titulo + '?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+          }
+        }, {
+          text: 'Aceptar',
+          handler: () => {
+            this.noticiasService.elimnarNoticia(this.idConjutno, noticia.noticiaPK.idNoticia);
+            this.cargarNoti();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  } // end presentAlertConfirm
+
+  async publicarNoticia(){
     this.mostrar = 0;
-    this.hoja.innerHTML = "#content-div {height: 20%;}";
+    this.hoja.innerHTML = "#content-div {height: 80%;}";
     document.body.appendChild(this.hoja);
     if((this.descripcion != "")){
       this.noticiaNueva.noticiaPK = new NoticiaPK();
       this.noticiaNueva.noticiaPK.conjuntoIdConjunto = this.conjuntosService.getConjuntoActivo();
-      this.noticiaNueva.noticiaPK.idNoticia;
-      this.noticiaNueva.titulo;
+      if(this.user == "RESIDENTE")
+        this.noticiaNueva.titulo = this.noticiasService.getAptoNoti();
+      else
+        this.noticiaNueva.titulo = "Administrador";
       this.noticiaNueva.fecha = this.dia * 1000000 + this.mes * 10000 + this.anio;
       this.noticiaNueva.descripcion = this.descripcion;
-      this.noticiaNueva.imagen;
+      //this.noticiaNueva.imagen;
       this.noticiasService.nuevaNoticia(this.noticiaNueva);
       this.descripcion = "";
-    }//end
+      this.cargarNoti();
+    }//end if
   }// end publicarNoticia
+
+
+  getEli(noticia:Noticia):number{
+    if(this.user == "ADMIN")
+      return 1;
+    else
+      if(noticia.titulo == this.noticiasService.getAptoNoti())
+        return 1;
+      else  
+        return 0;
+  } // end getEli
 
 } // end NoticiasComponent

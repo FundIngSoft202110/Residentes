@@ -44,8 +44,8 @@ export class ReservacionAreaResidenteComponent implements OnInit {
 
   ngOnInit() {}
 
-  getMisReservas(){
+  /*getMisReservas(){
     this.service.getMisReservas(IPRESIDENTESA + "/misReservas/conjunto" + IdConjunto +"/apartamento/" + IdApartamento).subscribe(listaMisReservas =>{
       this.listaMisReservas = listaMisReservas})
-  }
+  }*/
 }
