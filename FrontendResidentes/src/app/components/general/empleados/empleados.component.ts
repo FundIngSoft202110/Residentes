@@ -58,6 +58,9 @@ export class EmpleadosComponent implements OnInit{
     return this.personasService.getUserActivo();
   }
 
+  getChatBuscado(){
+    return this.chatBuscado;
+  }
   
   buscarChat(event){
     const text = event.target.value ;
