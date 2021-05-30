@@ -84,6 +84,13 @@ export class PersonasService {
     this.setRolPersonaActiva(this.aux);
   }// end setPersonaActiva
 
+  setPersonaActiva2(idPersona: number, rol:string) {
+    window.localStorage['personaActiva'] = idPersona.toString();
+    
+   
+    this.setRolPersonaActiva(rol);
+  }// end setPersonaActiva
+
   getRolP(idPersona: number) {
     for (let pers of this.authenticateServiceService.getP()) {
       if (idPersona == pers.idPersona)
