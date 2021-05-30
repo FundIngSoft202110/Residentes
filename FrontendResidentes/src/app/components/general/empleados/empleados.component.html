@@ -10,7 +10,7 @@
     </ion-toolbar>
     <ion-list>
 
-        <ion-item *ngFor="let chat of chatBuscado" [routerLink]="['/chat']" (click)="elegirChat(chat)">
+        <ion-item *ngFor="let chat of getChatBuscado()" [routerLink]="['/chat']" (click)="elegirChat(chat)">
             <ion-avatar *ngIf="chat.rol === 'empleado'" slot="start">
                 <ion-img [src]="chat.foto">
                 </ion-img>

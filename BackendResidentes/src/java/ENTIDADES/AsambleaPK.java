@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author alejandrodiaz
+ * @author juansebastianbarretojimenez
  */
 @Embeddable
 public class AsambleaPK implements Serializable {
@@ -76,7 +76,7 @@ public class AsambleaPK implements Serializable {
 
     @Override
     public String toString() {
-        return "ENTIDADES.AsambleaPK[ idAsamblea=" + idAsamblea + ", conjuntoIdConjunto=" + conjuntoIdConjunto + " ]";
+        return "API.AsambleaPK[ idAsamblea=" + idAsamblea + ", conjuntoIdConjunto=" + conjuntoIdConjunto + " ]";
     }
     
 }

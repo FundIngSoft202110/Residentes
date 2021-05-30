@@ -9,6 +9,7 @@ import { Paquete } from './paquete.model';
 })
 export class PaquetesService {
   private paquetes:any;
+  private respuesta:any;
   constructor(private http: HttpClient) { }
 
   public getPaquetesUrl(url: string) {
@@ -41,8 +42,13 @@ export class PaquetesService {
     this.deletePaquetesUrl(IPRESIDENTES + "consultas/paquetes/eliminarPaquete/"+numConjunto.toString()+"/"+numApto.toString()+"/"+numPaquete.toString())
       .subscribe(respuesta => {
         console.log("Respuesta: ", respuesta);
+        this.respuesta = respuesta;
       })
   } // end cargarPaquetes
+
+  getRespuesta(){
+    return this.respuesta;
+  } // end getRespuesta
   
   getPaquetes() {
     return this.paquetes;

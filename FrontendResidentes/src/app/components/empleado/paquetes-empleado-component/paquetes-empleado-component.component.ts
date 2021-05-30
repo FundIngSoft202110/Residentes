@@ -8,6 +8,7 @@ import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
 import { IPRESIDENTES, MONTHS } from 'src/app/constants';
 import { ThisReceiver } from '@angular/compiler';
+import notify from 'devextreme/ui/notify';
 
 @Component({
   selector: 'app-paquetes-empleado-component',
@@ -21,11 +22,14 @@ export class PaquetesEmpleadoComponent implements OnInit {
   aptos : any;
   aptoSeleccionado : number =0;
   length:number = -1;
+  respuesta:any;
   public conjuntoActivo:number;
   public aptoActivo:number;
   public paqueteView : string[] = []; 
 
-  constructor(private navCtrl: NavController,private paquetesService : PaquetesService, private conjuntosService: ConjuntosService, private servIngAptoService: ServIngAptoService, public alertController: AlertController) { }
+  constructor(private navCtrl: NavController,private paquetesService : PaquetesService,
+              private conjuntosService: ConjuntosService, private servIngAptoService: ServIngAptoService, 
+              public alertController: AlertController) { }
 
   ngOnInit() {
     this.length = -1;
@@ -61,8 +65,11 @@ export class PaquetesEmpleadoComponent implements OnInit {
   }
 
   async cargarAptos(selector:number){
-    if(selector == 1)
-      await this.waitBD(1000);
+    if(selector == 1){
+      await this.waitBD(1200);
+      this.respuesta = this.paquetesService.getRespuesta();
+      notify(this.respuesta.respuesta, 'sucess');
+    } // end if
     this.paquetesService.cargarPaquetes(this.conjuntoActivo, this.aptoSeleccionado);
     await this.waitBD(800);
     this.paquetesSer = this.paquetesService.getPaquetes();

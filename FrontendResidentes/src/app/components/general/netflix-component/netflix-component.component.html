@@ -5,7 +5,7 @@
     <ion-label color="medium"> <i>Selecciona un conjunto</i> <br> <br> </ion-label>
   </section>
 
-  <ion-card class="ion-text-center" (click)="goConjunto(conjunto)" *ngFor="let conjunto of conjuntos">
+  <ion-card class="ion-text-center" (click)="goConjunto(conjunto)" *ngFor="let conjunto of getConjuntos()">
       <ion-card-title> {{conjunto.nombre}} </ion-card-title>
       <ion-img src="/../../../../assets/icon/IconConjuntos/Edi.png" alt="Conjunto"></ion-img>
     <br>

@@ -6,6 +6,7 @@ import{Task,ReservacionAreaResidenteService} from '../../../Services/Reservacion
 import DataSource from 'devextreme/data/data_source';
 import ArrayStore from 'devextreme/data/array_store';
 import { NavController } from '@ionic/angular';
+import { IPRESIDENTESA } from 'src/app/constants';
 
 @Component({
   selector: 'app-reservacion-area-residente',
@@ -17,6 +18,7 @@ export class ReservacionAreaResidenteComponent implements OnInit {
   tasks: DataSource;
   selectAllModeVlaue: string = "page";
   selectionModeValue: string = "all";
+  listaMisReservas: any;
 
   constructor(private service: ReservacionAreaResidenteService, private navCtrl: NavController) {
       this.tasks = new DataSource({
@@ -27,6 +29,7 @@ export class ReservacionAreaResidenteComponent implements OnInit {
       });
   }
 
+  /*
   mandarModificar() {
     this.navCtrl.navigateForward("/mis-reservas");
   }
@@ -34,10 +37,15 @@ export class ReservacionAreaResidenteComponent implements OnInit {
     this.navCtrl.navigateForward("/mis-reservas");
   }
 
- goToRegister() {
+  goToRegister() {
    this.navCtrl.navigateForward("/registro");
- }
+  }
+  */
 
   ngOnInit() {}
 
+  /*getMisReservas(){
+    this.service.getMisReservas(IPRESIDENTESA + "/misReservas/conjunto" + IdConjunto +"/apartamento/" + IdApartamento).subscribe(listaMisReservas =>{
+      this.listaMisReservas = listaMisReservas})
+  }*/
 }

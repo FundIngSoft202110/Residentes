@@ -2,8 +2,8 @@ import { NoticiaPK } from "./noticiaPK.model";
 
 export class Noticia{
     noticiaPK: NoticiaPK;
-    titulo : string;
+    titulo : any;
     descripcion : string;
     imagen : string;
-    fecha : Date;
+    fecha : number;
 } // end Noticia

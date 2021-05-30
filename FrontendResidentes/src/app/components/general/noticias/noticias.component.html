@@ -2,11 +2,8 @@
 
 <ion-content>
     <div>
-        <ion-card *ngIf="getMostrar() == 1">
-            <ion-input placeholder="&nbsp;&nbsp;Titulo"></ion-input>
-        </ion-card>
         <ion-card>
-            <ion-textarea placeholder="Comparte con tu comunidad" (click)="click()">
+            <ion-textarea [(ngModel)]="descripcion" placeholder="Comparte con tu comunidad" (click)="click()">
             </ion-textarea>
             <div id="derecha" *ngIf="getMostrar() == 1">
                 <ion-button color="residente" id="botonImagen">
@@ -40,6 +37,9 @@
                             <ion-img src="/../../../../assets/icon/IconConjuntos/avatar.jpg"></ion-img>
                         </ion-avatar>
                         <p>&nbsp;&nbsp;{{noticia.titulo}}</p>
+                        <ion-buttons *ngIf="getEli(noticia)" slot="end" (click)="eliminarNoticia(noticia)">
+                            <ion-icon slot="icon-only" color="residente" name="trash-outline"></ion-icon>
+                        </ion-buttons>
                     </ion-item>
                     <ion-item lines="none">
                         <p>{{convertDate(noticia.fecha)}}</p>
@@ -52,10 +52,6 @@
                     </ion-item>
                 </ion-card-content>
             </ion-card>
-        </div>
-        <div *ngIf="getMostrar() == 1">
-            <br>
-            <br>
         </div>
     </div>
 </ion-content>
