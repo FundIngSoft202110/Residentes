@@ -138,7 +138,7 @@ public class Asamblea implements Serializable {
 
     @Override
     public String toString() {
-        return "API.Asamblea[ asambleaPK=" + asambleaPK + " ]";
+        return "ENTIDADES.Asamblea[ asambleaPK=" + asambleaPK + " ]";
     }
     
 }

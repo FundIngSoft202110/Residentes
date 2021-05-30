@@ -89,7 +89,6 @@ public class controladorPersona {
                     p.setUsuario(rs.getString("Usuario"));
                     p.setCorreo(rs.getString("Correo"));
                     p.setContrasena(rs.getString("Contrasena"));
-                    p.setNumCelular(rs.getBigDecimal("NumCelular"));
                     p.setRolConjunto(rs.getString("RolConjunto"));
                  
 
@@ -239,17 +238,16 @@ public class controladorPersona {
     @POST
     @Path("/NuevoUsuario")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String nuevaPersona(Persona persona) {
-
-        String consulta = "INSERT INTO persona (`Nombre`, `Apellido`, `Usuario`, `Correo`, `Contrasena`, `NumCelular`, `RolConjunto`) VALUES (?, ?, ? ,?, ?, ?, ?)";
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas nuevaPersona(Persona persona) {
+      DTOrespuestas r = new DTOrespuestas();
+        String consulta = "INSERT INTO persona (`Nombre`, `Apellido`, `Usuario`, `Correo`, `Contrasena`, `RolConjunto`) VALUES ( ?, ? ,?, ?, ?, ?)";
 
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
             String Rol = persona.getRolConjunto();
             String Nombre = persona.getNombre();
-            BigDecimal NumCelular = persona.getNumCelular();
             String Apellido = persona.getApellido();
             String Usuario = persona.getUsuario();
             String Correo = persona.getCorreo();
@@ -260,17 +258,17 @@ public class controladorPersona {
             statement.setString(3, Usuario);
             statement.setString(4, Correo);
             statement.setString(5, Contrasena);
-            statement.setBigDecimal(6, NumCelular);
-            statement.setString(7, Rol);
+            statement.setString(6, Rol);
             statement.executeUpdate();
-
-            return "Agregado exitosamente";
+            
+            r.setRespuesta("Agregado exitosamente");
+            return r;
 
         } catch (SQLException sqle) {
             System.out.println("Error en la ejecución:" + sqle.getErrorCode() + " " + sqle.getMessage());
         }
-
-        return "Fallo de creacion";
+       r.setRespuesta("Fallo de creacion");
+        return r;
     }
 
 }
