@@ -2,11 +2,8 @@
 
 <ion-content>
     <div>
-        <ion-card *ngIf="getMostrar() == 1">
-            <ion-input placeholder="&nbsp;&nbsp;Titulo"></ion-input>
-        </ion-card>
         <ion-card>
-            <ion-textarea placeholder="Comparte con tu comunidad" (click)="click()">
+            <ion-textarea [(ngModel)]="descripcion" placeholder="Comparte con tu comunidad" (click)="click()">
             </ion-textarea>
             <div id="derecha" *ngIf="getMostrar() == 1">
                 <ion-button color="residente" id="botonImagen">

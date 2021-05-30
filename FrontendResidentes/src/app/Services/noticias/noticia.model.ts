@@ -5,5 +5,5 @@ export class Noticia{
     titulo : string;
     descripcion : string;
     imagen : string;
-    fecha : Date;
+    fecha : number;
 } // end Noticia

@@ -46,4 +46,5 @@ export class NoticiasService {
   getNoticias() {
     return this.noticias;
   } // end getNoticias
+
 } // end NoticiasService
