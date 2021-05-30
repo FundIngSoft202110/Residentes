@@ -116,10 +116,10 @@ public class controladorAreaComun {
     @GET
     @Path("areasComunesTipo/conjunto/{Idconjunto}/nomTipoArea/{Nomtipo}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Areacomun> getAreasTipoConjunto(@PathParam("Idconjunto") int Idconjunto, @PathParam("Nomtipo") String Nomtipo) {
+    public List<DTOrespuestas> getAreasTipoConjunto(@PathParam("Idconjunto") int Idconjunto, @PathParam("Nomtipo") String Nomtipo) {
 
-        List<Areacomun> areas = new ArrayList<>();
-        String consulta = "SELECT * FROM areacomun ac WHERE ac.ConjuntoIdConjunto=? and ac.Tipo=?";
+        List<DTOrespuestas> areas = new ArrayList<>();
+        String consulta = "SELECT * FROM areacomun  WHERE ConjuntoIdConjunto=? and Tipo=?";
 
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
@@ -130,8 +130,8 @@ public class controladorAreaComun {
             try (ResultSet rs = statement.executeQuery();) {
 
                 while (rs.next()) {
-                    Areacomun areaC = new Areacomun();
-                    areaC.setNombre(rs.getString("Nombre"));
+                    DTOrespuestas areaC= new DTOrespuestas();
+                    areaC.setRespuesta(rs.getString("Nombre"));
                     areas.add(areaC);
                 }
 
@@ -147,14 +147,15 @@ public class controladorAreaComun {
     @PUT
     @Path("modificarAreaEspecifica/conjunto/{Idconjunto}/area/{IdArea}")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String changeAreaEspecificaConjunto(Areacomun area) {
-
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas changeAreaEspecificaConjunto(Areacomun area) {
+      DTOrespuestas r = new DTOrespuestas();
         Areacomun areaC = new Areacomun();
         String consulta = "UPDATE areacomun SET Nombre=? , Tipo=?, Capacidad=?, Descripcion=?  WHERE ConjuntoIdConjunto=? and IdArea=?";
 
         PreparedStatement statement;
         try {
+          
             statement = this.con.prepareStatement(consulta);
 
             statement.setNString(1, area.getNombre());
@@ -165,13 +166,14 @@ public class controladorAreaComun {
             statement.setInt(6, area.getAreacomunPK().getIdArea());
 
             statement.executeUpdate();
-
-            return "Se pudo actualizar satisfactoriamente";
+             r.setRespuesta("Se pudo actualizar satisfactoriamente");
+            return r;
 
         } catch (SQLException sqle) {
         }
 
-        return "No se pudo actualizar";
+        r.setRespuesta("No se pudo actualizar");
+        return r;
 
     }
     
@@ -202,6 +204,9 @@ public class controladorAreaComun {
                     areaC.setCapacidad(rs.getInt("Capacidad"));
                     areaC.setDescripcion(rs.getNString("Descripcion"));
                     areaC.setEstado(rs.getNString("Estado"));
+                    areaC.setHoraApertura(rs.getInt("HoraApertura"));
+                    areaC.setHoraCierre(rs.getInt("horaCierre"));
+                    areaC.setNombreDia(rs.getString("NombreDia"));
 
                 }
 
@@ -219,10 +224,10 @@ public class controladorAreaComun {
     @POST
     @Path("/NuevaArea")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String addArea(Areacomun area) {
-
-        String consulta = "INSERT INTO areacomun (`ConjuntoIdConjunto`, `Nombre`, `Tipo`, `Capacidad`, `Descripcion`, `Estado`)VALUES (?,?,?,?,?,?)";
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas addArea(Areacomun area) {
+        DTOrespuestas respuesta = new DTOrespuestas();
+        String consulta = "INSERT INTO areacomun (`ConjuntoIdConjunto`, `Nombre`, `Tipo`, `Capacidad`, `Descripcion`, `Estado`, `HoraApertura`, `horaCierre`, `NombreDia`)VALUES (?,?,?,?,?,?,?,?,?)";
 
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
@@ -234,6 +239,9 @@ public class controladorAreaComun {
             String descrip = area.getDescripcion();
             String nombre = area.getNombre();
             String estado=area.getEstado();
+            int horaI = area.getHoraApertura();
+            int horaC= area.getHoraCierre();
+            String dias = area.getNombreDia();
             
             statement.setInt(1, idCon);
             statement.setNString(2, nombre);
@@ -241,23 +249,29 @@ public class controladorAreaComun {
             statement.setInt(4, capacidad);
             statement.setNString(5, descrip);
             statement.setNString(6, estado);
+            statement.setInt(7,horaI);
+            statement.setInt(8,horaC);
+            statement.setString(9, dias);
+            
 
             statement.executeUpdate();
 
-            return "Agregado exitosamente";
+            respuesta.setRespuesta("Agregado exitosamente");
 
         } catch (SQLException sqle) {
             System.out.println("Error en la ejecución:" + sqle.getErrorCode() + " " + sqle.getMessage());
+            respuesta.setRespuesta("Fallo de creacion");
         }
-
-        return "Fallo de creacion";
+       
+        return respuesta ;
     }
     
       /*MÉTODO PARA ELIMINAR  UN  ÁREA COMUN A UN  CONJUNTO*/
     @DELETE
     @Path("/EliminarArea/conjunto/{Idconjunto}/nomArea/{NomArea}")
-    public String deleteArea(@PathParam("Idconjunto") int Idconjunto, @PathParam("NomArea") String NomArea) {
-
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas deleteArea(@PathParam("Idconjunto") int Idconjunto, @PathParam("NomArea") String NomArea) {
+        DTOrespuestas respuesta = new DTOrespuestas();
         String consulta = "DELETE from areacomun WHERE ConjuntoIdConjunto=? and Nombre=?";
         PreparedStatement statement;
         try {
@@ -268,12 +282,13 @@ public class controladorAreaComun {
             statement.setNString(2, NomArea);
             statement.executeUpdate();
 
-            return "Se pudo eliminar satisfactoriamente";
+             respuesta.setRespuesta("Se pudo eliminar satisfactoriamente");
 
         } catch (SQLException sqle) {
+          respuesta.setRespuesta("No se pudo eliminar");
         }
 
-        return "No se pudo eliminar";
+        return respuesta;
     }
     
     /*MÉTODO PARA 'LISTAR' TODAS LOS TIPOS DE ÁREAS COMUNES HABILITADAS DE UN  CONJUNTO*/
@@ -361,5 +376,65 @@ public class controladorAreaComun {
 
     }
     
+    @GET
+    @Path("areaComunEstado/conjunto/{Idconjunto}/nomTipoArea/{Nombre}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public  DTOrespuestas getAreaEstado(@PathParam("Idconjunto") int Idconjunto, @PathParam("Nombre") String Nom) {
+       DTOrespuestas r = new DTOrespuestas();
+   
+        String consulta = "SELECT * FROM areacomun ac WHERE ac.ConjuntoIdConjunto=? and ac.Nombre=?";
+
+        try (
+                PreparedStatement statement = this.con.prepareStatement(consulta);) {
+
+            statement.setInt(1, Idconjunto);
+            statement.setString(2, Nom);
+
+            try (ResultSet rs = statement.executeQuery();) {
+
+                while (rs.next()) {
+                  
+                    r.setRespuesta(rs.getNString("Estado"));
+                    if(r.getRespuesta().equals("H")){
+                     r.setRespuesta("true");
+                    } else {
+                     r.setRespuesta("false");
+                    }
+                }
+               return r;
+            }
+        } catch (SQLException sqle) {
+        }
+       r.setRespuesta("No se encontro el estado");
+        return r;
+
+    }
+    
+    @PUT
+    @Path("modificarAreaEstado/conjunto/{Idconjunto}/nombreA/{Nombre}/estadoA/{Estado}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas changeAreaEstado(@PathParam("Idconjunto") int Idconjunto, @PathParam("Nombre") String Nom, @PathParam("Estado") String Estado) {
+         DTOrespuestas r = new DTOrespuestas();
+        String consulta = "UPDATE areacomun SET Estado=? WHERE ConjuntoIdConjunto=? and Nombre=?";
+
+        PreparedStatement statement;
+        try {
+            statement = this.con.prepareStatement(consulta);
+
+            statement.setNString(1, Estado);
+            statement.setInt(2,Idconjunto);
+            statement.setNString(3,  Nom);
+
+            statement.executeUpdate();
+            r.setRespuesta( "Se pudo actualizar satisfactoriamente");
+            return r;
+
+        } catch (SQLException sqle) {
+        }
+         r.setRespuesta( "No se pudo actualizar");
+            return r;
+      
+    }
+   
 
 }
