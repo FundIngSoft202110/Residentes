@@ -7,7 +7,7 @@ package CONTROLADORES;
 
 import API.ConexionBD;
 import ENTIDADES.Asamblea;
-import ENTIDADES.DTOasambleas;
+import ENTIDADES.AsambleaPK;
 import ENTIDADES.Persona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,37 +27,38 @@ public class contraladorAsamblea {
     Connection con = conexion.conectar();
 
     @GET
-    @Path("/asambleasConjunto/{idConjunto}")
+    @Path("/{idConjunto}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<DTOasambleas> getAsambleasConjunto(@PathParam("idConjunto") int id) {
+    public List<Asamblea> getAsambleasConjunto(@PathParam("idConjunto") int id) {
 
-        List<DTOasambleas> asambleas = new ArrayList<>();
-        DTOasambleas asamblea = new DTOasambleas();
-        String consulta = "SELECT a.IdAsamblea, a.Tema, a.Fecha, a.Estado "
+        List<Asamblea> asambleas = new ArrayList<>();
+        Asamblea asamblea;
+        AsambleaPK asambleaPK;
+        String consulta = "SELECT a.IdAsamblea, a.Tema, a.Fecha, a.Hora, a.estado "
                         + "FROM Asamblea a "
                         + "WHERE a.ConjuntoIdConjunto = ? ";
         
-         try (
-           PreparedStatement statement = this.con.prepareStatement(consulta);
+        try (
+           PreparedStatement statement = this.con.prepareStatement(consulta);){
+           statement.setInt(1, id);
+           try(
            ResultSet rs = statement.executeQuery();
-                 
             ){
-
-          while (rs.next()){
-            asamblea = new DTOasambleas();   
-            asamblea.setId(rs.getInt("IdAsamblea"));
-            asamblea.setTema(rs.getString("Tema"));
-            asamblea.setEstado(rs.getString("Fecha"));
-            asamblea.setFecha(rs.getBigDecimal("Estado"));
- 
-            asambleas.add(asamblea);
-          }
-           } catch (SQLException sqle) { 
-        
-          
-}        
-        
-         return asambleas;
-        
+            while (rs.next()){
+              asamblea = new Asamblea(); 
+              asambleaPK = new AsambleaPK();
+              asambleaPK.setIdAsamblea(rs.getInt("IdAsamblea"));
+              asamblea.setAsambleaPK(asambleaPK);
+              asamblea.setTema(rs.getString("Tema"));
+              asamblea.setEstado(rs.getString("estado"));
+              asamblea.setFecha(rs.getBigDecimal("Fecha"));
+              asamblea.setHora(rs.getBigDecimal("Hora"));
+              asambleas.add(asamblea);
+            } // end while
+           }
+        } catch (SQLException sqle) { 
+            System.out.println("Error");
+        }        
+        return asambleas;
     }
 }
