@@ -16,19 +16,20 @@
         </div>
     </div>
 <dx-form id="form"
-	[formData]="area"
-	[labelLocation]="top">
+	[formData]="area" 
+	[labelLocation]="top">     
 	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
 	
-            	<dxi-item dataField="Seleccionada" editorType="dxSelectBox" 
-                [editorOptions]="{ caption: 'Seleccione un area',items: listaRespuestas }"></dxi-item>
+            	<dxi-item dataField="Seleccionada"    editorType="dxSelectBox" 
+                [editorOptions]="{ items: listaRespuestas}"
+                ></dxi-item>
 		
 	</dxi-item>
 
 </dx-form>
 
 <p class="derecho">Habilitar/Deshabiliatar</p>
-<ion-toggle class= "derechoT" [(ngModel)]="valorEstado" color="residente" ></ion-toggle>
+<ion-toggle class= "derechoT" [(ngModel)]="valorEstado" (ngModelChange)="cambiarestado()" color="residente" ></ion-toggle>
 
 <ion-button class="botIng2"
       (click)="BorrarArea()"
@@ -49,6 +50,7 @@
       type="submit"
 	 
       >
+      
 	  <ion-icon name="pencil"></ion-icon>
 	  Modificar</ion-button
     >

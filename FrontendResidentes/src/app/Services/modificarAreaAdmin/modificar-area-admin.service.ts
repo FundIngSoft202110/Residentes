@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 
+
 export class NuevaArea {
-    NombreDelArea: string;
-	Tipo: string;
-	CapacidadMaxima: number;
-	Descripcion: string;
+   capacidad: string; 
+   descripcion: string; 
+   estado: string; 
+   horaApertura: number; 
+   horaCierre: number; 
+   nombre: string;
+   nombreDia: string; 
+   tipo: string; 
+   areacomunPK: AreaPK; 
 }
 
-let nuevaArea: NuevaArea = {
-
-    "NombreDelArea": "Piscina",
-    "Tipo":"Deportiva",
-    "CapacidadMaxima": 10,
-    "Descripcion":"Espacio en el cual podra disfritar con su familia",
-};
+export class AreaPK{
+    conjuntoIdConjunto: number;
+    idArea: number;  
+}
 
 let tipo: string[] = [
     "Deportiva",
@@ -32,14 +35,15 @@ let diasDisponibles: string[] = ["Lunes-Viernes", "Lunes-Domingo", "Viernes-Domi
 
 
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class ModificarAreaAdminService {
     constructor(private http: HttpClient){
 
     }
     getNuevaArea() {
-		return nuevaArea;
-	}
+			}
 
 	getTipo() {
 		return tipo;
@@ -63,4 +67,8 @@ getDiasDisponibles() {
     return diasDisponibles;
 }
     
+traerArea(url:string){
+   return this.http.get(url);
+}
+
 }

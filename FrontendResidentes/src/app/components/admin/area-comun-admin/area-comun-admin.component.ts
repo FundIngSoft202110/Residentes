@@ -47,8 +47,17 @@ export class AreaComunAdminComponent {
     conjuntoA : any;
     tiposelect: any;
     listaRespuestas:string[]=[];
-    valorEstado:boolean;
+    valorEstado:boolean = false;
+    estado:any;
+    respuestaEliminada:any;
+    select:any;
+    es:any; 
+    estadoN:any;
+    actualizado:any;
+    respuestaA:any;
+
     
+
     
 
 
@@ -64,6 +73,7 @@ export class AreaComunAdminComponent {
         this.conjuntoA= conjunto.getConjuntoActivo();
         this.setAreas();
         this.traerAreas();
+        console.log("valorS",this.area);
         
         
       
@@ -71,6 +81,9 @@ export class AreaComunAdminComponent {
 	}
     ngOnInit() {
         this.traerAreas();
+       
+       
+        
     }
 
     setAreas(){
@@ -80,6 +93,11 @@ export class AreaComunAdminComponent {
         y[x] = this.listaDeAreasComunesR[x].respuesta;
         this.listaRespuestas= y;
         console.log("resp2",y,this.listaRespuestas);
+        console.log("valorS1",this.area);
+       
+        
+   
+        
         return this.listaRespuestas;
         
     }
@@ -87,27 +105,63 @@ export class AreaComunAdminComponent {
         this.navCtrl.navigateForward(this.linkNuevaArea);
     }
 
-    verArea(){
-        console.log("area",this.area);
-    }
+   
     modificarArea(){
+        this.select= this.area.Seleccionada;
+        this.service.setareaComun(this.select);
+       
         this.navCtrl.navigateForward(this.linkModificarArea);
+
     }
 
     BorrarArea(){
+        this.select= this.area.Seleccionada;
+        console.log("s",this.select)
+        console.log("valorS2",this.area);
         
+         this.service.deleteArea(IPRESIDENTESA+"/consultas/AreasComunes/EliminarArea/conjunto/"+this.conjuntoA+"/nomArea/"+this.select)
+         .subscribe(data => {
+             this.respuestaEliminada= data;
+             console.log("eliminar",data);
+             
+         })
     }
 
     public traerAreas(){
          this.service.getAreasBack(IPRESIDENTESA+"/consultas/AreasComunes/areasComunesTipo/conjunto/"+this.conjuntoA+"/nomTipoArea/"+this.tiposelect)
          .subscribe(respuesta => {
              this.listaDeAreasComunesR= respuesta;
-            this.setAreas();
-             console.log("este es la lista",this.listaDeAreasComunesR);
-             console.log("este es la lista",this.listaDeAreasComunesR[0].respuesta);
-             console.log("resp1",this.listaRespuestas);
+             this.setAreas();
+             
+            
+    
          })
     }
+    
+    public getEstado(){
+        this.select= this.area.Seleccionada;
+      this.service.getstate(IPRESIDENTESA+"/consultas/AreasComunes/areaComunEstado/conjunto/"+this.conjuntoA+"/nomTipoArea/"+this.select)
+      .subscribe(respuesta =>{
+          this.estado= respuesta;
+          console.log("estado",respuesta);
+          this.valorEstado=this.estado.respuesta
+      })
 
+    }
+
+    public cambiarestado(){
+        this.select= this.area.Seleccionada;
+        if(this.valorEstado==false){
+          this.estadoN="D";
+        }else{
+            this.estadoN="H";
+        }
+        this.service.putestador(IPRESIDENTESA+"/consultas/AreasComunes/modificarAreaEstado/conjunto/"+this.conjuntoA+"/nombreA/"+this.select+"/estadoA/"+this.estadoN,null)
+        .subscribe(respuesta =>{
+            this.actualizado= respuesta;
+            console.log("actualizado",respuesta);
+            this.respuestaA=this.actualizado.respuesta
+        })
+    }
     
 }

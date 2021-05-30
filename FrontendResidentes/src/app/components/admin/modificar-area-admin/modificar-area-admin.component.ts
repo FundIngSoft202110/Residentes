@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 import notify from 'devextreme/ui/notify';
 import {ModificarAreaAdminService, NuevaArea } from '../../../Services/modificarAreaAdmin/modificar-area-admin.service';
 import { NgModule, ViewChild, enableProdMode } from '@angular/core';
@@ -13,6 +13,11 @@ import { DxCheckBoxModule,
          DxFormComponent
        } from 'devextreme-angular';
 import { NavController } from '@ionic/angular';
+import { ThisReceiver } from '@angular/compiler';
+import { IPRESIDENTESA } from 'src/app/constants';
+import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { AreaComunAdminService } from 'src/app/Services/AreaComunAdmin/area-comun-admin.service';
 @Component({
   selector: 'app-modificar-area-admin',
   providers: [ModificarAreaAdminService],
@@ -20,33 +25,40 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./modificar-area-admin.component.scss'],
 })
 export class ModificarAreaAdminComponent implements OnInit {
-    @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
-  
+    
+     nombreArea :any;
+    nuevaArea : any;
+    nuevaAreas: NuevaArea = new NuevaArea();
     estado: any;
-    nuevaArea: NuevaArea;
+    
 	tipo: string[];
   top="top"
-
+  conjuntoA : any;
+  respuesta: any;
   horaDeApertura: number[];
   horaDeCierre: number[];
   diasDisponibles: string[];
+  aux: any;
   editEstado: string[] = [
     "Disponible",
     "Cerrada"
 ];
    
-    constructor(service: ModificarAreaAdminService, private navCtrl: NavController) {
-        this.nuevaArea = service.getNuevaArea();
+    constructor(private service: ModificarAreaAdminService, private navCtrl: NavController, private conjunto:ConjuntosService,private areaA: AreaComunAdminService) {
+        
 		this.tipo = service.getTipo();
     this.horaDeApertura = service.getHoraDeApertura();
         this.horaDeCierre = service.getHoraDeCierre();
         this.diasDisponibles = service.getDiasDisponibles();
+        this.conjuntoA= conjunto.getConjuntoActivo();
+        this.nombreArea=areaA.getareaComun();
+        this.nuevaArea=this.traerAreaEspecifica();
+        console.log("holaaaa",this.nuevaArea);
         
     }
 
-    mandarModificarFecha() {
-        this.navCtrl.navigateForward("/modificar-fecha");
-      }
+
+    
     mandarAreaComun(){
         this.navCtrl.navigateForward("/area-comun-admin"); 
     }
@@ -62,6 +74,28 @@ export class ModificarAreaAdminComponent implements OnInit {
         
         e.preventDefault();
     }
-  ngOnInit() {}
+  ngOnInit() {
+    this.traerAreaEspecifica();
+  }
+  
+ modificarArea(){
+   console.log("id", this.nuevaArea.areacomunPK.idArea);
+    this.service.putAreaComun(IPRESIDENTESA+"/consultas/AreasComunes/modificarAreaEspecifica/conjunto/"+this.conjuntoA+"/area/"+this.nuevaArea.areacomunPK.idArea,this.nuevaArea)
+    .subscribe(respuesta=>{
+      this.respuesta=respuesta
+    console.log(this.respuesta);
+  })
+  }
+
+  traerAreaEspecifica(){
+    this.service.traerArea(IPRESIDENTESA+"/consultas/AreasComunes/areaEspecifica/conjunto/"+this.conjuntoA+"/nomArea/"+this.nombreArea)
+    .subscribe(respuesta=> {
+       this.nuevaArea=respuesta;
+       console.log( "Älejo cangrejo ",respuesta);
+    })
+        
+  }
+  
+
 }
 

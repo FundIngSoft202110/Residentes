@@ -1,4 +1,4 @@
-<app-header titulo="MODIFICAR AREA COMUN" menu=NO routeBack="/area-comun-admin"></app-header>
+<app-header titulo="MODIFICAR ÁREA COMUN" menu=NO routeBack="/area-comun-admin"></app-header>
 <div class="formabella">
 <dx-form id="form"
 	[formData]="nuevaArea"
@@ -8,7 +8,6 @@
                   <dxi-item dataField="nombre"></dxi-item>
             	<dxi-item dataField="tipo" editorType="dxSelectBox" [editorOptions]="{ items: tipo, value: '' }"></dxi-item>
 				<dxi-item dataField="capacidad"></dxi-item>
-                        <dxi-item dataField="estado" editorType="dxSelectBox" [editorOptions]="{ items: editEstado, value: '' }"></dxi-item>
 				<dxi-item dataField="horaApertura" editorType="dxSelectBox" [editorOptions]="{ items: horaDeApertura, value: '' }"></dxi-item>
             	<dxi-item dataField="horaCierre" editorType="dxSelectBox" [editorOptions]="{ items: horaDeCierre, value: '' }"></dxi-item>
             	<dxi-item dataField="nombreDia" editorType="dxSelectBox" [editorOptions]="{ items: diasDisponibles, value: '' }"></dxi-item>
@@ -20,7 +19,7 @@
 </div>
 
 	  <ion-button class="boton"
-      (click)="mandarAreaComun()"
+      (click)="modificarArea()"
       expand="full"
       shape="round"
       color="residente"

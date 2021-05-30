@@ -92,7 +92,7 @@ export class AgregarAreaAdminComponent implements OnInit{
         this.respuesta = respuesta;
         console.log(this.respuesta);
      
-        notify(this.respuesta.respuesta);
+        notify(this.respuesta.respuesta,'success');
           })
       
     

@@ -3,7 +3,7 @@ import { HttpClient} from '@angular/common/http';
 
 export class Area {
   
-	Selccionada: any	;
+	Seleccionada: any	;
 }
 
 
@@ -27,7 +27,9 @@ let listaDeAreasComunes: string[] = [
 
 
 
-@Injectable()
+@Injectable({
+	providedIn: 'root'
+  })
 export class AreaComunAdminService {
 
 	constructor(private http: HttpClient){
@@ -46,5 +48,25 @@ export class AreaComunAdminService {
 	getAreasBack(url:string){
        return this.http.get(url);
 	}
+	
+	deleteArea(url:string){
+		return this.http.delete(url);
+	}
+	setareaComun( nombre:String) {
+		window.localStorage['nombreAreaComun'] = nombre;
+	}// setareaComun
+
+	getareaComun(){
+		return String(window.localStorage['nombreAreaComun'] || -1);
+	}// getConjuntoActivo
+
+	getstate(url:string){
+      return this.http.get(url);
+	}
+
+	putestador(url:string, body:any){
+		return this.http.put(url,body);
+	}
+
 }
 
