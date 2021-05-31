@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { IonContent, NavController } from '@ionic/angular';
+import { AlertController, IonContent, NavController } from '@ionic/angular';
+import notify from 'devextreme/ui/notify';
 import { IPRESIDENTES } from 'src/app/constants';
 import { AgregarEmpldService } from 'src/app/Services/agregar-empld/agregar-empld.service';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
@@ -27,7 +28,7 @@ export class AgregarEmpleadoPage implements OnInit {
   };
   idAConj : any;
   constructor(private navCtrl: NavController, private formBuilder: FormBuilder,
-              private agEmpSer: AgregarEmpldService, private  conjServ: ConjuntosService) { }
+              private agEmpSer: AgregarEmpldService, private  conjServ: ConjuntosService,public alertController: AlertController) { }
 
   /*ngOnInit(){
   } */
@@ -67,11 +68,29 @@ export class AgregarEmpleadoPage implements OnInit {
         console.log(rest);
         this.rta = rest;
         if(this.rta.respuesta = "Empleado asociado correctamente"){
+          notify(this.rta.respuesta, 'sucess');
           this.navCtrl.navigateForward("/empleados");
         }else{
           this.errorMessage = this.rta.respuesta;
+          this.presentAlertConfirm(this.errorMessage);
         }
       })
     
+  }
+
+  async presentAlertConfirm(mensaje:string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Infromación',
+      message: mensaje,
+      buttons: [
+        {
+          text: 'Aceptar',
+          handler: (blah) => {
+            console.log('Confirm Aceptar: blah');
+          }
+        }
+      ]
+    });
   }
 }

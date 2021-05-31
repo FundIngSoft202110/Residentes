@@ -78,6 +78,7 @@ export class IngresoAppPage implements OnInit {
     });
   }
   goToRegister() {
+    //this.personasService.calTiempPantalla1(new Date().getTime()); 
     this.navCtrl.navigateForward("/registro");
   }
 

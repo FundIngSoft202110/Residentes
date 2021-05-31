@@ -76,6 +76,22 @@ export class PersonasService {
 
   ngInit() { }
 
+  calTiempPantalla1(t1: number){
+    window.localStorage['tiempot1'] = t1.toString();
+  }
+
+  tiempo1: number;
+  difTiempo(t2: number) {
+    this.tiempo1 = Number(window.localStorage['tiempot1'] || -1);
+    if (this.personaActiva == -1)
+      return null;
+    else {
+      console.log("Tiempo entre pantallas: ", t2 - this.tiempo1 , " ms");
+      return this.personaActiva;
+    }
+
+  }
+
   aux: any;
   setPersonaActiva(idPersona: number) {
     window.localStorage['personaActiva'] = idPersona.toString();

@@ -31,11 +31,12 @@ export class SeleccionConjuntoComponent implements OnInit{
       this.conjuntos = service.getConjuntos();
   }
   click(id){
-    console.log("hola " , id , " - ", this.idPerActiva);
+    //console.log("hola " , id , " - ", this.idPerActiva);
     this.router.navigateByUrl("/netflix");
   }
 
   ngOnInit() {
+    //this.personasService.difTiempo(new Date().getTime() );
     this.idPerActiva = this.personasService.getPersonaID();
   }
 
