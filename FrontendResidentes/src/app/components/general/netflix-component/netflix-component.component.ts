@@ -29,7 +29,7 @@ export class NetflixComponent implements OnInit {
   async ionViewWillEnter(){
     this.usuario = this.personasService.getPersonaActiva();
     this.idUsuario = this.personasService.getPersonaActivaAux();
-    console.log(this.usuario, "  Id usuario: ", this.idUsuario);
+    //console.log(this.usuario, "  Id usuario: ", this.idUsuario);
     this.conjuntoService.getConjuntosPersona(this.idUsuario);
     await this.waitBD();
     this.conjuntos = this.conjuntoService.getConjuntos(); 
@@ -48,6 +48,7 @@ export class NetflixComponent implements OnInit {
     if(this.usuario == "ADMIN"  ){
       this.navCtrl.navigateForward("/nuevo-conjunto");
     }else{
+      //this.personasService.calTiempPantalla1(new Date().getTime()); 
       this.navCtrl.navigateForward("/seleccion-conjunto");
     }
   }

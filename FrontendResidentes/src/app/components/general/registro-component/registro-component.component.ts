@@ -63,6 +63,7 @@ export class RegistroComponent implements OnInit {
 
     ngOnInit() {
       // this.getUsarios();
+      //this.personasService.difTiempo(new Date().getTime() );
        console.log("holiii",this.usuariosbase)
     }
 
