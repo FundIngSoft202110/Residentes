@@ -41,7 +41,7 @@ const sendRequestDirect = function(value) {
 
 
 export class AgregarConjuntoComponent implements OnInit {
-
+    posi= "top";
 
   @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
    
