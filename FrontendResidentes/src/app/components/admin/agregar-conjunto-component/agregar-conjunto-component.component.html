@@ -1,6 +1,9 @@
-<app-header-start titulo="Agregar Conjunto"></app-header-start>
-<form action="your-action" (submit)="onFormSubmit($event)">
-    <dx-form id="form"
+<app-header titulo="AGREGAR CONJUNTO" menu=NO routeBack="/netflix"></app-header>
+
+
+<form action="your-action"  (submit)="onFormSubmit($event)">
+    <dx-form id="form" 
+    [labelLocation]="posi"
         [showColonAfterLabel]="true"
         [showValidationSummary]="true"
         validationGroup="customerData">
@@ -55,6 +58,7 @@
                 
                 <div class="dx-field-value">
                     <dx-number-box #numberBox
+                        class=box
                         type="required"
                         [max]="100"
                         [min]="1"

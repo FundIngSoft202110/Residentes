@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IPRESIDENTES } from 'src/app/constants';
 
 
 
@@ -57,7 +59,33 @@ let conjuntos: any[] = [{
 })
 
 export class selConjService {
+    constructor(private http: HttpClient) { }
+    conjunto : any;
     getConjuntos() {
         return conjuntos;
     }
+
+    getConjuntosServ(id: number) {
+        this.obtener(IPRESIDENTES + "consultas/Conjuntos/misnoconjuntos/" + id.toString() );
+    }
+
+    obtener(url: string) {
+        this.getConju(url)
+          .subscribe(respuesta => {
+            console.log("subscirbe ", respuesta);
+            this.conjunto = respuesta;
+          })
+      }
+
+      public getConju(url: string) {
+        return this.http.get(url);
+      }
+
+      getConjuntosS(){
+          return this.conjunto;
+      }
+
+      vinResCon(id : number, idPerActiva : number ){
+        this.obtener(IPRESIDENTES + "consultas/Conjuntos/residenteConjunto/" + id.toString() +"/"+ idPerActiva.toString());
+      }
 }

@@ -7,6 +7,7 @@ package CONTROLADORES;
 
 import API.ConexionBD;
 import ENTIDADES.Conjunto;
+import ENTIDADES.DTOConjunto;
 import ENTIDADES.DTOConjuntos;
 import ENTIDADES.DTOfecha;
 import ENTIDADES.DTOrespuestas;
@@ -170,20 +171,20 @@ public class contraladorConjunto {
     @Path("/NuevoConjunto")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public String nuevoConjunto(Conjunto conjunto) {
-
+    public DTOrespuestas nuevoConjunto(DTOConjunto conjunto) {
+        DTOrespuestas res = new DTOrespuestas();
         String consulta = "INSERT INTO conjunto (`Nombre`, `LinkDePago`, `Direccion`, `PrecioAdmin`, `NumeroTorres`, `NumeroPisos`, `NumeroApartamentos`) VALUES (?, ?, ? ,?, ?, ?,?)";
 
         try (
                  PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
             String nombre = conjunto.getNombre();
-            String link = conjunto.getLinkDePago();
+            String link = conjunto.getLinkPago();
             String dir = conjunto.getDireccion();
             int precio = conjunto.getPrecioAdmin();
-            BigDecimal torres = conjunto.getNumeroTorres();
-            BigDecimal pisos = conjunto.getNumeroPisos();
-            BigDecimal aptos = conjunto.getNumeroApartamentos();
+            BigDecimal torres =conjunto.getNumTorresBig();
+            BigDecimal pisos = conjunto.getNumPisosBig();
+            BigDecimal aptos = conjunto.getNumAptosBig();
 
             statement.setString(1, nombre);
             statement.setString(2, link);
@@ -192,18 +193,37 @@ public class contraladorConjunto {
             statement.setBigDecimal(5, torres);
             statement.setBigDecimal(6, pisos);
             statement.setBigDecimal(7, aptos);
-
             statement.executeUpdate();
-
-            return "Agregado exitosamente";
+            res.setRespuesta("Conjunto Agregado exitosamente");
+            
+            String C2 ; 
+            
+            return res;
 
         } catch (SQLException sqle) {
             System.out.println("Error en la ejecución:" + sqle.getErrorCode() + " " + sqle.getMessage());
         }
 
-        return "Fallo de creacion";
+        res.setRespuesta("Falla en la creacion conjunto");
+        return res;
     }
 
+    public int idConjuntoNombre(String nombre){
+          String consulta= "SELECT c.IdConjunto FROM Conjunto AS c WHERE c.Nombre = ?";
+          int resp;
+          try ( PreparedStatement statement = this.con.prepareStatement(consulta);) {
+            statement.setString(1, nombre);
+            try ( ResultSet rs = statement.executeQuery();) {
+                while (rs.next()) {
+                    resp = (rs.getInt("IdConjunto"));
+                }
+            }
+          
+          }catch(SQLException sqle){
+              
+          }
+          return -1;
+    }
     @POST
     @Path("/crearAptos")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -283,7 +303,7 @@ public class contraladorConjunto {
     @GET
     @Path("/manual/{IdConjunto}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getManual(@PathParam("IdConjunto") int idConjunto
+    public String getS(@PathParam("IdConjunto") int idConjunto
     ) {
 
         return "Direccion del manual";
@@ -321,4 +341,57 @@ public class contraladorConjunto {
         
     }
     
+    @GET
+    @Path("/misnoconjuntos/{idPersona}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<DTOConjuntos> misnoconjuntos(@PathParam("idPersona") int idPersona) {
+        String consulta = "SELECT con.Idconjunto, con.Nombre  FROM conjunto AS con WHERE con.IdConjunto  NOT IN (SELECT c.Idconjunto FROM conjunto c, personaxconjunto p WHERE p.PersonaIdPersona= ? AND c.IdConjunto  = p.ConjuntoIdConjunto)";
+        DTOConjuntos conjunto;
+        List<DTOConjuntos> conjuntosPersona = new ArrayList<>(); 
+        try (
+                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
+                 statement.setInt(1, idPersona);
+            
+            try(ResultSet rs = statement.executeQuery();){
+                while(rs.next()){
+                    conjunto = new DTOConjuntos();
+                    conjunto.setId(rs.getInt("IdConjunto"));
+                    conjunto.setNombre(rs.getString("Nombre"));
+                    conjuntosPersona.add(conjunto);
+                }
+            }
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución: " + sqle.getErrorCode() + " " + sqle.getMessage());
+        }
+        return conjuntosPersona;
+    }
+    
+    
+    
+    @POST
+    @Path("/residenteConjunto/{idConjunto}/{idPersona}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas residenteConjunto(@PathParam("idConjunto") int idConjunto, @PathParam("idPersona") int idPersona) {
+        DTOrespuestas respuesta = new DTOrespuestas();
+        String consulta = "INSERT INTO PersonaXConjunto (`PersonaIdPersona`, `ConjuntoIdConjunto`)VALUES (?,?)";
+
+        try (
+                PreparedStatement statement = this.con.prepareStatement(consulta);) {
+
+            
+            
+            statement.setInt(1, idPersona);
+            statement.setInt(2, idConjunto);
+            
+            statement.executeUpdate();
+
+            respuesta.setRespuesta("Agregado exitosamente");
+
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución:" + sqle.getErrorCode() + " " + sqle.getMessage());
+            respuesta.setRespuesta("Fallo de creacion");
+        }
+       
+        return respuesta ;
+    }
 }
