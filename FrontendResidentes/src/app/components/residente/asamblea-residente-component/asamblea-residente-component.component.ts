@@ -47,6 +47,7 @@ export class AsambleaResidenteComponent implements OnInit {
     this.idApto = this.servIngAptoService.getIdApto();
     this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
     await this.waitBD();
+    //if(this.asambleaService.get)
     this.propuestas = this.propuestasService.getPropuestas();
     /* this.votosUsuario = [];
     this.colorCards = [];
@@ -111,21 +112,5 @@ export class AsambleaResidenteComponent implements OnInit {
     console.log(slides);
     slides.slidePrev();
   }
-
-  getColorResultados(propuesta: Propuesta) {
-    if (propuesta.habilitar) {
-      return "residente";
-    }
-    else {
-      return "#cdcdcd";
-    }
-  }// end getColorResultados
-
-  enviarPropuesta(propuesta: Propuesta) {
-    if (propuesta.habilitar) {
-      this.propuestasService.setPropuestaAbierta(propuesta.id);
-      this.navCtrl.navigateForward("/resultados-residente");
-    }// end if
-  }// end enviarPropuesta
 
 }

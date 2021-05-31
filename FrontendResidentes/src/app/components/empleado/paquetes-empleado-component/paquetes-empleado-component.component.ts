@@ -99,32 +99,11 @@ export class PaquetesEmpleadoComponent implements OnInit {
   }
 
   convertHour(hour: number):string{
-    var minutes:number;
-    var hours:number;
-    minutes = Math.trunc(hour%100);
-    hours = Math.trunc((hour/100)%100);
-    if(hours > 11){
-      hours -= 12;
-      if(minutes > 9)
-        return hours.toString() + ":" + minutes.toString() + " pm";
-      else
-        return hours.toString() + ":0" + minutes.toString() + " pm";
-    }else{
-      if(minutes > 9)
-        return hours.toString() + ":" + minutes.toString() + " am";
-      else
-      return hours.toString() + ":0" + minutes.toString() + " am";
-    } // end if
+    return this.conjuntosService.convertHour(hour);
   } // end convertHour
 
   convertDate(date: number):string{
-    var year:number;
-    var month:number;
-    var day:number;
-    year = Math.trunc(date%10000);
-    month = Math.trunc((date/10000)%100);
-    day = Math.trunc((date/1000000)%100);
-    return MONTHS[Math.trunc(month)-1] + " " + day.toString() + " " + year.toString();
+    return this.conjuntosService.convertDate(date);
   } // end convertDay
 
   async eliminarPaquete(paquete:any){

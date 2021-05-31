@@ -15,12 +15,18 @@
                 </div>
             </div>
             <div>
-                <!--<ion-card color="{{getColorResultados(propuesta)}}" (click)="enviarPropuesta(propuesta)">-->
-                <ion-card color="residente">
-                    <ion-card-content>
-                        Ver Resultados
-                    </ion-card-content>
-                </ion-card>
+                <ion-row>
+                <ion-col>
+                <ion-button id="izquierda" color="residente" (click)="prev(theSlides)">
+                    <ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon>
+                </ion-button>
+                </ion-col>
+                <ion-col>
+                <ion-button id="derecha" color="residente" (click)="next(theSlides)">
+                    <ion-icon slot="icon-only" name="chevron-forward-outline" color="residente-txt"></ion-icon>
+                </ion-button>
+                </ion-col>
+            </ion-row>
             </div>
         </ion-slide>
     </ion-slides>

@@ -17,13 +17,16 @@ export class PaquetesResidenteComponent implements OnInit {
   public paqueteView : string[] = []; 
   public conjuntoActivo:number;
   public aptoActivo:number;
+  length:number = -1;
 
   constructor(private paquetesService : PaquetesService, private conjuntosService: ConjuntosService, private servIngAptoService: ServIngAptoService) { }
 
   ngOnInit() {
+    this.length = -1;
   }
 
   async ionViewWillEnter(){
+    this.length = -1;
     this.conjuntoActivo = this.conjuntosService.getConjuntoActivo();
     this.aptoActivo = this.servIngAptoService.getIdApto();
     this.paquetesService.cargarPaquetes(this.conjuntoActivo, this.aptoActivo);
@@ -38,6 +41,7 @@ export class PaquetesResidenteComponent implements OnInit {
     }
     for(let paquete of this.paquetes)
       this.paqueteView.push('oculto');
+    this.length = this.paquetes.length;
   } // end ionViewWillEnter
 
   async waitBD(){
@@ -50,6 +54,10 @@ export class PaquetesResidenteComponent implements OnInit {
     }else{
       this.paqueteView[paquete.num - 1]='mostrar';
     }
+  }
+
+  getLength(){
+    return this.length;
   }
 
   getPaqueteView(paquete:any){
