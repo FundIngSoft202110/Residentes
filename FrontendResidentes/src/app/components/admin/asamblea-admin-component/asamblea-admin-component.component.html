@@ -1,18 +1,8 @@
-<app-header titulo="ASAMBLEA" menu=ADMIN></app-header>
+<app-header titulo="ASAMBLEA" menu=NO routeBack="/lista-asamblea-admin" ></app-header>
 
 
 
    
-	<ion-content *ngIf="step==1" class="vertical-center-admin">
-		<ion-card class="ion-text-left"  *ngFor="let asamblea of asambleas">
-		  <ion-card-header>
-			<ion-card-subtitle> {{asamblea.FechaAsamblea}} </ion-card-subtitle>
-			<ion-card-title> {{asamblea.Tema}} </ion-card-title>
-		  </ion-card-header>
-			<ion-card-content> {{asamblea.Activo}} </ion-card-content>
-		</ion-card>
-	  </ion-content>
-	   
 	 <div *ngIf="step==1">
 		<ion-button class="boton"
 		(click)="nuevaAsamblea()"
