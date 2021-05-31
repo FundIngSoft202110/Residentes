@@ -11,7 +11,7 @@ import { PersonasService } from 'src/app/Services/personas/personas.service';
   styleUrls: ['./empleados.component.scss'],
 })
 export class EmpleadosComponent implements OnInit{
-  
+  length:number = -1;
   public user:string="RESIDENTE";
   idAConj : any;
   //private personasService:PersonasService;
@@ -24,10 +24,11 @@ export class EmpleadosComponent implements OnInit{
               private personasService: PersonasService, private navCtrl: NavController) { }
 
   ngOnInit(){
-
+    
   } 
 
   async ionViewWillEnter() {
+    this.length = -1;
     this.idAConj = this.conjServ.getConjuntoActivo(); 
     console.log("entreee");
     this.rol = this.personasService.getUserActivo();
@@ -48,6 +49,7 @@ export class EmpleadosComponent implements OnInit{
     this.chats = this.serChats.getChat();
     console.log("WAIT: ", this.chats);
     this.chatBuscado = this.chats;
+    this.length =  this.chatBuscado.length();
   }
 
   async waitBD(){
@@ -83,4 +85,9 @@ export class EmpleadosComponent implements OnInit{
     console.log("Quintana ");
     this.navCtrl.navigateForward("/agregar-empleado");
   }
+
+  getLength(){
+    return this.length;
+  }
+
 }

@@ -9,6 +9,7 @@ import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
 import { LstChatServicioService } from 'src/app/Services/lstChatServ/lst-chat-servicio.service';
 import { PersonasService } from 'src/app/Services/personas/personas.service';
+import notify from 'devextreme/ui/notify';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -211,7 +212,7 @@ export class ChatComponent implements OnInit {
   }
 
   deleteEmp(){
-    console.log("Quintana ");
+    //console.log("Quintana ");
     this.presentAlertConfirm();
   }
 
@@ -233,6 +234,7 @@ export class ChatComponent implements OnInit {
           handler: () => {
             this.agEmpSer.deleteEmpleado(IPRESIDENTES + "consultas/Conjuntos/eliminarEmpleado/" + this.idConjunto + "/" + this.chatid)
             .subscribe(respuesta => {
+              notify(respuesta, 'sucess');
               console.log(respuesta);
               this.goBack();
             })

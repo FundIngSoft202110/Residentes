@@ -51,6 +51,7 @@ import { NuevoPaqueteComponent } from './components/empleado/nuevo-paquete/nuevo
 import { ReservacionAreaResidenteComponent } from './components/residente/reservacion-area-residente/reservacion-area-residente.component';
 
 import { ModificarReservaAreaComponent } from './components/residente/modificar-reserva-area/modificar-reserva-area.component';
+import { ListaAsasambleaAdminComponent } from './components/admin/lista-asambleas-admin/lista-asasamblea-admin/lista-asasamblea-admin.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -193,6 +194,10 @@ const routes: Routes = [
     component: ModificarReservaAreaComponent
   },
   {
+    path: 'lista-asamblea-admin',
+    component: ListaAsasambleaAdminComponent
+  },
+  {
     path: 'ingre-apto',
     loadChildren: () => import('../app/components/general/ingre-apto/ingre-apto.module').then( m => m.IngreAptoPageModule)
   },
@@ -282,7 +287,8 @@ const routes: Routes = [
     ModificarAreaAdminComponent,
     ReservacionAreaResidenteComponent, // ojo
     ModificarReservaAreaComponent,
-    ReservacionAreaResidenteComponent // ojo
+    ReservacionAreaResidenteComponent,
+    ListaAsasambleaAdminComponent // ojo
   ],
   providers:[
     {provide: LOCALE_ID, useValue:'es-Co'}
