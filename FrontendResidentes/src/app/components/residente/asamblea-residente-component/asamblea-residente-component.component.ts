@@ -17,6 +17,7 @@ import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto
 export class AsambleaResidenteComponent implements OnInit {
 
   public propuestas: Propuesta[];
+  public asamblea:any;
   private idAsamblea: number;
   private idConjunto: number;
   private idApto: number;
@@ -25,9 +26,6 @@ export class AsambleaResidenteComponent implements OnInit {
   opcionesPropuesta: Opcion[][] = [];
   votosUsuario: number[];
   colorCards: string[];
-
-
-
 
   constructor(private navCtrl: NavController, private propuestasService: PropuestasService,
     private opcionesService: OpcionesService, private votosServices: VotosService,
@@ -42,13 +40,15 @@ export class AsambleaResidenteComponent implements OnInit {
   } // end waitBD
 
   async ionViewWillEnter() {
+    this.propuestas = [];
     this.idAsamblea = this.asambleaService.getAsambleaAbierta();
+    this.asamblea = this.asambleaService.getAsamblea(this.idAsamblea);
     this.idConjunto = this.conjuntosService.getConjuntoActivo();
     this.idApto = this.servIngAptoService.getIdApto();
     this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
     await this.waitBD();
-    //if(this.asambleaService.get)
-    this.propuestas = this.propuestasService.getPropuestas();
+    if(this.asambleaService.getAsambleaEstado() == "A")
+      this.propuestas = this.propuestasService.getPropuestas();
     /* this.votosUsuario = [];
     this.colorCards = [];
     this.opcionesPropuesta = [];
@@ -91,6 +91,10 @@ export class AsambleaResidenteComponent implements OnInit {
 
     }
   } // votar
+
+  getAsamblea(){
+    return this.asamblea;
+  }
 
   getColorCards(propuesta: Propuesta) {
     return this.colorCards[propuesta.id - 1];

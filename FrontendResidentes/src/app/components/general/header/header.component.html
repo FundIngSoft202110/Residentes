@@ -5,12 +5,12 @@
     <div *ngIf="menu == 'NO'; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
       <ion-buttons slot="start" (click)="goBack()">
-        <ion-label slot="start" color="residente-txt"><ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon><strong>&nbsp;&nbsp;{{titulo}}</strong></ion-label>
+        <ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon><ion-label slot="start" color="residente-txt"><strong>&nbsp;&nbsp;{{titulo}}</strong></ion-label>
       </ion-buttons>
     </ng-template>
     <ng-template #elseBlock>
       <ion-buttons slot="start" (click)="toggleMenu()">
-        <ion-label slot="start" color="residente-txt"><ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon><strong>&nbsp;&nbsp;{{titulo}}</strong></ion-label>
+        <ion-icon slot="icon-only" name="menu" color="residente-txt"></ion-icon><ion-label slot="start" color="residente-txt"><strong>&nbsp;&nbsp;{{titulo}}</strong></ion-label>
       </ion-buttons>
     </ng-template>
   </ion-toolbar>

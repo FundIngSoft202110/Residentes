@@ -52,7 +52,7 @@ export class AsambleaService {
 
 	getAsambleaEstado() {
 		this.asambleaEstado = window.localStorage['asambleaEstado'] ;
-			return this.asambleaEstado;
+		return this.asambleaEstado;
 	}// getAsambleaAbierta
 
 	setAsambleaEstado(estado: string) {
@@ -69,6 +69,13 @@ export class AsambleaService {
 				this.asambleas = respuesta;
 			})
 	} // end cargarAsambleas
+
+	getAsamblea(idAsamblea:number){
+		for(let asam of this.asambleas)
+			if(asam.asambleaPK.idAsamblea == idAsamblea)
+				return asam;
+		return null;
+	} // end getAsamblea
 
 	getAsambleas() {
 		return this.asambleas;
