@@ -19,12 +19,8 @@ public class DTOConjunto {
     private int numTorres;
     private int numPisos;
     private int numAptos;
-    
-    private BigDecimal numTorresBig;
-    private BigDecimal numPisosBig;
-    private BigDecimal numAptosBig;
 
-    public DTOConjunto(String nombre, String linkPago, String direccion, int precioAdmin, int numTorres, int numPisos, int numAptos, BigDecimal numTorresBig, BigDecimal numPisosBig, BigDecimal numAptosBig) {
+    public DTOConjunto(String nombre, String linkPago, String direccion, int precioAdmin, int numTorres, int numPisos, int numAptos) {
         this.nombre = nombre;
         this.linkPago = linkPago;
         this.direccion = direccion;
@@ -32,9 +28,6 @@ public class DTOConjunto {
         this.numTorres = numTorres;
         this.numPisos = numPisos;
         this.numAptos = numAptos;
-        this.numTorresBig = numTorresBig;
-        this.numPisosBig = numPisosBig;
-        this.numAptosBig = numAptosBig;
     }
 
     public DTOConjunto() {
@@ -95,31 +88,9 @@ public class DTOConjunto {
     public void setNumAptos(int numAptos) {
         this.numAptos = numAptos;
     }
-
-    public BigDecimal getNumTorresBig() {
-        return numTorresBig;
-    }
-
-    public void setNumTorresBig(BigDecimal numTorresBig) {
-        this.numTorresBig = numTorresBig;
-    }
-
-    public BigDecimal getNumPisosBig() {
-        return numPisosBig;
-    }
-
-    public void setNumPisosBig(BigDecimal numPisosBig) {
-        this.numPisosBig = numPisosBig;
-    }
-
-    public BigDecimal getNumAptosBig() {
-        return numAptosBig;
-    }
-
-    public void setNumAptosBig(BigDecimal numAptosBig) {
-        this.numAptosBig = numAptosBig;
-    }
     
+   
 
 
+   
 }

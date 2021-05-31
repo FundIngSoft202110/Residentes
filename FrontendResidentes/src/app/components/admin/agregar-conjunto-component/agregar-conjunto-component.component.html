@@ -3,12 +3,13 @@
 
 <form action="your-action"  (submit)="onFormSubmit($event)">
     <dx-form id="form" 
+    [formData]="nuevoConjunto"
     [labelLocation]="posi"
         [showColonAfterLabel]="true"
         [showValidationSummary]="true"
         validationGroup="customerData">
         <dxi-item id="nombreC" itemType="group" caption="">
-            <dxi-item dataField="Nombre">
+            <dxi-item dataField="nombre">
                 <dxi-validation-rule 
                     type="required"
                     message="El nombre es obligatorio">
@@ -20,7 +21,7 @@
                     [validationCallback]="asyncValidation">
                 </dxi-validation-rule>
             </dxi-item>
-            <dxi-item dataField="Dirección">
+            <dxi-item dataField="dirección">
                 <dxi-validation-rule 
                     type="required"
                     message="La dirección es obligatoria">
@@ -32,7 +33,7 @@
                 </dxi-validation-rule>
             </dxi-item>
             
-            <dxi-item dataField="Precio de administración ($)" helpText="Poner en pesos Colombianos">
+            <dxi-item dataField="precioAdmin" [label]="{text: 'Precio de administración ($)'}"  helpText="Poner en pesos Colombianos">
                 <dx-number-box
                 format="$ #,##0.##"
                

@@ -37,14 +37,22 @@ const sendRequestDirect = function(value) {
     styleUrls: ['./agregar-conjunto-component.component.scss'],
 })
 
-
-
+/*
+class  ConjuntoDTO{
+    nombre : string ;
+    linkPago: string ;
+    direccion: string ;
+    precioAdmin : number;
+     numTorres: number;
+     numPisos: number;
+    numAptos: number;
+}*/
 
 export class AgregarConjuntoComponent implements OnInit {
     posi= "top";
 
   @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
-   
+  nuevoConjunto: any;
   conjunto: any;
   
   buttonOptions: any = {
@@ -88,7 +96,7 @@ export class AgregarConjuntoComponent implements OnInit {
 
      finish(){
       // this.storage.set('isIntroShowed',true );
-   
+        console.log();
        this.router.navigateByUrl("/seleccion-conjunto");
      }
 }

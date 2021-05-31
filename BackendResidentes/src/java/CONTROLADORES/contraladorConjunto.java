@@ -174,7 +174,6 @@ public class contraladorConjunto {
     public DTOrespuestas nuevoConjunto(DTOConjunto conjunto) {
         DTOrespuestas res = new DTOrespuestas();
         String consulta = "INSERT INTO conjunto (`Nombre`, `LinkDePago`, `Direccion`, `PrecioAdmin`, `NumeroTorres`, `NumeroPisos`, `NumeroApartamentos`) VALUES (?, ?, ? ,?, ?, ?,?)";
-
         try (
                  PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
@@ -182,22 +181,22 @@ public class contraladorConjunto {
             String link = conjunto.getLinkPago();
             String dir = conjunto.getDireccion();
             int precio = conjunto.getPrecioAdmin();
-            BigDecimal torres =conjunto.getNumTorresBig();
-            BigDecimal pisos = conjunto.getNumPisosBig();
-            BigDecimal aptos = conjunto.getNumAptosBig();
+            int torres =conjunto.getNumTorres();
+            int pisos = conjunto.getNumPisos();
+            int aptos = conjunto.getNumAptos();
 
             statement.setString(1, nombre);
             statement.setString(2, link);
             statement.setString(3, dir);
             statement.setInt(4, precio);
-            statement.setBigDecimal(5, torres);
-            statement.setBigDecimal(6, pisos);
-            statement.setBigDecimal(7, aptos);
+            statement.setInt(5, torres);
+            statement.setInt(6, pisos);
+            statement.setInt(7, aptos);
             statement.executeUpdate();
             res.setRespuesta("Conjunto Agregado exitosamente");
-            
-            String C2 ; 
-            
+            int idConjunto= idConjuntoNombre(nombre);
+            controladorApartamento aptoCont = new controladorApartamento() ;
+            aptoCont.generarAptos(idConjunto ,  torres, pisos, aptos);
             return res;
 
         } catch (SQLException sqle) {
@@ -210,27 +209,23 @@ public class contraladorConjunto {
 
     public int idConjuntoNombre(String nombre){
           String consulta= "SELECT c.IdConjunto FROM Conjunto AS c WHERE c.Nombre = ?";
-          int resp;
+          int resp= 0;
           try ( PreparedStatement statement = this.con.prepareStatement(consulta);) {
             statement.setString(1, nombre);
             try ( ResultSet rs = statement.executeQuery();) {
                 while (rs.next()) {
                     resp = (rs.getInt("IdConjunto"));
                 }
+                return resp;
             }
-          
           }catch(SQLException sqle){
               
           }
           return -1;
     }
-    @POST
-    @Path("/crearAptos")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void actualizarDatos(Conjunto conjunto) {
-        controladorApartamento controladorApto = new controladorApartamento();
-        controladorApto.aptosBase(conjunto.getNumeroPisos().intValue(), conjunto.getNumeroTorres().intValue(), conjunto.getNumeroApartamentos().intValue(), conjunto.getIdConjunto());
-    }
+    
+    
+
 
     @POST
     @Path("/agregarEmpleadoConjunto/{idConjunto}")
@@ -394,4 +389,6 @@ public class contraladorConjunto {
        
         return respuesta ;
     }
+    
+    
 }
