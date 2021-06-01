@@ -50,7 +50,7 @@ public class Opcion implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "CantidadVotos")
-    private BigInteger cantidadVotos;
+    private int cantidadVotos;
     @OneToMany(mappedBy = "opcion")
     private List<Voto> votoList;
     @JoinColumn(name = "PropuestaIdPropuesta", referencedColumnName = "IdPropuesta", insertable = false, updatable = false)
@@ -66,7 +66,7 @@ public class Opcion implements Serializable {
         this.opcionPK = opcionPK;
     }
 
-    public Opcion(OpcionPK opcionPK, String nombre, BigInteger cantidadVotos) {
+    public Opcion(OpcionPK opcionPK, String nombre, int cantidadVotos) {
         this.opcionPK = opcionPK;
         this.nombre = nombre;
         this.cantidadVotos = cantidadVotos;
@@ -92,11 +92,11 @@ public class Opcion implements Serializable {
         this.nombre = nombre;
     }
 
-    public BigInteger getCantidadVotos() {
+    public int getCantidadVotos() {
         return cantidadVotos;
     }
 
-    public void setCantidadVotos(BigInteger cantidadVotos) {
+    public void setCantidadVotos(int cantidadVotos) {
         this.cantidadVotos = cantidadVotos;
     }
 
