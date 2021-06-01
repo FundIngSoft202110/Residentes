@@ -1,8 +1,6 @@
 <app-header titulo="ÁREAS COMUNES" menu=RESIDENTE></app-header>
-<div class = "mover">
-<div id="form1">
-    <div class="dx-fieldset">
-        <div class="dx-field">
+<div class = "margen1111">
+        
             <div class="dx-field-label">Tipo: </div>
             <div class="dx-field-value">
                 <dx-radio-group [items]="tipo" 
@@ -10,22 +8,18 @@
                                  (onOptionChanged)="traerAreastipo()">
                 </dx-radio-group>
             </div>
-        </div>
-    </div>
-</div>
-
+       
 <div class="margen2">Lista Areas Comunes</div>
-<dx-select-box class="margen1" [items]="listaDeAreasComunes"></dx-select-box>
+<dx-select-box class="margen111" [items]="listaDeAreasComunes"></dx-select-box>
+<div class="margen33">Horas Disponibles</div>
+<dx-select-box class="margen111" [items]="horasDisponibles"></dx-select-box>
 
 
+</div>
+<div>
 <app-calendar-paquete></app-calendar-paquete>
-
-
-<div class="margen3">Horas Disponibles</div>
-<dx-select-box class="margen1" [items]="horasDisponibles"></dx-select-box>
-
-
-
+</div>
+<div>
 <ion-button class="boton1"
       (click)="mandarMisReservas()"
       expand="full"
@@ -40,6 +34,5 @@
       color="residente"
       type="submit"
       >Nueva Reserva</ion-button>
-
-    </div>
+  </div> 
       
