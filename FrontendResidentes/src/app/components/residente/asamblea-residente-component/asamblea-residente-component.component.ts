@@ -5,9 +5,10 @@ import { Opcion } from 'src/app/Services/opciones/opcion.model'
 import { PropuestasService } from 'src/app/Services/propuestas/propuestas.service';
 import { OpcionesService } from 'src/app/Services/opciones/opciones.service';
 import { VotosService } from 'src/app/Services/votos/votos.service';
-import { Asamblea, AsambleaService } from 'src/app/Services/asambleas/asamblea.service';
+import { Asamblea, AsambleaService, ResultadoVoto } from 'src/app/Services/asambleas/asamblea.service';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { ServIngAptoService } from 'src/app/Services/ingreAptoServ/serv-ing-apto.service';
+import notify from 'devextreme/ui/notify';
 
 @Component({
   selector: 'app-asamblea-residente-component',
@@ -21,11 +22,8 @@ export class AsambleaResidenteComponent implements OnInit {
   private idAsamblea: number;
   private idConjunto: number;
   private idApto: number;
-
-  opcion: Opcion[];
-  opcionesPropuesta: Opcion[][] = [];
-  votosUsuario: number[];
-  colorCards: string[];
+  private temaAsamblea:string = "";
+  private resultadosVoto:ResultadoVoto;
 
   constructor(private navCtrl: NavController, private propuestasService: PropuestasService,
     private opcionesService: OpcionesService, private votosServices: VotosService,
@@ -43,12 +41,18 @@ export class AsambleaResidenteComponent implements OnInit {
     this.propuestas = [];
     this.idAsamblea = this.asambleaService.getAsambleaAbierta();
     this.asamblea = this.asambleaService.getAsamblea(this.idAsamblea);
+    this.temaAsamblea = this.asamblea.tema;
     this.idConjunto = this.conjuntosService.getConjuntoActivo();
+    this.asambleaService.cargarResultadosVoto(this.idConjunto, this.idAsamblea);
     this.idApto = this.servIngAptoService.getIdApto();
     this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
     await this.waitBD();
-    if(this.asambleaService.getAsambleaEstado() == "A")
+    if(this.asambleaService.getAsambleaEstado() == "A"){
       this.propuestas = this.propuestasService.getPropuestas();
+      console.log("Propuestaassss: ", this.propuestas);
+    }
+    this.resultadosVoto = this.asambleaService.getResultadosVoto();
+    console.log("Resultados Votos: ", this.resultadosVoto);
     /* this.votosUsuario = [];
     this.colorCards = [];
     this.opcionesPropuesta = [];
@@ -68,37 +72,39 @@ export class AsambleaResidenteComponent implements OnInit {
     }// end for*/
   }// end ionViewWillEnter
 
+  getColorVotos(propuesta:Propuesta):string{
+    if(propuesta.estado == "Disponible")
+      return "residente";
+    else
+      return "deshabilitado";
+  } // end getColorVotos
+
   getPropuestas():any{
     return this.propuestas;
   } // end getPropuestas
 
-  votar(opcion: Opcion, propuesta: Propuesta) {
-    if (!this.votosUsuario[propuesta.id - 1]) {
-      if (!propuesta.parar) {
-        this.votosServices.addVoto(opcion.id, propuesta.id);
-        this.propuestas[propuesta.id - 1].votosTotales += 1;
-        this.opcionesPropuesta[propuesta.id - 1][opcion.id - 1].cantidadVotos += 1;
-        this.colorCards[propuesta.id - 1] = "red";
-        this.votosUsuario[propuesta.id - 1] = 1;
-        console.log("Voto en ", propuesta.descripcion, " por ", opcion.nombre);
-        console.log("VotosTotales = ", this.propuestas[propuesta.id - 1].votosTotales);
-        console.log("CantidadVotos Opcion 1 = ", this.opcionesPropuesta[propuesta.id - 1][0].cantidadVotos);
-        console.log("CantidadVotos Opcion 2 = ", this.opcionesPropuesta[propuesta.id - 1][1].cantidadVotos);
-      }
-      else {
-        this.colorCards[propuesta.id - 1] = "red";
-      }
+  getTemaAsamblea(){
+    return this.temaAsamblea;
+  }
 
-    }
+  async votar(opcion: any, propuesta: Propuesta) {
+    if(propuesta.estado == "Disponible"){
+      this.asambleaService.votar(this.idConjunto, this.idApto, propuesta.idPropuesta, opcion.idOpcion);
+      await this.waitBD();
+      notify(this.asambleaService.getRespuesta().respuesta, 'sucess');
+      this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
+      await this.waitBD();
+      this.propuestas = this.propuestasService.getPropuestas();
+    } // end if
   } // votar
 
   getAsamblea(){
     return this.asamblea;
   }
 
-  getColorCards(propuesta: Propuesta) {
-    return this.colorCards[propuesta.id - 1];
-  }
+  getResultadosVoto(){
+    return this.resultadosVoto;
+  } // end getResultadosVoto
 
   getOpcSlideInfo(propuesta:any) {
     return propuesta.opciones;
