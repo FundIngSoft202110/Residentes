@@ -1,1 +1,34 @@
-<app-header titulo="SOBRE RESIDENTES" menu={{getUser()}}></app-header>
+<app-header titulo="SOBRE RESIDENTES" menu="RESIDENTE"></app-header>
+
+<dx-form id="form"
+	[formData]="residentes">
+	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
+		<dxi-item>
+			<div class="form-avatar"></div>
+		</dxi-item>
+	<dxi-item itemType="group" caption="Sobre Nosotros" >
+		<div class="sobre-nosotros" > 
+			<p>
+				Somos una  empresa de desarrollo tecnológico que marca tendencia en las propiedades horizontales, 
+				generando una nueva experiencia para residentes, 
+				empleados y administradores mejorando su comunicación y la eficiencia de sus procesos internos. 
+				¡Gracias por preferirnos!
+			</p>
+		</div>
+	</dxi-item>
+	<dxi-item itemType="group" caption="Desarrolladores" >
+		<div class="sobre-nosotros" > 
+			<p>
+				Alejandro Diaz <br>
+				Juan Sebastian Barreto <br>
+				Mariana Rojas Galavis <br>
+				David Santiago Quintana <br>
+				Maria Jose Nino <br> 
+				Janet Chen he <br> 
+				Andres Ricardo Porras <br>
+			</p>
+		</div>
+	</dxi-item>
+	</dxi-item>	
+</dx-form>
+
