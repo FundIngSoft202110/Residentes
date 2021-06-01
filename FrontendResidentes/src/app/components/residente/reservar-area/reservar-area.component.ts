@@ -17,6 +17,7 @@ import { IPRESIDENTES, IPRESIDENTESA } from 'src/app/constants';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { AptosService } from 'src/app/Services/aptos/aptos.service';
 import notify from 'devextreme/ui/notify';
+import { ModificarReservaAreaService } from 'src/app/Services/modificarReservaArea/modificar-reserva-area.service';
 
 
 @Component({
@@ -36,19 +37,18 @@ export class ReservarAreaComponent {
 	cantidad_p: any;
   pos:"top";
   respu: any;
+  idArea: any;
  
   
-	constructor( private aprt:AptosService,private service: ReservarAreaResidenteService, private navCtrl: NavController, private conjunto:ConjuntosService) {
+	constructor( private servicess:ModificarReservaAreaService,private aprt:AptosService,private service: ReservarAreaResidenteService, private navCtrl: NavController, private conjunto:ConjuntosService) {
         
         this.reserva.fecha=this.conjunto.convertDate(this.service.getfecha());
         
-        // this.reservaPK.apartamentoConjuntoIdConjunto=conjunto.getConjuntoActivo();
-        // this.reservaPK.areaComunConjuntoIdConjunto=conjunto.getConjuntoActivo();
-        // this.reservaPK.apartamentoIdApartamento=aprt.getAptoActivo();
-        this.reservaPK.apartamentoConjuntoIdConjunto=1;
-        this.reservaPK.areaComunConjuntoIdConjunto=1;
-        this.reservaPK.apartamentoIdApartamento=1;
-        this.reservaPK.areaComunIdArea=1;
+        this.reservaPK.apartamentoConjuntoIdConjunto=conjunto.getConjuntoActivo();
+        this.reservaPK.areaComunConjuntoIdConjunto=conjunto.getConjuntoActivo();
+        this.reservaPK.apartamentoIdApartamento=aprt.getAptoActivo();
+        
+       this.traerId();
        this.reserva.reservaPK=this.reservaPK;
          this.reserva.Area=this.service.getarea();
         this.horasDisponibles = service.getHorasDisponibles();
@@ -60,6 +60,16 @@ export class ReservarAreaComponent {
   ngOnInit() {
 
  
+  }
+  traerId(){
+    this.servicess.getId(IPRESIDENTESA+"/consultas/AreasComunes/idarea/"+this.reserva.Area)
+    .subscribe(respuesta=>{
+      console.log("r",respuesta);
+   
+      this.idArea=respuesta;
+      console.log(this.idArea.id);
+      this.reservaPK.areaComunIdArea=this.idArea.id;
+    })
   }
 
   mandarNueva(){

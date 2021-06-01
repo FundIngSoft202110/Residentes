@@ -10,6 +10,7 @@ import { IPRESIDENTESA } from 'src/app/constants';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 import { AptosService } from 'src/app/Services/aptos/aptos.service';
 import notify from 'devextreme/ui/notify';
+import { ReservarAreaResidenteService } from 'src/app/Services/reservarAreaResidente/reservar-area-residente.service';
 
 @Component({
   selector: 'app-reservacion-area-residente',
@@ -30,12 +31,10 @@ export class ReservacionAreaResidenteComponent implements OnInit {
   respu: any;
   datos:any;
 
-  constructor(private service: ReservacionAreaResidenteService,apto:AptosService,conjunto: ConjuntosService, private navCtrl: NavController) {
+  constructor(private reMo:ReservarAreaResidenteService ,private service: ReservacionAreaResidenteService,apto:AptosService,conjunto: ConjuntosService, private navCtrl: NavController) {
       this.listaMisReservas = this.listarMisReservas();
-      //this.conjuntoA= conjunto.getConjuntoActivo;
-      this.conjuntoA=1;
-      this.aptoA=1;
-      //this.aptoA=apto.getAptoActivo();
+      this.conjuntoA= conjunto.getConjuntoActivo;
+      this.aptoA=apto.getAptoActivo();
   }
 
   listarMisReservas(){
@@ -72,7 +71,14 @@ export class ReservacionAreaResidenteComponent implements OnInit {
       this.listaMisReservas = listaMisReservas})
   }*/
   select(data:any){
+    
     this.datos = data;
+    this.reMo.setfechaM(this.datos.fecha);
+    this.reMo.setHoraF(this.datos.horaFinal);
+    this.reMo.setHoraIn(this.datos.horaInicio);
+    console.log("aca",this.datos.nombreArea);
+    this.reMo.setareaM(this.datos.nombreArea);
+
     console.log("data",data);
   }
 }
