@@ -19,13 +19,20 @@ import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 })
 export class AsambleaAdminComponent implements OnInit {
 
+  
+  opcionesSer :any;
   public propuestas: Propuesta[];
   public asamblea:any;
   private idAsamblea: number;
   private idConjunto: number;
   private idApto: number;
   private temaAsamblea:string = "";
-  private resultadosVoto:ResultadoVoto;
+  private resultadosVoto:any;
+  public opciones:any[] = [];
+  public propuestaSeleccionado:string;
+  public result:any;
+  private mostrar:number = 0;
+  
 
   
   constructor(private navCtrl: NavController, private propuestasService: PropuestasService,
@@ -34,6 +41,7 @@ export class AsambleaAdminComponent implements OnInit {
     private servIngAptoService: ServIngAptoService,) { }
 
   ngOnInit() {
+    this.mostrar = 0;
   } // end ngOnInit
 
   async waitBD(){
@@ -41,14 +49,18 @@ export class AsambleaAdminComponent implements OnInit {
   } // end waitBD
 
   async ionViewWillEnter() {
+    this.mostrar = 0;
+    this.result
     this.propuestas = [];
+    this.idConjunto = this.conjuntosService.getConjuntoActivo();
+    this.asambleaService.cargarAsambleas(this.idConjunto);
+    await this.waitBD();
     this.idAsamblea = this.asambleaService.getAsambleaAbierta();
     this.asamblea = this.asambleaService.getAsamblea(this.idAsamblea);
     this.temaAsamblea = this.asamblea.tema;
-    this.idConjunto = this.conjuntosService.getConjuntoActivo();
     this.asambleaService.cargarResultadosVoto(this.idConjunto, this.idAsamblea);
     this.idApto = this.servIngAptoService.getIdApto();
-    this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
+    this.propuestasService.cargarPropuestas(this.idConjunto, 0, this.idAsamblea);
     await this.waitBD();
     if(this.asambleaService.getAsambleaEstado() == "A"){
       this.propuestas = this.propuestasService.getPropuestas();
@@ -73,6 +85,64 @@ export class AsambleaAdminComponent implements OnInit {
     return this.temaAsamblea;
   }
 
+  getMostrar(){
+    return this.mostrar;
+  }
+
+  idPropuesta:number;
+  estado:string;
+  optionsProp(){
+    this.opciones = [];
+    for(let prop of this.propuestas){
+      if(prop.descripcion == this.propuestaSeleccionado){
+        this.opcionesSer = prop.opciones;
+        this.idPropuesta = prop.idPropuesta;
+        this.estado = prop.estado;
+        break;
+      }else{
+        this.opcionesSer = [];
+      }
+    }
+    var conteo = 0;
+    for(let opcc of this.opcionesSer){
+      var opcionAux = {num:conteo+1, opcion:this.opcionesSer[conteo]};
+      conteo += 1;
+      this.opciones.push(opcionAux);
+    }
+    for(let res of this.resultadosVoto){
+      if(res.propuesta == this.propuestaSeleccionado){
+        this.result = res;
+        break;
+      }else{
+        this.result = "";
+      }
+    }
+    this.mostrar = 1;
+  }
+
+  getColorR(){
+    if(this.mostrar == 1){
+      if(this.estado == 'Bloqueado')
+        return "residente";
+      else
+        return "deshabilitado";
+    }else{
+      return "residente";
+    }
+  }
+
+  getColorP(){
+    if(this.mostrar == 1){
+      if(this.estado == 'Disponible')
+        return "residente";
+      else
+        return "deshabilitado";
+    }else{
+      return "residente";
+    }
+  }
+
+
   async votar(opcion: any, propuesta: Propuesta) {
     if(propuesta.estado == "Disponible"){
       this.asambleaService.votar(this.idConjunto, this.idApto, propuesta.idPropuesta, opcion.idOpcion);
@@ -83,6 +153,25 @@ export class AsambleaAdminComponent implements OnInit {
       this.propuestas = this.propuestasService.getPropuestas();
     } // end if
   } // votar
+
+  async pararVotacion(){
+    this.asambleaService.pararVotacion(this.idPropuesta);
+    await this.waitBD();
+    notify(this.asambleaService.getRespuesta().respuesta, 'sucess');
+    this.propuestasService.cargarPropuestas(this.idConjunto, 0, this.idAsamblea);
+    await this.waitBD();
+    if(this.asambleaService.getAsambleaEstado() == "A"){
+      this.propuestas = this.propuestasService.getPropuestas();
+      console.log("Propuestaassss: ", this.propuestas);
+    }
+    this.optionsProp();
+  } // end pararVotacion
+
+  async subirResultados(){
+    this.asambleaService.subirResultados(this.idPropuesta);
+    await this.waitBD();
+    notify(this.asambleaService.getRespuesta().respuesta, 'sucess');
+  } // end subirResultados
 
   getAsamblea(){
     return this.asamblea;
@@ -109,6 +198,8 @@ export class AsambleaAdminComponent implements OnInit {
     slides.slidePrev();
   }
 
-
+  botonNuevaPropuesta() {
+    this.navCtrl.navigateForward("/nueva-propuesta"); 
+  }
 }
 

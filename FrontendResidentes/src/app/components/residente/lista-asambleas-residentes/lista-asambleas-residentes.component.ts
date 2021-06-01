@@ -30,7 +30,7 @@ export class ListaAsambleasResidentesComponent implements OnInit {
     this.asambleas = this.asambleaService.getAsambleas();
     console.log("Asambleas: ", this.asambleas);
   } // end ionViewWillEnter
-
+  
   goRoute(asamblea:Asamblea){
     if(asamblea.estado != 'P'){
       console.log("Asamblea = ", asamblea.asambleaPK.idAsamblea, " Estado = ", asamblea.estado);

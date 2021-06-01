@@ -1,19 +1,9 @@
-ion-card-subtitle{
-    font-size: 1.2rem;
-    text-transform: none;
-}
-
-ion-card{
-    background-color: #F2F3F4;
-    border-radius: 10px;
-}
-
-ion-label{
-    font-size: 20px;
+#centrado{
+    text-align: center;
 }
 
 .content-div{
-    height: 85%;
+    height: 80%;
 }
 
 ion-content {
@@ -29,11 +19,15 @@ ion-content {
     margin-bottom: 10px;  
 }
 
+ion-card{
+    box-shadow: none !important;
+}
+
+ion-label{
+    font-size: 20px;
+}
+
 ion-input{
     width: 10%;
     border: solid 1px var(--ion-color-residente-txt);
-}
-
-#centrado{
-    text-align: center;
 }

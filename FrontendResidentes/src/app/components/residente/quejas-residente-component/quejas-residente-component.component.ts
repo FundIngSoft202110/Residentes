@@ -28,7 +28,7 @@ export class QuejasResidenteComponent implements OnInit {
 		
 	}
   
-
+  respuesta:any;
   idApto : any;
   idConjunto: any;
   ngOnInit() {
@@ -38,6 +38,7 @@ export class QuejasResidenteComponent implements OnInit {
   }
  aux: number;
   envInfo(){
+    this.queja = new quejadto();
     if(this.anonimus == true){
       this.queja.anonimo = 1;
     }else{
@@ -45,10 +46,11 @@ export class QuejasResidenteComponent implements OnInit {
     }
     this.queja.contenido =  this.descripcion;
     this.queja.idC = this.idConjunto;
-    this.queja.idA = this.idApto;
-    
+    this.queja.dA = this.idApto;
+    console.log(this.queja);
     this.service.envioQueja(this.queja).subscribe(respuesta => {
-        notify(respuesta, 'sucess');
+      this.respuesta = respuesta;
+        notify(this.respuesta.respuesta, 'sucess');
     })
 
 

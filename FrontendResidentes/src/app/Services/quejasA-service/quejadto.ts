@@ -1,6 +1,6 @@
 export class quejadto {
 	idC: number;
-    idA: number;
+    dA: number;
     contenido: string;
     anonimo: number;
 }

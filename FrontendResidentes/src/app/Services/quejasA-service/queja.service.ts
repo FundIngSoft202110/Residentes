@@ -11,7 +11,7 @@ export class QuejaService {
 	url:string;
 
 	public envioQueja(body:any){
-		this.url= IPRESIDENTES + "consultas/nuevaQueja/";
+		this.url= IPRESIDENTES + "consultas/quejas/nuevaQueja/";
 		return this.http.post(this.url, body);
 		
 	 }

@@ -57,6 +57,7 @@ import { CalendarPaqueteComponent } from './components/empleado/calendar-paquete
 import { ListaptoscComponent } from './components/admin/listaptosc/listaptosc.component';
 import { CambicontraComponent } from './components/admin/cambicontra/cambicontra.component';
 import { NuevaAsambleaComponent } from './components/admin/nueva-asamblea/nueva-asamblea.component';
+import { NuevaPropuestaComponent } from './components/admin/nueva-propuesta/nueva-propuesta.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -75,6 +76,10 @@ const routes: Routes = [
   {
     path: 'nueva-asamblea',
     component: NuevaAsambleaComponent
+  },
+  {
+    path: 'nueva-propuesta',
+    component: NuevaPropuestaComponent
   },
   {
     path: 'claves2',
@@ -284,6 +289,7 @@ const routes: Routes = [
     AgregarConjuntoComponent,
     AsambleaAdminComponent,
     NuevaAsambleaComponent,
+    NuevaPropuestaComponent,
     ClavesComponent,
     ManualAdminComponent,
     QuejasAdminComponent,
