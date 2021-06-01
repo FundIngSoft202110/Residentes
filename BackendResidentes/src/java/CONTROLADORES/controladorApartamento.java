@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -36,8 +37,7 @@ public class controladorApartamento {
         Apartamento a = new Apartamento();
         ApartamentoPK apk = new ApartamentoPK();
         try (
-                PreparedStatement statement = this.con.prepareStatement(consulta);
-                ResultSet rs = statement.executeQuery();) {
+                 PreparedStatement statement = this.con.prepareStatement(consulta);  ResultSet rs = statement.executeQuery();) {
 
             while (rs.next()) {
                 a = new Apartamento();
@@ -55,7 +55,7 @@ public class controladorApartamento {
 
         return apto;
     }
-    
+
     @GET
     @Path("/apartamentosc/{IdConjunto}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -65,10 +65,10 @@ public class controladorApartamento {
         Apartamento a = new Apartamento();
         ApartamentoPK apk = new ApartamentoPK();
         try (
-                PreparedStatement statement = this.con.prepareStatement(consulta);) {
+                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
             statement.setInt(1, id);
 
-            try (ResultSet rs = statement.executeQuery();) {
+            try ( ResultSet rs = statement.executeQuery();) {
 
                 while (rs.next()) {
                     a = new Apartamento();
@@ -93,16 +93,16 @@ public class controladorApartamento {
     @Produces(MediaType.APPLICATION_JSON)
     public DTOrespuestas getAptoNoticia(@PathParam("IdConjunto") int idConjunto, @PathParam("IdApto") int idApto) {
         DTOrespuestas res = null;
-        String consulta = "SELECT CONCAT(a.torre, '-', a.piso, a.numero) AS Apto " +
-                          "FROM Apartamento AS a " +
-                          "WHERE  a.ConjuntoIdConjunto = ? AND a.IdApartamento = ?;";
+        String consulta = "SELECT CONCAT(a.torre, '-', a.piso, a.numero) AS Apto "
+                + "FROM Apartamento AS a "
+                + "WHERE  a.ConjuntoIdConjunto = ? AND a.IdApartamento = ?;";
         try (
-                PreparedStatement statement = this.con.prepareStatement(consulta);) {
+                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
             statement.setInt(1, idConjunto);
             statement.setInt(2, idApto);
 
-            try (ResultSet rs = statement.executeQuery();) {
-                while (rs.next()){
+            try ( ResultSet rs = statement.executeQuery();) {
+                while (rs.next()) {
                     res = new DTOrespuestas(rs.getString("Apto"));
                 }
             }
@@ -120,7 +120,7 @@ public class controladorApartamento {
 
         String consulta = "SELECT a.IdApartamento, a.Contrasena FROM apartamento a WHERE a.ConjuntoIdConjunto=? AND a.Torre =? AND a.Piso=? AND a.Numero=?";
         try (
-                PreparedStatement statement = this.con.prepareStatement(consulta);) {
+                 PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
             int conjunto = apartamento.getApartamentoPK().getConjuntoIdConjunto();
             int torre = apartamento.getTorre();
@@ -134,7 +134,7 @@ public class controladorApartamento {
             statement.setInt(4, numero);
 
             try (
-                    ResultSet rs = statement.executeQuery();) {
+                     ResultSet rs = statement.executeQuery();) {
                 int idApto = rs.getInt(1);
                 String contrasena2 = rs.getNString(2);
                 if (!contrasena.equals(contrasena2)) {
@@ -174,27 +174,41 @@ public class controladorApartamento {
 
     }
 
-    public void aptosBase(int numPiso, int numTorres, int numApto, int numConjunto) {
 
-        List<Apartamento> aptos = crearAptos(numPiso, numTorres, numApto, numConjunto);
-        String consulta = "INSERT INTO apartamento (ConjuntoIdConjunto, Torre, Numero, Contrasena, Piso) VALUES (?, ?, ?, ?,?)";
-        for (Apartamento aux : aptos) {
+    public void generarAptos(int idConj, int nTorres, int nPisos, int nAptos) {
+        String consulta = "INSERT INTO apartamento (`ConjuntoIdConjunto`, `Torre`, `Numero`, `Contrasena`, `Piso`) VALUES (?, ?, ?, ?,?)";
+        for (int i = 0; i < nTorres; i++) {
+            for (int j = 0; j < nPisos; j++) {
+                for (int k = 0; k < nAptos; k++) {
+                    try (
+                             PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
-            try (
-                    PreparedStatement statement = this.con.prepareStatement(consulta);) {
+                        statement.setInt(1, idConj);
+                        statement.setInt(2, i+1);
+                        statement.setInt(3, k+1);
+                        String aux = generateRandomWords();
+                        statement.setString(4,aux);
+                        statement.setInt(5, j+1);
+                        statement.executeUpdate();
 
-                statement.setInt(1, aux.getApartamentoPK().getConjuntoIdConjunto());
-                statement.setInt(2, aux.getTorre());
-                statement.setInt(3, aux.getNumero());
-                statement.setNString(4, aux.getContrasena());
-                statement.setInt(5, aux.getPiso());
-                statement.executeUpdate();
-
-            } catch (SQLException sqle) {
-                System.out.println("Error en la ejecución:" + sqle.getErrorCode() + " " + sqle.getMessage());
+                    } catch (SQLException sqle) {
+                        System.out.println("Error en la ejecución:" + sqle.getErrorCode() + " " + sqle.getMessage());
+                    }
+                }
             }
-
         }
-
     }
+
+    public  String generateRandomWords() {
+        
+        Random random = new Random();
+        
+            char[] word = new char[random.nextInt(8) + 8]; // words of length 3 through 10. (1 and 2 letter words are boring.) 
+            for (int j = 0; j < word.length; j++) {
+                word[j] = (char) ('a' + random.nextInt(26));
+            }
+            return new String(word);
+        
+    }
+
 }

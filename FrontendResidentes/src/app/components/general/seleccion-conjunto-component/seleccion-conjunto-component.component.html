@@ -7,7 +7,7 @@
         [dataSource]="conjuntos"
         [height]="400"
         [searchEnabled]="true"
-        searchExpr="Name"
+        searchExpr="nombre"
         searchMode="contains">
             <div *dxTemplate="let data of 'item'" (click)="click( data.id)">
                 <div>{{data.Name}}</div>

@@ -27,17 +27,29 @@ if(!/localhost/.test(document.location.host)) {
 export class SeleccionConjuntoComponent implements OnInit{
   conjuntos: any;
   idPerActiva;
-  constructor(service: selConjService, private personasService: PersonasService, private router: Router) {
-      this.conjuntos = service.getConjuntos();
+  constructor(private service: selConjService, private personasService: PersonasService, private router: Router) {
+      
   }
   click(id){
     //console.log("hola " , id , " - ", this.idPerActiva);
+    this.service.vinResCon(id,  this.idPerActiva  );
     this.router.navigateByUrl("/netflix");
   }
 
-  ngOnInit() {
+  ngOnInit(){
+    
+  } 
+
+  async ionViewWillEnter() {
     //this.personasService.difTiempo(new Date().getTime() );
     this.idPerActiva = this.personasService.getPersonaID();
+    this.service.getConjuntosServ( this.idPerActiva  );
+    await this.waitBD();
+    this.conjuntos = this.service.getConjuntosS();
+  }
+
+  async waitBD(){
+    await new Promise(resolve => setTimeout(resolve, 250));
   }
 
 

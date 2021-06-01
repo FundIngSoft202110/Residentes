@@ -1,4 +1,4 @@
-<app-header titulo="ASAMBLEA" menu=NO routeBack="/lista-asambleas-residentes"></app-header>
+<app-header titulo="{{getAsamblea().tema}}" menu=NO routeBack="/lista-asambleas-residentes"></app-header>
 
 <ion-content>
     <ion-slides pager="true" #theSlides>
@@ -14,14 +14,28 @@
                     </ion-card>
                 </div>
             </div>
-            <div>
-                <!--<ion-card color="{{getColorResultados(propuesta)}}" (click)="enviarPropuesta(propuesta)">-->
-                <ion-card color="residente">
-                    <ion-card-content>
-                        Ver Resultados
-                    </ion-card-content>
-                </ion-card>
-            </div>
+            <!--<div>
+                <ion-row>
+                <ion-col>
+                <ion-button id="izquierda" color="residente" (click)="prev(theSlides)">
+                    <ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon>
+                </ion-button>
+                </ion-col>
+                <ion-col>
+                <ion-button id="derecha" color="residente" (click)="next(theSlides)">
+                    <ion-icon slot="icon-only" name="chevron-forward-outline" color="residente-txt"></ion-icon>
+                </ion-button>
+                </ion-col>
+            </ion-row>
+            </div>-->
+        </ion-slide>
+        <ion-slide>
+            <br><ion-label><strong>Resultados</strong></ion-label>
+            <!--<ion-card *ngFor="let propuesta of getPropuestas()">
+                <h4> Propuesta: {{getPropuesta()}} </h4>
+                <h5> Cantidad de Votos: {{getTotalVotaciones()}}</h5>
+                <h5> Ganador:  </h5>
+            </ion-card>-->
         </ion-slide>
     </ion-slides>
 </ion-content>

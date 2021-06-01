@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
-import { Asamblea, AsambleaService } from 'src/app/Services/asambleas/asamblea.service';
+import { NavController, AlertController } from '@ionic/angular';
+import { AsambleaService, Asamblea } from 'src/app/Services/asambleas/asamblea.service';
 import { ConjuntosService } from 'src/app/Services/conjuntos/conjuntos.service';
 
 @Component({
-  selector: 'app-lista-asambleas-residentes',
-  templateUrl: './lista-asambleas-residentes.component.html',
-  styleUrls: ['./lista-asambleas-residentes.component.scss'],
+  selector: 'app-lista-asasamblea-admin',
+  templateUrl: './lista-asasamblea-admin.component.html',
+  styleUrls: ['./lista-asasamblea-admin.component.scss'],
 })
-export class ListaAsambleasResidentesComponent implements OnInit {
+export class ListaAsasambleaAdminComponent implements OnInit {
 
   asambleas = [];
   private idConjunto:number;
@@ -32,14 +32,13 @@ export class ListaAsambleasResidentesComponent implements OnInit {
   } // end ionViewWillEnter
 
   goRoute(asamblea:Asamblea){
-    if(asamblea.estado != 'P'){
+     
       console.log("Asamblea = ", asamblea.asambleaPK.idAsamblea, " Estado = ", asamblea.estado);
       this.asambleaService.setAsambleaAbierta(asamblea.asambleaPK.idAsamblea);
       this.asambleaService.setAsambleaEstado(asamblea.estado);
-      this.navCtrl.navigateForward("/asamblea-residente");
-    }else{
-      this.presentAlertConfirmAsamblea();
-    }
+      this.navCtrl.navigateForward("/asamblea-admin");
+    
+    
   }
 
   async presentAlertConfirmAsamblea() {
@@ -77,4 +76,7 @@ export class ListaAsambleasResidentesComponent implements OnInit {
       return "Activa"
   } // end getAsambleaEstado
 
+  botonNuevoPaquete(){
+      
+  }
 }

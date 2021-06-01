@@ -19,11 +19,22 @@ ion-textarea{
 }
 
 .content-div{
-    height: 75%;
+    height: 85%;
 }
 
 ion-content {
     --overflow: hidden;
+}
+
+#derecha{
+    width: 94%;
+    text-align: right;
+}
+
+#izquierda{
+    width: 94%;
+    padding-left: 5%;
+    text-align: left;
 }
 
 

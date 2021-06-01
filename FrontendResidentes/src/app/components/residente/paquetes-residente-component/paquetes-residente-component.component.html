@@ -2,13 +2,13 @@
 
 <ion-content>
     <ion-card>
-    <div *ngFor="let paquete of paquetes"> 
-        <ion-item>
-            <ion-label><strong> Paquete {{paquete.num}} </strong></ion-label>
-            <ion-buttons slot="end" (click)="listOpen(paquete)"> 
-                <ion-icon slot="icon-only" color="residente" name="add-circle-outline"></ion-icon>
-            </ion-buttons>
-        </ion-item>
+        <div *ngFor="let paquete of paquetes">
+            <ion-item>
+                <ion-label><strong> Paquete {{paquete.num}} </strong></ion-label>
+                <ion-buttons slot="end" (click)="listOpen(paquete)">
+                    <ion-icon slot="icon-only" color="residente" name="add-circle-outline"></ion-icon>
+                </ion-buttons>
+            </ion-item>
             <ion-list *ngIf="getPaqueteView(paquete)=='mostrar'">
                 <ion-item>
                     <ion-label color="medium"> Tamaño: {{paquete.paquete.tamano}}</ion-label>
@@ -23,6 +23,9 @@
                     <ion-label color="medium"> Remitente: {{paquete.paquete.remitente}}</ion-label>
                 </ion-item>
             </ion-list>
-    </div>
-</ion-card>
+        </div>
+        <div *ngIf="getLength()==0">
+            <ion-img src="/../../../../assets/icon/IconConjuntos/paquete.JPG" alt="Paquete"></ion-img>
+        </div>
+    </ion-card>
 </ion-content>

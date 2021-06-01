@@ -19,7 +19,7 @@ export class AsambleaAdminComponent implements OnInit {
   @ViewChild(DxDrawerComponent, { static: false }) drawer: DxDrawerComponent;
 
   opciones: Opcion[];
-  propuesta: Propuesta[];
+  propuesta: any;
   Nopciones: number[];
   step = 1;
   backButtonOptions: any;
@@ -46,6 +46,7 @@ export class AsambleaAdminComponent implements OnInit {
       }
     };
   }
+  async ionViewWillEnter(){}
 
   ngOnInit() {
     this.asambleas = this.service.getAsambleas();
