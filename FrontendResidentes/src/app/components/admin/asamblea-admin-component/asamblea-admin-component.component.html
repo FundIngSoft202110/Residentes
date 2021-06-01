@@ -1,27 +1,7 @@
 <app-header titulo="ASAMBLEA" menu=NO routeBack="/lista-asamblea-admin" ></app-header>
 
 
-
-   
-	 <div *ngIf="step==1">
-		<ion-button class="boton"
-		(click)="nuevaAsamblea()"
-		expand="full"
-		shape="round"
-		color="residente"
-		type="submit"
-		>
-		<ion-icon name="add-circle"></ion-icon>
-		 Modificar Area</ion-button> 
-	</div>
-	
-	
-
-
-
-
-
-<div *ngIf="step==2"  class="estetica">
+<div *ngIf="step==1"  class="estetica">
     <dx-form id="form" [formData]="asambleas" [labelLocation]="labelL">
 
         <dxi-item itemType="group" cssClass="first-group" [colCount]="4">
@@ -47,7 +27,7 @@
 	  icon="upload"
 	  [width]="250"
 	  [height]="50"
-	  text="Crear Asamblea"
+	  text="Modificar Asamblea"
 	  (onClick)="this.step=3"
 	  
 	  >    
