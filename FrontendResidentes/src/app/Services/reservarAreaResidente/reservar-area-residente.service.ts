@@ -73,11 +73,41 @@ let cantidad_p: number[] = [0,1,2,3,4,5,6,7,8,9,10];
 		return Number(window.localStorage['fechareserva'] || -1);
 	}// getConjuntoActivo
 
+	setfechaM( fecha:number) {
+		window.localStorage['fechareservaM'] = fecha.toString();
+	}// setareaComun
+
+	getfechaM(){
+		return Number(window.localStorage['fechareservaM'] || -1);
+	}// getConjuntoActivo
+
+	setHoraIn( fecha:number) {
+		window.localStorage['horaInicioModificar'] = fecha.toString();
+	}// setareaComun
+
+	getHoraIn(){
+		return Number(window.localStorage['horaInicioModificar'] || -1);
+	}// getConjuntoActivo
+	setHoraF( fecha:number) {
+		window.localStorage['horaFinalModificar'] = fecha.toString();
+	}// setareaComun
+
+	getHoraF(){
+		return Number(window.localStorage['horaFinalModificar'] || -1);
+	}// getConjuntoActivo
 	setarea( area:any) {
 		window.localStorage['areareserva'] = area;
 	}// setareaComun
 
 	getarea(){
 		return String(window.localStorage['areareserva'] || -1);
+	}// getConjuntoActivo
+
+	setareaM( area:any) {
+		window.localStorage['areareservaM'] = area;
+	}// setareaComun
+
+	getareaM(){
+		return String(window.localStorage['areareservaM'] || -1);
 	}// getConjuntoActivo
 }
