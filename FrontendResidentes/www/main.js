@@ -71,7 +71,7 @@ QuejasAdminComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep .first-group,\n::ng-deep .second-group {\n  padding: 20px;\n}\n\n::ng-deep .second-group {\n  background-color: rgba(191, 191, 191, 0.15);\n}\n\n#Hacermargen {\n  margin: 20px;\n  margin-bottom: 450px;\n}\n\n#colorverde {\n  background-color: aquamarine;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3F1ZWphcy1yZXNpZGVudGUtY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVJLGFBQUE7QUFDSjs7QUFFQTtFQUNJLDJDQUFBO0FBQ0o7O0FBRUE7RUFDQyxZQUFBO0VBQ0Esb0JBQUE7QUFDRDs7QUFHQTtFQUVJLDRCQUFBO0FBREoiLCJmaWxlIjoicXVlamFzLXJlc2lkZW50ZS1jb21wb25lbnQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6Om5nLWRlZXAgLmZpcnN0LWdyb3VwLFxuOjpuZy1kZWVwIC5zZWNvbmQtZ3JvdXAge1xuICAgIHBhZGRpbmc6IDIwcHg7XG59XG5cbjo6bmctZGVlcCAuc2Vjb25kLWdyb3VwIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE5MSwgMTkxLCAxOTEsIDAuMTUpO1xufVxuXG4jSGFjZXJtYXJnZW57XG4gbWFyZ2luOiAyMHB4O1xuIG1hcmdpbi1ib3R0b206IDQ1MHB4O1xuICAgIH1cblxuXG4jY29sb3J2ZXJkZXtcblxuICAgIGJhY2tncm91bmQtY29sb3I6IGFxdWFtYXJpbmU7XG59XG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep .first-group,\n::ng-deep .second-group {\n  padding: 20px;\n}\n\n::ng-deep .second-group {\n  background-color: rgba(191, 191, 191, 0.15);\n}\n\n#Hacermargen {\n  margin: 20px;\n  margin-bottom: 450px;\n}\n\n#colorverde {\n  background-color: aquamarine;\n}\n\nion-textarea {\n  width: 98%;\n  height: 200px;\n}\n\nion-card {\n  width: 92%;\n  border: solid 1px var(--ion-color-residente-txt);\n  box-shadow: none !important;\n}\n\nion-card ion-card-content {\n  padding-left: 0%;\n  padding-right: 0%;\n  padding-top: 0%;\n  padding-bottom: 0%;\n}\n\n.botIng {\n  padding-left: 85px;\n}\n\n.bb {\n  padding-left: 85px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3F1ZWphcy1yZXNpZGVudGUtY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVJLGFBQUE7QUFDSjs7QUFFQTtFQUNJLDJDQUFBO0FBQ0o7O0FBRUE7RUFDQyxZQUFBO0VBQ0Esb0JBQUE7QUFDRDs7QUFHQTtFQUVJLDRCQUFBO0FBREo7O0FBR0E7RUFDSSxVQUFBO0VBQ0EsYUFBQTtBQUFKOztBQUdBO0VBQ0ksVUFBQTtFQUNBLGdEQUFBO0VBQ0EsMkJBQUE7QUFBSjs7QUFDSTtFQUNJLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7QUFDUjs7QUFFQTtFQUNJLGtCQUFBO0FBQ0o7O0FBQ0E7RUFDSSxrQkFBQTtBQUVKIiwiZmlsZSI6InF1ZWphcy1yZXNpZGVudGUtY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIC5maXJzdC1ncm91cCxcbjo6bmctZGVlcCAuc2Vjb25kLWdyb3VwIHtcbiAgICBwYWRkaW5nOiAyMHB4O1xufVxuXG46Om5nLWRlZXAgLnNlY29uZC1ncm91cCB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxOTEsIDE5MSwgMTkxLCAwLjE1KTtcbn1cblxuI0hhY2VybWFyZ2Vue1xuIG1hcmdpbjogMjBweDtcbiBtYXJnaW4tYm90dG9tOiA0NTBweDtcbiAgICB9XG5cblxuI2NvbG9ydmVyZGV7XG5cbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBhcXVhbWFyaW5lO1xufVxuaW9uLXRleHRhcmVhe1xuICAgIHdpZHRoOiA5OCU7XG4gICAgaGVpZ2h0OiAyMDBweDtcbiAgICBcbn1cbmlvbi1jYXJke1xuICAgIHdpZHRoOiA5MiU7XG4gICAgYm9yZGVyOiBzb2xpZCAxcHggdmFyKC0taW9uLWNvbG9yLXJlc2lkZW50ZS10eHQpO1xuICAgIGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcbiAgICBpb24tY2FyZC1jb250ZW50e1xuICAgICAgICBwYWRkaW5nLWxlZnQ6IDAlO1xuICAgICAgICBwYWRkaW5nLXJpZ2h0OiAwJTtcbiAgICAgICAgcGFkZGluZy10b3A6IDAlO1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMCU7XG4gICAgfVxufVxuLmJvdEluZ3tcbiAgICBwYWRkaW5nLWxlZnQ6IDg1cHg7XG59XG4uYmJ7XG4gICAgcGFkZGluZy1sZWZ0OiA4NXB4O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ class PaquetePK {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ion-card {\n  box-shadow: none !important;\n}\n\nion-select {\n  width: 120%;\n  border: solid 1px var(--ion-color-residente-txt);\n}\n\nion-label {\n  font-size: 20px;\n}\n\n#centrado {\n  text-align: center;\n}\n\n.content-div {\n  height: 70%;\n}\n\nion-content {\n  --overflow: hidden;\n}\n\nion-select::part(icon) {\n  color: var(--ion-color-residente-txt);\n}\n\n#rounded {\n  width: 100%;\n  height: 40px;\n  border-radius: 10px;\n  margin-bottom: 10px;\n}\n\nion-input {\n  width: 10%;\n  border: solid 1px var(--ion-color-residente-txt);\n}\n\n/* .msjVeri{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    color: red;\n  } */\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL251ZXZvLXBhcXVldGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSwyQkFBQTtBQUNKOztBQUVBO0VBQ0ksV0FBQTtFQUNBLGdEQUFBO0FBQ0o7O0FBRUE7RUFDSSxlQUFBO0FBQ0o7O0FBRUE7RUFDSSxrQkFBQTtBQUNKOztBQUVBO0VBQ0ksV0FBQTtBQUNKOztBQUVBO0VBQ0ksa0JBQUE7QUFDSjs7QUFFQTtFQUNJLHFDQUFBO0FBQ0o7O0FBRUE7RUFDSSxXQUFBO0VBQ0EsWUFBQTtFQUdBLG1CQUFBO0VBQ0EsbUJBQUE7QUFDSjs7QUFFQTtFQUNJLFVBQUE7RUFDQSxnREFBQTtBQUNKOztBQUVBOzs7OztLQUFBIiwiZmlsZSI6Im51ZXZvLXBhcXVldGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY2FyZHtcbiAgICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG59XG5cbmlvbi1zZWxlY3R7XG4gICAgd2lkdGg6IDEyMCU7XG4gICAgYm9yZGVyOiBzb2xpZCAxcHggdmFyKC0taW9uLWNvbG9yLXJlc2lkZW50ZS10eHQpO1xufVxuXG5pb24tbGFiZWx7XG4gICAgZm9udC1zaXplOiAyMHB4O1xufVxuXG4jY2VudHJhZG97XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4uY29udGVudC1kaXZ7XG4gICAgaGVpZ2h0OiA3MCU7XG59XG5cbmlvbi1jb250ZW50IHtcbiAgICAtLW92ZXJmbG93OiBoaWRkZW47XG59XG5cbmlvbi1zZWxlY3Q6OnBhcnQoaWNvbikge1xuICAgIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItcmVzaWRlbnRlLXR4dCk7ICBcbn1cblxuI3JvdW5kZWQge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogNDBweDtcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDUwcHg7XG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA1MHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDsgIFxufVxuXG5pb24taW5wdXR7XG4gICAgd2lkdGg6IDEwJTtcbiAgICBib3JkZXI6IHNvbGlkIDFweCB2YXIoLS1pb24tY29sb3ItcmVzaWRlbnRlLXR4dCk7XG59XG5cbi8qIC5tc2pWZXJpe1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBjb2xvcjogcmVkO1xuICB9ICovXG5cbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-card {\n  box-shadow: none !important;\n}\n\nion-select {\n  width: 120%;\n  border: solid 1px var(--ion-color-residente-txt);\n}\n\nion-label {\n  font-size: 20px;\n}\n\n#centrado {\n  text-align: center;\n}\n\n.content-div {\n  height: 70%;\n}\n\nion-content {\n  --overflow: hidden;\n}\n\nion-select::part(icon) {\n  color: var(--ion-color-residente-txt);\n}\n\n#rounded {\n  width: 100%;\n  height: 40px;\n  border-radius: 10px;\n  margin-bottom: 10px;\n}\n\nion-input {\n  width: 10%;\n  border: solid 1px var(--ion-color-residente-txt);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL251ZXZvLXBhcXVldGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSwyQkFBQTtBQUNKOztBQUVBO0VBQ0ksV0FBQTtFQUNBLGdEQUFBO0FBQ0o7O0FBRUE7RUFDSSxlQUFBO0FBQ0o7O0FBRUE7RUFDSSxrQkFBQTtBQUNKOztBQUVBO0VBQ0ksV0FBQTtBQUNKOztBQUVBO0VBQ0ksa0JBQUE7QUFDSjs7QUFFQTtFQUNJLHFDQUFBO0FBQ0o7O0FBRUE7RUFDSSxXQUFBO0VBQ0EsWUFBQTtFQUdBLG1CQUFBO0VBQ0EsbUJBQUE7QUFDSjs7QUFFQTtFQUNJLFVBQUE7RUFDQSxnREFBQTtBQUNKIiwiZmlsZSI6Im51ZXZvLXBhcXVldGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY2FyZHtcbiAgICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG59XG5cbmlvbi1zZWxlY3R7XG4gICAgd2lkdGg6IDEyMCU7XG4gICAgYm9yZGVyOiBzb2xpZCAxcHggdmFyKC0taW9uLWNvbG9yLXJlc2lkZW50ZS10eHQpO1xufVxuXG5pb24tbGFiZWx7XG4gICAgZm9udC1zaXplOiAyMHB4O1xufVxuXG4jY2VudHJhZG97XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4uY29udGVudC1kaXZ7XG4gICAgaGVpZ2h0OiA3MCU7XG59XG5cbmlvbi1jb250ZW50IHtcbiAgICAtLW92ZXJmbG93OiBoaWRkZW47XG59XG5cbmlvbi1zZWxlY3Q6OnBhcnQoaWNvbikge1xuICAgIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItcmVzaWRlbnRlLXR4dCk7ICBcbn1cblxuI3JvdW5kZWQge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogNDBweDtcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDUwcHg7XG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA1MHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDsgIFxufVxuXG5pb24taW5wdXR7XG4gICAgd2lkdGg6IDEwJTtcbiAgICBib3JkZXI6IHNvbGlkIDFweCB2YXIoLS1pb24tY29sb3ItcmVzaWRlbnRlLXR4dCk7XG59XG4iXX0= */");
 
 /***/ }),
 
@@ -111,7 +111,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alejandrodiaz/Desktop/Residentes/FrontendResidentes/src/main.ts */"zUnb");
+module.exports = __webpack_require__(/*! /home/juansebastianbarretojimenez/Escritorio/Ingesoft/Proyecto/Residentes/FrontendResidentes/src/main.ts */"zUnb");
 
 
 /***/ }),
@@ -202,7 +202,8 @@ let ListaAsasambleaAdminComponent = class ListaAsasambleaAdminComponent {
         else if (asamblea.estado == 'A')
             return "Activa";
     } // end getAsambleaEstado
-    botonNuevoPaquete() {
+    botonNuevaAsamblea() {
+        this.navCtrl.navigateForward("/nueva-asamblea");
     }
 };
 ListaAsasambleaAdminComponent.ctorParameters = () => [
@@ -232,7 +233,20 @@ ListaAsasambleaAdminComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhY2VyY2Etbm9zb3Ryb3MtY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep form {\n  padding: 30px;\n}\n\n::ng-deep .first-group,\n::ng-deep .second-group,\n::ng-deep .third-group {\n  padding: 50px;\n}\n\n::ng-deep .third-group {\n  background-color: rgba(191, 191, 191, 0.15);\n}\n\n::ng-deep .second-group {\n  background-color: rgba(191, 191, 191, 0.15);\n}\n\n::ng-deep .form-avatar {\n  height: 128px;\n  width: 128px;\n  margin-left: 125px;\n  border: 1px;\n  background-image: url('logo app majo sin fondo.png');\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n}\n\n::ng-deep .sobre-nosotros {\n  padding-top: 5px;\n  padding-left: 60px;\n  padding-right: 60px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2FjZXJjYS1ub3NvdHJvcy1jb21wb25lbnQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxhQUFBO0FBQ0o7O0FBQ0E7OztFQUlJLGFBQUE7QUFDSjs7QUFFQTtFQUNJLDJDQUFBO0FBQ0o7O0FBRUE7RUFDSSwyQ0FBQTtBQUNKOztBQUVBO0VBQ0ksYUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxvREFBQTtFQUNBLHdCQUFBO0VBQ0EsNEJBQUE7RUFDQSwyQkFBQTtBQUNKOztBQUdBO0VBQ0ksZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0FBQUoiLCJmaWxlIjoiYWNlcmNhLW5vc290cm9zLWNvbXBvbmVudC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjo6bmctZGVlcCBmb3JtIHtcbiAgICBwYWRkaW5nOiAzMHB4O1xufVxuOjpuZy1kZWVwIC5maXJzdC1ncm91cCxcbjo6bmctZGVlcCAuc2Vjb25kLWdyb3VwLFxuOjpuZy1kZWVwIC50aGlyZC1ncm91cFxue1xuICAgIHBhZGRpbmc6IDUwcHg7XG59XG5cbjo6bmctZGVlcCAudGhpcmQtZ3JvdXAge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTkxLCAxOTEsIDE5MSwgMC4xNSk7XG59XG5cbjo6bmctZGVlcCAuc2Vjb25kLWdyb3VwIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE5MSwgMTkxLCAxOTEsIDAuMTUpO1xufVxuXG46Om5nLWRlZXAgLmZvcm0tYXZhdGFyIHtcbiAgICBoZWlnaHQ6IDEyOHB4O1xuICAgIHdpZHRoOiAxMjhweDtcbiAgICBtYXJnaW4tbGVmdDogMTI1cHg7XG4gICAgYm9yZGVyOiAxcHg7XG4gICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi8uLi8uLi8uLi9hc3NldHMvaWNvbi9JY29uQ29uanVudG9zL2xvZ29cXCBhcHBcXCBtYWpvXFwgc2luXFwgZm9uZG8ucG5nJyk7XG4gICAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xuXG59XG5cbjo6bmctZGVlcCAuc29icmUtbm9zb3Ryb3N7XG4gICAgcGFkZGluZy10b3A6IDVweDtcbiAgICBwYWRkaW5nLWxlZnQ6IDYwcHg7XG4gICAgcGFkZGluZy1yaWdodDogNjBweDtcbn1cblxuIl19 */");
+
+/***/ }),
+
+/***/ "0zNI":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/admin/nueva-asamblea/nueva-asamblea.component.html ***!
+  \*********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"NUEVA ASAMBLEA\" menu=NO routeBack=\"/lista-asamblea-admin\"></app-header>\n\n<ion-content>\n\t<div *ngIf=\"step==1\"  class=\"estetica\" class=\"content-div\">\n\t\t<dx-form id=\"form\" [formData]=\"asambleas\" [labelLocation]=\"labelL\">\n\t\t\t<dxi-item itemType=\"group\" cssClass=\"first-group\" [colCount]=\"4\">\n\t\t\t\t<dxi-item itemType=\"group\" [colSpan]=\"3\">\n\t\t\t\t\t<dxi-item dataField=\"FechaAsamblea\" editorType=\"dxDateBox\" [editorOptions]=\"{ width: '100%'}\">\n\t\t\t\t\t</dxi-item>\n\t\t\t\t</dxi-item>\n\t\t\t</dxi-item>\n\t\t</dx-form>\n\t\t<ion-card>\n\t\t\t<ion-label color=\"dark\">&nbsp;&nbsp;&nbsp;&nbsp;Tema</ion-label>\n\t\t\t<ion-item lines=\"none\">\n\t\t\t  <ion-input [(ngModel)]=\"tema\" id=\"rounded\">&nbsp;&nbsp;</ion-input>\n\t\t\t</ion-item>\n\t\t</ion-card>\n\n\t\t<ion-card> <br> <br> \n\t\t\t<ion-label color=\"dark\">&nbsp;&nbsp;&nbsp;&nbsp;Estado</ion-label>\n\t\t\t<ion-list>\n\t\t\t  <ion-item lines=\"none\">\n\t\t\t\t<ion-select [(ngModel)]=\"tamanoSeleccionado\" [interfaceOptions]=\"customPopoverOptions\" interface=\"popover\" placeholder=\"&nbsp;&nbsp;Seleccione\"\n\t\t\t\t  id=\"rounded\">\n\t\t\t\t  <div>\n\t\t\t\t\t<ion-select-option value=\"Activa\">&nbsp;&nbsp;Activa</ion-select-option>\n\t\t\t\t\t<ion-select-option value=\"Finalizada\">&nbsp;&nbsp;Finalizada</ion-select-option>\n\t\t\t\t\t<ion-select-option value=\"Programada\">&nbsp;&nbsp;Programada</ion-select-option>\n\t\t\t\t  </div>\n\t\t\t\t</ion-select>\n\t\t\t  </ion-item>\n\t\t\t</ion-list> \n\t\t  </ion-card>\n\t</div>\n\t\n\t<div id=\"centrado\" >\n\t\t<br> <br>\n\t\t<ion-button color=\"residente\" (click)=\"botonReportar()\">\n\t\t\t<ion-label> Reportar </ion-label>\n\t\t</ion-button>\n\t</div>\n</ion-content>");
 
 /***/ }),
 
@@ -367,6 +381,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _Services_agregar_conjunto_agregar_conjunto_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../Services/agregar-conjunto/agregar-conjunto.service */ "z89l");
 /* harmony import */ var devextreme_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! devextreme-angular */ "hYZE");
+/* harmony import */ var src_app_Services_agregar_conjunto_conjuntodts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/Services/agregar-conjunto/conjuntodts */ "BJ08");
+
 
 
 
@@ -395,10 +411,14 @@ let AgregarConjuntoComponent = class AgregarConjuntoComponent {
     constructor(router, service) {
         this.router = router;
         this.posi = "top";
+        this.nuevoConjunto = new src_app_Services_agregar_conjunto_conjuntodts__WEBPACK_IMPORTED_MODULE_8__["conjuntodts"]();
         this.buttonOptions = {
             text: "Agregar",
             type: "success",
             useSubmitBehavior: true
+        };
+        this.phoneRules = {
+            X: /[02-9]/
         };
         this.onFormSubmit = function (e) {
             devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_5___default()({
@@ -409,7 +429,8 @@ let AgregarConjuntoComponent = class AgregarConjuntoComponent {
                 }
             }, "success", 3000);
             e.preventDefault();
-            this.router.navigateByUrl("/netflix");
+            console.log(this.nuevoConjunto, "holaa ");
+            // this.router.navigateByUrl("/netflix");
         };
         this.conjunto = service.getConjunto();
     }
@@ -422,11 +443,14 @@ let AgregarConjuntoComponent = class AgregarConjuntoComponent {
     asyncValidationDirec(params) {
         return sendRequestDirect(params.value);
     }
+    mandarConjunto() {
+        console.log(this.nuevoConjunto, "holaa ");
+        // this.router.navigateByUrl("/netflix");
+    }
     ngOnInit() {
     }
     finish() {
         // this.storage.set('isIntroShowed',true );
-        console.log();
         this.router.navigateByUrl("/seleccion-conjunto");
     }
 };
@@ -440,19 +464,10 @@ AgregarConjuntoComponent.propDecorators = {
 AgregarConjuntoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-agregar-conjunto-component',
+        providers: [src_app_Services_agregar_conjunto_conjuntodts__WEBPACK_IMPORTED_MODULE_8__["conjuntodts"]],
         template: _raw_loader_agregar_conjunto_component_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
         styles: [_agregar_conjunto_component_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     })
-    /*
-    class  ConjuntoDTO{
-        nombre : string ;
-        linkPago: string ;
-        direccion: string ;
-        precioAdmin : number;
-         numTorres: number;
-         numPisos: number;
-        numAptos: number;
-    }*/
 ], AgregarConjuntoComponent);
 
 
@@ -568,7 +583,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"NOTICIAS\" menu=\"{{getUser()}}\"></app-header>\n\n<ion-content>\n    <div>\n        <ion-card>\n            <ion-textarea [(ngModel)]=\"descripcion\" placeholder=\"Comparte con tu comunidad\" (click)=\"click()\">\n            </ion-textarea>\n            <div id=\"derecha\" *ngIf=\"getMostrar() == 1\">\n                <input type=\"file\" #fileInput (change)=\"uploadFile($event)\" hidden=\"true\" accept=\"image/*\" />\n                <ion-button color=\"residente\" id=\"botonImagen\" (click)=\"selectImageSource()\">\n                    <ion-icon name=\"image-outline\"></ion-icon>\n                </ion-button>\n            </div>\n        </ion-card>\n        <ion-row>\n            <ion-col>\n                <div id=\"izquierda\">\n                    <ion-button color=\"residente\" id=\"botonPublicar\" (click)=\"cancelarNoticia()\">\n                        <ion-label>Cancelar</ion-label>\n                    </ion-button>\n                </div>\n            </ion-col>\n            <ion-col>\n                <div id=\"derecha\">\n                    <ion-button color=\"residente\" id=\"botonPublicar\" (click)=\"publicarNoticia()\">\n                        <ion-label>Publicar</ion-label>\n                    </ion-button>\n                </div>\n            </ion-col>\n        </ion-row>\n    </div>\n    <div style=\"overflow:scroll\" id=\"content-div\">\n        <div *ngFor=\"let noticia of noticias\">\n            <ion-card id=\"rounded\">\n                <ion-card-content>\n                    <ion-item lines=\"none\">\n                        <ion-avatar item-start>\n                            <ion-img src=\"/../../../../assets/icon/IconConjuntos/avatar.jpg\"></ion-img>\n                        </ion-avatar>\n                        <p>&nbsp;&nbsp;{{noticia.titulo}}</p>\n                        <ion-buttons *ngIf=\"getEli(noticia)\" slot=\"end\" (click)=\"eliminarNoticia(noticia)\">\n                            <ion-icon slot=\"icon-only\" color=\"residente\" name=\"trash-outline\"></ion-icon>\n                        </ion-buttons>\n                    </ion-item>\n                    <ion-item lines=\"none\">\n                        <p>{{convertDate(noticia.fecha)}}</p>\n                    </ion-item>\n                    <ion-item *ngIf=\"noticia.imagen != null\" lines=\"none\">\n                        <!--<ion-img src=\" alt=\"Conjunto\"></ion-img>-->\n                    </ion-item>\n                    <ion-item lines=\"none\">\n                        <p>{{noticia.descripcion}}</p>\n                    </ion-item>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"NOTICIAS\" menu=\"{{getUser()}}\"></app-header>\n\n<ion-content>\n    <div>\n        <ion-card>\n            <ion-textarea [(ngModel)]=\"descripcion\" placeholder=\"Comparte con tu comunidad\" (click)=\"click()\">\n            </ion-textarea>\n        </ion-card>\n        <ion-row>\n            <ion-col>\n                <div id=\"izquierda\">\n                    <ion-button color=\"residente\" id=\"botonPublicar\" (click)=\"cancelarNoticia()\">\n                        <ion-label>Cancelar</ion-label>\n                    </ion-button>\n                </div>\n            </ion-col>\n            <ion-col>\n                <div id=\"derecha\">\n                    <ion-button color=\"residente\" id=\"botonPublicar\" (click)=\"publicarNoticia()\">\n                        <ion-label>Publicar</ion-label>\n                    </ion-button>\n                </div>\n            </ion-col>\n        </ion-row>\n    </div>\n    <div style=\"overflow:scroll\" id=\"content-div\">\n        <div *ngFor=\"let noticia of noticias\">\n            <ion-card id=\"rounded\">\n                <ion-card-content>\n                    <ion-item lines=\"none\">\n                        <ion-avatar item-start>\n                            <ion-img src=\"/../../../../assets/icon/IconConjuntos/avatar.jpg\"></ion-img>\n                        </ion-avatar>\n                        <p>&nbsp;&nbsp;{{noticia.titulo}}</p>\n                        <ion-buttons *ngIf=\"getEli(noticia)\" slot=\"end\" (click)=\"eliminarNoticia(noticia)\">\n                            <ion-icon slot=\"icon-only\" color=\"residente\" name=\"trash-outline\"></ion-icon>\n                        </ion-buttons>\n                    </ion-item>\n                    <ion-item lines=\"none\">\n                        <p>{{convertDate(noticia.fecha)}}</p>\n                    </ion-item>\n                    <ion-item lines=\"none\">\n                        <p>{{noticia.descripcion}}</p>\n                    </ion-item>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n</ion-content>");
 
 /***/ }),
 
@@ -733,7 +748,7 @@ RegistroComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header-start titulo=\"Selecciona tu conjunto\"></app-header-start>\n<ion-content>\n    <br>\n<div class=\"list-container\">\n    <dx-list \n        #list\n        [dataSource]=\"conjuntos\"\n        [height]=\"400\"\n        [searchEnabled]=\"true\"\n        searchExpr=\"nombre\"\n        searchMode=\"contains\">\n            <div *dxTemplate=\"let data of 'item'\" (click)=\"click( data.id)\">\n                <div>{{data.Name}}</div>\n            </div>\n    </dx-list>\n</div>\n<!-------------\n    <ion-card routerLink=\"/netflix\" color= \"residente\">\n    <ion-card-header>\n        <ion-card-subtitle> Agregar </ion-card-subtitle>   \n    </ion-card-header>\n  </ion-card>\n  <ion-card routerLink=\"/nuevo-conjunto\" color= \"residente\">\n    <ion-card-header>\n        <ion-card-subtitle> Nuevo Conjunto </ion-card-subtitle>   \n    </ion-card-header>\n  </ion-card> -->\n</ion-content>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header-start titulo=\"Selecciona tu conjunto\" back=\"SI\" routeBack=\"/netflix\"></app-header-start>\n<ion-content>\n    <br>\n<div class=\"list-container\">\n    <dx-list \n        #list\n        [dataSource]=\"getConjuntos()\"\n        [height]=\"400\"\n        [searchEnabled]=\"true\"\n        searchExpr=\"nombre\"\n        searchMode=\"contains\">\n            <div *dxTemplate=\"let data of 'item'\" (click)=\"click( data.id)\">\n                <div>{{data.nombre}}</div>\n            </div>\n    </dx-list>\n</div>\n<!-------------\n    <ion-card routerLink=\"/netflix\" color= \"residente\">\n    <ion-card-header>\n        <ion-card-subtitle> Agregar </ion-card-subtitle>   \n    </ion-card-header>\n  </ion-card>\n  <ion-card routerLink=\"/nuevo-conjunto\" color= \"residente\">\n    <ion-card-header>\n        <ion-card-subtitle> Nuevo Conjunto </ion-card-subtitle>   \n    </ion-card-header>\n  </ion-card> -->\n</ion-content>\n\n");
 
 /***/ }),
 
@@ -1043,7 +1058,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"colorverde\">\n<app-header-start titulo=\"MANIFIESTA TU QUEJA\"></app-header-start>\n</div>\n\n\n<dx-form id=\"Hacermargen\"\n    [formData]=\"queja\">\n    <dxi-item itemType=\"group\" cssClass=\"first-group\" [colCount]=\"4\">\n\n        <dxi-item itemType=\"group\" [colSpan]=\"3\">\n                <dxi-item dataField=\"ID\" [editorOptions]=\"{ disabled:true}\"></dxi-item>\n            <dxi-item dataField=\"Torre\" [editorOptions]=\"{ disabled:true}\"></dxi-item>\n            <dxi-item dataField=\"Apartamento\" [editorOptions]=\"{ disabled:true}\"></dxi-item>\n        </dxi-item>\n    </dxi-item>\n    <dxi-item itemType=\"group\" cssClass=\"second-group\" [colCount]=\"2\">\n        <dxi-item dataField=\"Notes\" [colSpan]=\"2\" editorType=\"dxTextArea\" [editorOptions]=\"{ height: 140 }\"></dxi-item>\n    </dxi-item>\n</dx-form>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"QUEJAS\" menu=RESIDENTE></app-header>\n\n<ion-content>\n    <ion-item  class=\"bb\" lines=none>\n        <ion-label>Anónimo</ion-label>\n        <ion-toggle [(ngModel)]=\"anonimus\" slot=\"start\" color=\"residente\" checked></ion-toggle>\n    </ion-item>\n    <br>\n    \n    <ion-card>\n        <ion-textarea rows=\"10\" [(ngModel)]=\"descripcion\" placeholder=\" Escribe aquí tu queja\"\n        >\n        </ion-textarea>\n    </ion-card>\n    <br>\n    <br>\n    <br>\n\n    <ion-button class=\"botIng\"\n        (click)=\"envInfo()\"\n      shape=\"round\"\n      color=\"residente\"\n      type=\"submit\"\n      >Enviar queja</ion-button\n    >\n    \n</ion-content>\n");
 
 /***/ }),
 
@@ -1179,6 +1194,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "4qvy":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/admin/cambicontra/cambicontra.component.html ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header class=\"ion-no-border\">\n  <ion-toolbar color=\"residente\">\n  </ion-toolbar >\n  <ion-toolbar>\n      <ion-buttons slot=\"start\" (click)=\"goBack()\">\n        <ion-icon slot=\"icon-only\" name=\"chevron-back-outline\" color=\"residente-txt\"></ion-icon>\n      </ion-buttons>\n      <ion-text slot=\"start\" color=\"residente-txt\">\n          <h3>{{nombre}}</h3>\n      </ion-text>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n  <br>\n  <br>\n  <div class=\"content-div\">\n    <ion-card>\n      <ion-label color=\"dark\">&nbsp;&nbsp;&nbsp;&nbsp;Contraseña vieja</ion-label>\n      <ion-item lines=\"none\">\n        <ion-input disabled id=\"labelborde\" id=\"rounded\">&nbsp;&nbsp;{{contra}}</ion-input>\n      </ion-item>\n    </ion-card> \n\n    <br>\n    <ion-card>\n      <ion-label color=\"dark\">&nbsp;&nbsp;&nbsp;&nbsp;Nueva contraseña</ion-label>\n      <ion-item lines=\"none\">\n        <ion-input [(ngModel)]=\"ncontra\" id=\"rounded\">&nbsp;&nbsp;</ion-input>\n      </ion-item>\n    </ion-card>\n  \n\n  <div id=\"centrado\">\n    <h4 color=\"residente\">{{error}}</h4>\n    <ion-button color=\"{{getColorReportar()}}\" (click)=\"botonReportar()\">\n      <ion-label> Cambiar contraseña </ion-label>\n    </ion-button>\n  </div>\n</div>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "5L9K":
 /*!*****************************************************************************!*\
   !*** ./src/app/components/general/header-start/header-start.component.scss ***!
@@ -1188,7 +1216,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#vt {\n  margin-top: 15%;\n}\n\n.tam {\n  font-size: 180%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2hlYWRlci1zdGFydC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGVBQUE7QUFDSjs7QUFFQTtFQUNJLGVBQUE7QUFDSiIsImZpbGUiOiJoZWFkZXItc3RhcnQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjdnR7XG4gICAgbWFyZ2luLXRvcDogMTUlO1xufVxuXG4udGFte1xuICAgIGZvbnQtc2l6ZTogMTgwJTtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("#vt {\n  margin-top: 15%;\n  text-align: center !important;\n}\n\n#tam {\n  font-size: 180%;\n  text-align: center !important;\n}\n\n#tamT {\n  height: 40px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2hlYWRlci1zdGFydC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGVBQUE7RUFDQSw2QkFBQTtBQUNKOztBQUVBO0VBQ0ksZUFBQTtFQUNBLDZCQUFBO0FBQ0o7O0FBRUE7RUFDSSxZQUFBO0FBQ0oiLCJmaWxlIjoiaGVhZGVyLXN0YXJ0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI3Z0e1xuICAgIG1hcmdpbi10b3A6IDE1JTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXIgIWltcG9ydGFudDtcbn1cblxuI3RhbXtcbiAgICBmb250LXNpemU6IDE4MCU7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyICFpbXBvcnRhbnQ7XG59XG5cbiN0YW1Ue1xuICAgIGhlaWdodDogNDBweDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -1464,7 +1492,7 @@ class mensaje {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep form {\n  padding-bottom: 18rem;\n  margin: 20px;\n}\n\n::ng-deep nombreC {\n  font-size: 22px;\n}\n\nion-icon {\n  font-size: 40px;\n}\n\n.dx-field-value {\n  margin-right: 130px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2FncmVnYXItY29uanVudG8tY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQUE7RUFDQSxZQUFBO0FBQ0o7O0FBRUE7RUFDSSxlQUFBO0FBQ0o7O0FBRUE7RUFDSSxlQUFBO0FBQ0o7O0FBQ0E7RUFDSSxtQkFBQTtBQUVKIiwiZmlsZSI6ImFncmVnYXItY29uanVudG8tY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIGZvcm0ge1xuICAgIHBhZGRpbmctYm90dG9tOiAxOHJlbTtcbiAgICBtYXJnaW46IDIwcHg7XG59XG5cbjo6bmctZGVlcCBub21icmVDIHtcbiAgICBmb250LXNpemU6IDIycHg7XG59XG5cbmlvbi1pY29uIHsgXG4gICAgZm9udC1zaXplOiA0MHB4O1xufVxuLmR4LWZpZWxkLXZhbHVle1xuICAgIG1hcmdpbi1yaWdodDogMTMwcHg7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep form {\n  padding-bottom: 18rem;\n  margin: 20px;\n}\n\n::ng-deep nombreC {\n  font-size: 22px;\n}\n\nion-icon {\n  font-size: 40px;\n}\n\n.dx-field-value {\n  margin-right: 130px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2FncmVnYXItY29uanVudG8tY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQUE7RUFDQSxZQUFBO0FBQ0o7O0FBRUE7RUFDSSxlQUFBO0FBQ0o7O0FBRUE7RUFDSSxlQUFBO0FBQ0o7O0FBQ0E7RUFDSSxtQkFBQTtBQUVKIiwiZmlsZSI6ImFncmVnYXItY29uanVudG8tY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIGZvcm0ge1xuICAgIHBhZGRpbmctYm90dG9tOiAxOHJlbTtcbiAgICBtYXJnaW46IDIwcHg7XG59XG5cbjo6bmctZGVlcCBub21icmVDIHtcbiAgICBmb250LXNpemU6IDIycHg7XG59XG5cbmlvbi1pY29uIHsgXG4gICAgZm9udC1zaXplOiA0MHB4O1xufVxuLmR4LWZpZWxkLXZhbHVle1xuICAgIG1hcmdpbi1yaWdodDogMTMwcHg7XG59XG5cbiJdfQ== */");
 
 /***/ }),
 
@@ -1477,7 +1505,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"ASAMBLEA\" menu=ADMIN></app-header>\n\n<ion-content padding class=\"vertical-center\">\n  <ion-card class=\"ion-text-left\" (click)=\"goRoute(asamblea)\" *ngFor=\"let asamblea of asambleas\">\n    <ion-card-header>\n      <ion-card-subtitle> {{getAsambleaFecha(asamblea)}} {{getAsambleaHora(asamblea)}} </ion-card-subtitle>\n      <ion-card-title> {{asamblea.tema}} </ion-card-title>\n    </ion-card-header>\n      <ion-card-content> {{getAsambleaEstado(asamblea)}} </ion-card-content>\n  </ion-card>\n</ion-content>\n\n<div id=\"centrado\">\n  <br> <br>\n  <ion-button color=\"residente\" (click)=\"botonNuevoPaquete()\">\n      <ion-label> Nueva Asamblea </ion-label>\n  </ion-button>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"ASAMBLEA\" menu=ADMIN></app-header>\n\n<ion-content>\n  <div style=\"overflow:scroll\" class=\"content-div\">\n    <ion-card class=\"ion-text-left\" (click)=\"goRoute(asamblea)\" *ngFor=\"let asamblea of asambleas\">\n      <ion-card-header>\n        <ion-card-subtitle> {{getAsambleaFecha(asamblea)}} {{getAsambleaHora(asamblea)}} </ion-card-subtitle>\n        <ion-card-title> {{asamblea.tema}} </ion-card-title>\n      </ion-card-header>\n      <ion-card-content> {{getAsambleaEstado(asamblea)}} </ion-card-content>\n    </ion-card>\n  </div>\n  <div id=\"centrado\">\n    <br> <br>\n    <ion-button color=\"residente\" (click)=\"botonNuevaAsamblea()\">\n      <ion-label> Nueva Asamblea </ion-label>\n    </ion-button>\n  </div>\n</ion-content>");
 
 /***/ }),
 
@@ -1833,6 +1861,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "AgHz":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/admin/listaptosc/listaptosc.component.html ***!
+  \*************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"CLAVES\" menu=ADMIN></app-header>\n\n<ion-content>\n    <ion-toolbar>\n        <ion-searchbar placeholder=\"Buscar\" animated (ionChange)=\"buscarApto($event)\"></ion-searchbar>\n    </ion-toolbar>\n    <ion-list>\n        <ion-item *ngFor=\"let apto of getAptosBuscado()\" [routerLink]=\"['/clavescambio']\" (click)=\"elegirApto(apto)\">\n            <ion-label>\n                {{apto.nombre}}\n            </ion-label>\n        </ion-item>\n    </ion-list>\n\n</ion-content>\n\n");
+
+/***/ }),
+
 /***/ "Ar4w":
 /*!************************************************************************************************************!*\
   !*** ./src/app/components/empleado/paquetes-empleado-component/paquetes-empleado-component.component.scss ***!
@@ -1888,13 +1929,13 @@ let ReservacionAreaResidenteComponent = class ReservacionAreaResidenteComponent 
         });
     }
     mandarModificar() {
-        this.navCtrl.navigateForward("/mis-reservas");
+        this.navCtrl.navigateForward("/modificar-reserva-area");
     }
     mandarEliminar() {
         this.navCtrl.navigateForward("/mis-reservas");
     }
     goToRegister() {
-        this.navCtrl.navigateForward("/registro");
+        this.navCtrl.navigateForward("/areas-residente");
     }
     ngOnInit() { }
 };
@@ -1906,7 +1947,7 @@ ReservacionAreaResidenteComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-reservacion-area-residente',
         template: _raw_loader_reservacion_area_residente_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
-        providers: [],
+        providers: [_Services_ReservacionAreaResidente_reservacion_area_residente_service__WEBPACK_IMPORTED_MODULE_4__["ReservacionAreaResidenteService"]],
         styles: [_reservacion_area_residente_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     })
 ], ReservacionAreaResidenteComponent);
@@ -1939,6 +1980,22 @@ const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+
+/***/ }),
+
+/***/ "BJ08":
+/*!**********************************************************!*\
+  !*** ./src/app/Services/agregar-conjunto/conjuntodts.ts ***!
+  \**********************************************************/
+/*! exports provided: conjuntodts */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "conjuntodts", function() { return conjuntodts; });
+class conjuntodts {
+}
 
 
 /***/ }),
@@ -2327,7 +2384,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_Services_opciones_opciones_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/Services/opciones/opciones.service */ "ujE3");
 /* harmony import */ var _Services_asambleas_asamblea_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Services/asambleas/asamblea.service */ "jORC");
 /* harmony import */ var src_app_Services_propuestas_propuestas_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/Services/propuestas/propuestas.service */ "w8Zv");
-/* harmony import */ var devextreme_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! devextreme-angular */ "hYZE");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! devextreme/ui/notify */ "pxlC");
+/* harmony import */ var devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var src_app_Services_ingreAptoServ_serv_ing_apto_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/Services/ingreAptoServ/serv-ing-apto.service */ "CaST");
+/* harmony import */ var src_app_Services_votos_votos_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/Services/votos/votos.service */ "GlUB");
+/* harmony import */ var src_app_Services_conjuntos_conjuntos_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/Services/conjuntos/conjuntos.service */ "bLIy");
+
+
+
+
 
 
 
@@ -2337,40 +2403,96 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AsambleaAdminComponent = class AsambleaAdminComponent {
-    constructor(service, opcionesServices, propuestaServices) {
-        this.service = service;
-        this.step = 1;
-        this.asambleas = [];
-        this.labelL = "top";
-        //this.asamblea = service.getAsamblea(1);
-        this.propuesta = propuestaServices.getPropuestas();
-        this.opciones = opcionesServices.getOpciones(1);
-        this.Nopciones = service.getNopciones();
-        this.backButtonOptions = {
-            type: 'prueba',
-            icon: 'add',
-            onClick: () => {
-                return this.step = 2;
-            }
-        };
-    }
-    ionViewWillEnter() {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () { });
+    constructor(navCtrl, propuestasService, opcionesService, votosServices, asambleaService, conjuntosService, servIngAptoService) {
+        this.navCtrl = navCtrl;
+        this.propuestasService = propuestasService;
+        this.opcionesService = opcionesService;
+        this.votosServices = votosServices;
+        this.asambleaService = asambleaService;
+        this.conjuntosService = conjuntosService;
+        this.servIngAptoService = servIngAptoService;
+        this.temaAsamblea = "";
     }
     ngOnInit() {
-        this.asambleas = this.service.getAsambleas();
+    } // end ngOnInit
+    waitBD() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield new Promise(resolve => setTimeout(resolve, 1000));
+        });
+    } // end waitBD
+    ionViewWillEnter() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.propuestas = [];
+            this.idAsamblea = this.asambleaService.getAsambleaAbierta();
+            this.asamblea = this.asambleaService.getAsamblea(this.idAsamblea);
+            this.temaAsamblea = this.asamblea.tema;
+            this.idConjunto = this.conjuntosService.getConjuntoActivo();
+            this.asambleaService.cargarResultadosVoto(this.idConjunto, this.idAsamblea);
+            this.idApto = this.servIngAptoService.getIdApto();
+            this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
+            yield this.waitBD();
+            if (this.asambleaService.getAsambleaEstado() == "A") {
+                this.propuestas = this.propuestasService.getPropuestas();
+                console.log("Propuestaassss: ", this.propuestas);
+            }
+            this.resultadosVoto = this.asambleaService.getResultadosVoto();
+            console.log("Resultados Votos: ", this.resultadosVoto);
+        });
+    } // end ionViewWillEnter
+    getColorVotos(propuesta) {
+        if (propuesta.estado == "Disponible")
+            return "residente";
+        else
+            return "deshabilitado";
+    } // end getColorVotos
+    getPropuestas() {
+        return this.propuestas;
+    } // end getPropuestas
+    getTemaAsamblea() {
+        return this.temaAsamblea;
     }
-    nuevaAsamblea() {
+    votar(opcion, propuesta) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (propuesta.estado == "Disponible") {
+                this.asambleaService.votar(this.idConjunto, this.idApto, propuesta.idPropuesta, opcion.idOpcion);
+                yield this.waitBD();
+                devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_8___default()(this.asambleaService.getRespuesta().respuesta, 'sucess');
+                this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
+                yield this.waitBD();
+                this.propuestas = this.propuestasService.getPropuestas();
+            } // end if
+        });
+    } // votar
+    getAsamblea() {
+        return this.asamblea;
+    }
+    getResultadosVoto() {
+        return this.resultadosVoto;
+    } // end getResultadosVoto
+    getOpcSlideInfo(propuesta) {
+        return propuesta.opciones;
+    }
+    getNombreOpcion(opcion, propuesta) {
+        return this.getOpcSlideInfo(propuesta)[opcion.id - 1].nombre;
+    }
+    next(slides) {
+        console.log(slides);
+        slides.slideNext();
+    }
+    prev(slides) {
+        console.log(slides);
+        slides.slidePrev();
     }
 };
 AsambleaAdminComponent.ctorParameters = () => [
-    { type: _Services_asambleas_asamblea_service__WEBPACK_IMPORTED_MODULE_5__["AsambleaService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["NavController"] },
+    { type: src_app_Services_propuestas_propuestas_service__WEBPACK_IMPORTED_MODULE_6__["PropuestasService"] },
     { type: src_app_Services_opciones_opciones_service__WEBPACK_IMPORTED_MODULE_4__["OpcionesService"] },
-    { type: src_app_Services_propuestas_propuestas_service__WEBPACK_IMPORTED_MODULE_6__["PropuestasService"] }
+    { type: src_app_Services_votos_votos_service__WEBPACK_IMPORTED_MODULE_10__["VotosService"] },
+    { type: _Services_asambleas_asamblea_service__WEBPACK_IMPORTED_MODULE_5__["AsambleaService"] },
+    { type: src_app_Services_conjuntos_conjuntos_service__WEBPACK_IMPORTED_MODULE_11__["ConjuntosService"] },
+    { type: src_app_Services_ingreAptoServ_serv_ing_apto_service__WEBPACK_IMPORTED_MODULE_9__["ServIngAptoService"] }
 ];
-AsambleaAdminComponent.propDecorators = {
-    drawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [devextreme_angular__WEBPACK_IMPORTED_MODULE_7__["DxDrawerComponent"], { static: false },] }]
-};
 AsambleaAdminComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-asamblea-admin-component',
@@ -2400,6 +2522,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _Services_AreaComunResidente_area_comun_residente_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Services/AreaComunResidente/area-comun-residente.service */ "97xz");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var ionic2_calendar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ionic2-calendar */ "L+Ny");
+
 
 
 
@@ -2418,6 +2542,11 @@ const sendRequest = function (value) {
 let AreasResidenteComponent = class AreasResidenteComponent {
     constructor(service, navCtrl) {
         this.navCtrl = navCtrl;
+        this.calendar = {
+            mode: 'month',
+            currentDate: new Date(),
+            events: false
+        };
         this.linkMisReservas = "/mis-reservas";
         this.linnkNuevaReserva = "/reservar-area";
         this.pos = "top";
@@ -2431,6 +2560,11 @@ let AreasResidenteComponent = class AreasResidenteComponent {
         ];
         this.cellTemplate = "cell";
         this.holydays = [[1, 0], [4, 6], [25, 11]];
+        this.eventSource = [];
+        this.onTimeSelected = (ev) => {
+            this.num = ev.selectedTime.getMonth() + 1;
+            console.log('Selected time: ' + ev.selectedTime.getDate() + " " + this.num + " " + ev.selectedTime.getFullYear());
+        };
         this.area = service.getArea();
         this.tipo = service.getTipo();
         this.tipo = [
@@ -2509,12 +2643,22 @@ let AreasResidenteComponent = class AreasResidenteComponent {
     ngOnInit() { }
     traerAreastipo() {
     }
+    next() {
+        this.myCal.slideNext();
+    }
+    back() {
+        this.myCal.slidePrev();
+    }
+    onViewTitleChanged(title) {
+        this.viewTitle = title;
+    }
 };
 AreasResidenteComponent.ctorParameters = () => [
     { type: _Services_AreaComunResidente_area_comun_residente_service__WEBPACK_IMPORTED_MODULE_4__["AreaComunResidenteService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"] }
 ];
 AreasResidenteComponent.propDecorators = {
+    myCal: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [ionic2_calendar__WEBPACK_IMPORTED_MODULE_6__["CalendarComponent"],] }],
     eventRadioGroup: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: ["eventRadioGroup",] }]
 };
 AreasResidenteComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -2539,7 +2683,7 @@ AreasResidenteComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header class=\"ion-no-border\">\n  <ion-toolbar color=\"light\">\n    <ion-title class=\"ion-text-center\" class=\"tam\" color=\"residente-txt\"> RESIDENTES </ion-title>\n    <ion-title id=\"vt\" class=\"ion-text-center\" size=\"small\" color=\"residente-txt\"> {{titulo}} </ion-title>\n  </ion-toolbar>\n</ion-header>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header class=\"ion-no-border\">\n  <ion-toolbar color=\"light\">\n  </ion-toolbar>\n  <div *ngIf=\"back == 'SI'; then thenBlock else elseBlock\"></div>\n  <ng-template #thenBlock>\n    <ion-toolbar color=\"light\">\n      <ion-buttons slot=\"start\" (click)=\"goBack()\">\n        <ion-icon slot=\"icon-only\" name=\"chevron-back-outline\" color=\"residente-txt\"></ion-icon><ion-title id=\"tam\" color=\"residente-txt\"> RESIDENTES </ion-title>\n      </ion-buttons>\n    </ion-toolbar>\n    <ion-toolbar>\n      <ion-title  class=\"ion-text-center\" size=\"small\" color=\"residente-txt\"> {{titulo}} </ion-title>\n    </ion-toolbar>\n  </ng-template>\n  <ng-template #elseBlock>\n    <ion-toolbar color=\"light\">\n      <ion-row>\n        <ion-title id=\"tam\" color=\"residente-txt\"> RESIDENTES </ion-title>\n      </ion-row>\n      <ion-row>\n        <ion-title  class=\"ion-text-center\" size=\"small\" color=\"residente-txt\"> {{titulo}} </ion-title>\n      </ion-row>\n    </ion-toolbar>\n  </ng-template>\n</ion-header> ");
 
 /***/ }),
 
@@ -2690,6 +2834,82 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoticiaPK", function() { return NoticiaPK; });
 class NoticiaPK {
 } // end NoticiaPK
+
+
+/***/ }),
+
+/***/ "Fipu":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/admin/cambicontra/cambicontra.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: CambicontraComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CambicontraComponent", function() { return CambicontraComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _raw_loader_cambicontra_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./cambicontra.component.html */ "4qvy");
+/* harmony import */ var _cambicontra_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cambicontra.component.scss */ "PVkA");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var src_app_Services_camcontraserv_camcontra_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/Services/camcontraserv/camcontra.service */ "o7Ac");
+
+
+
+
+
+
+let CambicontraComponent = class CambicontraComponent {
+    constructor(navCtrl, servCont) {
+        this.navCtrl = navCtrl;
+        this.servCont = servCont;
+    }
+    ngOnInit() {
+    }
+    ionViewWillEnter() {
+        this.ncontra = "";
+        this.nombre = this.servCont.getNomApto();
+        this.id = this.servCont.getAptoId();
+        this.contra = this.servCont.getContraApto();
+        this.error = "";
+        //this.contra = "FreeeF"; //COMENTAR ESTOOOOOOOOOOOOOOO
+    }
+    goBack() {
+        this.navCtrl.navigateForward("/claves");
+    }
+    getColorReportar() {
+        if ((this.ncontra == "")) {
+            return "deshabilitado";
+        }
+        else {
+            return "residente";
+        }
+    }
+    botonReportar() {
+        if (this.ncontra.length < 3) {
+            this.error = "La contraseña debe ser minimo de 3 caracteres";
+        }
+        else {
+            this.error = "";
+            console.log("escribo y me voy");
+            this.servCont.cambContra(this.id, this.ncontra);
+            this.navCtrl.navigateForward("/claves");
+        }
+    }
+};
+CambicontraComponent.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
+    { type: src_app_Services_camcontraserv_camcontra_service__WEBPACK_IMPORTED_MODULE_5__["CamcontraService"] }
+];
+CambicontraComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-cambicontra',
+        template: _raw_loader_cambicontra_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_cambicontra_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+    })
+], CambicontraComponent);
+
 
 
 /***/ }),
@@ -2870,7 +3090,7 @@ let NetflixComponent = class NetflixComponent {
     ngOnInit() { }
     waitBD() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            yield new Promise(resolve => setTimeout(resolve, 1000));
+            yield new Promise(resolve => setTimeout(resolve, 1200));
         });
     }
     ionViewWillEnter() {
@@ -3050,25 +3270,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_quejas_residente_component_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./quejas-residente-component.component.html */ "4KHd");
 /* harmony import */ var _quejas_residente_component_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./quejas-residente-component.component.scss */ "+m8f");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _Services_quejasA_service_queja_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Services/quejasA-service/queja.service */ "do8N");
+/* harmony import */ var devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! devextreme/ui/notify */ "pxlC");
+/* harmony import */ var devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var src_app_Services_conjuntos_conjuntos_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/Services/conjuntos/conjuntos.service */ "bLIy");
+/* harmony import */ var src_app_Services_ingreAptoServ_serv_ing_apto_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/Services/ingreAptoServ/serv-ing-apto.service */ "CaST");
+/* harmony import */ var _Services_quejasA_service_queja_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../Services/quejasA-service/queja.service */ "do8N");
+
+
+
 
 
 
 
 
 let QuejasResidenteComponent = class QuejasResidenteComponent {
-    constructor(service) {
-        this.queja = service.getQueja();
+    constructor(service, servApto, conjuntoService) {
+        this.service = service;
+        this.servApto = servApto;
+        this.conjuntoService = conjuntoService;
     }
-    ngOnInit() { }
+    ngOnInit() {
+        this.idConjunto = this.conjuntoService.getConjuntoActivo();
+        this.idApto = this.servApto.getIdApto();
+        this.descripcion = "";
+    }
+    envInfo() {
+        if (this.anonimus == true) {
+            this.queja.anonimo = 1;
+        }
+        else {
+            this.queja.anonimo = 0;
+        }
+        this.queja.contenido = this.descripcion;
+        this.queja.idC = this.idConjunto;
+        this.queja.idA = this.idApto;
+        this.service.envioQueja(this.queja).subscribe(respuesta => {
+            devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_4___default()(respuesta, 'sucess');
+        });
+    }
 };
 QuejasResidenteComponent.ctorParameters = () => [
-    { type: _Services_quejasA_service_queja_service__WEBPACK_IMPORTED_MODULE_4__["QuejaService"] }
+    { type: _Services_quejasA_service_queja_service__WEBPACK_IMPORTED_MODULE_7__["QuejaService"] },
+    { type: src_app_Services_ingreAptoServ_serv_ing_apto_service__WEBPACK_IMPORTED_MODULE_6__["ServIngAptoService"] },
+    { type: src_app_Services_conjuntos_conjuntos_service__WEBPACK_IMPORTED_MODULE_5__["ConjuntosService"] }
 ];
 QuejasResidenteComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-quejas-residente-component',
-        providers: [_Services_quejasA_service_queja_service__WEBPACK_IMPORTED_MODULE_4__["QuejaService"]],
+        providers: [_Services_quejasA_service_queja_service__WEBPACK_IMPORTED_MODULE_7__["QuejaService"]],
         template: _raw_loader_quejas_residente_component_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
         styles: [_quejas_residente_component_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     })
@@ -3215,7 +3464,7 @@ NoticiasService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"MODIFICAR RESERVACION\" menu=RESIDENTE></app-header>\n<dx-form id=\"form\" [formData]=\"reserva\">\n\t<dxi-item itemType=\"group\" cssClass=\"first-group\" [colCount]=\"4\">\n\t\t<dxi-item itemType=\"group\" [colSpan]=\"3\">\n\t\t\t\t<dxi-item dataField=\"Fecha\"></dxi-item>\n\t\t\t\t<dxi-item dataField=\"Area\"></dxi-item>\n\t\t\t\t<dxi-item dataField=\"HorasDisponibles\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: horasDisponibles, value: '' }\"></dxi-item>\n                <dxi-item dataField=\"HoraInicial\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: hora_i}\"></dxi-item>\n        \t\t<dxi-item dataField=\"HoraFinal\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: hora_f}\"></dxi-item>\n        \t\t<dxi-item dataField=\"CantidadDePersonas\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: cantidad_p}\"></dxi-item>\n\t\t</dxi-item>\n\t</dxi-item>\n\t<dxi-item itemType=\"group\" cssClass=\"second-group\" [colCount]=\"2\">\n\t\t<dxi-item dataField=\"Descripcion\" [colSpan]=\"2\" editorType=\"dxTextArea\" [editorOptions]=\"{ height: 140 }\"></dxi-item>\n\t</dxi-item>\n</dx-form>\n\n<ion-button class=\"boton\"\n      expand=\"full\"\n      shape=\"round\"\n      color=\"residente\"\n      type=\"submit\"\n      >Agregar reserva</ion-button\n >");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"MODIFICAR RESERVACION\" menu=NO routeBack=\"mis-reservas\"></app-header>\n<dx-form id=\"form\" [formData]=\"reserva\">\n\t<dxi-item itemType=\"group\" cssClass=\"first-group\" [colCount]=\"4\">\n\t\t<dxi-item itemType=\"group\" [colSpan]=\"3\">\n\t\t\t\t<dxi-item dataField=\"Fecha\"></dxi-item>\n\t\t\t\t<dxi-item dataField=\"Area\"></dxi-item>\n\t\t\t\t<dxi-item dataField=\"HorasDisponibles\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: horasDisponibles, value: '' }\"></dxi-item>\n                <dxi-item dataField=\"HoraInicial\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: hora_i}\"></dxi-item>\n        \t\t<dxi-item dataField=\"HoraFinal\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: hora_f}\"></dxi-item>\n        \t\t<dxi-item dataField=\"CantidadDePersonas\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: cantidad_p}\"></dxi-item>\n\t\t</dxi-item>\n\t</dxi-item>\n\t<dxi-item itemType=\"group\" cssClass=\"second-group\" [colCount]=\"2\">\n\t\t<dxi-item dataField=\"Descripcion\" [colSpan]=\"2\" editorType=\"dxTextArea\" [editorOptions]=\"{ height: 140 }\"></dxi-item>\n\t</dxi-item>\n</dx-form>\n\n<ion-button class=\"boton\"\n      expand=\"full\"\n      shape=\"round\"\n      color=\"residente\"\n      type=\"submit\"\n      >Modificar reserva</ion-button\n >");
 
 /***/ }),
 
@@ -3325,7 +3574,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep .first-group,\n::ng-deep .second-group {\n  padding: 20px;\n}\n\n::ng-deep #button {\n  margin: 0 auto;\n  display: block;\n}\n\n::ng-deep #calendar-container {\n  margin: 0 auto;\n  display: block;\n}\n\n#form {\n  margin-left: 50px;\n  margin-right: 50px;\n}\n\n#form1 {\n  margin-left: 40px;\n  margin-right: 20px;\n}\n\n.boton1 {\n  padding-left: 40px;\n  padding-right: 20px;\n  width: 300px;\n  margin-bottom: 50px;\n  margin-left: 20px;\n}\n\n.boton2 {\n  padding-left: 40px;\n  padding-right: 20px;\n  width: 300px;\n  margin-bottom: 100px;\n  margin-left: 20px;\n}\n\n.mover {\n  overflow: scroll;\n}\n\n.calendarEstilo {\n  margin-left: 25px;\n  margin-right: 25px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2FyZWFzLXJlc2lkZW50ZS1jb21wb25lbnQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0VBRUksYUFBQTtBQUNKOztBQUVBO0VBQ0ksY0FBQTtFQUNBLGNBQUE7QUFDSjs7QUFFQTtFQUNJLGNBQUE7RUFDQSxjQUFBO0FBQ0o7O0FBRUE7RUFDSSxpQkFBQTtFQUNBLGtCQUFBO0FBQ0o7O0FBRUE7RUFDSSxpQkFBQTtFQUNBLGtCQUFBO0FBQ0o7O0FBRUE7RUFDSSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0EsaUJBQUE7QUFDSjs7QUFDQTtFQUNJLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxZQUFBO0VBQ0Esb0JBQUE7RUFDQSxpQkFBQTtBQUVKOztBQUFBO0VBQ0ksZ0JBQUE7QUFHSjs7QUFDQTtFQUNJLGlCQUFBO0VBQ0Esa0JBQUE7QUFFSiIsImZpbGUiOiJhcmVhcy1yZXNpZGVudGUtY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIC5maXJzdC1ncm91cCxcbjo6bmctZGVlcCAuc2Vjb25kLWdyb3VwIHtcbiAgICBwYWRkaW5nOiAyMHB4O1xufVxuXG46Om5nLWRlZXAgI2J1dHRvbiB7XG4gICAgbWFyZ2luOjAgYXV0bztcbiAgICBkaXNwbGF5OmJsb2NrO1xufVxuXG46Om5nLWRlZXAgI2NhbGVuZGFyLWNvbnRhaW5lciB7XG4gICAgbWFyZ2luOjAgYXV0bztcbiAgICBkaXNwbGF5OmJsb2NrO1xufVxuXG4jZm9ybXtcbiAgICBtYXJnaW4tbGVmdDogNTBweDtcbiAgICBtYXJnaW4tcmlnaHQ6IDUwcHg7XG59XG5cbiNmb3JtMXtcbiAgICBtYXJnaW4tbGVmdDogNDBweDtcbiAgICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG5cbi5ib3RvbjF7XG4gICAgcGFkZGluZy1sZWZ0OiA0MHB4O1xuICAgIHBhZGRpbmctcmlnaHQ6MjBweDtcbiAgICB3aWR0aDogMzAwcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogNTBweDtcbiAgICBtYXJnaW4tbGVmdDogMjBweDtcbn1cbi5ib3RvbjJ7XG4gICAgcGFkZGluZy1sZWZ0OiA0MHB4O1xuICAgIHBhZGRpbmctcmlnaHQ6MjBweDtcbiAgICB3aWR0aDogMzAwcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMTAwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IDIwcHg7XG59XG4ubW92ZXJ7XG4gICAgb3ZlcmZsb3c6IHNjcm9sbDtcbiAgICBcbn1cblxuLmNhbGVuZGFyRXN0aWxve1xuICAgIG1hcmdpbi1sZWZ0OiAyNXB4O1xuICAgIG1hcmdpbi1yaWdodDogMjVweDtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep .first-group,\n::ng-deep .second-group {\n  padding: 20px;\n}\n\n::ng-deep #button {\n  margin: 0 auto;\n  display: block;\n}\n\n::ng-deep #calendar-container {\n  margin: 0 auto;\n  display: block;\n}\n\n#form {\n  margin-left: 50px;\n  margin-right: 50px;\n}\n\n#form1 {\n  margin-left: 40px;\n  margin-right: 20px;\n}\n\n.boton5 {\n  padding-left: 40px;\n  padding-right: 20px;\n  width: 300px;\n  margin-top: 10px;\n  margin-left: 20px;\n}\n\n.boton2 {\n  padding-left: 40px;\n  padding-right: 20px;\n  width: 300px;\n  margin-bottom: 300px;\n  margin-left: 20px;\n}\n\n.mover {\n  overflow: scroll;\n}\n\n.calendarEstilo {\n  margin-left: 25px;\n  margin-right: 25px;\n}\n\n.margen2 {\n  margin-top: 20px;\n  margin-left: 20px;\n}\n\n.margen11 {\n  margin-bottom: 200px;\n}\n\n.margen33 {\n  margin-top: 20px;\n  margin-left: 20px;\n}\n\n.margen111 {\n  margin-left: 20px;\n  margin-right: 20px;\n}\n\n.margen1111 {\n  margin-left: 35px;\n  margin-right: 35px;\n  margin-top: 20px;\n}\n\n.mm {\n  margin-left: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2FyZWFzLXJlc2lkZW50ZS1jb21wb25lbnQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0VBRUksYUFBQTtBQUNKOztBQUVBO0VBQ0ksY0FBQTtFQUNBLGNBQUE7QUFDSjs7QUFFQTtFQUNJLGNBQUE7RUFDQSxjQUFBO0FBQ0o7O0FBRUE7RUFDSSxpQkFBQTtFQUNBLGtCQUFBO0FBQ0o7O0FBRUE7RUFDSSxpQkFBQTtFQUNBLGtCQUFBO0FBQ0o7O0FBRUE7RUFDSSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsWUFBQTtFQUNELGdCQUFBO0VBQ0MsaUJBQUE7QUFDSjs7QUFDQTtFQUNJLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxZQUFBO0VBQ0Esb0JBQUE7RUFDQSxpQkFBQTtBQUVKOztBQUFBO0VBQ0ksZ0JBQUE7QUFHSjs7QUFDQTtFQUNJLGlCQUFBO0VBQ0Esa0JBQUE7QUFFSjs7QUFDQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7QUFFQTs7QUFDQTtFQUNJLG9CQUFBO0FBRUo7O0FBQ0E7RUFDSSxnQkFBQTtFQUNBLGlCQUFBO0FBRUo7O0FBQ0E7RUFDSSxpQkFBQTtFQUNBLGtCQUFBO0FBRUo7O0FBQUE7RUFDSSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7QUFHSjs7QUFEQTtFQUNJLGlCQUFBO0FBSUoiLCJmaWxlIjoiYXJlYXMtcmVzaWRlbnRlLWNvbXBvbmVudC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjo6bmctZGVlcCAuZmlyc3QtZ3JvdXAsXG46Om5nLWRlZXAgLnNlY29uZC1ncm91cCB7XG4gICAgcGFkZGluZzogMjBweDtcbn1cblxuOjpuZy1kZWVwICNidXR0b24ge1xuICAgIG1hcmdpbjowIGF1dG87XG4gICAgZGlzcGxheTpibG9jaztcbn1cblxuOjpuZy1kZWVwICNjYWxlbmRhci1jb250YWluZXIge1xuICAgIG1hcmdpbjowIGF1dG87XG4gICAgZGlzcGxheTpibG9jaztcbn1cblxuI2Zvcm17XG4gICAgbWFyZ2luLWxlZnQ6IDUwcHg7XG4gICAgbWFyZ2luLXJpZ2h0OiA1MHB4O1xufVxuXG4jZm9ybTF7XG4gICAgbWFyZ2luLWxlZnQ6IDQwcHg7XG4gICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuXG4uYm90b241e1xuICAgIHBhZGRpbmctbGVmdDogNDBweDtcbiAgICBwYWRkaW5nLXJpZ2h0OjIwcHg7XG4gICAgd2lkdGg6IDMwMHB4O1xuICAgbWFyZ2luLXRvcDogMTBweDtcbiAgICBtYXJnaW4tbGVmdDogMjBweDtcbn1cbi5ib3RvbjJ7XG4gICAgcGFkZGluZy1sZWZ0OiA0MHB4O1xuICAgIHBhZGRpbmctcmlnaHQ6MjBweDtcbiAgICB3aWR0aDogMzAwcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMzAwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IDIwcHg7XG59XG4ubW92ZXJ7XG4gICAgb3ZlcmZsb3c6IHNjcm9sbDtcbiAgICBcbn1cblxuLmNhbGVuZGFyRXN0aWxve1xuICAgIG1hcmdpbi1sZWZ0OiAyNXB4O1xuICAgIG1hcmdpbi1yaWdodDogMjVweDtcbn1cblxuLm1hcmdlbjJ7XG5tYXJnaW4tdG9wOiAyMHB4O1xubWFyZ2luLWxlZnQ6IDIwcHg7XG5cbn1cbi5tYXJnZW4xMXtcbiAgICBtYXJnaW4tYm90dG9tOiAyMDBweDtcbn1cblxuLm1hcmdlbjMze1xuICAgIG1hcmdpbi10b3A6IDIwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IDIwcHg7XG59XG5cbi5tYXJnZW4xMTF7XG4gICAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuLm1hcmdlbjExMTF7XG4gICAgbWFyZ2luLWxlZnQ6IDM1cHg7XG4gICAgbWFyZ2luLXJpZ2h0OiAzNXB4O1xuICAgIG1hcmdpbi10b3A6IDIwcHg7XG59XG4ubW17XG4gICAgbWFyZ2luLWxlZnQ6IDIwcHg7XG59Il19 */");
 
 /***/ }),
 
@@ -3401,6 +3650,16 @@ let selConjService = class selConjService {
             this.conjunto = respuesta;
         });
     }
+    obtenerPost(url) {
+        this.postConju(url)
+            .subscribe(respuesta => {
+            console.log("subscirbe ", respuesta);
+            this.conjunto = respuesta;
+        });
+    }
+    postConju(url) {
+        return this.http.post(url, null);
+    }
     getConju(url) {
         return this.http.get(url);
     }
@@ -3408,7 +3667,7 @@ let selConjService = class selConjService {
         return this.conjunto;
     }
     vinResCon(id, idPerActiva) {
-        this.obtener(src_app_constants__WEBPACK_IMPORTED_MODULE_3__["IPRESIDENTES"] + "consultas/Conjuntos/residenteConjunto/" + id.toString() + "/" + idPerActiva.toString());
+        this.obtenerPost(src_app_constants__WEBPACK_IMPORTED_MODULE_3__["IPRESIDENTES"] + "consultas/Conjuntos/residenteConjunto/" + id.toString() + "/" + idPerActiva.toString());
     }
 };
 selConjService.ctorParameters = () => [
@@ -3552,7 +3811,7 @@ ClavesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"AGREGAR CONJUNTO\" menu=NO routeBack=\"/netflix\"></app-header>\n\n\n<form action=\"your-action\"  (submit)=\"onFormSubmit($event)\">\n    <dx-form id=\"form\" \n    [formData]=\"nuevoConjunto\"\n    [labelLocation]=\"posi\"\n        [showColonAfterLabel]=\"true\"\n        [showValidationSummary]=\"true\"\n        validationGroup=\"customerData\">\n        <dxi-item id=\"nombreC\" itemType=\"group\" caption=\"\">\n            <dxi-item dataField=\"nombre\">\n                <dxi-validation-rule \n                    type=\"required\"\n                    message=\"El nombre es obligatorio\">\n                </dxi-validation-rule>\n            \n                <dxi-validation-rule \n                    type=\"async\"\n                    message=\"Nombre ya esta registrado\" \n                    [validationCallback]=\"asyncValidation\">\n                </dxi-validation-rule>\n            </dxi-item>\n            <dxi-item dataField=\"dirección\">\n                <dxi-validation-rule \n                    type=\"required\"\n                    message=\"La dirección es obligatoria\">\n                </dxi-validation-rule>\n                <dxi-validation-rule \n                    type=\"async\"\n                    message=\"Dirección ya esta registrado\" \n                    [validationCallback]=\"asyncValidationDirec\">\n                </dxi-validation-rule>\n            </dxi-item>\n            \n            <dxi-item dataField=\"precioAdmin\" [label]=\"{text: 'Precio de administración ($)'}\"  helpText=\"Poner en pesos Colombianos\">\n                <dx-number-box\n                format=\"$ #,##0.##\"\n               \n            \t></dx-number-box>\n                <dxi-validation-rule \n                    type=\"required\"\n                    message=\"El precio es obligatoria\">\n                </dxi-validation-rule>\n                \n            </dxi-item>\n            \n            \n           <dxi-item dataField=\"Link de pago\">\n            \n                <dxi-validation-rule \n                    type=\"pattern\"\n                    [pattern]=\"lnikPattern\"\n                    message=\"Link invalido\">\n                </dxi-validation-rule>\n            </dxi-item>\n\n            <dxi-item dataField=\"Cantidad de torres\">\n                \n                <div class=\"dx-field-value\">\n                    <dx-number-box #numberBox\n                        class=box\n                        type=\"required\"\n                        [max]=\"100\"\n                        [min]=\"1\"\n                        [showSpinButtons]=\"true\"\n                        (onKeyDown)=\"keyDown($event)\"\n                        [value]=\"1\"\n                    ></dx-number-box>\n                </div>\n            </dxi-item>\n\n            <dxi-item dataField=\"Cantidad de pisos\">\n                \n                <div class=\"dx-field-value\">\n                    <dx-number-box #numberBox\n                        type=\"required\"\n                        [max]=\"100\"\n                        [min]=\"1\"\n                        [showSpinButtons]=\"true\"\n                        (onKeyDown)=\"keyDown($event)\"\n                        [value]=\"1\"\n                    ></dx-number-box>\n                </div>\n            </dxi-item>\n\n            <dxi-item dataField=\"Cantidad de aptosxpiso\">\n                \n                <div class=\"dx-field-value\">\n                    <dx-number-box #numberBox\n                        type=\"required\"\n                        [max]=\"100\"\n                        [min]=\"1\"\n                        [showSpinButtons]=\"true\"\n                        (onKeyDown)=\"keyDown($event)\"\n                        [value]=\"1\"\n                    ></dx-number-box>\n                </div>\n            </dxi-item>\n            \n        </dxi-item>\n        \n        <dxi-item \n            itemType=\"button\"\n            horizontalAlignment=\"right\"\n            [buttonOptions]=\"buttonOptions\">\n        </dxi-item>\n    </dx-form>\n</form>\n<ion-content>\n  <ion-icon name=\"play-circle-outline\" color = \"residente\" (click)=\"finish()\" ></ion-icon>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"AGREGAR CONJUNTO\" menu=NO routeBack=\"/netflix\"></app-header>\n\n<div style=\"overflow:scroll\">\n\n<form action=\"your-action\"  (submit)=\"onFormSubmit($event)\">\n    <dx-form id=\"form\" \n    [formData]=\"nuevoConjunto\"\n    [labelLocation]=\"posi\"\n        [showColonAfterLabel]=\"true\"\n        [showValidationSummary]=\"true\"\n        validationGroup=\"customerData\">\n        <dxi-item id=\"nombreC\" itemType=\"group\" caption=\"\">\n            <dxi-item dataField=\"nombre\">\n                <dxi-validation-rule \n                    type=\"required\"\n                    message=\"El nombre es obligatorio\">\n                </dxi-validation-rule>\n            \n                <dxi-validation-rule \n                    type=\"async\"\n                    message=\"Nombre ya esta registrado\" \n                    [validationCallback]=\"asyncValidation\">\n                </dxi-validation-rule>\n            </dxi-item>\n            <dxi-item dataField=\"dirección\">\n                <dxi-validation-rule \n                    type=\"required\"\n                    message=\"La dirección es obligatoria\">\n                </dxi-validation-rule>\n                <dxi-validation-rule \n                    type=\"async\"\n                    message=\"Dirección ya esta registrado\" \n                    [validationCallback]=\"asyncValidationDirec\">\n                </dxi-validation-rule>\n            </dxi-item>\n            <dxi-item dataField=\"precioAdmin\" \n            [label]=\"{text: 'Precio de administración ($)'}\" [maskRules]=\"phoneRules\"\n            helpText=\"Poner en pesos Colombianos\">\n               \n                <dxi-validation-rule \n                    type=\"required\"\n                    message=\"El precio es obligatoria\">\n                </dxi-validation-rule>\n                \n            </dxi-item>\n            \n            \n           <dxi-item dataField=\"linkPago\"[label]=\"{text: 'Link de pago'}\"> \n            \n               \n            </dxi-item>\n\n\n            <dxi-item  dataField=\"numTorres\" [label]=\"{text: 'Cantidad de torres'}\">\n                \n                <div class=\"dx-field-value\">\n                    <dx-number-box #numberBox\n                        class=box\n                        type=\"required\"\n                        [max]=\"100\"\n                        [min]=\"1\"\n                        [showSpinButtons]=\"true\"\n                        (onKeyDown)=\"keyDown($event)\"\n                        [value]=\"1\"\n                    ></dx-number-box>\n                </div>\n            </dxi-item>\n\n            <dxi-item dataField=\"numPisos\" [label]=\"{text: 'Cantidad de pisos'}\">\n                \n                <div class=\"dx-field-value\">\n                    <dx-number-box #numberBox\n                        type=\"required\"\n                        [max]=\"100\"\n                        [min]=\"1\"\n                        [showSpinButtons]=\"true\"\n                        (onKeyDown)=\"keyDown($event)\"\n                        [value]=\"1\"\n                    ></dx-number-box>\n                </div>\n            </dxi-item>\n\n            <dxi-item  [label]=\"{text: 'Cantidad de aptosxpiso'}\">\n                \n                <div class=\"dx-field-value\" dataField=\"numAptos\">\n                    <dx-number-box #numberBox \n                        type=\"required\"\n                        [max]=\"100\"\n                        [min]=\"1\"\n                        [showSpinButtons]=\"true\"\n                        (onKeyDown)=\"keyDown($event)\"\n                        [value]=\"1\"\n                    ></dx-number-box>\n                </div>\n            </dxi-item>\n            \n        </dxi-item>\n        <dxi-item \n            itemType=\"button\"\n            horizontalAlignment=\"right\"\n            [buttonOptions]=\"buttonOptions\">\n        </dxi-item>\n   \n    </dx-form>\n</form>\n\n</div>\n<!------------\n<ion-button class=\"botIng\"\n      (click)=\"mandarConjunto()\"\n      expand=\"full\"\n      shape=\"round\"\n      color=\"residente\"\n      type=\"submit\"\n\t \n      >Agregar</ion-button\n    > ---------->\n");
 
 /***/ }),
 
@@ -3569,6 +3828,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "P1Pe":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/admin/listaptosc/listaptosc.component.scss ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".color1 {\n  color: var(--ion-color-residente-txt);\n}\n\n.basura {\n  color: var(--ion-color-residente);\n  text-align: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2xpc3RhcHRvc2MuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxxQ0FBQTtBQUNKOztBQUVBO0VBQ0ksaUNBQUE7RUFDQSxpQkFBQTtBQUNKIiwiZmlsZSI6Imxpc3RhcHRvc2MuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29sb3Ixe1xuICAgIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItcmVzaWRlbnRlLXR4dCk7XG59XG5cbi5iYXN1cmF7XG4gICAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1yZXNpZGVudGUpO1xuICAgIHRleHQtYWxpZ246IHJpZ2h0O1xuXG59Il19 */");
+
+/***/ }),
+
 /***/ "P1qy":
 /*!*************************************************************************************!*\
   !*** ./src/app/components/general/manual-component/manual-component.component.scss ***!
@@ -3579,6 +3851,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (".botIng3 {\n  margin-top: 30px;\n  margin-left: 70px;\n  width: 250px;\n  margin-bottom: 200px;\n}\n\n.Foto {\n  margin-top: 100px;\n  margin-bottom: 100px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL21hbnVhbC1jb21wb25lbnQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0EsWUFBQTtFQUNBLG9CQUFBO0FBQ0o7O0FBRUE7RUFDSSxpQkFBQTtFQUNBLG9CQUFBO0FBQ0oiLCJmaWxlIjoibWFudWFsLWNvbXBvbmVudC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5ib3RJbmcze1xuICAgIG1hcmdpbi10b3A6IDMwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IDcwcHg7XG4gICAgd2lkdGg6IDI1MHB4O1xuICAgIG1hcmdpbi1ib3R0b206IDIwMHB4O1xuXG59XG4uRm90b3tcbiAgICBtYXJnaW4tdG9wOiAxMDBweDtcbiAgICBtYXJnaW4tYm90dG9tOiAxMDBweDtcbn0iXX0= */");
+
+/***/ }),
+
+/***/ "PVkA":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/admin/cambicontra/cambicontra.component.scss ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("ion-card {\n  box-shadow: none !important;\n}\n\nion-select {\n  width: 120%;\n  border: solid 1px var(--ion-color-residente-txt);\n}\n\nion-label {\n  font-size: 20px;\n}\n\n#centrado {\n  text-align: center;\n}\n\n.content-div {\n  height: 70%;\n}\n\nion-content {\n  --overflow: hidden;\n}\n\nion-select::part(icon) {\n  color: var(--ion-color-residente-txt);\n}\n\n#rounded {\n  width: 100%;\n  height: 40px;\n  border-radius: 10px;\n  margin-bottom: 10px;\n}\n\nion-input {\n  width: 10%;\n  border: solid 1px var(--ion-color-residente-txt);\n}\n\n/* .msjVeri{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    color: red;\n  } */\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2NhbWJpY29udHJhLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksMkJBQUE7QUFDSjs7QUFFQTtFQUNJLFdBQUE7RUFDQSxnREFBQTtBQUNKOztBQUVBO0VBQ0ksZUFBQTtBQUNKOztBQUVBO0VBQ0ksa0JBQUE7QUFDSjs7QUFFQTtFQUNJLFdBQUE7QUFDSjs7QUFFQTtFQUNJLGtCQUFBO0FBQ0o7O0FBRUE7RUFDSSxxQ0FBQTtBQUNKOztBQUVBO0VBQ0ksV0FBQTtFQUNBLFlBQUE7RUFHQSxtQkFBQTtFQUNBLG1CQUFBO0FBQ0o7O0FBRUE7RUFDSSxVQUFBO0VBQ0EsZ0RBQUE7QUFDSjs7QUFFQTs7Ozs7S0FBQSIsImZpbGUiOiJjYW1iaWNvbnRyYS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1jYXJke1xuICAgIGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcbn1cblxuaW9uLXNlbGVjdHtcbiAgICB3aWR0aDogMTIwJTtcbiAgICBib3JkZXI6IHNvbGlkIDFweCB2YXIoLS1pb24tY29sb3ItcmVzaWRlbnRlLXR4dCk7XG59XG5cbmlvbi1sYWJlbHtcbiAgICBmb250LXNpemU6IDIwcHg7XG59XG5cbiNjZW50cmFkb3tcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5jb250ZW50LWRpdntcbiAgICBoZWlnaHQ6IDcwJTtcbn1cblxuaW9uLWNvbnRlbnQge1xuICAgIC0tb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuaW9uLXNlbGVjdDo6cGFydChpY29uKSB7XG4gICAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1yZXNpZGVudGUtdHh0KTsgIFxufVxuXG4jcm91bmRlZCB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiA0MHB4O1xuICAgIC1tb3otYm9yZGVyLXJhZGl1czogNTBweDtcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDUwcHg7XG4gICAgYm9yZGVyLXJhZGl1czogMTBweDtcbiAgICBtYXJnaW4tYm90dG9tOiAxMHB4OyAgXG59XG5cbmlvbi1pbnB1dHtcbiAgICB3aWR0aDogMTAlO1xuICAgIGJvcmRlcjogc29saWQgMXB4IHZhcigtLWlvbi1jb2xvci1yZXNpZGVudGUtdHh0KTtcbn1cblxuLyogLm1zalZlcml7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGNvbG9yOiByZWQ7XG4gIH0gKi9cblxuIl19 */");
 
 /***/ }),
 
@@ -3934,7 +4219,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"ASAMBLEA\" menu=NO routeBack=\"/lista-asamblea-admin\" ></app-header>\n\n\n<div *ngIf=\"step==1\"  class=\"estetica\">\n    <dx-form id=\"form\" [formData]=\"asambleas\" [labelLocation]=\"labelL\">\n\n        <dxi-item itemType=\"group\" cssClass=\"first-group\" [colCount]=\"4\">\n\n            <dxi-item itemType=\"group\" [colSpan]=\"3\">\n\n                <dxi-item dataField=\"FechaAsamblea\" editorType=\"dxDateBox\" [editorOptions]=\"{ width: '100%'}\">\n                </dxi-item>\n                <dxi-item dataField=\"Tema\"></dxi-item>\n                <dxi-item dataField=\"NumeroPropuestas\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: Nopciones }\">\n                </dxi-item>\n            </dxi-item>\n        </dxi-item>\n\n        \n\n    </dx-form>\n\n\t<dx-button\n\t  \n\t  class=\"lado\"\n\t  stylingMode=\"contained\"\n\t  icon=\"upload\"\n\t  [width]=\"250\"\n\t  [height]=\"50\"\n\t  text=\"Modificar Asamblea\"\n\t  (onClick)=\"this.step=3\"\n\t  \n\t  >    \n\t  \n\t  </dx-button>\n\n\t<dx-button\n\t  \n\t  class=\"lado-cancelar\"\n\t  stylingMode=\"contained\"\n\t  icon=\"close\"\n\t  [width]=\"250\"\n\t  [height]=\"50\"\n\t  text=\"Cancelar\"\n\t  (onClick)=\"this.step=1\"\n\t  \n\t  >    \n\t  \n\t  </dx-button>\n\n\t  \n\n</div>\n\n<div *ngIf=\"step==3\">\n<dxi-item itemType=\"group\" cssClass=\"second-group\" [colCount]=\"2\">\n\n\t<dxi-item itemType=\"group\">\n\n\t\t<dxi-item dataField=\"Nombre\"></dxi-item>\n\n\t</dxi-item>\n</dxi-item>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"getTemaAsamblea()\" menu=NO routeBack=\"/lista-asambleas-admin\"></app-header>\n\n<ion-content>\n    <ion-slides pager=\"true\" #theSlides>\n        <ion-slide *ngFor=\"let propuesta of getPropuestas()\">\n            <div id=\"propTitle\">\n                <p id=\"txtP\"> <br> <i>{{propuesta.descripcion}}</i> </p>\n            </div>\n            <div style=\"overflow:scroll\" class=\"content-div\">\n                <div *ngFor=\"let opcion of propuesta.opciones\">\n                    <br>\n                    <ion-card color=\"residente\" class=\"cardB\" (click)=\"votar(opcion,propuesta)\">\n                        <ion-card-content>\n                            {{opcion.nombre}}\n                        </ion-card-content>\n                    </ion-card>\n                </div>\n            </div>\n        </ion-slide>\n        <ion-slide>\n            <ion-label><strong>Resultados</strong></ion-label>\n            <ion-content>\n                <div style=\"overflow:scroll\" class=\"content-div\">\n                    <ion-card *ngFor=\"let result of getResultadosVoto()\">\n                        <ion-card-content>\n                            <ion-item lines=\"none\">\n                                <p id=\"letraR\"><strong>Propuesta: </strong> &nbsp;&nbsp;{{result.propuesta}}</p>\n                            </ion-item>\n                            <ion-item lines=\"none\">\n                                <p id=\"letraR\"><strong>Estado: </strong>&nbsp;&nbsp; {{result.res}}</p>\n                            </ion-item>\n                            <ion-item lines=\"none\">\n                                <p id=\"letraR\"><strong>Cantidad de Votos: </strong>&nbsp;&nbsp; {{result.cantVotos}}</p>\n                            </ion-item>\n                            <ion-item lines=\"none\">\n                                <p id=\"letraR\"><strong>Ganador: </strong>&nbsp;&nbsp; {{result.ganador}}</p>\n                            </ion-item>\n                        </ion-card-content>\n                    </ion-card>\n                </div>\n            </ion-content>\n        </ion-slide>\n    </ion-slides>\n</ion-content>");
 
 /***/ }),
 
@@ -4001,24 +4286,33 @@ let SeleccionConjuntoComponent = class SeleccionConjuntoComponent {
         this.router = router;
     }
     click(id) {
-        //console.log("hola " , id , " - ", this.idPerActiva);
-        this.service.vinResCon(id, this.idPerActiva);
-        this.router.navigateByUrl("/netflix");
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            //console.log("hola " , id , " - ", this.idPerActiva);
+            this.service.vinResCon(id, this.idPerActiva);
+            yield this.waitBD();
+            this.router.navigateByUrl("/netflix");
+        });
     }
     ngOnInit() {
     }
     ionViewWillEnter() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            console.log("Ellos estan aqui");
             //this.personasService.difTiempo(new Date().getTime() );
             this.idPerActiva = this.personasService.getPersonaID();
             this.service.getConjuntosServ(this.idPerActiva);
             yield this.waitBD();
+            console.log("Nosotros estan aqui");
             this.conjuntos = this.service.getConjuntosS();
+            console.log("CONJUNTOSSSSSSSS: ", this.conjuntos);
         });
     }
+    getConjuntos() {
+        return this.conjuntos;
+    } // end getConjuntos
     waitBD() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            yield new Promise(resolve => setTimeout(resolve, 250));
+            yield new Promise(resolve => setTimeout(resolve, 850));
         });
     }
 };
@@ -4190,7 +4484,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"RESERVAR AREA\" menu=RESIDENTE></app-header>\n<div class=\"borde\" >\n<dx-form id=\"form\" [formData]=\"reserva\"  >\n\t<dxi-item itemType=\"group\" cssClass=\"first-group\" >\n\t\t\n\t\t\t\t<dxi-item dataField=\"Fecha\"></dxi-item>\n\t\t\t\t<dxi-item dataField=\"Area\"></dxi-item>\n\t\t\t\t<dxi-item dataField=\"HorasDisponibles\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: horasDisponibles, value: '' }\"></dxi-item>\n                <dxi-item dataField=\"HoraInicial\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: hora_i}\"></dxi-item>\n        \t\t<dxi-item dataField=\"HoraFinal\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: hora_f}\"></dxi-item>\n        \t\t<dxi-item dataField=\"CantidadDePersonas\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: cantidad_p}\"></dxi-item>\n\t\t\t\t<dxi-item dataField=\"Descripcion\"  editorType=\"dxTextArea\" [editorOptions]=\"{ height: 140 }\"></dxi-item>\n\t\t\n\t</dxi-item>\n\n</dx-form>\n</div>\n\n<ion-button class=\"boton\"\n      expand=\"full\"\n      shape=\"round\"\n      color=\"residente\"\n      type=\"submit\"\n      >Agregar reserva</ion-button\n >");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"RESERVAR AREA\" menu=NO routeBack=\"/areas-residente\"></app-header>\n<div class=\"borde\" >\n<dx-form id=\"form\" [formData]=\"reserva\"  >\n\t<dxi-item itemType=\"group\" cssClass=\"first-group\" >\n\t\t\n\t\t\t\t<dxi-item dataField=\"Fecha\"></dxi-item>\n\t\t\t\t<dxi-item dataField=\"Area\"></dxi-item>\n\t\t\t\t<dxi-item dataField=\"HorasDisponibles\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: horasDisponibles, value: '' }\"></dxi-item>\n                <dxi-item dataField=\"HoraInicial\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: hora_i}\"></dxi-item>\n        \t\t<dxi-item dataField=\"HoraFinal\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: hora_f}\"></dxi-item>\n        \t\t<dxi-item dataField=\"CantidadDePersonas\" editorType=\"dxSelectBox\" [editorOptions]=\"{ items: cantidad_p}\"></dxi-item>\n\t\t\t\t<dxi-item dataField=\"Descripcion\"  editorType=\"dxTextArea\" [editorOptions]=\"{ height: 140 }\"></dxi-item>\n\t\t\n\t</dxi-item>\n\n</dx-form>\n</div>\n\n<ion-button class=\"boton\"\n      expand=\"full\"\n      shape=\"round\"\n      color=\"residente\"\n      type=\"submit\"\n      >Agregar reserva</ion-button\n >");
 
 /***/ }),
 
@@ -5325,6 +5619,40 @@ ReservacionAreaResidenteService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
 
 /***/ }),
 
+/***/ "czgk":
+/*!*************************************************************************!*\
+  !*** ./src/app/Services/AcercaDeNosotros/acerca-de-nosotros.service.ts ***!
+  \*************************************************************************/
+/*! exports provided: Residentes, AcercaDeNosotrosService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Residentes", function() { return Residentes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AcercaDeNosotrosService", function() { return AcercaDeNosotrosService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+class Residentes {
+}
+let residentes = {
+    "SobreResidentes": "Somos una  empresa de desarrollo tecnológico que marca tendencia en las propiedades horizontales, generando una nueva experiencia para residentes, empleados y administradores mejorando su comunicación y la eficiencia de sus procesos internos. ¡Gracias por preferirnos!",
+    "Desarrolladores": "Juan Sebastian Barreto, Juan Alejandro Diaz Lote, Mariana Rojas Galavis, David Santiago Quintana, Maria Jose Nino, Jsnet Chen He,Andres Ricardo Porras",
+};
+let AcercaDeNosotrosService = class AcercaDeNosotrosService {
+    getResidentes() {
+        return residentes;
+    }
+};
+AcercaDeNosotrosService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], AcercaDeNosotrosService);
+
+
+
+/***/ }),
+
 /***/ "dI6Q":
 /*!******************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/admin/asamblea-Subir-Votos/asamblea-subir-votos/asamblea-subir-votos.component.html ***!
@@ -5338,36 +5666,116 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "do8N":
-/*!***********************************************************!*\
-  !*** ./src/app/Services/quejasA-service/queja.service.ts ***!
-  \***********************************************************/
-/*! exports provided: Queja, QuejaService */
+/***/ "dgM3":
+/*!*****************************************************************************!*\
+  !*** ./src/app/components/admin/nueva-asamblea/nueva-asamblea.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: NuevaAsambleaComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Queja", function() { return Queja; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuejaService", function() { return QuejaService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NuevaAsambleaComponent", function() { return NuevaAsambleaComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _raw_loader_nueva_asamblea_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./nueva-asamblea.component.html */ "0zNI");
+/* harmony import */ var _nueva_asamblea_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nueva-asamblea.component.scss */ "uEox");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var devextreme_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! devextreme-angular */ "hYZE");
+/* harmony import */ var src_app_Services_asambleas_asamblea_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/Services/asambleas/asamblea.service */ "jORC");
+/* harmony import */ var src_app_Services_opciones_opciones_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/Services/opciones/opciones.service */ "ujE3");
+/* harmony import */ var src_app_Services_propuestas_propuestas_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/Services/propuestas/propuestas.service */ "w8Zv");
 
 
-class Queja {
-}
-let queja = {
-    "ID": 1,
-    "Torre": 1,
-    "Apartamento": "400a",
-    "Notes": "John has been in the Audio/Video industry since 1990. He has led DevAV as its CEO since 2003.\r\nWhen not working hard as the CEO, John loves to golf and bowl. He once bowled a perfect game of 300.",
-};
-let QuejaService = class QuejaService {
-    getQueja() {
-        return queja;
+
+
+
+
+
+
+
+let NuevaAsambleaComponent = class NuevaAsambleaComponent {
+    constructor(navCtrl, service, opcionesServices, propuestaServices) {
+        this.navCtrl = navCtrl;
+        this.service = service;
+        this.step = 1;
+        this.asambleas = [];
+        this.labelL = "top";
+        //this.asamblea = service.getAsamblea(1);
+        this.propuesta = propuestaServices.getPropuestas();
+        this.opciones = opcionesServices.getOpciones(1);
+        this.Nopciones = service.getNopciones();
+        this.backButtonOptions = {
+            type: 'prueba',
+            icon: 'add',
+            onClick: () => {
+                return this.step = 2;
+            }
+        };
+    }
+    ionViewWillEnter() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () { });
+    }
+    ngOnInit() {
+        this.asambleas = this.service.getAsambleas();
+    }
+    botonReportar() {
+        this.navCtrl.navigateForward("/lista-asamblea-admin");
     }
 };
+NuevaAsambleaComponent.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
+    { type: src_app_Services_asambleas_asamblea_service__WEBPACK_IMPORTED_MODULE_6__["AsambleaService"] },
+    { type: src_app_Services_opciones_opciones_service__WEBPACK_IMPORTED_MODULE_7__["OpcionesService"] },
+    { type: src_app_Services_propuestas_propuestas_service__WEBPACK_IMPORTED_MODULE_8__["PropuestasService"] }
+];
+NuevaAsambleaComponent.propDecorators = {
+    drawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [devextreme_angular__WEBPACK_IMPORTED_MODULE_5__["DxDrawerComponent"], { static: false },] }]
+};
+NuevaAsambleaComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-nueva-asamblea',
+        template: _raw_loader_nueva_asamblea_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_nueva_asamblea_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+    })
+], NuevaAsambleaComponent);
+
+
+
+/***/ }),
+
+/***/ "do8N":
+/*!***********************************************************!*\
+  !*** ./src/app/Services/quejasA-service/queja.service.ts ***!
+  \***********************************************************/
+/*! exports provided: QuejaService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuejaService", function() { return QuejaService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var src_app_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/constants */ "l207");
+
+
+
+
+let QuejaService = class QuejaService {
+    constructor(http) {
+        this.http = http;
+    }
+    envioQueja(body) {
+        this.url = src_app_constants__WEBPACK_IMPORTED_MODULE_3__["IPRESIDENTES"] + "consultas/nuevaQueja/";
+        return this.http.post(this.url, body);
+    }
+};
+QuejaService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }
+];
 QuejaService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])()
 ], QuejaService);
 
 
@@ -5579,6 +5987,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_Services_asambleas_asamblea_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/Services/asambleas/asamblea.service */ "jORC");
 /* harmony import */ var src_app_Services_conjuntos_conjuntos_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/Services/conjuntos/conjuntos.service */ "bLIy");
 /* harmony import */ var src_app_Services_ingreAptoServ_serv_ing_apto_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/Services/ingreAptoServ/serv-ing-apto.service */ "CaST");
+/* harmony import */ var devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! devextreme/ui/notify */ "pxlC");
+/* harmony import */ var devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_11__);
+
 
 
 
@@ -5599,7 +6010,7 @@ let AsambleaResidenteComponent = class AsambleaResidenteComponent {
         this.asambleaService = asambleaService;
         this.conjuntosService = conjuntosService;
         this.servIngAptoService = servIngAptoService;
-        this.opcionesPropuesta = [];
+        this.temaAsamblea = "";
     }
     ngOnInit() {
     } // end ngOnInit
@@ -5613,12 +6024,18 @@ let AsambleaResidenteComponent = class AsambleaResidenteComponent {
             this.propuestas = [];
             this.idAsamblea = this.asambleaService.getAsambleaAbierta();
             this.asamblea = this.asambleaService.getAsamblea(this.idAsamblea);
+            this.temaAsamblea = this.asamblea.tema;
             this.idConjunto = this.conjuntosService.getConjuntoActivo();
+            this.asambleaService.cargarResultadosVoto(this.idConjunto, this.idAsamblea);
             this.idApto = this.servIngAptoService.getIdApto();
             this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
             yield this.waitBD();
-            if (this.asambleaService.getAsambleaEstado() == "A")
+            if (this.asambleaService.getAsambleaEstado() == "A") {
                 this.propuestas = this.propuestasService.getPropuestas();
+                console.log("Propuestaassss: ", this.propuestas);
+            }
+            this.resultadosVoto = this.asambleaService.getResultadosVoto();
+            console.log("Resultados Votos: ", this.resultadosVoto);
             /* this.votosUsuario = [];
             this.colorCards = [];
             this.opcionesPropuesta = [];
@@ -5638,33 +6055,36 @@ let AsambleaResidenteComponent = class AsambleaResidenteComponent {
             }// end for*/
         });
     } // end ionViewWillEnter
+    getColorVotos(propuesta) {
+        if (propuesta.estado == "Disponible")
+            return "residente";
+        else
+            return "deshabilitado";
+    } // end getColorVotos
     getPropuestas() {
         return this.propuestas;
     } // end getPropuestas
+    getTemaAsamblea() {
+        return this.temaAsamblea;
+    }
     votar(opcion, propuesta) {
-        if (!this.votosUsuario[propuesta.id - 1]) {
-            if (!propuesta.parar) {
-                this.votosServices.addVoto(opcion.id, propuesta.id);
-                this.propuestas[propuesta.id - 1].votosTotales += 1;
-                this.opcionesPropuesta[propuesta.id - 1][opcion.id - 1].cantidadVotos += 1;
-                this.colorCards[propuesta.id - 1] = "red";
-                this.votosUsuario[propuesta.id - 1] = 1;
-                console.log("Voto en ", propuesta.descripcion, " por ", opcion.nombre);
-                console.log("VotosTotales = ", this.propuestas[propuesta.id - 1].votosTotales);
-                console.log("CantidadVotos Opcion 1 = ", this.opcionesPropuesta[propuesta.id - 1][0].cantidadVotos);
-                console.log("CantidadVotos Opcion 2 = ", this.opcionesPropuesta[propuesta.id - 1][1].cantidadVotos);
-            }
-            else {
-                this.colorCards[propuesta.id - 1] = "red";
-            }
-        }
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (propuesta.estado == "Disponible") {
+                this.asambleaService.votar(this.idConjunto, this.idApto, propuesta.idPropuesta, opcion.idOpcion);
+                yield this.waitBD();
+                devextreme_ui_notify__WEBPACK_IMPORTED_MODULE_11___default()(this.asambleaService.getRespuesta().respuesta, 'sucess');
+                this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
+                yield this.waitBD();
+                this.propuestas = this.propuestasService.getPropuestas();
+            } // end if
+        });
     } // votar
     getAsamblea() {
         return this.asamblea;
     }
-    getColorCards(propuesta) {
-        return this.colorCards[propuesta.id - 1];
-    }
+    getResultadosVoto() {
+        return this.resultadosVoto;
+    } // end getResultadosVoto
     getOpcSlideInfo(propuesta) {
         return propuesta.opciones;
     }
@@ -6011,13 +6431,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************************!*\
   !*** ./src/app/Services/asambleas/asamblea.service.ts ***!
   \********************************************************/
-/*! exports provided: AsambleaPK, Asamblea, Opciones, AsambleaService */
+/*! exports provided: AsambleaPK, Asamblea, ResultadoVoto, Opciones, AsambleaService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AsambleaPK", function() { return AsambleaPK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Asamblea", function() { return Asamblea; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResultadoVoto", function() { return ResultadoVoto; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Opciones", function() { return Opciones; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AsambleaService", function() { return AsambleaService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
@@ -6031,6 +6452,8 @@ __webpack_require__.r(__webpack_exports__);
 class AsambleaPK {
 }
 class Asamblea {
+}
+class ResultadoVoto {
 }
 class Opciones {
 }
@@ -6059,6 +6482,9 @@ let AsambleaService = class AsambleaService {
     getAsambleaUrl(url) {
         return this.http.get(url);
     } // end getConjuntoUrl
+    putAsambleaUrl(url) {
+        return this.http.put(url, null);
+    } // end putAsambleaUrl
     cargarAsambleas(numConjunto) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.getAsambleaUrl(src_app_constants__WEBPACK_IMPORTED_MODULE_3__["IPRESIDENTESA"] + "/consultas/asambleas/" + numConjunto.toString())
@@ -6067,18 +6493,41 @@ let AsambleaService = class AsambleaService {
             });
         });
     } // end cargarAsambleas
+    votar(numConjunto, numApto, numPropuesta, numOpcion) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            console.log("Votar idPropuesta: ");
+            this.putAsambleaUrl(src_app_constants__WEBPACK_IMPORTED_MODULE_3__["IPRESIDENTESA"] + "/consultas/asambleas/votar/" + numConjunto.toString() + "/" + numApto.toString() + "/" + numPropuesta.toString() + "/" + numOpcion.toString())
+                .subscribe(respuesta => {
+                this.respuesta = respuesta;
+            });
+        });
+    } // end votar
+    cargarResultadosVoto(numConjunto, numAsamblea) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.getAsambleaUrl(src_app_constants__WEBPACK_IMPORTED_MODULE_3__["IPRESIDENTESA"] + "/consultas/asambleas/resultadosVotos/" + numConjunto.toString() + "/" + numAsamblea.toString())
+                .subscribe(respuesta => {
+                this.resultadosVoto = respuesta;
+            });
+        });
+    } // end cargarResultadosVoto
     getAsamblea(idAsamblea) {
         for (let asam of this.asambleas)
             if (asam.asambleaPK.idAsamblea == idAsamblea)
                 return asam;
         return null;
     } // end getAsamblea
+    getRespuesta() {
+        return this.respuesta;
+    } // end getRespuesta
     getAsambleas() {
         return this.asambleas;
     } // end getAsambleas
     getNopciones() {
         return Nopciones;
     } // end getNopciones
+    getResultadosVoto() {
+        return this.resultadosVoto;
+    } // end getResultadosVoto
 };
 AsambleaService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }
@@ -6102,7 +6551,7 @@ AsambleaService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep .first-group,\n::ng-deep .second-group {\n  padding: 20px;\n}\n\n::ng-deep .second-group {\n  background-color: rgba(191, 191, 191, 0.15);\n}\n\n::ng-deep .derrecha {\n  margin-left: 50px;\n}\n\n::ng-deep .tabpanel-item {\n  height: 200px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  user-select: none;\n  padding-left: 25px;\n  padding-top: 55px;\n}\n\n::ng-deep .mobile .tabpanel-item {\n  padding-top: 10px;\n}\n\n::ng-deep .tabpanel-item > div {\n  float: left;\n  padding: 0 85px 10px 10px;\n}\n\n::ng-deep .tabpanel-item p {\n  font-size: 16px;\n  margin: 0;\n}\n\n::ng-deep .item-box {\n  font-size: 16px;\n  margin: 15px 0 45px 10px;\n}\n\n::ng-deep .options {\n  padding: 20px;\n  background-color: rgba(191, 191, 191, 0.15);\n  margin-top: 20px;\n}\n\n::ng-deep .caption {\n  font-size: 18px;\n  font-weight: 500;\n}\n\n::ng-deep .option {\n  margin-top: 10px;\n}\n\nion-card-subtitle {\n  font-size: 1.2rem;\n}\n\nion-card {\n  background-color: #F2F3F4;\n  border-radius: 10px;\n}\n\n.lado {\n  margin-bottom: 50px;\n  margin-left: 60px;\n  border-radius: 20px;\n  background-color: #c9e265;\n}\n\n.lado-cancelar {\n  margin-bottom: 50px;\n  margin-left: 60px;\n  border-radius: 20px;\n  background-color: #e27c65;\n}\n\n.estetica {\n  margin-bottom: 200px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2FzYW1ibGVhLWFkbWluLWNvbXBvbmVudC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7RUFFSSxhQUFBO0FBQ0o7O0FBRUE7RUFDSSwyQ0FBQTtBQUNKOztBQUVBO0VBQ0csaUJBQUE7QUFDSDs7QUFFQTtFQUNJLGFBQUE7RUFDQSwyQkFBQTtFQUNBLHlCQUFBO0VBSUEsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBO0FBQ0o7O0FBQ0E7RUFDSSxpQkFBQTtBQUVKOztBQUFBO0VBQ0ksV0FBQTtFQUNBLHlCQUFBO0FBR0o7O0FBREE7RUFDSSxlQUFBO0VBQ0EsU0FBQTtBQUlKOztBQUZBO0VBQ0ksZUFBQTtFQUNBLHdCQUFBO0FBS0o7O0FBSEE7RUFDSSxhQUFBO0VBQ0EsMkNBQUE7RUFDQSxnQkFBQTtBQU1KOztBQUpBO0VBQ0ksZUFBQTtFQUNBLGdCQUFBO0FBT0o7O0FBTEE7RUFDSSxnQkFBQTtBQVFKOztBQUxBO0VBQ0ksaUJBQUE7QUFRSjs7QUFMQTtFQUNJLHlCQUFBO0VBQ0EsbUJBQUE7QUFRSjs7QUFKQTtFQUNHLG1CQUFBO0VBQ0MsaUJBQUE7RUFDQSxtQkFBQTtFQUNBLHlCQUFBO0FBT0o7O0FBSkE7RUFDSSxtQkFBQTtFQUNDLGlCQUFBO0VBQ0EsbUJBQUE7RUFDQSx5QkFBQTtBQU9MOztBQUpDO0VBRUUsb0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0FBTUgiLCJmaWxlIjoiYXNhbWJsZWEtYWRtaW4tY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIC5maXJzdC1ncm91cCxcbjo6bmctZGVlcCAuc2Vjb25kLWdyb3VwIHtcbiAgICBwYWRkaW5nOiAyMHB4O1xufVxuXG46Om5nLWRlZXAgLnNlY29uZC1ncm91cCB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxOTEsIDE5MSwgMTkxLCAwLjE1KTtcbn1cblxuOjpuZy1kZWVwIC5kZXJyZWNoYSB7XG4gICBtYXJnaW4tbGVmdDogNTBweDtcbn1cblxuOjpuZy1kZWVwIC50YWJwYW5lbC1pdGVtIHtcbiAgICBoZWlnaHQ6IDIwMHB4O1xuICAgIC13ZWJraXQtdG91Y2gtY2FsbG91dDogbm9uZTtcbiAgICAtd2Via2l0LXVzZXItc2VsZWN0OiBub25lO1xuICAgIC1raHRtbC11c2VyLXNlbGVjdDogbm9uZTtcbiAgICAtbW96LXVzZXItc2VsZWN0OiBub25lO1xuICAgIC1tcy11c2VyLXNlbGVjdDogbm9uZTtcbiAgICB1c2VyLXNlbGVjdDogbm9uZTtcbiAgICBwYWRkaW5nLWxlZnQ6IDI1cHg7XG4gICAgcGFkZGluZy10b3A6IDU1cHg7XG59XG46Om5nLWRlZXAgLm1vYmlsZSAudGFicGFuZWwtaXRlbSB7XG4gICAgcGFkZGluZy10b3A6IDEwcHg7XG59XG46Om5nLWRlZXAgLnRhYnBhbmVsLWl0ZW0gID4gZGl2IHtcbiAgICBmbG9hdDogbGVmdDtcbiAgICBwYWRkaW5nOiAwIDg1cHggMTBweCAxMHB4XG59XG46Om5nLWRlZXAgLnRhYnBhbmVsLWl0ZW0gIHAge1xuICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICBtYXJnaW46IDA7ICAgIFxufVxuOjpuZy1kZWVwIC5pdGVtLWJveCB7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICAgIG1hcmdpbjogMTVweCAwIDQ1cHggMTBweDtcbn1cbjo6bmctZGVlcCAub3B0aW9ucyB7XG4gICAgcGFkZGluZzogMjBweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE5MSwgMTkxLCAxOTEsIDAuMTUpO1xuICAgIG1hcmdpbi10b3A6IDIwcHg7XG59XG46Om5nLWRlZXAgLmNhcHRpb24ge1xuICAgIGZvbnQtc2l6ZTogMThweDtcbiAgICBmb250LXdlaWdodDogNTAwO1xufVxuOjpuZy1kZWVwIC5vcHRpb24ge1xuICAgIG1hcmdpbi10b3A6IDEwcHg7XG59XG5cbmlvbi1jYXJkLXN1YnRpdGxle1xuICAgIGZvbnQtc2l6ZTogMS4ycmVtO1xufVxuXG5pb24tY2FyZHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRjJGM0Y0O1xuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XG4gIFxufVxuXG4ubGFkbyB7XG4gICBtYXJnaW4tYm90dG9tOiA1MHB4O1xuICAgIG1hcmdpbi1sZWZ0OiA2MHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDIwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2M5ZTI2NTtcbn1cblxuLmxhZG8tY2FuY2VsYXJ7XG4gICAgbWFyZ2luLWJvdHRvbTogNTBweDtcbiAgICAgbWFyZ2luLWxlZnQ6IDYwcHg7XG4gICAgIGJvcmRlci1yYWRpdXM6IDIwcHg7XG4gICAgIGJhY2tncm91bmQtY29sb3I6ICNlMjdjNjU7XG4gfVxuXG4gLmVzdGV0aWNhe1xuICBcbiAgIG1hcmdpbi1ib3R0b206IDIwMHB4O1xuICAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG4gfVxuXG5cbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-slides {\n  --bullet-background: #c9e265;\n  --bullet-background-active: #c9e265;\n  height: 100%;\n  width: 100%;\n}\n\nion-card {\n  border: solid 1px var(--ion-color-residente-txt);\n}\n\nion-card ion-card-content {\n  padding-left: 0% !important;\n  padding-right: 0% !important;\n  padding-top: 5% !important;\n  padding-bottom: 0% !important;\n}\n\n#propTitle {\n  height: 120px;\n}\n\n#txtP {\n  font-size: 1.2rem;\n}\n\n.cardB {\n  margin-left: 20% !important;\n  width: 60%;\n}\n\n.cardB ion-card-content {\n  font-size: 1.2rem;\n  padding-left: 0% !important;\n  padding-right: 0% !important;\n  padding-top: 1% !important;\n  padding-bottom: 0% !important;\n}\n\n#letraR {\n  font-size: 1.2rem;\n}\n\nion-slide {\n  display: block;\n}\n\nion-textarea {\n  left: 20%;\n  width: 60%;\n}\n\n.content-div {\n  height: 90%;\n}\n\nion-content {\n  --overflow: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2FzYW1ibGVhLWFkbWluLWNvbXBvbmVudC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDRCQUFBO0VBQ0EsbUNBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtBQUNKOztBQUVBO0VBQ0ksZ0RBQUE7QUFDSjs7QUFDSTtFQUNJLDJCQUFBO0VBQ0EsNEJBQUE7RUFDQSwwQkFBQTtFQUNBLDZCQUFBO0FBQ1I7O0FBR0E7RUFDSSxhQUFBO0FBQUo7O0FBR0E7RUFDSSxpQkFBQTtBQUFKOztBQUdBO0VBQ0ksMkJBQUE7RUFDQSxVQUFBO0FBQUo7O0FBQ0k7RUFDSSxpQkFBQTtFQUNBLDJCQUFBO0VBQ0EsNEJBQUE7RUFDQSwwQkFBQTtFQUNBLDZCQUFBO0FBQ1I7O0FBR0E7RUFDSSxpQkFBQTtBQUFKOztBQUlBO0VBQ0ksY0FBQTtBQURKOztBQUlBO0VBQ0ksU0FBQTtFQUNBLFVBQUE7QUFESjs7QUFJQTtFQUNJLFdBQUE7QUFESjs7QUFJQTtFQUNJLGtCQUFBO0FBREoiLCJmaWxlIjoiYXNhbWJsZWEtYWRtaW4tY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXNsaWRlcyB7XG4gICAgLS1idWxsZXQtYmFja2dyb3VuZDogI2M5ZTI2NTtcbiAgICAtLWJ1bGxldC1iYWNrZ3JvdW5kLWFjdGl2ZTogI2M5ZTI2NTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgd2lkdGg6IDEwMCU7XG59XG5cbmlvbi1jYXJke1xuICAgIGJvcmRlcjogc29saWQgMXB4IHZhcigtLWlvbi1jb2xvci1yZXNpZGVudGUtdHh0KTtcbiAgICAvL2JveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcbiAgICBpb24tY2FyZC1jb250ZW50e1xuICAgICAgICBwYWRkaW5nLWxlZnQ6IDAlICFpbXBvcnRhbnQ7XG4gICAgICAgIHBhZGRpbmctcmlnaHQ6IDAlICFpbXBvcnRhbnQ7XG4gICAgICAgIHBhZGRpbmctdG9wOiA1JSAhaW1wb3J0YW50O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMCUgIWltcG9ydGFudDtcbiAgICB9XG59XG5cbiNwcm9wVGl0bGV7XG4gICAgaGVpZ2h0OiAxMjBweDtcbn1cblxuI3R4dFB7XG4gICAgZm9udC1zaXplOiAxLjJyZW07XG59XG5cbi5jYXJkQntcbiAgICBtYXJnaW4tbGVmdDogMjAlICFpbXBvcnRhbnQ7XG4gICAgd2lkdGg6IDYwJTtcbiAgICBpb24tY2FyZC1jb250ZW50e1xuICAgICAgICBmb250LXNpemU6IDEuMnJlbTtcbiAgICAgICAgcGFkZGluZy1sZWZ0OiAwJSAhaW1wb3J0YW50O1xuICAgICAgICBwYWRkaW5nLXJpZ2h0OiAwJSAhaW1wb3J0YW50O1xuICAgICAgICBwYWRkaW5nLXRvcDogMSUgIWltcG9ydGFudDtcbiAgICAgICAgcGFkZGluZy1ib3R0b206IDAlICFpbXBvcnRhbnQ7XG4gICAgfVxufVxuXG4jbGV0cmFSe1xuICAgIGZvbnQtc2l6ZTogMS4ycmVtO1xufVxuXG5cbmlvbi1zbGlkZSB7XG4gICAgZGlzcGxheTogYmxvY2s7XG59XG5cbmlvbi10ZXh0YXJlYXtcbiAgICBsZWZ0OiAyMCU7XG4gICAgd2lkdGg6IDYwJTtcbn1cblxuLmNvbnRlbnQtZGl2e1xuICAgIGhlaWdodDogOTAlO1xufVxuXG5pb24tY29udGVudCB7XG4gICAgLS1vdmVyZmxvdzogaGlkZGVuO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -6366,7 +6815,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ion-slides {\n  --bullet-background: #c9e265;\n  --bullet-background-active: #c9e265;\n  height: 100%;\n  width: 100%;\n}\n\nion-card {\n  left: 10%;\n  width: 70%;\n}\n\nion-slide {\n  display: block;\n}\n\nion-textarea {\n  left: 20%;\n  width: 60%;\n}\n\n.content-div {\n  height: 85%;\n}\n\nion-content {\n  --overflow: hidden;\n}\n\n#derecha {\n  width: 94%;\n  text-align: right;\n}\n\n#izquierda {\n  width: 94%;\n  padding-left: 5%;\n  text-align: left;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2FzYW1ibGVhLXJlc2lkZW50ZS1jb21wb25lbnQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSw0QkFBQTtFQUNBLG1DQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7QUFDSjs7QUFFQTtFQUNJLFNBQUE7RUFDQSxVQUFBO0FBQ0o7O0FBQ0E7RUFDSSxjQUFBO0FBRUo7O0FBQ0E7RUFDSSxTQUFBO0VBQ0EsVUFBQTtBQUVKOztBQUNBO0VBQ0ksV0FBQTtBQUVKOztBQUNBO0VBQ0ksa0JBQUE7QUFFSjs7QUFDQTtFQUNJLFVBQUE7RUFDQSxpQkFBQTtBQUVKOztBQUNBO0VBQ0ksVUFBQTtFQUNBLGdCQUFBO0VBQ0EsZ0JBQUE7QUFFSiIsImZpbGUiOiJhc2FtYmxlYS1yZXNpZGVudGUtY29tcG9uZW50LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXNsaWRlcyB7XG4gICAgLS1idWxsZXQtYmFja2dyb3VuZDogI2M5ZTI2NTtcbiAgICAtLWJ1bGxldC1iYWNrZ3JvdW5kLWFjdGl2ZTogI2M5ZTI2NTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgd2lkdGg6IDEwMCU7XG59XG5cbmlvbi1jYXJke1xuICAgIGxlZnQ6IDEwJTtcbiAgICB3aWR0aDogNzAlO1xufVxuaW9uLXNsaWRlIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbn1cblxuaW9uLXRleHRhcmVhe1xuICAgIGxlZnQ6IDIwJTtcbiAgICB3aWR0aDogNjAlO1xufVxuXG4uY29udGVudC1kaXZ7XG4gICAgaGVpZ2h0OiA4NSU7XG59XG5cbmlvbi1jb250ZW50IHtcbiAgICAtLW92ZXJmbG93OiBoaWRkZW47XG59XG5cbiNkZXJlY2hhe1xuICAgIHdpZHRoOiA5NCU7XG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XG59XG5cbiNpenF1aWVyZGF7XG4gICAgd2lkdGg6IDk0JTtcbiAgICBwYWRkaW5nLWxlZnQ6IDUlO1xuICAgIHRleHQtYWxpZ246IGxlZnQ7XG59XG5cblxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-slides {\n  --bullet-background: #c9e265;\n  --bullet-background-active: #c9e265;\n  height: 100%;\n  width: 100%;\n}\n\nion-card {\n  border: solid 1px var(--ion-color-residente-txt);\n}\n\nion-card ion-card-content {\n  padding-left: 0% !important;\n  padding-right: 0% !important;\n  padding-top: 5% !important;\n  padding-bottom: 0% !important;\n}\n\n#propTitle {\n  height: 120px;\n}\n\n#txtP {\n  font-size: 1.2rem;\n}\n\n.cardB {\n  margin-left: 20% !important;\n  width: 60%;\n}\n\n.cardB ion-card-content {\n  font-size: 1.2rem;\n  padding-left: 0% !important;\n  padding-right: 0% !important;\n  padding-top: 1% !important;\n  padding-bottom: 0% !important;\n}\n\n#letraR {\n  font-size: 1.2rem;\n}\n\nion-slide {\n  display: block;\n}\n\nion-textarea {\n  left: 20%;\n  width: 60%;\n}\n\n.content-div {\n  height: 90%;\n}\n\nion-content {\n  --overflow: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2FzYW1ibGVhLXJlc2lkZW50ZS1jb21wb25lbnQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSw0QkFBQTtFQUNBLG1DQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7QUFDSjs7QUFFQTtFQUNJLGdEQUFBO0FBQ0o7O0FBQ0k7RUFDSSwyQkFBQTtFQUNBLDRCQUFBO0VBQ0EsMEJBQUE7RUFDQSw2QkFBQTtBQUNSOztBQUdBO0VBQ0ksYUFBQTtBQUFKOztBQUdBO0VBQ0ksaUJBQUE7QUFBSjs7QUFHQTtFQUNJLDJCQUFBO0VBQ0EsVUFBQTtBQUFKOztBQUNJO0VBQ0ksaUJBQUE7RUFDQSwyQkFBQTtFQUNBLDRCQUFBO0VBQ0EsMEJBQUE7RUFDQSw2QkFBQTtBQUNSOztBQUdBO0VBQ0ksaUJBQUE7QUFBSjs7QUFJQTtFQUNJLGNBQUE7QUFESjs7QUFJQTtFQUNJLFNBQUE7RUFDQSxVQUFBO0FBREo7O0FBSUE7RUFDSSxXQUFBO0FBREo7O0FBSUE7RUFDSSxrQkFBQTtBQURKIiwiZmlsZSI6ImFzYW1ibGVhLXJlc2lkZW50ZS1jb21wb25lbnQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tc2xpZGVzIHtcbiAgICAtLWJ1bGxldC1iYWNrZ3JvdW5kOiAjYzllMjY1O1xuICAgIC0tYnVsbGV0LWJhY2tncm91bmQtYWN0aXZlOiAjYzllMjY1O1xuICAgIGhlaWdodDogMTAwJTtcbiAgICB3aWR0aDogMTAwJTtcbn1cblxuaW9uLWNhcmR7XG4gICAgYm9yZGVyOiBzb2xpZCAxcHggdmFyKC0taW9uLWNvbG9yLXJlc2lkZW50ZS10eHQpO1xuICAgIC8vYm94LXNoYWRvdzogbm9uZSAhaW1wb3J0YW50O1xuICAgIGlvbi1jYXJkLWNvbnRlbnR7XG4gICAgICAgIHBhZGRpbmctbGVmdDogMCUgIWltcG9ydGFudDtcbiAgICAgICAgcGFkZGluZy1yaWdodDogMCUgIWltcG9ydGFudDtcbiAgICAgICAgcGFkZGluZy10b3A6IDUlICFpbXBvcnRhbnQ7XG4gICAgICAgIHBhZGRpbmctYm90dG9tOiAwJSAhaW1wb3J0YW50O1xuICAgIH1cbn1cblxuI3Byb3BUaXRsZXtcbiAgICBoZWlnaHQ6IDEyMHB4O1xufVxuXG4jdHh0UHtcbiAgICBmb250LXNpemU6IDEuMnJlbTtcbn1cblxuLmNhcmRCe1xuICAgIG1hcmdpbi1sZWZ0OiAyMCUgIWltcG9ydGFudDtcbiAgICB3aWR0aDogNjAlO1xuICAgIGlvbi1jYXJkLWNvbnRlbnR7XG4gICAgICAgIGZvbnQtc2l6ZTogMS4ycmVtO1xuICAgICAgICBwYWRkaW5nLWxlZnQ6IDAlICFpbXBvcnRhbnQ7XG4gICAgICAgIHBhZGRpbmctcmlnaHQ6IDAlICFpbXBvcnRhbnQ7XG4gICAgICAgIHBhZGRpbmctdG9wOiAxJSAhaW1wb3J0YW50O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMCUgIWltcG9ydGFudDtcbiAgICB9XG59XG5cbiNsZXRyYVJ7XG4gICAgZm9udC1zaXplOiAxLjJyZW07XG59XG5cblxuaW9uLXNsaWRlIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbn1cblxuaW9uLXRleHRhcmVhe1xuICAgIGxlZnQ6IDIwJTtcbiAgICB3aWR0aDogNjAlO1xufVxuXG4uY29udGVudC1kaXZ7XG4gICAgaGVpZ2h0OiA5MCU7XG59XG5cbmlvbi1jb250ZW50IHtcbiAgICAtLW92ZXJmbG93OiBoaWRkZW47XG59Il19 */");
 
 /***/ }),
 
@@ -6382,9 +6831,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IPRESIDENTES", function() { return IPRESIDENTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IPRESIDENTESA", function() { return IPRESIDENTESA; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MONTHS", function() { return MONTHS; });
-const IPRESIDENTES = "http://190.156.243.87:8080/BackendResidentes/";
-const IPRESIDENTESA = "http://190.156.243.87:8080/BackendResidentes";
+const IPRESIDENTES = "http://192.168.0.27:8080/BackendResidentes/";
+const IPRESIDENTESA = "http://192.168.0.27:8080/BackendResidentes";
 const MONTHS = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+// 190.156.243.87
 
 
 /***/ }),
@@ -6398,7 +6848,7 @@ const MONTHS = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", 
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#centrado {\n  text-align: center;\n}\n\nion-card-subtitle {\n  font-size: 1.2rem;\n  text-transform: none;\n}\n\nion-card {\n  background-color: #F2F3F4;\n  border-radius: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL2xpc3RhLWFzYXNhbWJsZWEtYWRtaW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxrQkFBQTtBQUNKOztBQUVJO0VBQ0ksaUJBQUE7RUFDQSxvQkFBQTtBQUNSOztBQUVJO0VBQ0kseUJBQUE7RUFDQSxtQkFBQTtBQUNSIiwiZmlsZSI6Imxpc3RhLWFzYXNhbWJsZWEtYWRtaW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjY2VudHJhZG97XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIH1cblxuICAgIGlvbi1jYXJkLXN1YnRpdGxle1xuICAgICAgICBmb250LXNpemU6IDEuMnJlbTtcbiAgICAgICAgdGV4dC10cmFuc2Zvcm06IG5vbmU7XG4gICAgfVxuICAgIFxuICAgIGlvbi1jYXJke1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRjJGM0Y0O1xuICAgICAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICAgIH0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-card {\n  box-shadow: none !important;\n}\n\nion-label {\n  font-size: 20px;\n}\n\n.content-div {\n  height: 80%;\n}\n\nion-content {\n  --overflow: hidden;\n}\n\n#rounded {\n  width: 100%;\n  height: 40px;\n  border-radius: 10px;\n  margin-bottom: 10px;\n}\n\nion-input {\n  width: 10%;\n  border: solid 1px var(--ion-color-residente-txt);\n}\n\n#centrado {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL2xpc3RhLWFzYXNhbWJsZWEtYWRtaW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSwyQkFBQTtBQUNKOztBQUVBO0VBQ0ksZUFBQTtBQUNKOztBQUVBO0VBQ0ksV0FBQTtBQUNKOztBQUVBO0VBQ0ksa0JBQUE7QUFDSjs7QUFFQTtFQUNJLFdBQUE7RUFDQSxZQUFBO0VBR0EsbUJBQUE7RUFDQSxtQkFBQTtBQUNKOztBQUVBO0VBQ0ksVUFBQTtFQUNBLGdEQUFBO0FBQ0o7O0FBRUE7RUFDSSxrQkFBQTtBQUNKIiwiZmlsZSI6Imxpc3RhLWFzYXNhbWJsZWEtYWRtaW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY2FyZHtcbiAgICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG59XG5cbmlvbi1sYWJlbHtcbiAgICBmb250LXNpemU6IDIwcHg7XG59XG5cbi5jb250ZW50LWRpdntcbiAgICBoZWlnaHQ6IDgwJTtcbn1cblxuaW9uLWNvbnRlbnQge1xuICAgIC0tb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuI3JvdW5kZWQge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogNDBweDtcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDUwcHg7XG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA1MHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDsgIFxufVxuXG5pb24taW5wdXR7XG4gICAgd2lkdGg6IDEwJTtcbiAgICBib3JkZXI6IHNvbGlkIDFweCB2YXIoLS1pb24tY29sb3ItcmVzaWRlbnRlLXR4dCk7XG59XG5cbiNjZW50cmFkb3tcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59Il19 */");
 
 /***/ }),
 
@@ -6411,7 +6861,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"SOBRE RESIDENTES\" menu={{getUser()}}></app-header>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"SOBRE RESIDENTES\" menu=\"RESIDENTE\"></app-header>\n\n<dx-form id=\"form\"\n\t[formData]=\"residentes\">\n\t<dxi-item itemType=\"group\" cssClass=\"first-group\" [colCount]=\"4\">\n\t\t<dxi-item>\n\t\t\t<div class=\"form-avatar\"></div>\n\t\t</dxi-item>\n\t<dxi-item itemType=\"group\" caption=\"Sobre Nosotros\" >\n\t\t<div class=\"sobre-nosotros\" > \n\t\t\t<p>\n\t\t\t\tSomos una  empresa de desarrollo tecnológico que marca tendencia en las propiedades horizontales, \n\t\t\t\tgenerando una nueva experiencia para residentes, \n\t\t\t\templeados y administradores mejorando su comunicación y la eficiencia de sus procesos internos. \n\t\t\t\t¡Gracias por preferirnos!\n\t\t\t</p>\n\t\t</div>\n\t</dxi-item>\n\t<dxi-item itemType=\"group\" caption=\"Desarrolladores\" >\n\t\t<div class=\"sobre-nosotros\" > \n\t\t\t<p>\n\t\t\t\tAlejandro Diaz <br>\n\t\t\t\tJuan Sebastian Barreto <br>\n\t\t\t\tMariana Rojas Galavis <br>\n\t\t\t\tDavid Santiago Quintana <br>\n\t\t\t\tMaria Jose Nino <br> \n\t\t\t\tJanet Chen he <br> \n\t\t\t\tAndres Ricardo Porras <br>\n\t\t\t</p>\n\t\t</div>\n\t</dxi-item>\n\t</dxi-item>\t\n</dx-form>\n\n");
 
 /***/ }),
 
@@ -6429,17 +6879,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_header_start_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./header-start.component.html */ "DQZR");
 /* harmony import */ var _header_start_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header-start.component.scss */ "5L9K");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+
 
 
 
 
 let HeaderStartComponent = class HeaderStartComponent {
-    constructor() { }
+    constructor(navCtrl) {
+        this.navCtrl = navCtrl;
+        this.back = "NO";
+    }
     ngOnInit() { }
+    goBack() {
+        this.navCtrl.navigateBack(this.routeBack);
+    }
 };
-HeaderStartComponent.ctorParameters = () => [];
+HeaderStartComponent.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] }
+];
 HeaderStartComponent.propDecorators = {
-    titulo: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }]
+    titulo: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
+    back: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
+    routeBack: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }]
 };
 HeaderStartComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -6748,6 +7210,122 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
+/***/ "o7Ac":
+/*!*************************************************************!*\
+  !*** ./src/app/Services/camcontraserv/camcontra.service.ts ***!
+  \*************************************************************/
+/*! exports provided: CamcontraService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CamcontraService", function() { return CamcontraService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var src_app_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/constants */ "l207");
+
+
+
+
+let CamcontraService = class CamcontraService {
+    constructor(http) {
+        this.http = http;
+        this.listconj = [
+            {
+                id: 1,
+                nombre: "1-11",
+                contrasena: "hola1"
+            },
+            {
+                id: 2,
+                nombre: "1-12",
+                contrasena: "hola2"
+            },
+            {
+                id: 3,
+                nombre: "1-21",
+                contrasena: "hola3"
+            },
+            {
+                id: 4,
+                nombre: "1-22",
+                contrasena: "hola4"
+            }
+        ];
+    }
+    getConjuntos(numConjunto) {
+        this.obtener(src_app_constants__WEBPACK_IMPORTED_MODULE_3__["IPRESIDENTES"] + "consultas/apartamentos/aptosNomId/" + numConjunto.toString());
+    }
+    cambContra(id, cont) {
+        this.obtenerP(src_app_constants__WEBPACK_IMPORTED_MODULE_3__["IPRESIDENTES"] + "consultas/apartamentos/UpdateCApto/" + id + "/" + cont);
+    }
+    obtenerP(url) {
+        this.conjuntosLec = [];
+        this.putConjj(url)
+            .subscribe(respuesta => {
+            this.respuestas = respuesta;
+        });
+    }
+    obtener(url) {
+        this.conjuntosLec = [];
+        this.getConjj(url)
+            .subscribe(respuesta => {
+            this.conjuntosLec = respuesta;
+        });
+    }
+    putConjj(url) {
+        return this.http.put(url, null);
+    }
+    getConjj(url) {
+        return this.http.get(url);
+    }
+    obtenerListaConju() {
+        return this.listconj;
+    }
+    obtenerConjLec() {
+        return this.conjuntosLec;
+    }
+    setCamAptoId(id, nom, cont) {
+        window.localStorage['aptoCamConId'] = id;
+        window.localStorage['aptoCamConNom'] = nom;
+        window.localStorage['aptoCamConContra'] = cont;
+    }
+    getNomApto() {
+        this.nombre = (window.localStorage['aptoCamConNom'] || (-1).toString);
+        if (this.nombre == '-1')
+            return null;
+        else
+            return (this.nombre);
+    }
+    getContraApto() {
+        this.contApto = (window.localStorage['aptoCamConContra'] || (-1).toString);
+        if (this.contApto == '-1')
+            return null;
+        else
+            return (this.contApto);
+    }
+    getAptoId() {
+        this.idApto = Number(window.localStorage['aptoCamConId'] || -1);
+        if (this.idApto == -1)
+            return null;
+        else
+            return (this.idApto);
+    }
+};
+CamcontraService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }
+];
+CamcontraService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+        providedIn: 'root'
+    })
+], CamcontraService);
+
+
+
+/***/ }),
+
 /***/ "oClf":
 /*!***********************************************************************************************************!*\
   !*** ./src/app/components/residente/reservacion-area-residente/reservacion-area-residente.component.scss ***!
@@ -6909,7 +7487,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"ÁREAS COMUNES\" menu=RESIDENTE></app-header>\n<div class = \"mover\">\n<div id=\"form1\">\n    <div class=\"dx-fieldset\">\n        <div class=\"dx-field\">\n            <div class=\"dx-field-label\">Tipo: </div>\n            <div class=\"dx-field-value\">\n                <dx-radio-group [items]=\"tipo\" \n                                 layout=\"horizontal\"\n                                 (onOptionChanged)=\"traerAreastipo()\">\n                </dx-radio-group>\n            </div>\n        </div>\n    </div>\n</div>\n\n<div class=\"margen2\">Lista Areas Comunes</div>\n<dx-select-box class=\"margen1\" [items]=\"listaDeAreasComunes\"></dx-select-box>\n\n\n<app-calendar-paquete></app-calendar-paquete>\n\n\n<div class=\"margen3\">Horas Disponibles</div>\n<dx-select-box class=\"margen1\" [items]=\"horasDisponibles\"></dx-select-box>\n\n\n\n<ion-button class=\"boton1\"\n      (click)=\"mandarMisReservas()\"\n      expand=\"full\"\n      shape=\"round\"\n      color=\"residente\"\n      type=\"submit\"\n      >Mis Reservas</ion-button>\n<ion-button class=\"boton2\"\n      (click)=\"mandarNueva()\"\n      expand=\"full\"\n      shape=\"round\"\n      color=\"residente\"\n      type=\"submit\"\n      >Nueva Reserva</ion-button>\n\n    </div>\n      \n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"ÁREAS COMUNES\" menu=RESIDENTE></app-header>\n<ion-row>\n    <ion-col size=\"2\">\n      <ion-button fill=\"clear\" (click)=\"back()\">\n        <ion-icon name=\"arrow-back\" color=\"residente\" slot=\"icon-only\"></ion-icon>\n      </ion-button>\n    </ion-col>\n    <ion-col size=\"8\" class=\"ion-text-center\">\n      <h2> {{ viewTitle }} </h2>\n    </ion-col>\n    <ion-col size=\"2\">\n      <ion-button fill=\"clear\" color=\"residente\" (click)=\"next()\">\n        <ion-icon name=\"arrow-forward\" slot=\"icon-only\"></ion-icon>\n      </ion-button>\n    </ion-col>\n  </ion-row>\n  <calendar \n  [calendarMode]=\"calendar.mode\"\n  [currentDate]=\"calendar.currentDate\"\n  [showEventDetail]=false\n  (onTitleChanged)=\"onViewTitleChanged($event)\"\n  (onTimeSelected)=\"onTimeSelected($event)\">\n  </calendar>\n\n<div class = \"margen1111\">\n        \n    <div class=\"dx-field\">\n        <div class=\"dx-field-label\">Tipo</div>\n        <div class=\"dx-field-value\">\n            <dx-radio-group\n                [items]=\"tipo\"\n                [value]=\"tipo[0]\"\n                (onOptionChanged)=\"traerAreastipo()\">\n            </dx-radio-group>\n        </div>\n    </div>\n            \n               \n        \n       \n<div class=\"margen2\">Lista Áreas Comunes</div>\n<dx-select-box class=\"margen111\" [items]=\"listaDeAreasComunes\"></dx-select-box>\n<div class=\"margen33\">Horas Disponibles</div>\n<dx-select-box class=\"margen111\" [items]=\"horasDisponibles\"></dx-select-box>\n\n\n\n</div>\n\n\n<ion-button class=\"boton5\"\n      (click)=\"mandarMisReservas()\"\n      expand=\"full\"\n      shape=\"round\"\n      color=\"residente\"\n      type=\"submit\"\n      >Mis Reservas</ion-button>\n<ion-button class=\"boton2\"\n      (click)=\"mandarNueva()\"\n      expand=\"full\"\n      shape=\"round\"\n      color=\"residente\"\n      type=\"submit\"\n      >Nueva Reserva</ion-button>\n  \n      \n");
 
 /***/ }),
 
@@ -6927,27 +7505,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_acerca_nosotros_component_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./acerca-nosotros-component.component.html */ "mRsq");
 /* harmony import */ var _acerca_nosotros_component_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./acerca-nosotros-component.component.scss */ "0bnJ");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var src_app_Services_personas_personas_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/Services/personas/personas.service */ "3xD8");
+/* harmony import */ var src_app_Services_AcercaDeNosotros_acerca_de_nosotros_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/Services/AcercaDeNosotros/acerca-de-nosotros.service */ "czgk");
+/* harmony import */ var devextreme_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! devextreme-angular */ "hYZE");
+
+
 
 
 
 
 
 let AcercaNosotrosComponent = class AcercaNosotrosComponent {
-    constructor(personasService) {
-        this.personasService = personasService;
+    constructor(service) {
+        this.service = service;
+        this.residentes = service.getResidentes();
     }
     ngOnInit() { }
-    getUser() {
-        return this.personasService.getUserActivo();
-    }
 };
 AcercaNosotrosComponent.ctorParameters = () => [
-    { type: src_app_Services_personas_personas_service__WEBPACK_IMPORTED_MODULE_4__["PersonasService"] }
+    { type: src_app_Services_AcercaDeNosotros_acerca_de_nosotros_service__WEBPACK_IMPORTED_MODULE_4__["AcercaDeNosotrosService"] }
 ];
+AcercaNosotrosComponent.propDecorators = {
+    form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [devextreme_angular__WEBPACK_IMPORTED_MODULE_5__["DxFormComponent"], { static: false },] }]
+};
 AcercaNosotrosComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-acerca-nosotros-component',
+        providers: [src_app_Services_AcercaDeNosotros_acerca_de_nosotros_service__WEBPACK_IMPORTED_MODULE_4__["AcercaDeNosotrosService"]],
         template: _raw_loader_acerca_nosotros_component_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
         styles: [_acerca_nosotros_component_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     })
@@ -7011,6 +7594,83 @@ RegistroServicioService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
 
 /***/ }),
 
+/***/ "tLy9":
+/*!*********************************************************************!*\
+  !*** ./src/app/components/admin/listaptosc/listaptosc.component.ts ***!
+  \*********************************************************************/
+/*! exports provided: ListaptoscComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListaptoscComponent", function() { return ListaptoscComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _raw_loader_listaptosc_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./listaptosc.component.html */ "AgHz");
+/* harmony import */ var _listaptosc_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listaptosc.component.scss */ "P1Pe");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var src_app_Services_camcontraserv_camcontra_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/Services/camcontraserv/camcontra.service */ "o7Ac");
+/* harmony import */ var src_app_Services_conjuntos_conjuntos_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/Services/conjuntos/conjuntos.service */ "bLIy");
+
+
+
+
+
+
+let ListaptoscComponent = class ListaptoscComponent {
+    constructor(servi, conjuntosService) {
+        this.servi = servi;
+        this.conjuntosService = conjuntosService;
+    }
+    ngOnInit() {
+    }
+    ionViewWillEnter() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.servi.getConjuntos(this.conjuntosService.getConjuntoActivo());
+            yield this.waitBD();
+            //this.listconj = this.servi.obtenerListaConju();
+            this.listconj = this.servi.obtenerConjLec();
+            this.aptobuscado = this.listconj;
+            console.log("APTOSSSSS: ", this.aptobuscado);
+        });
+    }
+    waitBD() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield new Promise(resolve => setTimeout(resolve, 800));
+        });
+    }
+    getAptosBuscado() {
+        return this.aptobuscado;
+    }
+    elegirApto(apto) {
+        this.servi.setCamAptoId(apto.id, apto.nombre, apto.contrasena);
+        console.log(apto.id);
+    }
+    buscarApto(event) {
+        const text = event.target.value;
+        if (text && text.trim() != '') {
+            this.aptobuscado = this.listconj;
+            this.aptobuscado = this.aptobuscado.filter((apto) => {
+                return ((apto.nombre.toLowerCase().indexOf(text.toLowerCase()) > -1));
+            });
+        }
+    }
+};
+ListaptoscComponent.ctorParameters = () => [
+    { type: src_app_Services_camcontraserv_camcontra_service__WEBPACK_IMPORTED_MODULE_4__["CamcontraService"] },
+    { type: src_app_Services_conjuntos_conjuntos_service__WEBPACK_IMPORTED_MODULE_5__["ConjuntosService"] }
+];
+ListaptoscComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-listaptosc',
+        template: _raw_loader_listaptosc_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_listaptosc_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+    })
+], ListaptoscComponent);
+
+
+
+/***/ }),
+
 /***/ "u7Ej":
 /*!*****************************************************!*\
   !*** ./src/app/Services/Ganador/ganador.service.ts ***!
@@ -7055,6 +7715,19 @@ GanadorService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 ], GanadorService);
 
 
+
+/***/ }),
+
+/***/ "uEox":
+/*!*******************************************************************************!*\
+  !*** ./src/app/components/admin/nueva-asamblea/nueva-asamblea.component.scss ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep .first-group,\n::ng-deep .second-group {\n  padding: 20px;\n}\n\n::ng-deep .second-group {\n  background-color: rgba(191, 191, 191, 0.15);\n}\n\n::ng-deep .derrecha {\n  margin-left: 50px;\n}\n\n::ng-deep .tabpanel-item {\n  height: 200px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  user-select: none;\n  padding-left: 25px;\n  padding-top: 55px;\n}\n\n::ng-deep .mobile .tabpanel-item {\n  padding-top: 10px;\n}\n\n::ng-deep .tabpanel-item > div {\n  float: left;\n  padding: 0 85px 10px 10px;\n}\n\n::ng-deep .tabpanel-item p {\n  font-size: 16px;\n  margin: 0;\n}\n\n::ng-deep .item-box {\n  font-size: 16px;\n  margin: 15px 0 45px 10px;\n}\n\n::ng-deep .options {\n  padding: 20px;\n  background-color: rgba(191, 191, 191, 0.15);\n  margin-top: 20px;\n}\n\n::ng-deep .caption {\n  font-size: 18px;\n  font-weight: 500;\n}\n\n::ng-deep .option {\n  margin-top: 10px;\n}\n\nion-card-subtitle {\n  font-size: 1.2rem;\n}\n\n.lado {\n  margin-bottom: 50px;\n  margin-left: 60px;\n  border-radius: 20px;\n  background-color: #c9e265;\n}\n\n.lado-cancelar {\n  margin-bottom: 50px;\n  margin-left: 60px;\n  border-radius: 20px;\n  background-color: #e27c65;\n}\n\n.estetica {\n  margin-bottom: 200px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n\n#centrado {\n  text-align: center;\n}\n\n.content-div {\n  height: 80%;\n}\n\nion-content {\n  --overflow: hidden;\n}\n\n#rounded {\n  width: 100%;\n  height: 40px;\n  border-radius: 10px;\n  margin-bottom: 10px;\n}\n\nion-card {\n  box-shadow: none !important;\n}\n\nion-label {\n  font-size: 20px;\n}\n\nion-input {\n  width: 10%;\n  border: solid 1px var(--ion-color-residente-txt);\n}\n\nion-select {\n  width: 120%;\n  border: solid 1px var(--ion-color-residente-txt);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL251ZXZhLWFzYW1ibGVhLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVJLGFBQUE7QUFDSjs7QUFFQTtFQUNJLDJDQUFBO0FBQ0o7O0FBRUE7RUFDRyxpQkFBQTtBQUNIOztBQUVBO0VBQ0ksYUFBQTtFQUNBLDJCQUFBO0VBQ0EseUJBQUE7RUFJQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7QUFDSjs7QUFDQTtFQUNJLGlCQUFBO0FBRUo7O0FBQUE7RUFDSSxXQUFBO0VBQ0EseUJBQUE7QUFHSjs7QUFEQTtFQUNJLGVBQUE7RUFDQSxTQUFBO0FBSUo7O0FBRkE7RUFDSSxlQUFBO0VBQ0Esd0JBQUE7QUFLSjs7QUFIQTtFQUNJLGFBQUE7RUFDQSwyQ0FBQTtFQUNBLGdCQUFBO0FBTUo7O0FBSkE7RUFDSSxlQUFBO0VBQ0EsZ0JBQUE7QUFPSjs7QUFMQTtFQUNJLGdCQUFBO0FBUUo7O0FBTEE7RUFDSSxpQkFBQTtBQVFKOztBQUxBO0VBQ0csbUJBQUE7RUFDQyxpQkFBQTtFQUNBLG1CQUFBO0VBQ0EseUJBQUE7QUFRSjs7QUFMQTtFQUNJLG1CQUFBO0VBQ0MsaUJBQUE7RUFDQSxtQkFBQTtFQUNBLHlCQUFBO0FBUUw7O0FBTEM7RUFDRSxvQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUFRSDs7QUFMQztFQUNHLGtCQUFBO0FBUUo7O0FBTEE7RUFDSSxXQUFBO0FBUUo7O0FBTEE7RUFDSSxrQkFBQTtBQVFKOztBQUxBO0VBQ0ksV0FBQTtFQUNBLFlBQUE7RUFHQSxtQkFBQTtFQUNBLG1CQUFBO0FBUUo7O0FBTEE7RUFDSSwyQkFBQTtBQVFKOztBQUxBO0VBQ0ksZUFBQTtBQVFKOztBQUxBO0VBQ0ksVUFBQTtFQUNBLGdEQUFBO0FBUUo7O0FBTEE7RUFDSSxXQUFBO0VBQ0EsZ0RBQUE7QUFRSiIsImZpbGUiOiJudWV2YS1hc2FtYmxlYS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjo6bmctZGVlcCAuZmlyc3QtZ3JvdXAsXG46Om5nLWRlZXAgLnNlY29uZC1ncm91cCB7XG4gICAgcGFkZGluZzogMjBweDtcbn1cblxuOjpuZy1kZWVwIC5zZWNvbmQtZ3JvdXAge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTkxLCAxOTEsIDE5MSwgMC4xNSk7XG59XG5cbjo6bmctZGVlcCAuZGVycmVjaGEge1xuICAgbWFyZ2luLWxlZnQ6IDUwcHg7XG59XG5cbjo6bmctZGVlcCAudGFicGFuZWwtaXRlbSB7XG4gICAgaGVpZ2h0OiAyMDBweDtcbiAgICAtd2Via2l0LXRvdWNoLWNhbGxvdXQ6IG5vbmU7XG4gICAgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTtcbiAgICAta2h0bWwtdXNlci1zZWxlY3Q6IG5vbmU7XG4gICAgLW1vei11c2VyLXNlbGVjdDogbm9uZTtcbiAgICAtbXMtdXNlci1zZWxlY3Q6IG5vbmU7XG4gICAgdXNlci1zZWxlY3Q6IG5vbmU7XG4gICAgcGFkZGluZy1sZWZ0OiAyNXB4O1xuICAgIHBhZGRpbmctdG9wOiA1NXB4O1xufVxuOjpuZy1kZWVwIC5tb2JpbGUgLnRhYnBhbmVsLWl0ZW0ge1xuICAgIHBhZGRpbmctdG9wOiAxMHB4O1xufVxuOjpuZy1kZWVwIC50YWJwYW5lbC1pdGVtICA+IGRpdiB7XG4gICAgZmxvYXQ6IGxlZnQ7XG4gICAgcGFkZGluZzogMCA4NXB4IDEwcHggMTBweFxufVxuOjpuZy1kZWVwIC50YWJwYW5lbC1pdGVtICBwIHtcbiAgICBmb250LXNpemU6IDE2cHg7XG4gICAgbWFyZ2luOiAwOyAgICBcbn1cbjo6bmctZGVlcCAuaXRlbS1ib3gge1xuICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICBtYXJnaW46IDE1cHggMCA0NXB4IDEwcHg7XG59XG46Om5nLWRlZXAgLm9wdGlvbnMge1xuICAgIHBhZGRpbmc6IDIwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxOTEsIDE5MSwgMTkxLCAwLjE1KTtcbiAgICBtYXJnaW4tdG9wOiAyMHB4O1xufVxuOjpuZy1kZWVwIC5jYXB0aW9uIHtcbiAgICBmb250LXNpemU6IDE4cHg7XG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcbn1cbjo6bmctZGVlcCAub3B0aW9uIHtcbiAgICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG5pb24tY2FyZC1zdWJ0aXRsZXtcbiAgICBmb250LXNpemU6IDEuMnJlbTtcbn1cblxuLmxhZG8ge1xuICAgbWFyZ2luLWJvdHRvbTogNTBweDtcbiAgICBtYXJnaW4tbGVmdDogNjBweDtcbiAgICBib3JkZXItcmFkaXVzOiAyMHB4O1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNjOWUyNjU7XG59XG5cbi5sYWRvLWNhbmNlbGFye1xuICAgIG1hcmdpbi1ib3R0b206IDUwcHg7XG4gICAgIG1hcmdpbi1sZWZ0OiA2MHB4O1xuICAgICBib3JkZXItcmFkaXVzOiAyMHB4O1xuICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZTI3YzY1O1xuIH1cblxuIC5lc3RldGljYXtcbiAgIG1hcmdpbi1ib3R0b206IDIwMHB4O1xuICAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG4gfVxuXG4gI2NlbnRyYWRve1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuLmNvbnRlbnQtZGl2e1xuICAgIGhlaWdodDogODAlO1xufVxuXG5pb24tY29udGVudCB7XG4gICAgLS1vdmVyZmxvdzogaGlkZGVuO1xufVxuXG4jcm91bmRlZCB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiA0MHB4O1xuICAgIC1tb3otYm9yZGVyLXJhZGl1czogNTBweDtcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDUwcHg7XG4gICAgYm9yZGVyLXJhZGl1czogMTBweDtcbiAgICBtYXJnaW4tYm90dG9tOiAxMHB4OyAgXG59XG5cbmlvbi1jYXJke1xuICAgIGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcbn1cblxuaW9uLWxhYmVse1xuICAgIGZvbnQtc2l6ZTogMjBweDtcbn1cblxuaW9uLWlucHV0e1xuICAgIHdpZHRoOiAxMCU7XG4gICAgYm9yZGVyOiBzb2xpZCAxcHggdmFyKC0taW9uLWNvbG9yLXJlc2lkZW50ZS10eHQpO1xufVxuXG5pb24tc2VsZWN0e1xuICAgIHdpZHRoOiAxMjAlO1xuICAgIGJvcmRlcjogc29saWQgMXB4IHZhcigtLWlvbi1jb2xvci1yZXNpZGVudGUtdHh0KTtcbn1cbiJdfQ== */");
 
 /***/ }),
 
@@ -7225,7 +7898,6 @@ let NoticiasComponent = class NoticiasComponent {
         this.api = api;
         this.plt = plt;
         this.actionSheetCtrl = actionSheetCtrl;
-        this.mostrar = 0;
         this.hoja = document.createElement('style');
         this.descripcion = "";
         this.noticiaNueva = new src_app_Services_noticias_noticia_model__WEBPACK_IMPORTED_MODULE_10__["Noticia"]();
@@ -7234,35 +7906,11 @@ let NoticiasComponent = class NoticiasComponent {
         this.dia = 0;
         this.images = [];
     }
-    //////////////////////// TTTEEESSSTTTT ////////////////////////
-    selectImageSource() {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            this.fileInput.nativeElement.click();
-        });
-    }
-    // Used for browser direct file upload
-    uploadFile(event) {
-        this.fileInput.nativeElement.click();
-        const eventObj = event;
-        const target = eventObj.target;
-        const file = target.files[0];
-        console.log("File: ", file);
-        this.fileP = file;
-        /*this.api.uploadImageFile(file).subscribe((newImage: ApiImage) => {
-          this.images.push(newImage);
-        });*/
-    }
-    deleteImage(image, index) {
-        this.api.deleteImage(image._id).subscribe(res => {
-            this.images.splice(index, 1);
-        });
-    }
-    //////////////////////// TTTEEESSSTTTT ////////////////////////
     ngOnInit() {
     } // end ngOnInit
     waitBD() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            yield new Promise(resolve => setTimeout(resolve, 1000));
+            yield new Promise(resolve => setTimeout(resolve, 1200));
         });
     }
     ionViewWillEnter() {
@@ -7304,16 +7952,11 @@ let NoticiasComponent = class NoticiasComponent {
         return src_app_constants__WEBPACK_IMPORTED_MODULE_6__["MONTHS"][Math.trunc(month) - 1] + " " + day.toString() + " " + year.toString();
     } // end convertDate
     click() {
-        this.mostrar = 1;
         this.hoja.innerHTML = "#content-div {height: 70%;}";
         document.body.appendChild(this.hoja);
         console.log("MUereeee");
     }
-    getMostrar() {
-        return this.mostrar;
-    }
     cancelarNoticia() {
-        this.mostrar = 0;
         this.hoja.innerHTML = "#content-div {height:80%;}";
         document.body.appendChild(this.hoja);
         this.descripcion = "";
@@ -7358,7 +8001,6 @@ let NoticiasComponent = class NoticiasComponent {
     } // end presentAlertConfirm
     publicarNoticia() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            this.mostrar = 0;
             this.hoja.innerHTML = "#content-div {height: 80%;}";
             document.body.appendChild(this.hoja);
             if ((this.descripcion != "")) {
@@ -7580,6 +8222,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_residente_modificar_reserva_area_modificar_reserva_area_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/residente/modificar-reserva-area/modificar-reserva-area.component */ "3pVO");
 /* harmony import */ var _components_admin_lista_asambleas_admin_lista_asasamblea_admin_lista_asasamblea_admin_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/admin/lista-asambleas-admin/lista-asasamblea-admin/lista-asasamblea-admin.component */ "0ac8");
 /* harmony import */ var _components_empleado_calendar_paquete_calendar_paquete_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./components/empleado/calendar-paquete/calendar-paquete.component */ "Enwz");
+/* harmony import */ var _components_admin_listaptosc_listaptosc_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/admin/listaptosc/listaptosc.component */ "tLy9");
+/* harmony import */ var _components_admin_cambicontra_cambicontra_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/admin/cambicontra/cambicontra.component */ "Fipu");
+/* harmony import */ var _components_admin_nueva_asamblea_nueva_asamblea_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/admin/nueva-asamblea/nueva-asamblea.component */ "dgM3");
 
 
 
@@ -7632,6 +8277,9 @@ Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["registerLocaleData"])(_angu
 
 
 
+
+
+
 //ngx-extended-pdf-viwer
 const routes = [
     {
@@ -7639,7 +8287,7 @@ const routes = [
         component: _components_general_home_component_home_component_component__WEBPACK_IMPORTED_MODULE_13__["HomeComponent"]
     },
     {
-        path: 'nuevo-conjunto',
+        path: 'nuevo-conjunto2',
         component: _components_admin_agregar_conjunto_component_agregar_conjunto_component_component__WEBPACK_IMPORTED_MODULE_5__["AgregarConjuntoComponent"]
     },
     {
@@ -7647,7 +8295,11 @@ const routes = [
         component: _components_admin_asamblea_admin_component_asamblea_admin_component_component__WEBPACK_IMPORTED_MODULE_6__["AsambleaAdminComponent"]
     },
     {
-        path: 'claves',
+        path: 'nueva-asamblea',
+        component: _components_admin_nueva_asamblea_nueva_asamblea_component__WEBPACK_IMPORTED_MODULE_53__["NuevaAsambleaComponent"]
+    },
+    {
+        path: 'claves2',
         component: _components_admin_claves_component_claves_component_component__WEBPACK_IMPORTED_MODULE_7__["ClavesComponent"]
     },
     {
@@ -7776,6 +8428,14 @@ const routes = [
         component: _components_admin_lista_asambleas_admin_lista_asasamblea_admin_lista_asasamblea_admin_component__WEBPACK_IMPORTED_MODULE_49__["ListaAsasambleaAdminComponent"]
     },
     {
+        path: 'claves',
+        component: _components_admin_listaptosc_listaptosc_component__WEBPACK_IMPORTED_MODULE_51__["ListaptoscComponent"]
+    },
+    {
+        path: 'clavescambio',
+        component: _components_admin_cambicontra_cambicontra_component__WEBPACK_IMPORTED_MODULE_52__["CambicontraComponent"]
+    },
+    {
         path: 'ingre-apto',
         loadChildren: () => Promise.all(/*! import() | app-components-general-ingre-apto-ingre-apto-module */[__webpack_require__.e("common"), __webpack_require__.e("app-components-general-ingre-apto-ingre-apto-module")]).then(__webpack_require__.bind(null, /*! ../app/components/general/ingre-apto/ingre-apto.module */ "EsvC")).then(m => m.IngreAptoPageModule)
     },
@@ -7790,6 +8450,10 @@ const routes = [
     {
         path: 'agregar-empleado',
         loadChildren: () => __webpack_require__.e(/*! import() | components-admin-agregar-empleado-agregar-empleado-module */ "components-admin-agregar-empleado-agregar-empleado-module").then(__webpack_require__.bind(null, /*! ./components/admin/agregar-empleado/agregar-empleado.module */ "fr1Z")).then(m => m.AgregarEmpleadoPageModule)
+    },
+    {
+        path: 'nuevo-conjunto',
+        loadChildren: () => __webpack_require__.e(/*! import() | components-admin-nuevo-conjunto-nuevo-conjunto-module */ "components-admin-nuevo-conjunto-nuevo-conjunto-module").then(__webpack_require__.bind(null, /*! ./components/admin/nuevo-conjunto/nuevo-conjunto.module */ "R3ni")).then(m => m.NuevoConjuntoPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -7834,6 +8498,7 @@ AppRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_general_header_start_header_start_component__WEBPACK_IMPORTED_MODULE_18__["HeaderStartComponent"],
             _components_admin_agregar_conjunto_component_agregar_conjunto_component_component__WEBPACK_IMPORTED_MODULE_5__["AgregarConjuntoComponent"],
             _components_admin_asamblea_admin_component_asamblea_admin_component_component__WEBPACK_IMPORTED_MODULE_6__["AsambleaAdminComponent"],
+            _components_admin_nueva_asamblea_nueva_asamblea_component__WEBPACK_IMPORTED_MODULE_53__["NuevaAsambleaComponent"],
             _components_admin_claves_component_claves_component_component__WEBPACK_IMPORTED_MODULE_7__["ClavesComponent"],
             _components_admin_manual_admin_component_manual_admin_component_component__WEBPACK_IMPORTED_MODULE_8__["ManualAdminComponent"],
             _components_admin_quejas_admin_component_quejas_admin_component_component__WEBPACK_IMPORTED_MODULE_9__["QuejasAdminComponent"],
@@ -7857,9 +8522,11 @@ AppRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_general_seleccion_conjunto_component_seleccion_conjunto_component_component__WEBPACK_IMPORTED_MODULE_33__["SeleccionConjuntoComponent"],
             _components_residente_lista_asambleas_residentes_lista_asambleas_residentes_component__WEBPACK_IMPORTED_MODULE_38__["ListaAsambleasResidentesComponent"],
             _components_general_chat_chat_component__WEBPACK_IMPORTED_MODULE_39__["ChatComponent"],
+            _components_admin_cambicontra_cambicontra_component__WEBPACK_IMPORTED_MODULE_52__["CambicontraComponent"],
             _components_residente_reservar_area_reservar_area_component__WEBPACK_IMPORTED_MODULE_40__["ReservarAreaComponent"],
             _components_admin_area_comun_admin_area_comun_admin_component__WEBPACK_IMPORTED_MODULE_41__["AreaComunAdminComponent"],
             _components_admin_agregar_area_admin_agregar_area_admin_component__WEBPACK_IMPORTED_MODULE_42__["AgregarAreaAdminComponent"],
+            _components_admin_listaptosc_listaptosc_component__WEBPACK_IMPORTED_MODULE_51__["ListaptoscComponent"],
             _components_admin_modificar_area_admin_modificar_area_admin_component__WEBPACK_IMPORTED_MODULE_43__["ModificarAreaAdminComponent"],
             _components_residente_reservacion_area_residente_reservacion_area_residente_component__WEBPACK_IMPORTED_MODULE_47__["ReservacionAreaResidenteComponent"],
             _components_residente_modificar_reserva_area_modificar_reserva_area_component__WEBPACK_IMPORTED_MODULE_48__["ModificarReservaAreaComponent"],
@@ -7886,7 +8553,7 @@ AppRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header-start titulo=\"Tus conjuntos\"></app-header-start>\n\n<ion-content padding class=\"vertical-center\">\n  <section class=\"ion-text-center\">\n    <ion-label color=\"medium\"> <i>Selecciona un conjunto</i> <br> <br> </ion-label>\n  </section>\n\n  <ion-card class=\"ion-text-center\" (click)=\"goConjunto(conjunto)\" *ngFor=\"let conjunto of getConjuntos()\">\n      <ion-card-title> {{conjunto.nombre}} </ion-card-title>\n      <ion-img src=\"/../../../../assets/icon/IconConjuntos/Edi.png\" alt=\"Conjunto\"></ion-img>\n    <br>\n  </ion-card>\n\n  <ion-card class=\"ion-text-center\" (click)=\"goAgregar()\">\n    <ion-img src=\"./../../../../assets/icon/IconConjuntos/add.png\" alt=\"Agregar\"></ion-img>\n  </ion-card>\n\n\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header-start titulo=\"Tus conjuntos\" back=\"NO\"></app-header-start>\n<ion-toolbar class=\"ion-text-center\">\n  <ion-label color=\"medium\"> <i>Selecciona un conjunto</i> <br> <br> </ion-label>\n</ion-toolbar>\n<ion-content padding class=\"vertical-center\">\n  <ion-card class=\"ion-text-center\" (click)=\"goConjunto(conjunto)\" *ngFor=\"let conjunto of getConjuntos()\">\n    <ion-card-title> {{conjunto.nombre}} </ion-card-title>\n      <ion-img src=\"/../../../../assets/icon/IconConjuntos/Edi.png\" alt=\"Conjunto\"></ion-img>\n    <br>\n  </ion-card>\n  <div *ngIf=\"getUser()\">\n    <ion-card class=\" ion-text-center\" (click)=\"goAgregar()\">\n      <ion-img src=\"./../../../../assets/icon/IconConjuntos/add.png\" alt=\"Agregar\"></ion-img>\n    </ion-card>\n  </div>\n</ion-content>");
 
 /***/ }),
 
@@ -8020,7 +8687,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"{{getAsamblea().tema}}\" menu=NO routeBack=\"/lista-asambleas-residentes\"></app-header>\n\n<ion-content>\n    <ion-slides pager=\"true\" #theSlides>\n        <ion-slide *ngFor=\"let propuesta of getPropuestas()\">\n            <div style=\"overflow:scroll\" class=\"content-div\">\n                <ion-textarea> <br> <i>{{propuesta.descripcion}}</i> </ion-textarea>\n                <div *ngFor=\"let opcion of propuesta.opciones\">\n                    <!--<ion-card color=\"{{getColorCards(propuesta)}}\" (click)=\"votar(opcion,propuesta)\">-->\n                    <ion-card color=\"residente\">\n                        <ion-card-content>\n                            {{opcion.nombre}}\n                        </ion-card-content>\n                    </ion-card>\n                </div>\n            </div>\n            <!--<div>\n                <ion-row>\n                <ion-col>\n                <ion-button id=\"izquierda\" color=\"residente\" (click)=\"prev(theSlides)\">\n                    <ion-icon slot=\"icon-only\" name=\"chevron-back-outline\" color=\"residente-txt\"></ion-icon>\n                </ion-button>\n                </ion-col>\n                <ion-col>\n                <ion-button id=\"derecha\" color=\"residente\" (click)=\"next(theSlides)\">\n                    <ion-icon slot=\"icon-only\" name=\"chevron-forward-outline\" color=\"residente-txt\"></ion-icon>\n                </ion-button>\n                </ion-col>\n            </ion-row>\n            </div>-->\n        </ion-slide>\n        <ion-slide>\n            <br><ion-label><strong>Resultados</strong></ion-label>\n            <!--<ion-card *ngFor=\"let propuesta of getPropuestas()\">\n                <h4> Propuesta: {{getPropuesta()}} </h4>\n                <h5> Cantidad de Votos: {{getTotalVotaciones()}}</h5>\n                <h5> Ganador:  </h5>\n            </ion-card>-->\n        </ion-slide>\n    </ion-slides>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"{{getTemaAsamblea()}}\" menu=NO routeBack=\"/lista-asambleas-residentes\"></app-header>\n\n<ion-content>\n    <ion-slides pager=\"true\" #theSlides>\n        <ion-slide *ngFor=\"let propuesta of getPropuestas()\">\n            <div id=\"propTitle\">\n                <p id=\"txtP\"> <br> <i>{{propuesta.descripcion}}</i> </p>\n            </div>\n            <div style=\"overflow:scroll\" class=\"content-div\">\n                <div *ngFor=\"let opcion of propuesta.opciones\">\n                    <br>\n                    <ion-card color=\"{{getColorVotos(propuesta)}}\" class=\"cardB\" (click)=\"votar(opcion,propuesta)\">\n                        <ion-card-content>\n                            {{opcion.nombre}}\n                        </ion-card-content>\n                    </ion-card>\n                </div>\n            </div>\n            <!--<div>\n                <ion-row>\n                <ion-col>\n                <ion-button id=\"izquierda\" color=\"residente\" (click)=\"prev(theSlides)\">\n                    <ion-icon slot=\"icon-only\" name=\"chevron-back-outline\" color=\"residente-txt\"></ion-icon>\n                </ion-button>\n                </ion-col>\n                <ion-col>\n                <ion-button id=\"derecha\" color=\"residente\" (click)=\"next(theSlides)\">\n                    <ion-icon slot=\"icon-only\" name=\"chevron-forward-outline\" color=\"residente-txt\"></ion-icon>\n                </ion-button>\n                </ion-col>\n            </ion-row>\n            </div>-->\n        </ion-slide>\n        <ion-slide>\n            <ion-label><strong>Resultados</strong></ion-label>\n            <ion-content>\n                <div style=\"overflow:scroll\" class=\"content-div\">\n                    <ion-card *ngFor=\"let result of getResultadosVoto()\">\n                        <ion-card-content>\n                            <ion-item lines=\"none\">\n                                <p id=\"letraR\"><strong>Propuesta: </strong> &nbsp;&nbsp;{{result.propuesta}}</p>\n                            </ion-item>\n                            <ion-item lines=\"none\">\n                                <p id=\"letraR\"><strong>Estado: </strong>&nbsp;&nbsp; {{result.res}}</p>\n                            </ion-item>\n                            <ion-item lines=\"none\">\n                                <p id=\"letraR\"><strong>Cantidad de Votos: </strong>&nbsp;&nbsp; {{result.cantVotos}}</p>\n                            </ion-item>\n                            <ion-item lines=\"none\">\n                                <p id=\"letraR\"><strong>Ganador: </strong>&nbsp;&nbsp; {{result.ganador}}</p>\n                            </ion-item>\n                        </ion-card-content>\n                    </ion-card>\n                </div>\n            </ion-content>\n        </ion-slide>\n    </ion-slides>\n</ion-content>");
 
 /***/ }),
 
@@ -8102,33 +8769,18 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************************!*\
   !*** ./src/app/Services/agregar-conjunto/agregar-conjunto.service.ts ***!
   \***********************************************************************/
-/*! exports provided: Conjunto, AgregarConjuntoService */
+/*! exports provided: AgregarConjuntoService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Conjunto", function() { return Conjunto; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgregarConjuntoService", function() { return AgregarConjuntoService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
 
 
-class Conjunto {
-}
 let AgregarConjuntoService = class AgregarConjuntoService {
-    constructor() {
-        this.conjunto = [{
-                "nombre": "Manzanares",
-                "direccion": "Carrera 7 #2"
-            },
-            {
-                "nombre": "Arces",
-                "direccion": "Carrera 113"
-            }
-        ];
-    }
     getConjunto() {
-        return this.conjunto;
     }
 };
 AgregarConjuntoService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -8176,7 +8828,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-menu side=\"start\" menuId=\"menu-admin\" contentId=\"main-admin\">\n  <ion-header>\n    <ion-toolbar color=\"residente\">\n      <ion-title>Menú</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content>\n    <ion-list>\n      <ion-item routerLink=\"/noticias\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"newspaper-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Noticias\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/claves\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"key-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Admin de Claves\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/asamblea-admin\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"people-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Asamblea\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/area-comun-admin\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"business-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Áreas Comunes\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/empleados\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"chatbubbles-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Mensajería\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/manual-admin\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"document-text-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Manual de Convivencia\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/quejas-admin\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"sad-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Quejas\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/netflix\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"sync-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Cambiar Conjuntos\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/acerca-nosotros\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"information-circle-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Sobre Residentes\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/ingreso\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"log-out-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Cerrar Sesión\n        </ion-label>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n<ion-router-outlet id=\"main-admin\"></ion-router-outlet>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-menu side=\"start\" menuId=\"menu-admin\" contentId=\"main-admin\">\n  <ion-header>\n    <ion-toolbar color=\"residente\">\n      <ion-title>Menú</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content>\n    <ion-list>\n      <ion-item routerLink=\"/noticias\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"newspaper-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Noticias\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/claves\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"key-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Admin de Claves\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/lista-asamblea-admin\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"people-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Asamblea\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/area-comun-admin\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"business-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Áreas Comunes\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/empleados\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"chatbubbles-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Mensajería\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/manual-admin\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"document-text-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Manual de Convivencia\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/quejas-admin\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"sad-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Quejas\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/netflix\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"sync-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Cambiar Conjuntos\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/acerca-nosotros\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"information-circle-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Sobre Residentes\n        </ion-label>\n      </ion-item>\n      <ion-item routerLink=\"/ingreso\" detail=\"false\">\n        <ion-icon slot=\"start\" name= \"log-out-outline\" color=\"residente-txt\"> </ion-icon>\n        <ion-label>\n          Cerrar Sesión\n        </ion-label>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n<ion-router-outlet id=\"main-admin\"></ion-router-outlet>");
 
 /***/ }),
 
