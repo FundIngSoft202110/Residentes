@@ -32,13 +32,11 @@ export class ListaAsasambleaAdminComponent implements OnInit {
   } // end ionViewWillEnter
 
   goRoute(asamblea:Asamblea){
-     
-      console.log("Asamblea = ", asamblea.asambleaPK.idAsamblea, " Estado = ", asamblea.estado);
-      this.asambleaService.setAsambleaAbierta(asamblea.asambleaPK.idAsamblea);
-      this.asambleaService.setAsambleaEstado(asamblea.estado);
-      this.navCtrl.navigateForward("/asamblea-admin");
-    
-    
+    console.log("Asamblea = ", asamblea.asambleaPK.idAsamblea, " Estado = ", asamblea.estado);
+    console.log("Asambleas en goRoute: ",  this.asambleaService.getAsambleas())
+    this.asambleaService.setAsambleaAbierta(asamblea.asambleaPK.idAsamblea);
+    this.asambleaService.setAsambleaEstado(asamblea.estado);
+    this.navCtrl.navigateForward("/asamblea-admin");
   }
 
   async presentAlertConfirmAsamblea() {

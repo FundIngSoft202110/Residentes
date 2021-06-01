@@ -1,5 +1,11 @@
+ion-card-subtitle{
+    font-size: 1.2rem;
+    text-transform: none;
+}
+
 ion-card{
-    box-shadow: none !important;
+    background-color: #F2F3F4;
+    border-radius: 10px;
 }
 
 ion-label{
@@ -7,7 +13,7 @@ ion-label{
 }
 
 .content-div{
-    height: 80%;
+    height: 85%;
 }
 
 ion-content {

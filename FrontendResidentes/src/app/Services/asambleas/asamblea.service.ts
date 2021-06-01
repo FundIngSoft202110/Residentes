@@ -79,6 +79,20 @@ export class AsambleaService {
 		return this.http.put(url,null);
 	} // end putAsambleaUrl
 
+	async pararVotacion(numPropuesta:number) {
+		this.putAsambleaUrl(IPRESIDENTESA + "/consultas/asambleas/pararVotacion/" +  numPropuesta.toString())
+			.subscribe(respuesta => {
+				this.respuesta = respuesta;
+			})
+	} // end pararVotacion
+
+	async subirResultados(numPropuesta:number) {
+		this.putAsambleaUrl(IPRESIDENTESA + "/consultas/asambleas/subirResultados/" +  numPropuesta.toString())
+			.subscribe(respuesta => {
+				this.respuesta = respuesta;
+			})
+	} // end subirResultados
+
 	async cargarAsambleas(numConjunto: number) {
 		this.getAsambleaUrl(IPRESIDENTESA + "/consultas/asambleas/" + numConjunto.toString())
 			.subscribe(respuesta => {
@@ -102,6 +116,7 @@ export class AsambleaService {
 	} // end cargarResultadosVoto
 
 	getAsamblea(idAsamblea:number){
+		console.log("Asambleas = ", this.asambleas);
 		for(let asam of this.asambleas)
 			if(asam.asambleaPK.idAsamblea == idAsamblea)
 				return asam;
