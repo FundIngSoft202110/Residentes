@@ -117,15 +117,16 @@ public class controladorApartamento {
     }
 
     @GET
-    @Path("/aptosNomId/")
+    @Path("/aptosNomId/{ÍdConjunto}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<DTOapto> getNomAptosId(@PathParam("AptoConjunto") Apartamento apartamento) {
+    public List<DTOapto> getNomAptosId(@PathParam("ÍdConjunto") int idConjunto) {
         String consulta2 = "SELECT a.IdApartamento , a.Torre , a.Numero , a.Piso, a.Contrasena  "
-                + "FROM Apartamento AS a ";
+                + "FROM Apartamento AS a WHERE a.ConjuntoIdConjunto = ?";
         DTOapto contact;
         List<DTOapto> lstConta = new ArrayList<>();;
         try (
                 PreparedStatement statement = this.con.prepareStatement(consulta2);) {
+            statement.setInt(1, idConjunto);
             try (
                     ResultSet rs = statement.executeQuery();) {
 
@@ -149,7 +150,7 @@ public class controladorApartamento {
     @Consumes(MediaType.APPLICATION_JSON)
     public int getAptoIngreso(@PathParam("AptoConjunto") Apartamento apartamento) {
 
-        String consulta = "SELECT a.IdApartamento, a.Contrasena FROM apartamento a WHERE a.ConjuntoIdConjunto=? AND a.Torre =? AND a.Piso=? AND a.Numero=?";
+        String consulta = "SELECT a.IdApartamento, a.Contrasena FROM Apartamento a WHERE a.ConjuntoIdConjunto=? AND a.Torre =? AND a.Piso=? AND a.Numero=?";
         try (
                  PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
@@ -205,9 +206,8 @@ public class controladorApartamento {
 
     }
 
-
     public void generarAptos(int idConj, int nTorres, int nPisos, int nAptos) {
-        String consulta = "INSERT INTO apartamento (`ConjuntoIdConjunto`, `Torre`, `Numero`, `Contrasena`, `Piso`) VALUES (?, ?, ?, ?,?)";
+        String consulta = "INSERT INTO Apartamento (`ConjuntoIdConjunto`, `Torre`, `Numero`, `Contrasena`, `Piso`, `PagoAdmin`) VALUES (?, ?, ?, ?,?,1)";
         for (int i = 0; i < nTorres; i++) {
             for (int j = 0; j < nPisos; j++) {
                 for (int k = 0; k < nAptos; k++) {
@@ -245,16 +245,16 @@ public class controladorApartamento {
     
     @PUT
     @Path("/UpdateCApto/{Usuario}/{Contra}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public DTOrespuestas actialiarContApto(@PathParam("Usuario") String usuario, @PathParam("Contra") String contra) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas actialiarContApto(@PathParam("Usuario") int usuario, @PathParam("Contra") String contra) {
         DTOrespuestas ret = new DTOrespuestas();
         int retorno = 0;
-        String consulta = "UPDATE Apartamento SET Contrasena=? WHERE Usuario=?";
+        String consulta = "UPDATE Apartamento SET Contrasena=? WHERE IdApartamento=?";
         PreparedStatement statement;
         try {
             statement = this.con.prepareStatement(consulta);
             statement.setString(1, contra);
-            statement.setString(2, usuario);
+            statement.setInt(2, usuario);
             retorno = statement.executeUpdate();
             ret.setRespuesta("Exitoso");
             return ret;
