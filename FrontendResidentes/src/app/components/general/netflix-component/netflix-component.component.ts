@@ -23,7 +23,7 @@ export class NetflixComponent implements OnInit {
   ngOnInit(){}
 
   async waitBD(){
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 1200));
   }
 
   async ionViewWillEnter(){

@@ -1,19 +1,27 @@
-<div id="colorverde">
-<app-header-start titulo="MANIFIESTA TU QUEJA"></app-header-start>
-</div>
+<app-header titulo="QUEJAS" menu=RESIDENTE></app-header>
 
+<ion-content>
+    <ion-item  class="bb" lines=none>
+        <ion-label>Anónimo</ion-label>
+        <ion-toggle [(ngModel)]="anonimus" slot="start" color="residente" checked></ion-toggle>
+    </ion-item>
+    <br>
+    
+    <ion-card>
+        <ion-textarea rows="10" [(ngModel)]="descripcion" placeholder=" Escribe aquí tu queja"
+        >
+        </ion-textarea>
+    </ion-card>
+    <br>
+    <br>
+    <br>
 
-<dx-form id="Hacermargen"
-    [formData]="queja">
-    <dxi-item itemType="group" cssClass="first-group" [colCount]="4">
-
-        <dxi-item itemType="group" [colSpan]="3">
-                <dxi-item dataField="ID" [editorOptions]="{ disabled:true}"></dxi-item>
-            <dxi-item dataField="Torre" [editorOptions]="{ disabled:true}"></dxi-item>
-            <dxi-item dataField="Apartamento" [editorOptions]="{ disabled:true}"></dxi-item>
-        </dxi-item>
-    </dxi-item>
-    <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
-        <dxi-item dataField="Notes" [colSpan]="2" editorType="dxTextArea" [editorOptions]="{ height: 140 }"></dxi-item>
-    </dxi-item>
-</dx-form>
+    <ion-button class="botIng"
+        (click)="envInfo()"
+      shape="round"
+      color="residente"
+      type="submit"
+      >Enviar queja</ion-button
+    >
+    
+</ion-content>

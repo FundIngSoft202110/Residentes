@@ -16,8 +16,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -114,11 +117,40 @@ public class controladorApartamento {
     }
 
     @GET
+    @Path("/aptosNomId/{ÍdConjunto}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<DTOapto> getNomAptosId(@PathParam("ÍdConjunto") int idConjunto) {
+        String consulta2 = "SELECT a.IdApartamento , a.Torre , a.Numero , a.Piso, a.Contrasena  "
+                + "FROM Apartamento AS a WHERE a.ConjuntoIdConjunto = ?";
+        DTOapto contact;
+        List<DTOapto> lstConta = new ArrayList<>();;
+        try (
+                PreparedStatement statement = this.con.prepareStatement(consulta2);) {
+            statement.setInt(1, idConjunto);
+            try (
+                    ResultSet rs = statement.executeQuery();) {
+
+                while (rs.next()) {
+                    contact = new DTOapto();
+                    contact.setId(rs.getInt("IdApartamento"));
+                    contact.setNombre(rs.getString("Torre") + "-" + rs.getString("Piso") + rs.getString("Numero"));
+                    contact.setContrasena(rs.getString("Contrasena"));
+                    lstConta.add(contact);
+                }
+            }
+        } catch (SQLException sqle) {
+
+        }
+        return lstConta;
+        
+    }
+    
+    @GET
     @Path("/apartamentos/{AptoConjunto}")
     @Consumes(MediaType.APPLICATION_JSON)
     public int getAptoIngreso(@PathParam("AptoConjunto") Apartamento apartamento) {
 
-        String consulta = "SELECT a.IdApartamento, a.Contrasena FROM apartamento a WHERE a.ConjuntoIdConjunto=? AND a.Torre =? AND a.Piso=? AND a.Numero=?";
+        String consulta = "SELECT a.IdApartamento, a.Contrasena FROM Apartamento a WHERE a.ConjuntoIdConjunto=? AND a.Torre =? AND a.Piso=? AND a.Numero=?";
         try (
                  PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
@@ -174,9 +206,8 @@ public class controladorApartamento {
 
     }
 
-
     public void generarAptos(int idConj, int nTorres, int nPisos, int nAptos) {
-        String consulta = "INSERT INTO apartamento (`ConjuntoIdConjunto`, `Torre`, `Numero`, `Contrasena`, `Piso`) VALUES (?, ?, ?, ?,?)";
+        String consulta = "INSERT INTO Apartamento (`ConjuntoIdConjunto`, `Torre`, `Numero`, `Contrasena`, `Piso`, `PagoAdmin`) VALUES (?, ?, ?, ?,?,1)";
         for (int i = 0; i < nTorres; i++) {
             for (int j = 0; j < nPisos; j++) {
                 for (int k = 0; k < nAptos; k++) {
@@ -209,6 +240,31 @@ public class controladorApartamento {
             }
             return new String(word);
         
+    }
+    
+    
+    @PUT
+    @Path("/UpdateCApto/{Usuario}/{Contra}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas actialiarContApto(@PathParam("Usuario") int usuario, @PathParam("Contra") String contra) {
+        DTOrespuestas ret = new DTOrespuestas();
+        int retorno = 0;
+        String consulta = "UPDATE Apartamento SET Contrasena=? WHERE IdApartamento=?";
+        PreparedStatement statement;
+        try {
+            statement = this.con.prepareStatement(consulta);
+            statement.setString(1, contra);
+            statement.setInt(2, usuario);
+            retorno = statement.executeUpdate();
+            ret.setRespuesta("Exitoso");
+            return ret;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(controladorPersona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        ret.setRespuesta("No se pudo actualizar");
+        return ret;
     }
 
 }

@@ -150,7 +150,7 @@ public class contraladorAsamblea {
         ResultadoVoto resultadoVoto = null;
         DTOresultadoVoto dtoResult = null;
         Propuesta propuesta;
-        String consulta = "SELECT p.Descripcion, p.Descripcion, p.VotosTotales, p.Estado "
+        String consulta = "SELECT p.IdPropuesta, p.Descripcion, p.VotosTotales, p.Estado "
                         + "FROM Propuesta as p "
                         + "WHERE p.AsambleaConjuntoIdConjunto = ? AND p.AsambleaIdAsamblea =?";
         try (
@@ -162,6 +162,7 @@ public class contraladorAsamblea {
             ){
             while (rs.next()){
                 propuesta = new Propuesta();
+                propuesta.setIdPropuesta(rs.getInt("IdPropuesta"));
                 propuesta.setDescripcion(rs.getString("Descripcion"));
                 propuesta.setVotosTotales(rs.getInt("VotosTotales"));
                 propuesta.setEstado(rs.getString("Estado"));
@@ -183,18 +184,27 @@ public class contraladorAsamblea {
     } // end verResultados
     
     @PUT
-    @Path("/votar/{idPropuesta}/{idOpcion}")
+    @Path("/votar/{idConjunto}/{idApto}/{idPropuesta}/{idOpcion}")
     @Produces(MediaType.APPLICATION_JSON)
-    public DTOrespuestas votar(@PathParam("idPropuesta") int idPropuesta, @PathParam("idOpcion") int idOpcion) {
-        String consulta = "UPDATE Propuesta SET VotosTotales = VotosTotales + 1 WHERE IdPropuesta = ?;\n" +
-                          "UPDATE Opcion SET CantidadVotos = CantidadVotos + 1 WHERE PropuestaIdPropuesta = ? AND IdOpcion = ?;";
+    public DTOrespuestas votar(@PathParam("idConjunto") int idConjunto, @PathParam("idApto") int idApto, @PathParam("idPropuesta") int idPropuesta, @PathParam("idOpcion") int idOpcion) {
+        String consulta = "UPDATE Propuesta SET VotosTotales = VotosTotales + 1 WHERE IdPropuesta = ?;";
+        String consulta2 = "UPDATE Opcion SET CantidadVotos = CantidadVotos + 1 WHERE PropuestaIdPropuesta = ? AND IdOpcion = ?;";
+        String consulta3 = "INSERT INTO Voto (ApartamentoIdApartamento, ApartamentoConjuntoIdConjunto, OpcionIdOpcion, OpcionPropuestaIdPropuesta) VALUES (?,?,?,?)";
         DTOrespuestas res = new DTOrespuestas();
         try (
-            PreparedStatement statement = this.con.prepareStatement(consulta);) {
+            PreparedStatement statement = this.con.prepareStatement(consulta);
+            PreparedStatement statement2 = this.con.prepareStatement(consulta2);
+            PreparedStatement statement3 = this.con.prepareStatement(consulta3);) {
                 statement.setInt(1, idPropuesta);
-                statement.setInt(2, idPropuesta);
-                statement.setInt(3, idOpcion);
+                statement2.setInt(1, idPropuesta);
+                statement2.setInt(2, idOpcion);
+                statement3.setInt(1, idApto);
+                statement3.setInt(2, idConjunto);
+                statement3.setInt(3, idOpcion);
+                statement3.setInt(4, idPropuesta);
                 statement.executeUpdate();
+                statement2.executeUpdate();
+                statement3.executeUpdate();
                 res.setRespuesta("Voto cargado");
                 return res;
         } catch (SQLException sqle) {

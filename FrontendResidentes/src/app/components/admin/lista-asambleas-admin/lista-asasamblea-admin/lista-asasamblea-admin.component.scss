@@ -1,13 +1,33 @@
+ion-card{
+    box-shadow: none !important;
+}
+
+ion-label{
+    font-size: 20px;
+}
+
+.content-div{
+    height: 80%;
+}
+
+ion-content {
+    --overflow: hidden;
+}
+
+#rounded {
+    width: 100%;
+    height: 40px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;  
+}
+
+ion-input{
+    width: 10%;
+    border: solid 1px var(--ion-color-residente-txt);
+}
+
 #centrado{
     text-align: center;
-    }
-
-    ion-card-subtitle{
-        font-size: 1.2rem;
-        text-transform: none;
-    }
-    
-    ion-card{
-        background-color: #F2F3F4;
-        border-radius: 10px;
-    }
+}

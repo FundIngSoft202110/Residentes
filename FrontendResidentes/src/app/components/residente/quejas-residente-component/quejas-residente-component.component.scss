@@ -17,3 +17,25 @@
 
     background-color: aquamarine;
 }
+ion-textarea{
+    width: 98%;
+    height: 200px;
+    
+}
+ion-card{
+    width: 92%;
+    border: solid 1px var(--ion-color-residente-txt);
+    box-shadow: none !important;
+    ion-card-content{
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
+}
+.botIng{
+    padding-left: 85px;
+}
+.bb{
+    padding-left: 85px;
+}
