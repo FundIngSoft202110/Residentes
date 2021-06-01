@@ -13,6 +13,7 @@ import ENTIDADES.DTOopcion;
 import ENTIDADES.DTOpropuesta;
 import ENTIDADES.DTOrespuestas;
 import ENTIDADES.Opcion;
+import ENTIDADES.OpcionPK;
 import ENTIDADES.Persona;
 import ENTIDADES.Propuesta;
 import ENTIDADES.ResultadoVoto;
@@ -214,15 +215,13 @@ public class contraladorAsamblea {
         return res;
     } // end votar
     
-    @POST
-    @Path("/calcularGanador/{idPropuesta}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public DTOrespuestas calcularGanador(@PathParam("idPropuesta") int idPropuesta) {
+    public DTOrespuestas calcularGanador(int idPropuesta) {
         String consulta = "SELECT IdOpcion, CantidadVotos FROM Opcion WHERE PropuestaIdPropuesta = ?";
-        String consulta2 = "INSERT INTO Gandador(PropuestaIdPropuesta, OpcionIdOpcion) VALUES(?,?);";
+        String consulta2 = "INSERT INTO Gandador(OpcionPropuestaIdPropuesta, OpcionIdOpcion) VALUES(?,?);";
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> opcionesGanadoras = new ArrayList<>();
         Opcion opcion = null;
+        OpcionPK opci;
         int maximo = 0;
         DTOrespuestas res = new DTOrespuestas();
         try (
@@ -233,14 +232,16 @@ public class contraladorAsamblea {
                 ){
                     while(rs.next()){
                         opcion = new Opcion();
-                        opcion.getOpcionPK().setIdOpcion(rs.getInt("IdOpcion"));
+                        opci = new OpcionPK();
+                        opci.setIdOpcion(rs.getInt("IdOpcion"));
+                        opcion.setOpcionPK(opci);
                         opcion.setCantidadVotos(rs.getInt("CantidadVotos"));
                         opciones.add(opcion);
                     }
                 }
                 for(Opcion opc:opciones){
                     if(opc.getCantidadVotos() > maximo){
-                        opciones.clear();
+                        opcionesGanadoras.clear();
                         maximo = opc.getCantidadVotos();
                         opcionesGanadoras.add(opc);
                     }else if(opc.getCantidadVotos() == maximo){
@@ -250,7 +251,7 @@ public class contraladorAsamblea {
                 for(Opcion opc:opcionesGanadoras){
                     try(PreparedStatement statement2 = this.con.prepareStatement(consulta2);){
                         statement2.setInt(1, idPropuesta);
-                        statement2.setInt(1, opc.getOpcionPK().getIdOpcion());
+                        statement2.setInt(2, opc.getOpcionPK().getIdOpcion());
                         statement2.executeUpdate();
                     }
                 } // end for
@@ -262,5 +263,43 @@ public class contraladorAsamblea {
         res.setRespuesta("Error modificando");
         return res;
     } // end calcularGanador
+    
+    @PUT
+    @Path("/pararVotacion/{idPropuesta}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas paraVotacion(@PathParam("idPropuesta") int idPropuesta) {
+        String consulta = "UPDATE Propuesta SET Estado = 'Bloqueado' WHERE IdPropuesta = ?;";
+        DTOrespuestas res = new DTOrespuestas();
+        try (
+            PreparedStatement statement = this.con.prepareStatement(consulta);) {
+                statement.setInt(1, idPropuesta);
+                statement.executeUpdate();
+                res.setRespuesta("Votacion detenida");
+                return res;
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución: " + sqle.getErrorCode() + " " + sqle.getMessage());
+        }
+        res.setRespuesta("Error modificando");
+        return res;
+    } // end paraVotacion
+    
+    @PUT
+    @Path("/subirResultados/{idPropuesta}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DTOrespuestas subirResultados(@PathParam("idPropuesta") int idPropuesta) {
+        String consulta = "UPDATE Propuesta SET Estado = 'Resultados' WHERE IdPropuesta = ?;";
+        DTOrespuestas res = new DTOrespuestas();
+        try (
+            PreparedStatement statement = this.con.prepareStatement(consulta);) {
+                statement.setInt(1, idPropuesta);
+                statement.executeUpdate();
+                res = this.calcularGanador(idPropuesta);
+                return res;
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución: " + sqle.getErrorCode() + " " + sqle.getMessage());
+        }
+        res.setRespuesta("Error modificando");
+        return res;
+    } // end subirResultados
     
 } // end contraladorAsamblea
