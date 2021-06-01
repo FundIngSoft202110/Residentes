@@ -17,17 +17,9 @@
 <div class="margen2">Lista Areas Comunes</div>
 <dx-select-box class="margen1" [items]="listaDeAreasComunes"></dx-select-box>
 
-<div id="calendar-demo">
-    <div class="widget-container">
-        <dx-calendar #calendar id="calendar-container" [min]="minDateValue" [max]="maxDateValue"
-            [disabledDates]="disabledDates" [firstDayOfWeek]="firstDay" [disabled]="false" [(value)]="currentValue"
-            [zoomLevel]="zoomLevels[0]" [cellTemplate]="cellTemplate">
-            <span *dxTemplate="let cell of 'custom'" [ngClass]="getCellCssClass(cell.date)">
-                {{cell.text}}
-            </span>
-        </dx-calendar>
-    </div>
-</div>
+
+<app-calendar-paquete></app-calendar-paquete>
+
 
 <div class="margen3">Horas Disponibles</div>
 <dx-select-box class="margen1" [items]="horasDisponibles"></dx-select-box>

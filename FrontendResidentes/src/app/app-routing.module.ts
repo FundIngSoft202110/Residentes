@@ -43,7 +43,7 @@ import { AgregarAreaAdminComponent } from './components/admin/agregar-area-admin
 import { ModificarAreaAdminComponent } from './components/admin/modificar-area-admin/modificar-area-admin.component';
 
 
-import { NgCalendarModule } from 'ionic2-calendar';
+import { CalendarComponent, NgCalendarModule } from 'ionic2-calendar';
 
 import localeDe from '@angular/common/locales/es-CO';
 registerLocaleData(localeDe);
@@ -52,6 +52,7 @@ import { ReservacionAreaResidenteComponent } from './components/residente/reserv
 
 import { ModificarReservaAreaComponent } from './components/residente/modificar-reserva-area/modificar-reserva-area.component';
 import { ListaAsasambleaAdminComponent } from './components/admin/lista-asambleas-admin/lista-asasamblea-admin/lista-asasamblea-admin.component';
+import { CalendarPaqueteComponent } from './components/empleado/calendar-paquete/calendar-paquete.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -247,7 +248,9 @@ const routes: Routes = [
     DxRadioGroupModule,
     DxTabPanelModule,
     BrowserModule,
-    DxCalendarModule
+    DxCalendarModule,
+    NgCalendarModule
+    
   ],
   exports: [RouterModule],
   declarations: [
@@ -288,7 +291,8 @@ const routes: Routes = [
     ReservacionAreaResidenteComponent, // ojo
     ModificarReservaAreaComponent,
     ListaAsasambleaAdminComponent,
-    ReservacionAreaResidenteComponent // ojo
+    ReservacionAreaResidenteComponent,
+    CalendarPaqueteComponent// ojo
   ],
   providers:[
     {provide: LOCALE_ID, useValue:'es-Co'}

@@ -2,6 +2,7 @@ import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DxoFullstackedsplineareaComponent } from 'devextreme-angular/ui/nested';
 import {CalendarComponent} from 'ionic2-calendar';
+import { CalendarMode } from 'ionic2-calendar/calendar';
 
 @Component({
   selector: 'app-calendar-paquete',
@@ -14,7 +15,7 @@ export class CalendarPaqueteComponent implements OnInit {
   viewTitle: string;
 
   calendar = {
-    mode: 'month',
+    mode: 'month' as CalendarMode,
     currentDate: new Date(),
     events: false
   };
