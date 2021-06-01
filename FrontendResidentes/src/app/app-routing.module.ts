@@ -60,7 +60,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'nuevo-conjunto',
+    path: 'nuevo-conjunto2',
     component: AgregarConjuntoComponent
   },
   {
@@ -212,7 +212,12 @@ const routes: Routes = [
   {
     path: 'agregar-empleado',
     loadChildren: () => import('./components/admin/agregar-empleado/agregar-empleado.module').then( m => m.AgregarEmpleadoPageModule)
+  },
+  {
+    path: 'nuevo-conjunto',
+    loadChildren: () => import('./components/admin/nuevo-conjunto/nuevo-conjunto.module').then( m => m.NuevoConjuntoPageModule)
   }
+
 
 
 

@@ -53,6 +53,7 @@ export class IngreAptoPage implements OnInit {
           Validators.required,
           Validators.pattern("^[0-9]*$")
         ])
+        
       ),
       numero: new FormControl(
         "",
