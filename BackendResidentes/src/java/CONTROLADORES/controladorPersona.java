@@ -235,6 +235,8 @@ public class controladorPersona {
         return " No se pudo actualizar";
     }
 
+    
+    
     @POST
     @Path("/NuevoUsuario")
     @Consumes(MediaType.APPLICATION_JSON)

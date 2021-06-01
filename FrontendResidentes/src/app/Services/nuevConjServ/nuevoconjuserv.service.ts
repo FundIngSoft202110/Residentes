@@ -48,8 +48,10 @@ export class NuevoconjuservService {
     return this.conjuntosLec;
   }
 
-  enviarConj(body:any){
-    return this.http.post(IPRESIDENTES + "consultas/Conjuntos/NuevoConjunto",body); 
+  enviarConj(body:any, id : number){
+    return this.http.post(IPRESIDENTES + "consultas/Conjuntos/NuevoConjunto/"+id.toString() ,body); 
  }
+
+
 
 }

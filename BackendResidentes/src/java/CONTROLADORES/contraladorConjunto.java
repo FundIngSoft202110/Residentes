@@ -168,10 +168,10 @@ public class contraladorConjunto {
     }
     
     @POST
-    @Path("/NuevoConjunto")
+    @Path("/NuevoConjunto/{IdAdmin}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public DTOrespuestas nuevoConjunto(DTOConjunto conjunto) {
+    public DTOrespuestas nuevoConjunto(DTOConjunto conjunto, @PathParam("IdAdmin") int idAdmin) {
         DTOrespuestas res = new DTOrespuestas();
         String consulta = "INSERT INTO conjunto (`Nombre`, `LinkDePago`, `Direccion`, `PrecioAdmin`, `NumeroTorres`, `NumeroPisos`, `NumeroApartamentos`) VALUES (?, ?, ? ,?, ?, ?,?)";
         try (
@@ -197,6 +197,7 @@ public class contraladorConjunto {
             int idConjunto= idConjuntoNombre(nombre);
             controladorApartamento aptoCont = new controladorApartamento() ;
             aptoCont.generarAptos(idConjunto ,  torres, pisos, aptos);
+            vincuAdmin(idConjunto,idAdmin );
             return res;
 
         } catch (SQLException sqle) {
@@ -207,6 +208,29 @@ public class contraladorConjunto {
         return res;
     }
 
+    public DTOrespuestas vincuAdmin(int idConjunto , int idPersona){
+        DTOrespuestas respuesta = new DTOrespuestas();
+        String consulta = "INSERT INTO PersonaXConjunto (`PersonaIdPersona`, `ConjuntoIdConjunto`)VALUES (?,?)";
+
+        try (
+                PreparedStatement statement = this.con.prepareStatement(consulta);) {
+
+            
+            
+            statement.setInt(1, idPersona);
+            statement.setInt(2, idConjunto);
+            
+            statement.executeUpdate();
+
+            respuesta.setRespuesta("Agregado exitosamente");
+
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución:" + sqle.getErrorCode() + " " + sqle.getMessage());
+            respuesta.setRespuesta("Fallo de creacion");
+        }
+       
+        return respuesta ;
+    }
     public int idConjuntoNombre(String nombre){
           String consulta= "SELECT c.IdConjunto FROM Conjunto AS c WHERE c.Nombre = ?";
           int resp= 0;
