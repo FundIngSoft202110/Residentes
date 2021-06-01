@@ -1,0 +1,154 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="residente">
+  </ion-toolbar >
+  <ion-toolbar>
+      <ion-buttons slot="start" (click)="goBack()">
+        <ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon><ion-label slot="start" color="residente-txt"><strong>&nbsp;&nbsp;Agregar Conjunto</strong></ion-label>
+      </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <form class="for" [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+    <ion-item>
+      <ion-label class="req" >Nombre conjunto</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.nombre">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('nombre').hasError(validation.type) &&
+            (loginForm.get('nombre').dirty || loginForm.get('nombre').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label class="req" >Dirección</ion-label>
+      <ion-input formControlName="direccion"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.direccion">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('direccion').hasError(validation.type) &&
+            (loginForm.get('direccion').dirty || loginForm.get('direccion').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label class="req" >Precio admin</ion-label>
+      <ion-input formControlName="precioAdmin"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.precioAdmin">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('precioAdmin').hasError(validation.type) &&
+            (loginForm.get('precioAdmin').dirty || loginForm.get('precioAdmin').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+    <ion-item>
+      <ion-label class="req" >Link de pago</ion-label>
+      <ion-input formControlName="linkPago"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.linkPago">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('linkPago').hasError(validation.type) &&
+            (loginForm.get('linkPago').dirty || loginForm.get('linkPago').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+    <ion-item>
+      <ion-label class="req" ># de torres</ion-label>
+      <ion-input formControlName="numTorres"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.numTorres">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('numTorres').hasError(validation.type) &&
+            (loginForm.get('numTorres').dirty || loginForm.get('numTorres').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label class="req" ># de pisos</ion-label>
+      <ion-input formControlName="numPisos"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.numPisos">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('numPisos').hasError(validation.type) &&
+            (loginForm.get('numPisos').dirty || loginForm.get('numPisos').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label class="req" ># aptos por piso</ion-label>
+      <ion-input formControlName="numAptos"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validation_messages.numAptos">
+        <div class="msjVeri"
+          *ngIf="
+            loginForm.get('numAptos').hasError(validation.type) &&
+            (loginForm.get('numAptos').dirty || loginForm.get('numAptos').touched)
+          "
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="msjErr">{{errorMessage}}</div>
+    <ion-button class="botIng"
+      expand="full"
+      shape="round"
+      color="residente"
+      [disabled]="!loginForm.valid"
+      type="submit"
+      >Agregar</ion-button
+    >
+  </form>
+</ion-content>
+
+<ion-footer>
+  
+</ion-footer>
