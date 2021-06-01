@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,10 +27,11 @@ public class Votacion extends ResultadoVoto{
 
     @Override
     public DTOresultadoVoto resultadosVotos(Propuesta propuesta) {
+        List<String> results = new ArrayList<>();
         DTOresultadoVoto result = new DTOresultadoVoto();
-        result.setRes("Resultados completos");
         result.setCantVotos(propuesta.getVotosTotales());
         result.setPropuesta(propuesta.getDescripcion());
+        String resAux = "";
         String consulta = "SELECT o.Nombre "
                         + "FROM Opcion o, Gandador g "
                         + "WHERE g.OpcionPropuestaIdPropuesta = ? AND o.IdOpcion = g.OpcionIdOpcion;";
@@ -39,8 +42,19 @@ public class Votacion extends ResultadoVoto{
                 ResultSet rs = statement.executeQuery();
             ){
                 while (rs.next()){
-                    result.setGanador(rs.getString("Nombre"));
+                    results.add(rs.getString("Nombre"));
                 } // end while
+                if(results.size() > 1){
+                    result.setRes("Resultados completos: Empate");
+                    for(String res: results){
+                        resAux = res + " - ";
+                    }
+                    resAux = resAux.substring(0, resAux.length() - 2);
+                    result.setGanador(resAux);
+                }else{
+                    result.setRes("Resultados completos");
+                    result.setGanador(results.get(0));
+                }
            }
         } catch (SQLException sqle) { 
             System.out.println("Error");
