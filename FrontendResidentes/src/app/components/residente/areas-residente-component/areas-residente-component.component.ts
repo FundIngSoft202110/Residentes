@@ -16,6 +16,8 @@ import { DxCheckBoxModule,
        } from 'devextreme-angular';
 import notify from 'devextreme/ui/notify';
 import { NavController } from '@ionic/angular';
+import { CalendarComponent } from 'ionic2-calendar';
+import { CalendarMode } from 'ionic2-calendar/calendar';
 
 const sendRequest = function(value) {
     const validEmail = "test@dx-email.com";
@@ -34,6 +36,12 @@ const sendRequest = function(value) {
 })
 
 export class AreasResidenteComponent implements OnInit  {
+    @ViewChild(CalendarComponent) myCal: CalendarComponent;
+    calendar = {
+        mode: 'month' as CalendarMode,
+        currentDate: new Date(),
+        events: false
+      };
     @ViewChild("eventRadioGroup") eventRadioGroup: DxRadioGroupComponent;
     area: Area;
 	tipo: string[];
@@ -140,5 +148,25 @@ export class AreasResidenteComponent implements OnInit  {
     public traerAreastipo(){
 
     }
+    eventSource = [];
+  viewTitle: string;
+
+  next(){
+    this.myCal.slideNext();
+  }
+
+  back(){
+    this.myCal.slidePrev();
+  }
+
+  onViewTitleChanged(title :string){
+    this.viewTitle = title;
+  }
+
+  num:number;
+  onTimeSelected = (ev: { selectedTime: Date, events: any[] }) => {
+    this.num = ev.selectedTime.getMonth() + 1;
+    console.log('Selected time: ' + ev.selectedTime.getDate() + " " + this.num + " " + ev.selectedTime.getFullYear());
+  };
    
 }
