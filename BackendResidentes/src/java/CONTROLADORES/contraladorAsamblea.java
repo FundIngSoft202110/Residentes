@@ -150,9 +150,9 @@ public class contraladorAsamblea {
         ResultadoVoto resultadoVoto = null;
         DTOresultadoVoto dtoResult = null;
         Propuesta propuesta;
-        String consulta = "SELECT p.Descripcion, p.VotosTotales, p.Estado "
-                        + "FROM Propuesta as P "
-                        + "WHERE p.ConjuntoIdConjunto = ? AND p.AsambleaIdAsamblea =?";
+        String consulta = "SELECT p.Descripcion, p.Descripcion, p.VotosTotales, p.Estado "
+                        + "FROM Propuesta as p "
+                        + "WHERE p.AsambleaConjuntoIdConjunto = ? AND p.AsambleaIdAsamblea =?";
         try (
            PreparedStatement statement = this.con.prepareStatement(consulta);){
            statement.setInt(1, idConjunto);
@@ -195,7 +195,7 @@ public class contraladorAsamblea {
                 statement.setInt(2, idPropuesta);
                 statement.setInt(3, idOpcion);
                 statement.executeUpdate();
-                    res.setRespuesta("Voto cargado");
+                res.setRespuesta("Voto cargado");
                 return res;
         } catch (SQLException sqle) {
             System.out.println("Error en la ejecución: " + sqle.getErrorCode() + " " + sqle.getMessage());
@@ -244,7 +244,7 @@ public class contraladorAsamblea {
                         statement2.executeUpdate();
                     }
                 } // end for
-                res.setRespuesta("Voto cargado");
+                res.setRespuesta("Ganador cargado");
                 return res;
         } catch (SQLException sqle) {
             System.out.println("Error en la ejecución: " + sqle.getErrorCode() + " " + sqle.getMessage());
