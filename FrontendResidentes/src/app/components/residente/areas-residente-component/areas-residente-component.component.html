@@ -29,7 +29,7 @@
         <div class="dx-field-value">
             <dx-radio-group
                 [items]="tipo"
-                [value]="tipo[0]"
+                [(value)]="tiposelect"
                 (onOptionChanged)="traerAreastipo()">
             </dx-radio-group>
         </div>
@@ -39,10 +39,9 @@
         
        
 <div class="margen2">Lista Áreas Comunes</div>
-<dx-select-box class="margen111" [items]="listaDeAreasComunes"></dx-select-box>
-<div class="margen33">Horas Disponibles</div>
-<dx-select-box class="margen111" [items]="horasDisponibles"></dx-select-box>
+<dx-select-box class="margen111" [items]="listaRespuestas" [(value)]="areaselect"></dx-select-box>
 
+ 
 
 
 </div>
