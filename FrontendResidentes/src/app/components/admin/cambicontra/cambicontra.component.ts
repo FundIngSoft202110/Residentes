@@ -29,6 +29,7 @@ export class CambicontraComponent implements OnInit {
   }
 
   ionViewWillEnter() {
+    this.ncontra = "";
     this.nombre = this.servCont.getNomApto();
     this.id = this.servCont.getAptoId();
     this.contra = this.servCont.getContraApto();
@@ -49,13 +50,13 @@ export class CambicontraComponent implements OnInit {
       return "residente";
     }
   }
+
   botonReportar(){
-    if( this.ncontra.length < 5){
-      this.error= "La contraseña debe ser minimo de 5 caracteres";
+    if( this.ncontra.length < 3){
+      this.error= "La contraseña debe ser minimo de 3 caracteres";
     }else{
       this.error= "";
       console.log("escribo y me voy");
-
       this.servCont.cambContra(this.id ,this.ncontra );
       this.navCtrl.navigateForward("/claves");
     }

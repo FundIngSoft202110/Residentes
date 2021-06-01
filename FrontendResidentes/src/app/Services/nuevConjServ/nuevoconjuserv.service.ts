@@ -22,6 +22,7 @@ export class NuevoconjuservService {
     }
   ]
   conjuntosLec : any;
+  respuesta:any;
   constructor(private http: HttpClient) { }
 
   getConjuntos( ){
@@ -48,10 +49,19 @@ export class NuevoconjuservService {
     return this.conjuntosLec;
   }
 
+  postConjuntoS(url: string, body:any) {
+    return this.http.post(url,body);
+  }
+
   enviarConj(body:any, id : number){
-    return this.http.post(IPRESIDENTES + "consultas/Conjuntos/NuevoConjunto/"+id.toString() ,body); 
- }
+    this.postConjuntoS(IPRESIDENTES + "consultas/Conjuntos/NuevoConjunto/"+id.toString() ,body)
+      .subscribe(respuesta => {
+        this.respuesta = respuesta;
+      })
+  }
 
-
+  getRespuesta(){
+    return this.respuesta;
+  }
 
 }

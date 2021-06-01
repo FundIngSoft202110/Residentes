@@ -3,6 +3,13 @@ import { Injectable } from '@angular/core';
 import { IPRESIDENTES } from 'src/app/constants';
 import { aptosval } from './aptosval';
 
+export interface AptoClave{
+  contrasena: string;
+  id:number;
+  nombre:string;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,26 +39,38 @@ export class CamcontraService {
     }
   ]
   
-  conjuntosLec : any;
+  conjuntosLec : AptoClave[];
+  respuestas:any;
   constructor(private http: HttpClient) { }
 
-  getConjuntos( ){
-    this.obtener(IPRESIDENTES + "consultas/apartamentos/aptosNomId/" );
+  getConjuntos( numConjunto:number){
+    this.obtener(IPRESIDENTES + "consultas/apartamentos/aptosNomId/" + numConjunto.toString() );
   }
 
   cambContra(id :number, cont: string){
-    this.obtener(IPRESIDENTES + "consultas/apartamentos/UpdateCApto/"+id+"/"+cont );
+    this.obtenerP(IPRESIDENTES + "consultas/apartamentos/UpdateCApto/"+id+"/"+cont );
   }
 
-  obtener(url: string) {
+  obtenerP(url: string) {
     this.conjuntosLec = [];
-    this.getConjj(url)
+    this.putConjj(url)
       .subscribe(respuesta => {
-        this.conjuntosLec = respuesta;
+        this.respuestas = respuesta;
       })
   }
 
-  
+  obtener(url: string) {
+    this.conjuntosLec = []; 
+    this.getConjj(url)
+      .subscribe(respuesta => {
+        this.conjuntosLec = <AptoClave[]>respuesta;
+      })
+  }
+
+  public putConjj(url: string) {
+    return this.http.put(url,null);
+  }
+
   public getConjj(url: string) {
     return this.http.get(url);
   }
