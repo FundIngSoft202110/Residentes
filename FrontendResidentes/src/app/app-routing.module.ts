@@ -52,6 +52,8 @@ import { ReservacionAreaResidenteComponent } from './components/residente/reserv
 
 import { ModificarReservaAreaComponent } from './components/residente/modificar-reserva-area/modificar-reserva-area.component';
 import { ListaAsasambleaAdminComponent } from './components/admin/lista-asambleas-admin/lista-asasamblea-admin/lista-asasamblea-admin.component';
+import { ListaptoscComponent } from './components/admin/listaptosc/listaptosc.component';
+import { CambicontraComponent } from './components/admin/cambicontra/cambicontra.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -68,7 +70,7 @@ const routes: Routes = [
     component: AsambleaAdminComponent
   },
   {
-    path: 'claves',
+    path: 'claves2',
     component: ClavesComponent
   },
   {
@@ -198,6 +200,15 @@ const routes: Routes = [
     component: ListaAsasambleaAdminComponent
   },
   {
+    path: 'claves',
+    component: ListaptoscComponent
+  },
+  {
+    path: 'clavescambio',
+    component: CambicontraComponent
+  },
+  
+  {
     path: 'ingre-apto',
     loadChildren: () => import('../app/components/general/ingre-apto/ingre-apto.module').then( m => m.IngreAptoPageModule)
   },
@@ -286,9 +297,11 @@ const routes: Routes = [
     SeleccionConjuntoComponent,
     ListaAsambleasResidentesComponent,
     ChatComponent,
+    CambicontraComponent,
     ReservarAreaComponent,
     AreaComunAdminComponent,
     AgregarAreaAdminComponent,
+    ListaptoscComponent,
     ModificarAreaAdminComponent,
     ReservacionAreaResidenteComponent, // ojo
     ModificarReservaAreaComponent,

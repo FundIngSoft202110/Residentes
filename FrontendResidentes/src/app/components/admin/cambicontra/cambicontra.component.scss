@@ -1,0 +1,50 @@
+ion-card{
+    box-shadow: none !important;
+}
+
+ion-select{
+    width: 120%;
+    border: solid 1px var(--ion-color-residente-txt);
+}
+
+ion-label{
+    font-size: 20px;
+}
+
+#centrado{
+    text-align: center;
+}
+
+.content-div{
+    height: 70%;
+}
+
+ion-content {
+    --overflow: hidden;
+}
+
+ion-select::part(icon) {
+    color: var(--ion-color-residente-txt);  
+}
+
+#rounded {
+    width: 100%;
+    height: 40px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;  
+}
+
+ion-input{
+    width: 10%;
+    border: solid 1px var(--ion-color-residente-txt);
+}
+
+/* .msjVeri{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+  } */
+
