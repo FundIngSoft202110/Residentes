@@ -56,7 +56,7 @@ public class Propuesta implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "VotosTotales")
-    private BigInteger votosTotales;
+    private int votosTotales;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -77,7 +77,7 @@ public class Propuesta implements Serializable {
         this.idPropuesta = idPropuesta;
     }
 
-    public Propuesta(Integer idPropuesta, String descripcion, BigInteger votosTotales, String estado) {
+    public Propuesta(Integer idPropuesta, String descripcion, int votosTotales, String estado) {
         this.idPropuesta = idPropuesta;
         this.descripcion = descripcion;
         this.votosTotales = votosTotales;
@@ -100,11 +100,11 @@ public class Propuesta implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public BigInteger getVotosTotales() {
+    public int getVotosTotales() {
         return votosTotales;
     }
 
-    public void setVotosTotales(BigInteger votosTotales) {
+    public void setVotosTotales(int votosTotales) {
         this.votosTotales = votosTotales;
     }
 
