@@ -6,9 +6,41 @@ ion-slides {
 }
 
 ion-card{
-    left: 10%;
-    width: 70%;
+    border: solid 1px var(--ion-color-residente-txt);
+    //box-shadow: none !important;
+    ion-card-content{
+        padding-left: 0% !important;
+        padding-right: 0% !important;
+        padding-top: 5% !important;
+        padding-bottom: 0% !important;
+    }
 }
+
+#propTitle{
+    height: 120px;
+}
+
+#txtP{
+    font-size: 1.2rem;
+}
+
+.cardB{
+    margin-left: 20% !important;
+    width: 60%;
+    ion-card-content{
+        font-size: 1.2rem;
+        padding-left: 0% !important;
+        padding-right: 0% !important;
+        padding-top: 1% !important;
+        padding-bottom: 0% !important;
+    }
+}
+
+#letraR{
+    font-size: 1.2rem;
+}
+
+
 ion-slide {
     display: block;
 }
@@ -19,22 +51,9 @@ ion-textarea{
 }
 
 .content-div{
-    height: 85%;
+    height: 90%;
 }
 
 ion-content {
     --overflow: hidden;
 }
-
-#derecha{
-    width: 94%;
-    text-align: right;
-}
-
-#izquierda{
-    width: 94%;
-    padding-left: 5%;
-    text-align: left;
-}
-
-

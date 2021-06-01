@@ -1,0 +1,36 @@
+::ng-deep form {
+    padding: 30px;
+}
+::ng-deep .first-group,
+::ng-deep .second-group,
+::ng-deep .third-group
+{
+    padding: 50px;
+}
+
+::ng-deep .third-group {
+    background-color: rgba(191, 191, 191, 0.15);
+}
+
+::ng-deep .second-group {
+    background-color: rgba(191, 191, 191, 0.15);
+}
+
+::ng-deep .form-avatar {
+    height: 128px;
+    width: 128px;
+    margin-left: 125px;
+    border: 1px;
+    background-image: url('../../../../assets/icon/IconConjuntos/logo\ app\ majo\ sin\ fondo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+::ng-deep .sobre-nosotros{
+    padding-top: 5px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+

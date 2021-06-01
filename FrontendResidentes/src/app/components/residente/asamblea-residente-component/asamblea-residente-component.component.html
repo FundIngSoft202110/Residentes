@@ -1,13 +1,15 @@
-<app-header titulo="{{getAsamblea().tema}}" menu=NO routeBack="/lista-asambleas-residentes"></app-header>
+<app-header titulo="{{getTemaAsamblea()}}" menu=NO routeBack="/lista-asambleas-residentes"></app-header>
 
 <ion-content>
     <ion-slides pager="true" #theSlides>
         <ion-slide *ngFor="let propuesta of getPropuestas()">
+            <div id="propTitle">
+                <p id="txtP"> <br> <i>{{propuesta.descripcion}}</i> </p>
+            </div>
             <div style="overflow:scroll" class="content-div">
-                <ion-textarea> <br> <i>{{propuesta.descripcion}}</i> </ion-textarea>
                 <div *ngFor="let opcion of propuesta.opciones">
-                    <!--<ion-card color="{{getColorCards(propuesta)}}" (click)="votar(opcion,propuesta)">-->
-                    <ion-card color="residente">
+                    <br>
+                    <ion-card color="{{getColorVotos(propuesta)}}" class="cardB" (click)="votar(opcion,propuesta)">
                         <ion-card-content>
                             {{opcion.nombre}}
                         </ion-card-content>
@@ -30,12 +32,27 @@
             </div>-->
         </ion-slide>
         <ion-slide>
-            <br><ion-label><strong>Resultados</strong></ion-label>
-            <!--<ion-card *ngFor="let propuesta of getPropuestas()">
-                <h4> Propuesta: {{getPropuesta()}} </h4>
-                <h5> Cantidad de Votos: {{getTotalVotaciones()}}</h5>
-                <h5> Ganador:  </h5>
-            </ion-card>-->
+            <ion-label><strong>Resultados</strong></ion-label>
+            <ion-content>
+                <div style="overflow:scroll" class="content-div">
+                    <ion-card *ngFor="let result of getResultadosVoto()">
+                        <ion-card-content>
+                            <ion-item lines="none">
+                                <p id="letraR"><strong>Propuesta: </strong> &nbsp;&nbsp;{{result.propuesta}}</p>
+                            </ion-item>
+                            <ion-item lines="none">
+                                <p id="letraR"><strong>Estado: </strong>&nbsp;&nbsp; {{result.res}}</p>
+                            </ion-item>
+                            <ion-item lines="none">
+                                <p id="letraR"><strong>Cantidad de Votos: </strong>&nbsp;&nbsp; {{result.cantVotos}}</p>
+                            </ion-item>
+                            <ion-item lines="none">
+                                <p id="letraR"><strong>Ganador: </strong>&nbsp;&nbsp; {{result.ganador}}</p>
+                            </ion-item>
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+            </ion-content>
         </ion-slide>
     </ion-slides>
 </ion-content>

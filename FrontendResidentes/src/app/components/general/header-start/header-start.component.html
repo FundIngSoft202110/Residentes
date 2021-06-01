@@ -1,6 +1,25 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="light">
-    <ion-title class="ion-text-center" class="tam" color="residente-txt"> RESIDENTES </ion-title>
-    <ion-title id="vt" class="ion-text-center" size="small" color="residente-txt"> {{titulo}} </ion-title>
   </ion-toolbar>
-</ion-header>
+  <div *ngIf="back == 'SI'; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <ion-toolbar color="light">
+      <ion-buttons slot="start" (click)="goBack()">
+        <ion-icon slot="icon-only" name="chevron-back-outline" color="residente-txt"></ion-icon><ion-title id="tam" color="residente-txt"> RESIDENTES </ion-title>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-title  class="ion-text-center" size="small" color="residente-txt"> {{titulo}} </ion-title>
+    </ion-toolbar>
+  </ng-template>
+  <ng-template #elseBlock>
+    <ion-toolbar color="light">
+      <ion-row>
+        <ion-title id="tam" color="residente-txt"> RESIDENTES </ion-title>
+      </ion-row>
+      <ion-row>
+        <ion-title  class="ion-text-center" size="small" color="residente-txt"> {{titulo}} </ion-title>
+      </ion-row>
+    </ion-toolbar>
+  </ng-template>
+</ion-header> 

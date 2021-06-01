@@ -21,7 +21,6 @@ export class NoticiasComponent implements OnInit {
   public noticias: any;
   private idConjutno: number;
   private idApto: number;
-  private mostrar: number = 0;
   hoja = document.createElement('style');
   descripcion: string = "";
   noticiaNueva: Noticia = new Noticia();
@@ -42,38 +41,11 @@ export class NoticiasComponent implements OnInit {
     private plt: Platform, private actionSheetCtrl: ActionSheetController) {
   }
 
-  //////////////////////// TTTEEESSSTTTT ////////////////////////
-
-  async selectImageSource() {
-    this.fileInput.nativeElement.click();
-  }
-
-  // Used for browser direct file upload
-  uploadFile(event: EventTarget) {
-    this.fileInput.nativeElement.click();
-    const eventObj: MSInputMethodContext = event as MSInputMethodContext;
-    const target: HTMLInputElement = eventObj.target as HTMLInputElement;
-    const file: File = target.files[0];
-    console.log("File: ", file);
-    this.fileP = file;
-    /*this.api.uploadImageFile(file).subscribe((newImage: ApiImage) => {
-      this.images.push(newImage);
-    });*/
-  }
-
-  deleteImage(image: ApiImage, index) {
-    this.api.deleteImage(image._id).subscribe(res => {
-      this.images.splice(index, 1);
-    });
-  }
-
-  //////////////////////// TTTEEESSSTTTT ////////////////////////
-
   ngOnInit() {
   } // end ngOnInit
 
   async waitBD() {
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 1200));
   }
 
 
@@ -118,18 +90,12 @@ export class NoticiasComponent implements OnInit {
   } // end convertDate
 
   click() {
-    this.mostrar = 1;
     this.hoja.innerHTML = "#content-div {height: 70%;}";
     document.body.appendChild(this.hoja);
     console.log("MUereeee");
   }
 
-  getMostrar() {
-    return this.mostrar;
-  }
-
   cancelarNoticia() {
-    this.mostrar = 0;
     this.hoja.innerHTML = "#content-div {height:80%;}";
     document.body.appendChild(this.hoja);
     this.descripcion = "";
@@ -174,7 +140,6 @@ export class NoticiasComponent implements OnInit {
   } // end presentAlertConfirm
 
   async publicarNoticia() {
-    this.mostrar = 0;
     this.hoja.innerHTML = "#content-div {height: 80%;}";
     document.body.appendChild(this.hoja);
     if ((this.descripcion != "")) {
