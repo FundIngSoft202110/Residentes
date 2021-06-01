@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { NULL_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { IPRESIDENTES, IPRESIDENTESA } from 'src/app/constants';
@@ -17,6 +18,13 @@ export class Asamblea {
 	estado: string;
 }
 
+export class ResultadoVoto {
+	cantVotos:number;
+	ganador:string;
+	propuesta:string;
+	res:string;
+}
+
 export class Opciones {
 	IdPropuesta: number;
 	Nombre: string;
@@ -33,9 +41,11 @@ export class AsambleaService {
 
 	private asambleas: any;
 
+	private respuesta:any;
+
 	private asambleaAbierta: number;
 
-	private resultadosVoto:any;
+	private resultadosVoto:ResultadoVoto;
 
 	constructor(private http: HttpClient) {
 	}
@@ -65,6 +75,10 @@ export class AsambleaService {
 		return this.http.get(url);
 	} // end getConjuntoUrl
 
+	public putAsambleaUrl(url: string) {
+		return this.http.put(url,null);
+	} // end putAsambleaUrl
+
 	async cargarAsambleas(numConjunto: number) {
 		this.getAsambleaUrl(IPRESIDENTESA + "/consultas/asambleas/" + numConjunto.toString())
 			.subscribe(respuesta => {
@@ -72,10 +86,18 @@ export class AsambleaService {
 			})
 	} // end cargarAsambleas
 
+	async votar(numConjunto:number, numApto:number, numPropuesta:number, numOpcion:number) {
+		console.log("Votar idPropuesta: ", )
+		this.putAsambleaUrl(IPRESIDENTESA + "/consultas/asambleas/votar/" + numConjunto.toString() + "/" + numApto.toString() + "/" + numPropuesta.toString() + "/" + numOpcion.toString())
+			.subscribe(respuesta => {
+				this.respuesta = respuesta;
+			})
+	} // end votar
+
 	async cargarResultadosVoto(numConjunto:number, numAsamblea:number) {
 		this.getAsambleaUrl(IPRESIDENTESA + "/consultas/asambleas/resultadosVotos/" + numConjunto.toString() + "/" + numAsamblea.toString())
 			.subscribe(respuesta => {
-				this.resultadosVoto = respuesta;
+				this.resultadosVoto = <ResultadoVoto>respuesta;
 			})
 	} // end cargarResultadosVoto
 
@@ -85,6 +107,10 @@ export class AsambleaService {
 				return asam;
 		return null;
 	} // end getAsamblea
+
+	getRespuesta(){
+		return this.respuesta;
+	} // end getRespuesta
 
 	getAsambleas() {
 		return this.asambleas;
