@@ -181,8 +181,8 @@ module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/juansebastianbarretojimenez/Escritorio/Ingesoft/Proyecto/Residentes/FrontendResidentes/src/polyfills.ts */"hN/g");
-module.exports = __webpack_require__(/*! /home/juansebastianbarretojimenez/Escritorio/Ingesoft/Proyecto/Residentes/FrontendResidentes/node_modules/@angular-devkit/build-angular/src/webpack/jit-polyfills.js */"rZy+");
+__webpack_require__(/*! /Users/alejandrodiaz/Desktop/Residentes/FrontendResidentes/src/polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /Users/alejandrodiaz/Desktop/Residentes/FrontendResidentes/node_modules/@angular-devkit/build-angular/src/webpack/jit-polyfills.js */"rZy+");
 
 
 /***/ }),

@@ -20,7 +20,7 @@ public class VotacionProxy extends ResultadoVoto {
         result.setRes("No hay resultados disponibles");
         result.setCantVotos(0);
         result.setPropuesta(propuesta.getDescripcion());
-        result.setGanador("");
+        result.setGanador("--");
         return result;
     }
     

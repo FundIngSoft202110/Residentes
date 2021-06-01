@@ -11,7 +11,7 @@ import { IPRESIDENTESA } from 'src/app/constants';
 @Component({
   selector: 'app-reservacion-area-residente',
   templateUrl: './reservacion-area-residente.component.html',
-  providers:[],
+  providers:[ReservacionAreaResidenteService],
   styleUrls: ['./reservacion-area-residente.component.scss'],
 })
 export class ReservacionAreaResidenteComponent implements OnInit {
@@ -31,14 +31,14 @@ export class ReservacionAreaResidenteComponent implements OnInit {
 
   
   mandarModificar() {
-    this.navCtrl.navigateForward("/mis-reservas");
+    this.navCtrl.navigateForward("/modificar-reserva-area");
   }
   mandarEliminar() {
     this.navCtrl.navigateForward("/mis-reservas");
   }
 
   goToRegister() {
-   this.navCtrl.navigateForward("/registro");
+   this.navCtrl.navigateForward("/areas-residente");
   }
   
 
