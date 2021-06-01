@@ -1,44 +1,65 @@
 <app-header titulo="getTemaAsamblea()" menu=NO routeBack="/lista-asambleas-admin"></app-header>
 
 <ion-content>
-    <ion-slides pager="true" #theSlides>
-        <ion-slide *ngFor="let propuesta of getPropuestas()">
-            <div id="propTitle">
-                <p id="txtP"> <br> <i>{{propuesta.descripcion}}</i> </p>
-            </div>
-            <div style="overflow:scroll" class="content-div">
-                <div *ngFor="let opcion of propuesta.opciones">
-                    <br>
-                    <ion-card color="residente" class="cardB" (click)="votar(opcion,propuesta)">
-                        <ion-card-content>
-                            {{opcion.nombre}}
-                        </ion-card-content>
-                    </ion-card>
-                </div>
-            </div>
-        </ion-slide>
-        <ion-slide>
-            <ion-label><strong>Resultados</strong></ion-label>
-            <ion-content>
-                <div style="overflow:scroll" class="content-div">
-                    <ion-card *ngFor="let result of getResultadosVoto()">
-                        <ion-card-content>
-                            <ion-item lines="none">
-                                <p id="letraR"><strong>Propuesta: </strong> &nbsp;&nbsp;{{result.propuesta}}</p>
-                            </ion-item>
-                            <ion-item lines="none">
-                                <p id="letraR"><strong>Estado: </strong>&nbsp;&nbsp; {{result.res}}</p>
-                            </ion-item>
-                            <ion-item lines="none">
-                                <p id="letraR"><strong>Cantidad de Votos: </strong>&nbsp;&nbsp; {{result.cantVotos}}</p>
-                            </ion-item>
-                            <ion-item lines="none">
-                                <p id="letraR"><strong>Ganador: </strong>&nbsp;&nbsp; {{result.ganador}}</p>
-                            </ion-item>
-                        </ion-card-content>
-                    </ion-card>
-                </div>
-            </ion-content>
-        </ion-slide>
-    </ion-slides>
+    <div>
+        <ion-card>
+            <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Propuestas</ion-label>
+            <ion-list>
+                <ion-item lines="none">
+                    <ion-select [(ngModel)]="propuestaSeleccionado" (ionChange)="optionsProp();" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="&nbsp;&nbsp;Seleccione" id="rounded" >
+                        <!-- <div *ngFor="let prop of propuestas"> -->
+                            <div>
+                            <ion-select-option value="prop.descripcion">&nbsp;&nbsp;prop.descripcion
+                            </ion-select-option>
+                        </div>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+        </ion-card>
+    </div>
+
+    <div style="overflow:scroll" class="content-div">
+        <!-- <ion-card *ngFor="let result of getResultadosVoto()"> -->
+            <ion-card class=color-card>
+            <ion-card-content>
+                <ion-item lines="none">
+                    <p id="letraR"><strong>Propuesta: </strong> &nbsp;&nbsp;result.propuesta</p>
+                </ion-item>
+                <ion-item lines="none">
+                    <p id="letraR"><strong>Estado: </strong>&nbsp;&nbsp; result.res</p>
+                </ion-item>
+                <ion-item lines="none">
+                    <p id="letraR"><strong>Cantidad de Votos: </strong>&nbsp;&nbsp; result.cantVotos</p>
+                </ion-item>
+                <ion-item lines="none">
+                    <p id="letraR"><strong>Ganador: </strong>&nbsp;&nbsp; result.ganador</p>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+    <div id="centrado">
+        <br> <br>
+        <ion-button color="residente" (click)="botonNuevaAsamblea()">
+          <ion-label> Subir resultados </ion-label>
+        </ion-button>
+    </div>
+
+    <ion-row>
+        <ion-col>
+    <div id="centrado">
+        <ion-button color="residente" (click)="botonNuevaAsamblea()">
+          <ion-label>  Parar Votación </ion-label>
+        </ion-button>
+    </div>
+</ion-col>
+<ion-col>
+    <div id="centrado">
+        <ion-button color="residente" (click)="botonNuevaPropuesta()">
+          <ion-label> Nueva propuesta </ion-label>
+        </ion-button>
+    </div>
+</ion-col>
+</ion-row>
 </ion-content>
+    

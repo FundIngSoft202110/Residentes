@@ -109,6 +109,8 @@ export class AsambleaAdminComponent implements OnInit {
     slides.slidePrev();
   }
 
-
+  botonNuevaPropuesta() {
+    this.navCtrl.navigateForward("/nueva-propuesta"); 
+  }
 }
 

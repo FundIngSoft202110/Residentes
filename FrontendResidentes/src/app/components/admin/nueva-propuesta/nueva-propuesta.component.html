@@ -1,0 +1,35 @@
+<app-header titulo="NUEVA PROPUESTA" menu=NO routeBack="/asamblea-admin"></app-header>
+
+<ion-content>
+  <div>
+    <ion-card>
+			<ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Descripción</ion-label>
+			<ion-item lines="none">
+			  <ion-input [(ngModel)]="descripcion" id="rounded">&nbsp;&nbsp;</ion-input>
+			</ion-item>
+		</ion-card>
+
+    <ion-card>
+			<ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Cantidad de Opciones</ion-label>
+			<ion-item lines="none">
+			  <ion-input [(ngModel)]="opciones" id="rounded">&nbsp;&nbsp;</ion-input>
+			</ion-item>
+		</ion-card>
+
+    <div>
+      <ion-card>
+        <ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Cantidad de Opciones</ion-label>
+        <ion-item lines="none">
+          <ion-input [(ngModel)]="opciones" id="rounded">&nbsp;&nbsp;</ion-input>
+        </ion-item>
+      </ion-card>
+    </div>
+  </div>
+	
+	<div id="centrado" >
+		<br> <br>
+		<ion-button color="residente" (click)="botonReportar()">
+			<ion-label> Reportar </ion-label>
+		</ion-button>
+	</div>
+</ion-content>
