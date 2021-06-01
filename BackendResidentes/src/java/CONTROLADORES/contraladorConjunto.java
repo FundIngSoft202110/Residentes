@@ -167,13 +167,36 @@ public class contraladorConjunto {
         return res;
     }
     
+    @GET
+    @Path("/nombredir")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<DTOConjuntos> conjuntosResidente(){
+        String consulta = "SELECT c.Nombre, c.Direccion "
+                        + "FROM Conjunto as c";
+        DTOConjuntos conjunto;
+        List<DTOConjuntos> conjuntosPersona = new ArrayList<>(); 
+        try (
+                 PreparedStatement statement = this.con.prepareStatement(consulta);
+                ResultSet rs = statement.executeQuery();) {
+                while(rs.next()){
+                    conjunto = new DTOConjuntos();
+                    conjunto.setNombre(rs.getString("Nombre"));
+                    conjunto.setDireccion(rs.getString("Direccion"));
+                    conjuntosPersona.add(conjunto);
+                }
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución: " + sqle.getErrorCode() + " " + sqle.getMessage());
+        }
+        return conjuntosPersona;
+    }
+    
     @POST
     @Path("/NuevoConjunto/{IdAdmin}")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public DTOrespuestas nuevoConjunto(DTOConjunto conjunto, @PathParam("IdAdmin") int idAdmin) {
         DTOrespuestas res = new DTOrespuestas();
-        String consulta = "INSERT INTO conjunto (`Nombre`, `LinkDePago`, `Direccion`, `PrecioAdmin`, `NumeroTorres`, `NumeroPisos`, `NumeroApartamentos`) VALUES (?, ?, ? ,?, ?, ?,?)";
+        String consulta = "INSERT INTO Conjunto (`Nombre`, `LinkDePago`, `Direccion`, `PrecioAdmin`, `NumeroTorres`, `NumeroPisos`, `NumeroApartamentos`) VALUES (?, ?, ? ,?, ?, ?,?)";
         try (
                  PreparedStatement statement = this.con.prepareStatement(consulta);) {
 
@@ -364,7 +387,7 @@ public class contraladorConjunto {
     @Path("/misnoconjuntos/{idPersona}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<DTOConjuntos> misnoconjuntos(@PathParam("idPersona") int idPersona) {
-        String consulta = "SELECT con.Idconjunto, con.Nombre  FROM conjunto AS con WHERE con.IdConjunto  NOT IN (SELECT c.Idconjunto FROM conjunto c, personaxconjunto p WHERE p.PersonaIdPersona= ? AND c.IdConjunto  = p.ConjuntoIdConjunto)";
+        String consulta = "SELECT con.Idconjunto, con.Nombre  FROM Conjunto con WHERE con.IdConjunto  NOT IN (SELECT c.Idconjunto FROM Conjunto c, PersonaXConjunto p WHERE p.PersonaIdPersona= ? AND c.IdConjunto  = p.ConjuntoIdConjunto);";
         DTOConjuntos conjunto;
         List<DTOConjuntos> conjuntosPersona = new ArrayList<>(); 
         try (

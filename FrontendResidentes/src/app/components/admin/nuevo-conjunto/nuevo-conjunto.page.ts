@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import notify from 'devextreme/ui/notify';
 import { NuevoconjuservService } from 'src/app/Services/nuevConjServ/nuevoconjuserv.service';
 import { PersonasService } from 'src/app/Services/personas/personas.service';
 
@@ -42,7 +43,7 @@ export class NuevoConjuntoPage implements OnInit {
     ]
   };
   private aptos:any;
-  errorMessage: string = "";
+  errorMessage:any;
   constructor(
     private formBuilder: FormBuilder,
     private navCtrl: NavController,
@@ -99,8 +100,10 @@ export class NuevoConjuntoPage implements OnInit {
     });
   }
   usuario : any;
+  user:number;
   ngOnInit() {
     this.usuario = this.personasService.getPersonaActiva();
+    this.user = this.personasService.getPersonaID();
     this.serCon.getConjuntos();
     //this.nombreDir = this.serCon.obtenerConjuntos();
   }
@@ -119,17 +122,12 @@ export class NuevoConjuntoPage implements OnInit {
     }
 
     if(this.num == 0){
-
-      this.serCon.enviarConj(credentials, this.usuario).subscribe(async respuesta => {
-        console.log(respuesta);
-        this.errorMessage = "Agregado exitosamente";
-        await this.waitBD();
-
-        
-
-        this.navCtrl.navigateForward("/netflix");
-      })
-
+      this.serCon.enviarConj(credentials, this.user);
+      await this.waitBD();
+      this.errorMessage =this.serCon.getRespuesta();
+      console.log("ERROOR MENSAJE: ", this.errorMessage);
+      notify(this.errorMessage.respuesta, 'sucess');
+      this.navCtrl.navigateForward("/netflix");
     }
     if(this.num == 1){
       this.errorMessage = "Nombre ya inscrito";

@@ -20,19 +20,16 @@ if(!/localhost/.test(document.location.host)) {
   templateUrl: './seleccion-conjunto-component.component.html',
   styleUrls: ['./seleccion-conjunto-component.component.scss'],
 })
-
-
-
-
 export class SeleccionConjuntoComponent implements OnInit{
   conjuntos: any;
   idPerActiva;
   constructor(private service: selConjService, private personasService: PersonasService, private router: Router) {
       
   }
-  click(id){
+  async click(id){
     //console.log("hola " , id , " - ", this.idPerActiva);
     this.service.vinResCon(id,  this.idPerActiva  );
+    await this.waitBD();
     this.router.navigateByUrl("/netflix");
   }
 
@@ -41,15 +38,22 @@ export class SeleccionConjuntoComponent implements OnInit{
   } 
 
   async ionViewWillEnter() {
+    console.log("Ellos estan aqui");
     //this.personasService.difTiempo(new Date().getTime() );
     this.idPerActiva = this.personasService.getPersonaID();
     this.service.getConjuntosServ( this.idPerActiva  );
     await this.waitBD();
+    console.log("Nosotros estan aqui");
     this.conjuntos = this.service.getConjuntosS();
+    console.log("CONJUNTOSSSSSSSS: ", this.conjuntos);
   }
 
+  getConjuntos(){
+    return this.conjuntos;
+  } // end getConjuntos
+
   async waitBD(){
-    await new Promise(resolve => setTimeout(resolve, 250));
+    await new Promise(resolve => setTimeout(resolve, 850));
   }
 
 

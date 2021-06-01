@@ -12,8 +12,15 @@ package ENTIDADES;
 public class DTOConjuntos {
     private int id;
     private String nombre;
+    private String direccion;
 
     public DTOConjuntos() {
+    }
+
+    public DTOConjuntos(int id, String nombre, String direccion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
     }
 
     public int getId() {
@@ -31,4 +38,13 @@ public class DTOConjuntos {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+   
 }

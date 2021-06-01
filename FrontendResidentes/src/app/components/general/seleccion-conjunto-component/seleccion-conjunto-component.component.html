@@ -1,16 +1,16 @@
-<app-header-start titulo="Selecciona tu conjunto"></app-header-start>
+<app-header-start titulo="Selecciona tu conjunto" back="SI" routeBack="/netflix"></app-header-start>
 <ion-content>
     <br>
 <div class="list-container">
     <dx-list 
         #list
-        [dataSource]="conjuntos"
+        [dataSource]="getConjuntos()"
         [height]="400"
         [searchEnabled]="true"
         searchExpr="nombre"
         searchMode="contains">
             <div *dxTemplate="let data of 'item'" (click)="click( data.id)">
-                <div>{{data.Name}}</div>
+                <div>{{data.nombre}}</div>
             </div>
     </dx-list>
 </div>
