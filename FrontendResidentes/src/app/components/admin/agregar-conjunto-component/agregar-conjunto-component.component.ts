@@ -2,7 +2,7 @@ import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
 import {Router} from '@angular/router';
 
 import notify from 'devextreme/ui/notify';
-import { Conjunto, AgregarConjuntoService } from '../../../Services/agregar-conjunto/agregar-conjunto.service';
+import {  AgregarConjuntoService } from '../../../Services/agregar-conjunto/agregar-conjunto.service';
 import { DxCheckBoxModule,
   DxSelectBoxModule,
   DxNumberBoxModule,
@@ -10,6 +10,7 @@ import { DxCheckBoxModule,
   DxFormModule,
   DxAutocompleteModule,
   DxFormComponent } from 'devextreme-angular';
+import { conjuntodts } from 'src/app/Services/agregar-conjunto/conjuntodts';
 
   const sendRequest = function(value) {
     const validNombe = "Manzanares";
@@ -33,36 +34,32 @@ const sendRequestDirect = function(value) {
 
 @Component({
     selector: 'app-agregar-conjunto-component',
+    providers: [conjuntodts],
     templateUrl: './agregar-conjunto-component.component.html',
     styleUrls: ['./agregar-conjunto-component.component.scss'],
 })
 
-/*
-class  ConjuntoDTO{
-    nombre : string ;
-    linkPago: string ;
-    direccion: string ;
-    precioAdmin : number;
-     numTorres: number;
-     numPisos: number;
-    numAptos: number;
-}*/
 
 export class AgregarConjuntoComponent implements OnInit {
     posi= "top";
 
   @ViewChild(DxFormComponent, { static: false }) form:DxFormComponent
-  nuevoConjunto: any;
+  nuevoConjunto:conjuntodts = new conjuntodts() ;
   conjunto: any;
   
   buttonOptions: any = {
       text: "Agregar",
       type: "success",
       useSubmitBehavior: true
+
   }
   
   checkComparison() {
       return true;
+  }
+
+  phoneRules: any = {
+    X: /[02-9]/
   }
 
   constructor(private router: Router ,service: AgregarConjuntoService) {
@@ -86,17 +83,23 @@ export class AgregarConjuntoComponent implements OnInit {
     }, "success", 3000);
     
     e.preventDefault();
-    this.router.navigateByUrl("/netflix");
+    console.log(this.nuevoConjunto, "holaa ");
+
+   // this.router.navigateByUrl("/netflix");
 
   }
+  mandarConjunto(){
+    console.log(this.nuevoConjunto, "holaa ");
 
+   // this.router.navigateByUrl("/netflix");
+  }
     ngOnInit() {
 
      }
 
      finish(){
       // this.storage.set('isIntroShowed',true );
-        console.log();
+       
        this.router.navigateByUrl("/seleccion-conjunto");
      }
 }

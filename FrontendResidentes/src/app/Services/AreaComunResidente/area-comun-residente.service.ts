@@ -25,10 +25,10 @@ let listaDeAreasComunes: string[] = [
     "Salon Comunal",
     "Piscina"
 ];
-let horasDisponibles: string[] = [
-	"08:00",
-    "13:00",
-    "16:00",
+let horasDisponibles: number[] = [
+	8,
+    13,
+    16
 ];
 
 

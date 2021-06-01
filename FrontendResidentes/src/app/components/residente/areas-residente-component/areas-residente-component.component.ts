@@ -38,7 +38,7 @@ export class AreasResidenteComponent implements OnInit  {
     area: Area;
 	tipo: string[];
 	listaDeAreasComunes: string[];
-    horasDisponibles: string[];
+    horasDisponibles: number[];
     linkMisReservas="/mis-reservas";
     linnkNuevaReserva ="/reservar-area"
    
