@@ -29,7 +29,7 @@ export class ReservacionAreaResidenteComponent implements OnInit {
       });
   }
 
-  /*
+  
   mandarModificar() {
     this.navCtrl.navigateForward("/mis-reservas");
   }
@@ -40,7 +40,7 @@ export class ReservacionAreaResidenteComponent implements OnInit {
   goToRegister() {
    this.navCtrl.navigateForward("/registro");
   }
-  */
+  
 
   ngOnInit() {}
 
