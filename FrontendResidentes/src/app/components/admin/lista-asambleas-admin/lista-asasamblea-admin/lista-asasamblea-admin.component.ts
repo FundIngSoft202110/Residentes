@@ -76,7 +76,8 @@ export class ListaAsasambleaAdminComponent implements OnInit {
       return "Activa"
   } // end getAsambleaEstado
 
-  botonNuevoPaquete(){
-      
+  botonNuevaAsamblea(){
+    this.navCtrl.navigateForward("/nueva-asamblea");
   }
+
 }

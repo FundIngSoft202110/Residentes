@@ -25,6 +25,7 @@ export class AsambleaResidenteComponent implements OnInit {
   private temaAsamblea:string = "";
   private resultadosVoto:ResultadoVoto;
 
+  
   constructor(private navCtrl: NavController, private propuestasService: PropuestasService,
     private opcionesService: OpcionesService, private votosServices: VotosService,
     private asambleaService: AsambleaService, private conjuntosService: ConjuntosService,

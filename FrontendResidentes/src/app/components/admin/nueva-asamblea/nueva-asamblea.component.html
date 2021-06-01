@@ -1,0 +1,43 @@
+<app-header titulo="NUEVA ASAMBLEA" menu=NO routeBack="/lista-asamblea-admin"></app-header>
+
+<ion-content>
+	<div *ngIf="step==1"  class="estetica" class="content-div">
+		<dx-form id="form" [formData]="asambleas" [labelLocation]="labelL">
+			<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
+				<dxi-item itemType="group" [colSpan]="3">
+					<dxi-item dataField="FechaAsamblea" editorType="dxDateBox" [editorOptions]="{ width: '100%'}">
+					</dxi-item>
+				</dxi-item>
+			</dxi-item>
+		</dx-form>
+		<ion-card>
+			<ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Tema</ion-label>
+			<ion-item lines="none">
+			  <ion-input [(ngModel)]="tema" id="rounded">&nbsp;&nbsp;</ion-input>
+			</ion-item>
+		</ion-card>
+
+		<ion-card> <br> <br> 
+			<ion-label color="dark">&nbsp;&nbsp;&nbsp;&nbsp;Estado</ion-label>
+			<ion-list>
+			  <ion-item lines="none">
+				<ion-select [(ngModel)]="tamanoSeleccionado" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="&nbsp;&nbsp;Seleccione"
+				  id="rounded">
+				  <div>
+					<ion-select-option value="Activa">&nbsp;&nbsp;Activa</ion-select-option>
+					<ion-select-option value="Finalizada">&nbsp;&nbsp;Finalizada</ion-select-option>
+					<ion-select-option value="Programada">&nbsp;&nbsp;Programada</ion-select-option>
+				  </div>
+				</ion-select>
+			  </ion-item>
+			</ion-list> 
+		  </ion-card>
+	</div>
+	
+	<div id="centrado" >
+		<br> <br>
+		<ion-button color="residente" (click)="botonReportar()">
+			<ion-label> Reportar </ion-label>
+		</ion-button>
+	</div>
+</ion-content>

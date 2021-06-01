@@ -48,6 +48,7 @@ import { CalendarComponent, NgCalendarModule } from 'ionic2-calendar';
 import localeDe from '@angular/common/locales/es-CO';
 registerLocaleData(localeDe);
 import { NuevoPaqueteComponent } from './components/empleado/nuevo-paquete/nuevo-paquete.component';
+
 import { ReservacionAreaResidenteComponent } from './components/residente/reservacion-area-residente/reservacion-area-residente.component';
 
 import { ModificarReservaAreaComponent } from './components/residente/modificar-reserva-area/modificar-reserva-area.component';
@@ -55,6 +56,7 @@ import { ListaAsasambleaAdminComponent } from './components/admin/lista-asamblea
 import { CalendarPaqueteComponent } from './components/empleado/calendar-paquete/calendar-paquete.component';
 import { ListaptoscComponent } from './components/admin/listaptosc/listaptosc.component';
 import { CambicontraComponent } from './components/admin/cambicontra/cambicontra.component';
+import { NuevaAsambleaComponent } from './components/admin/nueva-asamblea/nueva-asamblea.component';
 //ngx-extended-pdf-viwer
 
 const routes: Routes = [
@@ -69,6 +71,10 @@ const routes: Routes = [
   {
     path: 'asamblea-admin',
     component: AsambleaAdminComponent
+  },
+  {
+    path: 'nueva-asamblea',
+    component: NuevaAsambleaComponent
   },
   {
     path: 'claves2',
@@ -277,6 +283,7 @@ const routes: Routes = [
     HeaderStartComponent,
     AgregarConjuntoComponent,
     AsambleaAdminComponent,
+    NuevaAsambleaComponent,
     ClavesComponent,
     ManualAdminComponent,
     QuejasAdminComponent,
