@@ -157,7 +157,7 @@ public class contraladorConjunto {
             statement.setInt(1, idApto);
             statement.setInt(2, idConjunto);
             statement.executeUpdate();
-            res.setRespuesta("Modificado exitosamente");
+            res.setRespuesta("Se pago exitosamente");
             return res;
 
         } catch (SQLException sqle) {

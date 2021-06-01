@@ -90,7 +90,7 @@ public class contraladorPaquete {
             statement.setBigDecimal(5, hora);
             statement.setString(6, remitente);
             statement.executeUpdate();
-            res.setRespuesta("Agregado exitosamente");
+            res.setRespuesta("Paquete agregado exitosamente");
             return res;
 
         } catch (SQLException sqle) {
