@@ -21,6 +21,8 @@ export class AsambleaResidenteComponent implements OnInit {
   private idAsamblea: number;
   private idConjunto: number;
   private idApto: number;
+  private temaAsamblea:string = "";
+  private resultadosVoto:any;
 
   opcion: Opcion[];
   opcionesPropuesta: Opcion[][] = [];
@@ -43,12 +45,16 @@ export class AsambleaResidenteComponent implements OnInit {
     this.propuestas = [];
     this.idAsamblea = this.asambleaService.getAsambleaAbierta();
     this.asamblea = this.asambleaService.getAsamblea(this.idAsamblea);
+    this.temaAsamblea = this.asamblea.tema;
     this.idConjunto = this.conjuntosService.getConjuntoActivo();
+    this.resultadosVoto = this.asambleaService.cargarResultadosVoto(this.idConjunto, this.idAsamblea);
     this.idApto = this.servIngAptoService.getIdApto();
     this.propuestasService.cargarPropuestas(this.idConjunto, this.idApto, this.idAsamblea);
     await this.waitBD();
     if(this.asambleaService.getAsambleaEstado() == "A")
       this.propuestas = this.propuestasService.getPropuestas();
+    this.resultadosVoto = this.asambleaService.getResultadosVoto();
+    console.log("Resultados Votos: ", this.resultadosVoto);
     /* this.votosUsuario = [];
     this.colorCards = [];
     this.opcionesPropuesta = [];
@@ -71,6 +77,10 @@ export class AsambleaResidenteComponent implements OnInit {
   getPropuestas():any{
     return this.propuestas;
   } // end getPropuestas
+
+  getTemaAsamblea(){
+    return this.temaAsamblea;
+  }
 
   votar(opcion: Opcion, propuesta: Propuesta) {
     if (!this.votosUsuario[propuesta.id - 1]) {

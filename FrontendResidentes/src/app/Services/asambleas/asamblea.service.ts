@@ -35,6 +35,8 @@ export class AsambleaService {
 
 	private asambleaAbierta: number;
 
+	private resultadosVoto:any;
+
 	constructor(private http: HttpClient) {
 	}
 
@@ -70,6 +72,13 @@ export class AsambleaService {
 			})
 	} // end cargarAsambleas
 
+	async cargarResultadosVoto(numConjunto:number, numAsamblea:number) {
+		this.getAsambleaUrl(IPRESIDENTESA + "/consultas/asambleas/resultadosVotos/" + numConjunto.toString() + "/" + numAsamblea.toString())
+			.subscribe(respuesta => {
+				this.resultadosVoto = respuesta;
+			})
+	} // end cargarResultadosVoto
+
 	getAsamblea(idAsamblea:number){
 		for(let asam of this.asambleas)
 			if(asam.asambleaPK.idAsamblea == idAsamblea)
@@ -84,4 +93,8 @@ export class AsambleaService {
 	getNopciones() {
 		return Nopciones;
 	} // end getNopciones
+
+	getResultadosVoto(){
+		return this.resultadosVoto;
+	} // end getResultadosVoto
 }
