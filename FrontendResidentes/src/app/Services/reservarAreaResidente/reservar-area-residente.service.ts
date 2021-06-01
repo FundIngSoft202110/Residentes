@@ -1,26 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
 export class Reserva {
-	Fecha: string;
+	fecha: any;
 	Area: string;
-	Descripcion: string;
-	HorasDisponibles: string;
-	HoraInicial: string;
-	HoraFinal: string;
-	CantidadDePersonas: string;
+	descripcion: string;
+	horaInicio: string;
+	horaFinal: string;
+	cantidadPersonas: string;
+	reservaPK : ReservaPK;
 }
 
-let reserva: Reserva = {
-	"Fecha": " 21 de Marzo del 2021",
-    "Area": "Cancha de futbol",
-	"Descripcion": "Voy con mis 4 hijos y mi papa",
-	"HorasDisponibles" : "08:00",
-    "HoraInicial": "05:00",
-    "HoraFinal": "06:00",
-    "CantidadDePersonas": "06",
-    
-};
+export class  ReservaPK{
+	apartamentoConjuntoIdConjunto: any;
+	apartamentoIdApartamento: any;
+	areaComunConjuntoIdConjunto: any;
+	areaComunIdArea: any;
+
+}
+
+
 
 let horasDisponibles: string[] = [
 	"08:00",
@@ -28,16 +28,21 @@ let horasDisponibles: string[] = [
     "16:00",
 ];
 
-let hora_i: string[] = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
+let hora_i: number[] = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
 
-let hora_f: string[] = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
+let hora_f: number[] = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
 
-let cantidad_p: string[] = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"];
+let cantidad_p: number[] = [0,1,2,3,4,5,6,7,8,9,10];
 
-@Injectable()
-export class ReservarAreaResidenteService {
+@Injectable()@Injectable({
+	providedIn: 'root'
+  })
+  export class ReservarAreaResidenteService {
+	constructor(private http:HttpClient){
+
+	}
 	getReserva() {
-		return reserva;
+		
 	}
 	getHorasDisponibles() {
 		return horasDisponibles;
@@ -53,4 +58,26 @@ export class ReservarAreaResidenteService {
 	getCantidad_p() {
 		return cantidad_p;
 	}   
+
+	postnueva(url:string, body:any){
+		return this.http.post(url,body);
+
+
+	}
+
+	setfecha( fecha:number) {
+		window.localStorage['fechareserva'] = fecha.toString();
+	}// setareaComun
+
+	getfecha(){
+		return Number(window.localStorage['fechareserva'] || -1);
+	}// getConjuntoActivo
+
+	setarea( area:any) {
+		window.localStorage['areareserva'] = area;
+	}// setareaComun
+
+	getarea(){
+		return String(window.localStorage['areareserva'] || -1);
+	}// getConjuntoActivo
 }

@@ -1,18 +1,21 @@
 <app-header titulo="Mis Reservas" menu=RESIDENTE></app-header>
-    <div class="widget-container">
-        <dx-list #list
-            [dataSource]="tasks"
-            [height]="400"
-            [selectionMode]="selectionModeValue"
-            [selectAllMode]="selectAllModeVlaue"
-            [showSelectionControls]="true"
-            [selectedItemKeys]="[]"></dx-list>
-    </div>
+<ion-content padding class="vertical-center">
+      <ion-card class="ion-text-left" (click)="select(data)"*ngFor="let data of lsitaR">
+        <ion-card-header>
+          
+          <ion-card-title> <strong> Área reservada: </strong>&nbsp;&nbsp; {{data.nombreArea}} </ion-card-title>
+        </ion-card-header>
+        <ion-card-content> <strong>Fecha</strong> &nbsp;&nbsp;{{data.fecha}} </ion-card-content>
+          <ion-card-content> <strong>Hora de incio:</strong> &nbsp;&nbsp;{{data.horaInicio}} </ion-card-content>
+          <ion-card-content> <strong>Hora de Cierre:</strong> &nbsp;&nbsp;{{data.horaFinal}} </ion-card-content>
+          
+      </ion-card>
+    </ion-content>
 <ion-button class="boton"
       (click)="mandarEliminar()"
       expand="full"
       shape="round" 
-      color="danger"
+      color="residente"
       type="submit"
       >Eliminar</ion-button>
 <ion-button class="boton"
